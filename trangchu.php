@@ -129,7 +129,7 @@
         </a>
         <ul style=" font-size: 19px ;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="navbar-nav ">
           <li class="nav-item active">
-            <a class="nav-link mr-4 " href="tintuc.php">Trang chủ</a>
+            <a class="nav-link mr-4 " href="#">Trang chủ</a>
           </li>
           <li class="nav-item mr-4">
             <a class="nav-link" href="#">Giới thiệu</a>
@@ -138,7 +138,7 @@
             <a class="nav-link" href="#">Sản phẩm</a>
           </li>
           <li class="nav-item mr-4">
-            <a class="nav-link " href="#">Tin tức</a>
+            <a class="nav-link " href="tintuc.php">Tin tức</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mr-4" href="#">Liên hệ</a>
