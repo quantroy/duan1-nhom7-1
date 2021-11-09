@@ -288,7 +288,7 @@ color: #d2a351;
     </nav>
     <!-- end header -->
     <div class="banner">
-        <img src="images/banner1.jpg" alt="">
+        <img src="images/banner.jpg" alt="">
         <h2>Tin Tức</h2>
     </div>
 
