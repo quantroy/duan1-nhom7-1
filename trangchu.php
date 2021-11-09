@@ -406,12 +406,8 @@
       <footer class="bg-dark mt-5">
         <div class="container">
           <div class="row">
-
             <div class="col">
-              <<<<<<< HEAD <img style="width: 100%;" src="images/logo1.png" alt="">
-                =======
-                <img style="width: 100%;" src="../img/Untitled-2.png" alt="">
-                >>>>>>> main
+              <img style="width: 100%;" src="images/logo1.png" alt="">
             </div>
 
             <div class="col">
