@@ -5,11 +5,248 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="tintuc.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;500&display=swap" rel="stylesheet">
 </head>
+<style>
+    body{
+    width: 100%;
+    margin: 0px auto;
+    font-family: 'Roboto Slab', serif;
+}
+.banner{
+    width: 100%;
+}
+.banner img{
+    height: -15%;
+    width: 1519px;
+    height: 700px;
+}
+.banner h2{
+    color:#F3C831;
+    text-align: center;
+    margin-top: -50px;
+}
+.boxcenter{
+    width: 70%;
+    margin: 0px auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;  
+    justify-content: space-between;
+}
+.left{
+    width: 30%;
+}
+.left h1{
+    color: #F3C831;
+}
+.left .top a{
+    text-decoration:none;
+    color:black;
+    line-height:20px;
+}
+.left .top{
+    height:455px;
+}
+.left .bot{
+    height:400px;
+}
+.left .bot a{
+    text-decoration: none;
+    color: black;
+    margin-right: 32px;
+    line-height: 35px;
+}
+.right{
+    width: 65%;
+    margin-left: 5%;
+}
+.right h1{
+    margin-left: 25px;
+}
+.right .top{
+    width: 93%;
+    background-color:rgb(217 217 217);
+    margin: 0px auto;
+}
+.right .top img{
+    width: 100%;
+}
+.right .top .text h3{
+    color: black;
+    margin-left: 50px;
+}
+.right .top .text h4{
+    color: black;
+    margin-left: 50px;
+}
+.right .top .text button{
+    width: 100px;
+    height: 40px;
+    background-color: #F3C831;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    border: 1px solid #F3C831;
+}
+.right .bot {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+.right .bot .row{
+    width: 45%;
+    margin-left: 23px;
+    background-color:rgb(217 217 217);
+    margin-bottom: 30px;
+}
+.right .bot .row img{
+    width: 100%;
+    height:170px;
+}
+.right .bot .text h3{
+    color: black;
+    margin-left: 30px;
+    font-size: 15px;
+}
+.right .bot .text h4{
+    color: black;
+    margin-left: 35px;
+    font-size: 12px;
+    line-height: 5px;
+}
+.right .bot .text button{
+    width: 100px;
+    height: 40px;
+    background-color: #F3C831;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    border: 1px solid #F3C831;
+}
+.number{
+    margin-left:640px;
+}
+.number ul{
+    float: left;
+}
+.number ul li{
+    width: 10px;
+    height: 20px;
+    float: left;
+    list-style: none;
+    padding: 0px 10px 10px;
+    line-height: 30px;
+}
+.number ul li:hover{
+    cursor: pointer;
+    background-color: #F3C831;
+}
+.yellow {
+    color: #cfa057;
+  }
+
+.product_img:hover {
+transform: scale(1.2);
+transition: 1s;
+
+}
+
+.col_product {
+margin-top: 30px;
+height: 390px;
+width: 100%;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+}
+
+.row_product {
+flex-wrap: wrap;
+transition: 0.5s;
+margin-top: 20px;
+width: 100%;
+display: flex;
+justify-content: space-between;
+}
+
+.pride {
+width: 100%;
+display: flex;
+justify-content: space-around;
+}
+
+.pride2 {
+margin-top: 0px;
+transition: 0.5s;
+padding-bottom: 5px;
+display: flex;
+justify-content: space-around;
+
+}
+
+.col_product {
+width: 23%;
+cursor: pointer;
+}
+
+#pride {
+background-color: #EEEEEE;
+height: 85px;
+overflow: hidden;
+}
+
+.col_product:hover #pride {
+height: 400px;
+transition: 0.5s;
+height: 136px;
+}
+
+.boxtext {
+background-color: #EEEEEE;
+padding: 10px;
+
+}
+.fixed{
+z-index: 1000;
+width: 100%;
+top: 0px;
+position: fixed;
+}
+.box-pig:hover {
+cursor: pointer;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+
+}
+
+.box-small {
+display: flex;
+justify-content: space-between;
+}
+
+.box-small:hover {
+box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+}
+
+footer {
+color: white;
+padding-top: 30px;
+width: 100%;
+}
+
+footer a {
+color: white;
+text-decoration: none;
+}
+
+footer a:hover {
+color: white;
+}
+
+h2 {
+color: #d2a351;
+}
+
+</style>
 <body>
     <!-- header -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
