@@ -125,7 +125,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img src="images/logo.jpg" alt="logo" style="width:160px;">
+          <img src="images/logo.png" alt="logo" style="width:160px;">
         </a>
         <ul style=" font-size: 19px ;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="navbar-nav ">
           <li class="nav-item active">
@@ -406,7 +406,7 @@
           <div class="row">
 
             <div class="col">
-              <img style="width: 100%;" src="images/logo1.jpg" alt="">
+              <img style="width: 100%;" src="images/logo1.png" alt="">
             </div>
 
             <div class="col">
