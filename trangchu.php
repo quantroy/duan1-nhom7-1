@@ -76,18 +76,20 @@
   .boxtext {
     background-color: #EEEEEE;
     padding: 10px;
-    
+
   }
-  .fixed{
+
+  .fixed {
     z-index: 1000;
     width: 100%;
     top: 0px;
     position: fixed;
   }
+
   .box-pig:hover {
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
-   
+
   }
 
   .box-small {
@@ -406,7 +408,10 @@
           <div class="row">
 
             <div class="col">
-              <img style="width: 100%;" src="images/logo1.png" alt="">
+              <<<<<<< HEAD <img style="width: 100%;" src="images/logo1.png" alt="">
+                =======
+                <img style="width: 100%;" src="../img/Untitled-2.png" alt="">
+                >>>>>>> main
             </div>
 
             <div class="col">
@@ -455,11 +460,10 @@
       window.addEventListener("scroll", function(event) {
         var nav = document.getElementsByClassName("navbar");
         var scroll_y = this.scrollY;
-        if(scroll_y >= 36) {
+        if (scroll_y >= 36) {
           nav[0].classList.add('fixed');
-        }        
-        else{
-          nav[0].classList.remove('fixed');  
+        } else {
+          nav[0].classList.remove('fixed');
         }
       });
     </script>
