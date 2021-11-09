@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="banner">
-        <img src="banner1.jpg" alt="">
+        <img src="images/banner1.jpg" alt="">
         <h2>Tin Tức</h2>
     </div>
 
@@ -38,7 +38,7 @@
                 
                 <div class="tintuc">
                     <div class="img">
-                    <img src="tt2.jpg" alt="">
+                    <img src="images/tt2.jpg" alt="">
                     </div>
                     <div class="text">
                         <h3>Chương Trình Khuyến Mại</h3>
@@ -50,7 +50,7 @@
             <div class="bot">
                 <div class="row">
                     <div class="img">
-                    <img src="tt1.jpg" alt="">
+                    <img src="images/tt1.jpg" alt="">
                     </div>
                     <div class="text">
                         <h3>Hành Trình Thành Lập</h3>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="row">
                     <div class="img">
-                    <img src="tt3.jpg" alt="">
+                    <img src="images/tt3.jpg" alt="">
                     </div>
                     <div class="text">
                         <h3>Mua 2 tặng 1</h3>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="row">
                     <div class="img">
-                    <img src="tt4.png" alt="">
+                    <img src="images/tt4.png" alt="">
                     </div>
                     <div class="text">
                         <h3>Đến xiao để thưởng thức trà sữa</h3>
