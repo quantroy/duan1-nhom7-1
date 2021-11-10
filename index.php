@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Bootstrap Example</title>
+  <title>Trang chủ</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -80,7 +80,7 @@
   }
   .fixed{
     z-index: 1000;
-    width: 100%;
+    width: 98.2%;
     top: 0px;
     position: fixed;
   }
@@ -114,7 +114,7 @@
     color: white;
   }
 
-  h2 {
+  h3 {
     color: #d2a351;
   }
 </style>
@@ -125,9 +125,9 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img src="../img/new.png" alt="logo" style="width:160px;">
+          <img src="../img/new.png" alt="logo" style="width:180px;">
         </a>
-        <ul style=" font-size: 19px ;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="navbar-nav ">
+        <ul style=" font-size: 21px ;" class="navbar-nav ">
           <li class="nav-item active">
             <a class="nav-link mr-4 " href="#">Trang chủ</a>
           </li>
@@ -170,7 +170,7 @@
           <!--  -->
           <div class="col_product ">
             <div style="overflow: hidden;">
-              <img class="product_img" style="width: 100%;" src="../img/choco-creamcake.png" alt="">
+              <img class="product_img" style="width: 100%;" src="img/choco-creamcake.png" alt="">
             </div>
             <!-- img product -->
             <div style="padding-top: 20px;" id="pride">
@@ -190,7 +190,7 @@
           <!--  -->
           <div class="col_product ">
             <div style="overflow: hidden;">
-              <img class="product_img" style="width: 100%;" src="../img/choco-creamcake.png" alt="">
+              <img class="product_img" style="width: 100%;" src="img/choco-creamcake.png" alt="">
             </div>
             <!-- img product -->
             <div style="padding-top: 20px;" id="pride">
@@ -210,7 +210,7 @@
 
           <div class="col_product ">
             <div style="overflow: hidden;">
-              <img class="product_img" style="width: 100%;" src="../img/choco-creamcake.png" alt="">
+              <img class="product_img" style="width: 100%;" src="img/choco-creamcake.png" alt="">
             </div>
             <!-- img product -->
             <div style="padding-top: 20px;" id="pride">
@@ -230,7 +230,7 @@
 
           <div class="col_product ">
             <div style="overflow: hidden;">
-              <img class="product_img" style="width: 100%;" src="../img/choco-creamcake.png" alt="">
+              <img class="product_img" style="width: 100%;" src="img/choco-creamcake.png" alt="">
             </div>
             <!-- img product -->
             <div style="padding-top: 20px;" id="pride">
@@ -250,7 +250,7 @@
 
           <div class="col_product ">
             <div style="overflow: hidden;">
-              <img class="product_img" style="width: 100%;" src="../img/choco-creamcake.png" alt="">
+              <img class="product_img" style="width: 100%;" src="img/choco-creamcake.png" alt="">
             </div>
             <!-- img product -->
             <div style="padding-top: 20px;" id="pride">
@@ -270,7 +270,7 @@
 
           <div class="col_product ">
             <div style="overflow: hidden;">
-              <img class="product_img" style="width: 100%;" src="../img/choco-creamcake.png" alt="">
+              <img class="product_img" style="width: 100%;" src="img/choco-creamcake.png" alt="">
             </div>
             <!-- img product -->
             <div style="padding-top: 20px;" id="pride">
@@ -290,7 +290,7 @@
 
           <div class="col_product ">
             <div style="overflow: hidden;">
-              <img class="product_img" style="width: 100%;" src="../img/choco-creamcake.png" alt="">
+              <img class="product_img" style="width: 100%;" src="img/choco-creamcake.png" alt="">
             </div>
             <!-- img product -->
             <div style="padding-top: 20px;" id="pride">
@@ -310,7 +310,7 @@
 
           <div class="col_product ">
             <div style="overflow: hidden;">
-              <img class="product_img" style="width: 100%;" src="../img/choco-creamcake.png" alt="">
+              <img class="product_img" style="width: 100%;" src="img/choco-creamcake.png" alt="">
             </div>
             <!-- img product -->
             <div style="padding-top: 20px;" id="pride">
@@ -347,7 +347,7 @@
           <!-- pig -->
           <div class="col">
             <div class="box-pig">
-              <img style="width: 100%;" src="../img/1434706993-224_12_hai-che.jpg" alt="">
+              <img style="width: 100%;" src="img/1434706993-224_12_hai-che.jpg" alt="">
               <div class="boxtext">
                 <h5>Những khó khăn trong quá trình thu hoạch nông sản của XIAOHAHA</h5>
                 <p>Bối cảnh thực phảm sạch có nguồn gốc tự nhiên thân thiện với môi trường trở thành xu hướng trong nghành kinh doanh dịch vụ ăn uống... </p>
@@ -361,35 +361,35 @@
           <div class="col">
             <div class="box-small">
               <div style="width: 40%;" class="img">
-                <img style="width: 100%;" src="../img/01112021_Ruby-tặng-túi-tote_ZALO.png" alt="">
+                <img style="width: 100%;" src="img/01112021_Ruby-tặng-túi-tote_ZALO.png" alt="">
               </div>
               <h5 class="ml-2 p-2" style="width: 60%; ">XIAOHAHA Giờ vàng 10k mua sắm thả ga</h5>
             </div>
 
             <div class="box-small mt-3">
               <div style="width: 40%;" class="img">
-                <img style="width: 100%;" src="../img/01112021_Ruby-tặng-túi-tote_ZALO.png" alt="">
+                <img style="width: 100%;" src="img/01112021_Ruby-tặng-túi-tote_ZALO.png" alt="">
               </div>
               <h5 class="ml-2 p-2" style="width: 60%; ">XIAOHAHA Giờ vàng 10k mua sắm thả ga</h5>
             </div>
 
             <div class="box-small mt-3">
               <div style="width: 40%;" class="img">
-                <img style="width: 100%;" src="../img/01112021_Ruby-tặng-túi-tote_ZALO.png" alt="">
+                <img style="width: 100%;" src="img/01112021_Ruby-tặng-túi-tote_ZALO.png" alt="">
               </div>
               <h5 class="ml-2 p-2" style="width: 60%; ">XIAOHAHA Giờ vàng 10k mua sắm thả ga</h5>
             </div>
 
             <div class="box-small mt-3">
               <div style="width: 40%;" class="img">
-                <img style="width: 100%;" src="../img/01112021_Ruby-tặng-túi-tote_ZALO.png" alt="">
+                <img style="width: 100%;" src="img/01112021_Ruby-tặng-túi-tote_ZALO.png" alt="">
               </div>
               <h5 class="ml-2 p-2" style="width: 60%; ">XIAOHAHA Giờ vàng 10k mua sắm thả ga</h5>
             </div>
 
             <div class="box-small mt-3">
               <div style="width: 40%;" class="img">
-                <img style="width: 100%;" src="../img/01112021_Ruby-tặng-túi-tote_ZALO.png" alt="">
+                <img style="width: 100%;" src="img/01112021_Ruby-tặng-túi-tote_ZALO.png" alt="">
               </div>
               <h5 class="ml-2 p-2" style="width: 60%; ">XIAOHAHA Giờ vàng 10k mua sắm thả ga</h5>
             </div>
@@ -406,19 +406,19 @@
           <div class="row">
 
             <div class="col">
-              <img style="width: 100%;" src="../img/Untitled-2.png" alt="">
+              <img style="width: 100%;" src="img/Untitled-2.png" alt="">
             </div>
 
             <div class="col">
-              <h2>CONTACT</h2>
+              <h3>LIÊN HỆ</h3>
               <p><i class="fas fa-map-marker"></i> <a href="">Hà Đông, Hà Nội</a></p>
               <p> <i class="fas fa-envelope"></i> <a href="">xiaohaha78@.com</a></p>
               <p> <i class="fas fa-phone-square-alt"></i> <a href="">0387878787</a></p>
-              <img style="width: 60%;" src="../img//bo_cong_thuong_grande.png" alt="">
+              <img style="width: 60%;" src="img//bo_cong_thuong_grande.png" alt="">
             </div>
 
             <div class="col">
-              <h2>CHÍNH SÁCH</h2>
+              <h3>CHÍNH SÁCH</h3>
               <div style="line-height: 35px;">
                 <a href>Hình thức thanh toán</a> <br>
                 <a href>Vận chuyển giao nhận</a> <br>
@@ -429,7 +429,7 @@
             </div>
 
             <div class="col">
-              <h2>VỀ CHÚNG TÔI</h2>
+              <h3>VỀ CHÚNG TÔI</h3>
               <div style="line-height: 35px;">
                 <a href>Giới thiệu</a> <br>
                 <a href>Tin tức</a> <br>
