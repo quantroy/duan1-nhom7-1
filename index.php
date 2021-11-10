@@ -76,18 +76,20 @@
   .boxtext {
     background-color: #EEEEEE;
     padding: 10px;
-    
+
   }
-  .fixed{
+
+  .fixed {
     z-index: 1000;
     width: 98.2%;
     top: 0px;
     position: fixed;
   }
+
   .box-pig:hover {
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
-   
+
   }
 
   .box-small {
@@ -125,11 +127,11 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img src="../img/new.png" alt="logo" style="width:180px;">
+          <img src="img/new.png" alt="logo" style="width:180px;">
         </a>
         <ul style=" font-size: 21px ;" class="navbar-nav ">
           <li class="nav-item active">
-            <a class="nav-link mr-4 " href="#">Trang chủ</a>
+            <a class="nav-link mr-4 " href="trangchu.php">Trang chủ</a>
           </li>
           <li class="nav-item mr-4">
             <a class="nav-link" href="#">Giới thiệu</a>
@@ -138,7 +140,7 @@
             <a class="nav-link" href="#">Sản phẩm</a>
           </li>
           <li class="nav-item mr-4">
-            <a class="nav-link " href="#">Tin tức</a>
+            <a class="nav-link " href="tintuc.php">Tin tức</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mr-4" href="#">Liên hệ</a>
@@ -404,9 +406,8 @@
       <footer class="bg-dark mt-5">
         <div class="container">
           <div class="row">
-
             <div class="col">
-              <img style="width: 100%;" src="img/Untitled-2.png" alt="">
+              <img style="width: 100%;" src="images/logo1.png" alt="">
             </div>
 
             <div class="col">
@@ -455,11 +456,10 @@
       window.addEventListener("scroll", function(event) {
         var nav = document.getElementsByClassName("navbar");
         var scroll_y = this.scrollY;
-        if(scroll_y >= 36) {
+        if (scroll_y >= 36) {
           nav[0].classList.add('fixed');
-        }        
-        else{
-          nav[0].classList.remove('fixed');  
+        } else {
+          nav[0].classList.remove('fixed');
         }
       });
     </script>
