@@ -42,7 +42,7 @@
         <div class="humberger__menu__widget">
 
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i>Đăng nhập</a>
+                <a href="dang-ky"><i class="fa fa-user"></i>Đăng nhập</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
