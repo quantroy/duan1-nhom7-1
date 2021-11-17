@@ -2,7 +2,10 @@
 session_start();
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 require_once './commons/utils.php';
+require_once './mail/index.php';
 require_once './dao/system_dao.php';
+require_once './dao/dao_account.php';
+
 // dd($url);
 switch ($url) {
     case '/':
@@ -28,11 +31,15 @@ switch ($url) {
         require_once './client/business/contact.php';
         contact();
         break;
-
-    case 'dang-ky':
-        require_once './client/business/accounts.php';
-        register();
+    case 'quen-mat-khau':
+        require_once './client/business/account.php';
+        forgot_password();
         break;
+    case 'khoi-phuc-mat-khau':
+        require_once './client/business/account.php';
+        reset_password();
+        break;
+
         // Controller Admin
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
@@ -40,6 +47,6 @@ switch ($url) {
         break;
 
     default:
-        # code...
+        include_once './client/views/404.php';
         break;
 }

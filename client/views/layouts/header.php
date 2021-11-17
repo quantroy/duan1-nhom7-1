@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="description" content="Xiao Haha">
+    <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Xiao Haha</title>
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="<?= CLIENT_ASSET ?>css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="<?= CLIENT_ASSET ?>css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<?= CLIENT_ASSET ?>css/style.css" type="text/css">
+    <link rel="shortcut icon" href="<?= CLIENT_ASSET ?>img/logo-small.png">
 </head>
 
 <body>
@@ -42,7 +43,7 @@
         <div class="humberger__menu__widget">
 
             <div class="header__top__right__auth">
-                <a href="dang-ky"><i class="fa fa-user"></i>Đăng nhập</a>
+                <a href="#"><i class="fa fa-user"></i>Đăng nhập</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
