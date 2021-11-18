@@ -43,6 +43,10 @@ switch ($url) {
         require_once './client/business/account.php';
         reset_password();
         break;
+    case 'dang-ky':
+        require_once './client/business/account.php';
+        register();
+        break;
 
         // Controller Admin
     case 'cp-admin':
