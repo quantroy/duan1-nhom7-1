@@ -79,15 +79,6 @@ h1{
                     <input type="reset" value="Nhập Lại">
                     </div>
                 </form>
-                <h2 class="thongbao">
-                <?php 
-                if(isset($thongbao)&&($thongbao!="")){
-                    echo $thongbao;
-                }
-
-
-                ?>
-                </h2>
                 </div>
                </div>
 </div>
