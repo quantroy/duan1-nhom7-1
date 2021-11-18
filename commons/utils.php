@@ -1,6 +1,6 @@
 <?php
 
-const BASE_URL = "http://localhost/duan1-nhom7-21/";
+const BASE_URL = "http://localhost/duan1-nhom7/";
 const ADMIN_ASSET = BASE_URL . 'public/admin-assets/';
 const CLIENT_ASSET = BASE_URL . 'public/client-assets/';
 
@@ -26,4 +26,10 @@ function admin_render($view, $data = [])
     extract($data);
     $view = './admin/views/' . $view;
     include_once "./admin/views/layouts/main.php";
+}
+//update tai khoan
+function editusser($view, $data = []){
+    extract($data);
+    $view = './admin/views/' . $view;
+    include_once "./admin/views/dashboard/user.php";
 }

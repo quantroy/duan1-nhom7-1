@@ -1,4 +1,5 @@
 <?php
+//include_once './../../dao/system_dao.php';
 
 function dashboard_index()
 {
@@ -17,5 +18,15 @@ function quan()
 }
 function quanel()
 {
-    admin_render('dashboard/quanel.php');
+    admin_render('./../../views/layouts/main.php');
 }
+function edit_user()
+{
+    $sql = "select * from tai_khoan";
+    $products = selectDb($sql, true);
+    editusser('./../views/dashboard/user.php', compact('products'));
+}
+
+
+
+

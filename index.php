@@ -33,8 +33,13 @@ switch ($url) {
         // Controller Admin
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
-        dashboard_index();
+        quanel();
         break;
+    case 'tai-khoan':
+        require_once './admin/business/dashboard.php';
+        edit_user();
+        break;
+
 
     default:
         # code...

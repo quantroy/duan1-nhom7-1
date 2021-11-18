@@ -46,7 +46,7 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <?php include_once $view; ?>
+        <h1 class="" style="text-align: center;">Welcome to Administration</h1>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
