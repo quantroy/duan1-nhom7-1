@@ -27,7 +27,7 @@ function forgot_password()
             header('location: kiem-tra-ma');
         }
     }
-    include_once './client/views/account/forgot_password.php';
+    client_render('account/forgot_password.php');
 }
 function code_check()
 {
@@ -43,7 +43,7 @@ function code_check()
                 header('location: doi-mat-khau');
             }
         }
-        include_once './client/views/account/verification.php';
+        client_render('account/verification.php');
     } else {
         header('location: trang-chu');
     }
@@ -69,7 +69,7 @@ function reset_password()
                 header('refresh:5;trang-chu');
             }
         }
-        include_once './client/views/account/reset_password.php';
+        client_render('account/reset_password.php');
     } else {
         header('location: trang-chu');
     }
