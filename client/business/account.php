@@ -74,3 +74,14 @@ function reset_password()
         header('location: trang-chu');
     }
 }
+
+function register(){
+    if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
+        $ten_taikhoan =$_POST['ten_taikhoan'];
+        $mat_khau =$_POST['mat_khau'];
+        $email =$_POST['email'];
+        $sql = "INSERT INTO tai_khoan(email,ten_taikhoan,mat_khau) values('$email','$ten_taikhoan','$mat_khau')";
+        pdo_execute($sql);;
+}
+    client_render('account/dangky.php');
+}
