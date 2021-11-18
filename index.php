@@ -29,7 +29,10 @@ switch ($url) {
         contact();
         break;
 
-
+    case 'dang-ky':
+        require_once './client/business/accounts.php';
+        register();
+        break;
         // Controller Admin
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
@@ -41,6 +44,10 @@ switch ($url) {
         break;
 
 
+    case 'list-tk':
+        require_once './client/business/taikhoan.php';
+        danhsach_tk();
+        break;
     default:
         # code...
         break;
