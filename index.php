@@ -35,7 +35,11 @@ switch ($url) {
         require_once './client/business/account.php';
         forgot_password();
         break;
-    case 'khoi-phuc-mat-khau':
+    case 'kiem-tra-ma':
+        require_once './client/business/account.php';
+        code_check();
+        break;
+    case 'doi-mat-khau':
         require_once './client/business/account.php';
         reset_password();
         break;

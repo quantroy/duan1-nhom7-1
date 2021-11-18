@@ -17,9 +17,9 @@
                 <label for="email">Email</label><br>
 
                 <!-- Php -->
-                <?php if (isset($error['email'])) { ?>
-                    <span class='text-danger'><?= $error['email'] ?></span>
-                    <?php $error = []; ?>
+                <?php if (isset($mess['false'])) { ?>
+                    <span class='text-danger'><?= $mess['false'] ?></span>
+
                 <?php } ?>
 
                 <input type="email" class="form-control" name="email" id="email" placeholder="Nhập email của bạn">
