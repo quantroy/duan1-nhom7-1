@@ -27,3 +27,9 @@ function admin_render($view, $data = [])
     $view = './admin/views/' . $view;
     include_once "./admin/views/layouts/main.php";
 }
+//update tai khoan
+function editusser($view, $data = []){
+    extract($data);
+    $view = './admin/views/' . $view;
+    include_once "./admin/views/dashboard/user.php";
+}

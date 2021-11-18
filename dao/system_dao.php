@@ -1,13 +1,29 @@
 <?php
 function pdo_get_connection()
 {
-    $dburl = "mysql:host=localhost;dbname=duan1;charset=utf8";
+    $dburl = "mysql:host=localhost;dbname=database_duan1;charset=utf8";
     $username = 'root';
     $password = '';
 
     $conn = new PDO($dburl, $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $conn;
+}
+
+
+
+
+function executeQuery($sql, $getAll = false)
+{
+
+    $conn = pdo_get_connection();
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    if ($getAll) {
+        return $stmt->fetchAll();
+    }
+
+    return $stmt->fetch();
 }
 
 // Thực thi câu lệnh sql
@@ -77,4 +93,20 @@ function pdo_query_value($sql)
     } finally {
         unset($conn);
     }
+}
+//truy van nhieu gia tri
+function selectDb($sql)
+{
+    $conn = pdo_get_connection();
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
+//update mot cau lenh
+function action($sql)
+{
+    $conn = pdo_get_connection();
+    $conn->exec($sql);
 }

@@ -29,18 +29,21 @@ switch ($url) {
         contact();
         break;
 
-<<<<<<< Updated upstream
     case 'dang-ky':
         require_once './client/business/accounts.php';
         register();
         break;
-=======
->>>>>>> Stashed changes
         // Controller Admin
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
-        dashboard_index();
+        quanel();
         break;
+    case 'tai-khoan':
+        require_once './admin/business/dashboard.php';
+        edit_user();
+        break;
+
+
     case 'list-tk':
         require_once './client/business/taikhoan.php';
         danhsach_tk();
