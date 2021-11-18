@@ -1,12 +1,3 @@
-<?php
-// include_once './../../../dao/system_dao.php';
-// $conn = pdo_get_connection();
-$dburl = "mysql:host=localhost;dbname=database_duan1;charset=utf8";
-$username = 'root';
-$password = '';
-
-$conn = new PDO($dburl, $username, $password);
-?>
 <!doctype html>
 <html lang="en">
 
@@ -42,22 +33,17 @@ $conn = new PDO($dburl, $username, $password);
                             <thead>
                                 <tr>
                                     <th>&nbsp;</th>
+                                    <th>Tên tài khoản</th>
+                                    <th>Mật khẩu</th>
                                     <th>Email</th>
-                                    <th>User Name</th>
-                                    <th>Phone</th>
-                                    <th>Status</th>
-                                    <th>Permission</th>
-                                    <!-- <th>Quản trị</th> -->
+                                    <th>Số điện thoại</th>
+                                    <th>Vai trò</th>
                                     <th>Administration</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $stmt = $conn->prepare("SELECT * FROM tai_khoan");
-                                $stmt->execute();
-                                $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                                $mang = $stmt->fetchAll();
-                                foreach ($mang as $rows) { ?>
+                                foreach (selectDb("SELECT * FROM tai_khoan") as $rows) { ?>
 
                                     <tr class="alert" role="alert">
                                         <td>
@@ -72,32 +58,40 @@ $conn = new PDO($dburl, $username, $password);
                                             </div>
                                             <div class="pl-3 email">
                                                 <span>
-                                                    <?php echo $rows['email'] ?>
+                                                    <?php echo $rows['ten_taikhoan'] ?>
                                                 </span>
                                                 <!-- <span>Added: 01/03/2020</span> -->
                                             </div>
                                         </td>
-                                        <td>
-                                            <?php echo $rows['user_name'] ?>
+                                        <td class="pl-3 email">
+                                            <?php echo $rows['mat_khau'] ?>
                                         </td>
                                         <td>
-                                            <span class="active">
-                                                <?php echo $rows['phone_number'] ?>
+                                            <span>
+                                                <?php echo $rows['email'] ?>
                                             </span>
                                         </td>
-                                        <td class="status">
-                                            <span class="active">
-                                                <?= ($rows['trang_thai'] == 1) ? 'Bị Khóa' : 'Hoạt động' ?>
+                                        <td class="pl-3 email">
+                                            <span>
+                                                <?php echo $rows['sdt'] ?>
                                             </span>
                                         </td>
                                         <td class="status">
                                             <span>
-                                                <?= ($rows['role'] == 1) ? 'Khách hàng' : 'Admin' ?>
+                                                <?= ($rows['vai_tro'] == 1) ? 'Khách hàng' : 'Admin' ?>
                                             </span>
                                         </td>
                                         <td>
-                                            <a aria-hidden="true" href="/duan1-nhom7/admin/business/user/edit_user.php?id=<?php echo $rows['id'] ?>" class='btn btn-success'><i class="fa fa-edit"></i></a>
-                                            <a aria-hidden="true" href="/duan1-nhom7/admin/business/user/delete_user.php?id=<?php echo $rows['id'] ?>" onClick="return confirm('Bạn có thực sự muốn xóa không')" class="btn btn-info"><i class="fa fa-close"></i></a>
+                                            <a aria-hidden="true" href="/duan1-nhom7/admin/business/user/edit_user.php?id=<?php echo $rows['ID'] ?>" class='btn btn-success'>
+                                                <i class="fa fa-edit">
+
+                                                </i>
+                                            </a>
+                                            <a aria-hidden="true" href="/duan1-nhom7/admin/business/user/delete_user.php?id=<?php echo $rows['ID'] ?>" onClick="return confirm('Bạn có thực sự muốn xóa không')" class="btn btn-info">
+                                                <i class="fa fa-close">
+
+                                                </i>
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php } ?>
