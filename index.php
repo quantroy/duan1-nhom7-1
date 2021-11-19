@@ -62,11 +62,33 @@ switch ($url) {
         edit_user();
         break;
 
-
-    case 'list-tk':
-        require_once './client/business/taikhoan.php';
-        danhsach_tk();
+        //Manager address
+    case 'address':
+        require_once './client/business/address.php';
+        address(1);
         break;
+
+    case 'edit_address':
+        require_once './client/business/address.php';
+        edit_address($_GET['id']);
+        break;
+
+    case 'users':
+        require_once './admin/business/users.php';
+        users();
+        break;
+
+    case 'staff':
+        require_once './admin/business/users.php';
+        staff();
+        break;
+
+    case 'edit_staff':
+        require_once './admin/business/users.php';
+        edit_staff($_GET['id']);
+        break;
+
+
     default:
         include_once './client/views/404.php';
         break;
