@@ -33,3 +33,9 @@ function editusser($view, $data = []){
     $view = './admin/views/' . $view;
     include_once "./admin/views/dashboard/user.php";
 }
+function edit_account($view, $data = []){
+    extract($data);
+    $view = './client/views/' . $view;
+    include_once "./client/business/account.php";
+
+}

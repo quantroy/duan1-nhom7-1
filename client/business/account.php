@@ -75,13 +75,27 @@ function reset_password()
     }
 }
 
-function register(){
-    if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
-        $ten_taikhoan =$_POST['ten_taikhoan'];
-        $mat_khau =$_POST['mat_khau'];
-        $email =$_POST['email'];
+function register()
+{
+    if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
+        $ten_taikhoan = $_POST['ten_taikhoan'];
+        $mat_khau = $_POST['mat_khau'];
+        $email = $_POST['email'];
         $sql = "INSERT INTO tai_khoan(email,ten_taikhoan,mat_khau) values('$email','$ten_taikhoan','$mat_khau')";
         pdo_execute($sql);;
-}
+    }
     client_render('account/dangky.php');
+}
+
+function update_user()
+{
+    if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+        $id = "4";
+        $name_new = $_POST['ten_taikhoan'];;
+        $phone_new = $_POST['sdt'];
+        $email_new = $_POST['email'];
+        action("UPDATE tai_khoan SET ten_taikhoan='$name_new', sdt='$phone_new',email= '$email_new' WHERE ID = '$id'");
+        header("Location:http://localhost/duan1-nhom7/trang-chu");
+    }
+    client_render('account/cap_nhat.php');
 }

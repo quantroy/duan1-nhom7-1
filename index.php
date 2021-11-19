@@ -47,6 +47,10 @@ switch ($url) {
         require_once './client/business/account.php';
         register();
         break;
+    case 'cap-nhat':
+        require_once './client/business/account.php';
+        update_user();
+        break;
 
         // Controller Admin
     case 'cp-admin':
