@@ -55,12 +55,12 @@ switch ($url) {
         // Controller Admin
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
-        quanel();
+        dashboard_index();
         break;
-    case 'tai-khoan':
-        require_once './admin/business/dashboard.php';
-        edit_user();
-        break;
+    // case 'tai-khoan':
+    //     require_once './admin/business/dashboard.php';
+    //     edit_user();
+    //     break;
 
         //Manager address
     case 'address':
