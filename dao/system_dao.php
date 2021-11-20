@@ -1,7 +1,7 @@
 <?php
 function pdo_get_connection()
 {
-    $dburl = "mysql:host=localhost;dbname=demo1;charset=utf8";
+    $dburl = "mysql:host=localhost;dbname=2021-duan1-nhom7;charset=utf8";
     $username = 'root';
     $password = '';
 
@@ -9,9 +9,6 @@ function pdo_get_connection()
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $conn;
 }
-
-
-
 
 function executeQuery($sql, $getAll = false)
 {
@@ -31,7 +28,6 @@ function executeQuery($sql, $getAll = false)
 function pdo_execute($sql)
 {
     $sql_args = array_slice(func_get_args(), 1);
-
     try {
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);
@@ -93,20 +89,4 @@ function pdo_query_value($sql)
     } finally {
         unset($conn);
     }
-}
-//truy van nhieu gia tri
-function selectDb($sql)
-{
-    $conn = pdo_get_connection();
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-    return $result;
-}
-
-//update mot cau lenh
-function action($sql)
-{
-    $conn = pdo_get_connection();
-    $conn->exec($sql);
 }

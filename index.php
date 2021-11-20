@@ -1,10 +1,11 @@
 <?php
 session_start();
-$url = isset($_GET['url']) ? $_GET['url'] : "/";
+ob_start();
+$url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : "/";
+
 require_once './commons/utils.php';
 require_once './mail/index.php';
 require_once './dao/system_dao.php';
-require_once './dao/dao_account.php';
 
 // dd($url);
 switch ($url) {
@@ -31,63 +32,47 @@ switch ($url) {
         require_once './client/business/contact.php';
         contact();
         break;
-    case 'quen-mat-khau':
+
+        // controller tài khoản
+    case 'tai-khoan':
+        require_once './client/business/account.php';
+        //Viết hàm hiển thị thông tin người dùng
+        break;
+    case 'tai-khoan/quen-mat-khau':
         require_once './client/business/account.php';
         forgot_password();
         break;
-    case 'kiem-tra-ma':
+    case 'tai-khoan/kiem-tra-ma':
         require_once './client/business/account.php';
         code_check();
         break;
-    case 'doi-mat-khau':
+    case 'tai-khoan/doi-mat-khau':
         require_once './client/business/account.php';
         reset_password();
         break;
-    case 'dang-ky':
-        require_once './client/business/account.php';
-        register();
-        break;
-    case 'cap-nhat':
-        require_once './client/business/account.php';
-        update_user();
-        break;
+
 
         // Controller Admin
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
         dashboard_index();
         break;
-    // case 'tai-khoan':
-    //     require_once './admin/business/dashboard.php';
-    //     edit_user();
-    //     break;
-
-        //Manager address
-    case 'address':
-        require_once './client/business/address.php';
-        address(1);
+    case 'cp-admin/danh-muc':
+        require_once './admin/business/category.php';
+        cate_index();
         break;
-
-    case 'edit_address':
-        require_once './client/business/address.php';
-        edit_address($_GET['id']);
+    case 'cp-admin/danh-muc/xoa':
+        require_once './admin/business/category.php';
+        cate_remove();
         break;
-
-    case 'users':
-        require_once './admin/business/users.php';
-        users();
+    case 'cp-admin/danh-muc/tao-moi':
+        require_once './admin/business/category.php';
+        cate_add_form();
         break;
-
-    case 'staff':
-        require_once './admin/business/users.php';
-        staff();
+    case 'cp-admin/danh-muc/luu-tao-moi':
+        require_once './admin/business/category.php';
+        cate_save_add();
         break;
-
-    case 'edit_staff':
-        require_once './admin/business/users.php';
-        edit_staff($_GET['id']);
-        break;
-
 
     default:
         include_once './client/views/404.php';

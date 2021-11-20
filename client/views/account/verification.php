@@ -4,9 +4,9 @@
         <div class="form-group">
 
             <!-- Php -->
-            <?php if (isset($mess['false'])) : ?>
+            <?php if (isset($_SESSION['false'])) : ?>
                 <div class='alert alert-danger' role="alert">
-                    <?= $mess['false'] ?>
+                    <?= $_SESSION['false'] ?>
                 </div>
             <?php else :  ?>
                 <div class='alert alert-primary' role="alert">Nhập mã xác nhận chúng tôi đã gửi cho bạn về Email</div>

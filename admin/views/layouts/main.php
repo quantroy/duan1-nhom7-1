@@ -29,6 +29,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -45,7 +46,6 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        
         <?php include_once $view; ?>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
@@ -70,5 +70,12 @@
 <!-- ./wrapper -->
 
 <?php include_once './admin/views/layouts/script.php'; ?>
+<script>
+  <?php 
+    if($jsFile != null){
+      include_once './public/' . $jsFile;
+    }
+  ?>
+</script>
 </body>
 </html>

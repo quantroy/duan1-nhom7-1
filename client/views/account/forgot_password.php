@@ -5,13 +5,14 @@
             <label for="email">Email</label><br>
 
             <!-- Php -->
-            <?php if (isset($mess['false'])) { ?>
-                <span class='text-danger'><?= $mess['false'] ?></span>
+            <?php if (isset($_SESSION['false'])) { ?>
+                <span class='text-danger'><?= $_SESSION['false'] ?></span>
 
             <?php } ?>
-
             <input type="email" class="form-control" name="email" id="email" placeholder="Nhập email của bạn">
         </div>
         <input class="btn btn-info" type="submit" name="submit" value="Gửi yêu cầu">
     </form>
 </div>
+
+<?php require_once './client/business/account.php'; ?>

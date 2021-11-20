@@ -7,3 +7,4 @@
 <script src="<?= CLIENT_ASSET ?>js/mixitup.min.js"></script>
 <script src="<?= CLIENT_ASSET ?>js/owl.carousel.min.js"></script>
 <script src="<?= CLIENT_ASSET ?>js/main.js"></script>
+<script src="<?= ADMIN_ASSET ?>plugins/sweetalert2/sweetalert2.min.js"></script>

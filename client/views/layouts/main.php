@@ -14,8 +14,6 @@
 <?php include_once 'script.php' ?>
 <!-- Script End -->
 
-
-
 </body>
 
 </html>

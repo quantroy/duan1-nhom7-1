@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="<?= CLIENT_ASSET ?>css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<?= CLIENT_ASSET ?>css/style.css" type="text/css">
     <link rel="shortcut icon" href="<?= CLIENT_ASSET ?>img/logo-small.png">
+    <link rel="stylesheet" href="<?= ADMIN_ASSET ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+
 </head>
 
 <body>

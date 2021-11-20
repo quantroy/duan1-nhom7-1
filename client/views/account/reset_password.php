@@ -4,13 +4,13 @@
 
         <div class="form-group">
             <!-- Php -->
-            <?php if (isset($mess['false'])) { ?>
+            <?php if (isset($_SESSION['false'])) { ?>
                 <div class='alert alert-danger' role="alert">
-                    <?= $mess['false'] ?>
+                    <?= $_SESSION['false'] ?>
                 </div>
-            <?php } elseif (isset($mess['success'])) {  ?>
+            <?php } elseif (isset($_SESSION['success'])) {  ?>
                 <div class='alert alert-success' role="alert">
-                    <?= $mess['success'] ?>
+                    <?= $_SESSION['success'] ?>
                 </div>
             <?php  } else { ?>
                 <div class='alert alert-primary' role="alert">Đổi mật khẩu tại đây</div>
