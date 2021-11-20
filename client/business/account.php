@@ -109,12 +109,12 @@ function login(){
         if ($user['role'] == 1) {
             unset($user['password']);
             $_SESSION['auth'] = $user;
-            header('location:' . BASE_URL);
+            header('location:'. ACCOUNT_URL .'khach-hang');
             die;
         } else if ($user['role'] == 2) {
             unset($user['password']);
             $_SESSION['auth'] = $user;
-            header('location:' . BASE_URL);
+            header('location:'. ACCOUNT_URL .'nhan-vien' );
             die;
         }else if ($user['role'] == 5) {
             unset($user['password']);
@@ -144,7 +144,7 @@ function post(){
             $expireObj = new DateTime("+3 minutes");
             $expireTime = $expireObj->format("Y-m-d H:i:s");
             
-            setcookie('remember_login', $remember_token, time() + (60*2), '/');
+            setcookie('remember_login', $remember_token, time() + (10), '/');
             
             $updateRememberQuery = "update accounts 
                                     set 
@@ -157,12 +157,12 @@ function post(){
         if($user['role']==1){
             unset($user['password']);
             $_SESSION['auth'] = $user;
-            header('location:'. ACCOUNT_URL .'./staff/guest.php');
+            header('location:'. ACCOUNT_URL .'khach-hang');
             die;
         }else if($user['role']==2){
             unset($user['password']);
             $_SESSION['auth'] = $user;
-            header('location:'. BASE_URL );
+            header('location:'. ACCOUNT_URL .'nhan-vien' );
             die;
         }else if($user['role']==5){
             unset($user['password']);
@@ -176,4 +176,12 @@ function post(){
     }
     header('location:'. ACCOUNT_URL);
     }
+// guest- thử dữ liệu truyền đi sau khi đăng nhập thành công
+function guest(){
+    client_render('account/staff/guest.php');
+}
+function staff(){
+    client_render('account/staff/staff.php');
+}
+// 
     

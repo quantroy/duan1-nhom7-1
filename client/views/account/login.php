@@ -1,13 +1,13 @@
 <div class="container">
     <h3>Đăng nhập và trở thành thành viên của Xiao Haha</h3>
-    <form action="<?= ACCOUNT_URL . 'post' ?>" method="post">
+    <form action="<?= ACCOUNT_URL . 'luu-dang-nhap' ?>" method="post">
         <div class="a">
             <div> <label for="">Tài khoản <span1>(*)</span1> </label> </div>
             <input type="email" name="email" placeholder="Tài khoản">
         </div>
 
         <div class="a">
-            <div> <label for="">Mật khẩu <span>(*)</span> </label> </div>
+            <div> <label for="">Mật khẩu <span1>(*)</span1> </label> </div>
             <input type="password" name="password" placeholder="Mật khẩu">
         </div>
 
@@ -35,7 +35,7 @@
     }
 
     form {
-        width: 400px;
+        width: 500px;
         margin: 0 auto;
         margin-top: 20px;
         padding-top: 50px;
@@ -63,7 +63,7 @@
     }
 
     .a input {
-        width: 400px;
+        width: 500px;
         height: 40px;
     }
 
