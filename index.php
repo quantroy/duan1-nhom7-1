@@ -50,6 +50,16 @@ switch ($url) {
         require_once './client/business/account.php';
         reset_password();
         break;
+    // login
+    case 'login':
+        require_once './client/business/account.php';
+        login();
+        break;
+    case 'login/post':
+        require_once './client/business/account.php';
+        post();
+        break;
+
 
 
         // Controller Admin

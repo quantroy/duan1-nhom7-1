@@ -92,3 +92,88 @@ function reset_password()
         header('location:' . BASE_URL . 'trang-chu');
     }
 }
+
+function login(){
+    $loginToken = isset($_COOKIE['remember_login']) ? $_COOKIE['remember_login'] : "";
+    if ($loginToken != "") {
+        $now = new DateTime();
+        $currentTime = $now->format('Y-m-d H:i:s');
+        $getUserByRememberToken = "select 
+                                            * 
+                                    from accounts 
+                                    where remember_token = '$loginToken'
+                                    and remember_expire >= '$currentTime'";
+    
+        $user = executeQuery($getUserByRememberToken, false);
+    
+        if ($user['role'] == 1) {
+            unset($user['password']);
+            $_SESSION['auth'] = $user;
+            header('location:' . BASE_URL);
+            die;
+        } else if ($user['role'] == 2) {
+            unset($user['password']);
+            $_SESSION['auth'] = $user;
+            header('location:' . BASE_URL);
+            die;
+        }else if ($user['role'] == 5) {
+            unset($user['password']);
+            $_SESSION['auth'] = $user;
+            header('location:' . ADMIN_URL);
+            die;
+        }
+    }
+
+
+    client_render('account/login.php');
+}
+function post(){
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $remember = $_POST['remember'];
+    
+    $getUserByEmail = "select * from accounts where email = '$email'";
+    $user = executeQuery($getUserByEmail, false);
+    
+    if($user && password_verify($password, $user['password'])){
+        if($remember == 1){
+            $remember_token = sha1(uniqid() . $user['email']);
+    
+            $expireObj = new DateTime("+3 minutes");
+            $expireTime = $expireObj->format("Y-m-d H:i:s");
+            
+            setcookie('remember_login', $remember_token, time() + (60*2), '/');
+            
+            $updateRememberQuery = "update accounts 
+                                    set 
+                                        remember_token = '$remember_token', 
+                                        remember_expire = '$expireTime'
+                                    where id = " . $user['id'];
+            executeQuery($updateRememberQuery, false);        
+        }
+    
+        if($user['role']==1){
+            unset($user['password']);
+            $_SESSION['auth'] = $user;
+            header('location:'. ACCOUNT_URL .'./staff/guest.php');
+            die;
+        }else if($user['role']==2){
+            unset($user['password']);
+            $_SESSION['auth'] = $user;
+            header('location:'. BASE_URL );
+            die;
+        }else if($user['role']==5){
+            unset($user['password']);
+            $_SESSION['auth'] = $user;
+            header('location:'. ADMIN_URL );
+            die;
+        }else{
+            header('location:'. ACCOUNT_URL);
+    
+        }
+    }
+    header('location:'. ACCOUNT_URL);
+    }
+    

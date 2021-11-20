@@ -4,6 +4,8 @@ const BASE_URL = "http://localhost/duan1-nhom7/";
 const ADMIN_URL = BASE_URL . 'cp-admin/';
 const ADMIN_ASSET = BASE_URL . 'public/admin-assets/';
 const CLIENT_ASSET = BASE_URL . 'public/client-assets/';
+const ACCOUNT_URL = BASE_URL . 'login/';
+
 $path_img = "./public/uploads/";
 
 function dd()
