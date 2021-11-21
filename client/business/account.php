@@ -183,5 +183,16 @@ function guest(){
 function staff(){
     client_render('account/staff/staff.php');
 }
-// 
+//Đăng ký
+function register()
+    {
+        if(isset($_POST['dang-ky'])&&($_POST['dang-ky'])){
+            $name =$_POST['name'];
+            $password =$_POST['password'];
+            $email =$_POST['email'];
+            $sql = "INSERT INTO accounts(email,name,password) values('$email','$name','$password')";
+            pdo_execute($sql);
+    }
+        client_render('account/register.php');
+    }
     
