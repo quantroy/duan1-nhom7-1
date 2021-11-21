@@ -13,13 +13,13 @@
                 </div>
                 <div class="form-group" >
                     <div> <label style="font-weight: bold" for="">Họ và Tên <span1 style="color:red">(*)</span1> </label> </div>
-                    <input class="form-control" type="text" name="name" value placeholder="Họ Và Tên">
+                    <input class="form-control" type="text" name="name" value placeholder="Họ và Tên">
                 </div>
                 <div>
-                    Quên mật khẩu?bấm <a href="" style="color: #0d713d; font-style: italic;"><strong>Vào đây</strong></a></a>
+                    Quên mật khẩu?bấm <a href="<?= BASE_URL ?>tai-khoan/quen-mat-khau" style="color: #0d713d; font-style: italic;"><strong>Vào đây</strong></a></a>
                 </div>
-                <input style="margin-left:50px;margin-top:30px;background:#0d713d;" class="btn btn-success btn-lg" type="submit" name="dang-ky" value="Đăng Ký">
-                <button style="margin-top:30px;background:#0d713d;"  class="btn btn-success btn-lg"  type="reset">Nhập Lại</button>
+                <input style="margin-left:75px;margin-top:30px;background:#0d713d;" class="btn btn-success " type="submit" name="dang-ky" value="Đăng Ký">
+                <button style="margin-top:30px;background:#0d713d;"  class="btn btn-success "  type="reset">Nhập Lại</button>
 
             </form>
         </div>
