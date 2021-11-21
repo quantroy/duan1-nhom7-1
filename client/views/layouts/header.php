@@ -94,7 +94,7 @@
                             </div>
 
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Đăng nhập</a>
+                                <a href="<?=ACCOUNT_URL?>"><i class="fa fa-user"></i> Đăng nhập</a>
                             </div>
                         </div>
                     </div>
