@@ -4,7 +4,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__about__logo">
-                        <a href="trang-chu"><img src="<?= CLIENT_ASSET ?>img/logo.png" alt=""></a>
+                        <a href="<?= BASE_URL ?>trang-chu"><img src="<?= CLIENT_ASSET ?>img/logo.png" alt=""></a>
                     </div>
                     <ul>
                         <li>Địa chỉ: Số 1, Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</li>

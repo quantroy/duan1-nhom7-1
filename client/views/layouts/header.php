@@ -50,7 +50,7 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="<?= BASE_URL ?>trang-chu">Trang Chủ</a></li>
+                <li class=""><a href="<?= BASE_URL ?>trang-chu">Trang Chủ</a></li>
                 <li><a href="<?= BASE_URL ?>san-pham">Sản phẩm</a></li>
 
                 <li><a href="<?= BASE_URL ?>tin-tuc">Tin Tức</a></li>
@@ -94,7 +94,7 @@
                             </div>
 
                             <div class="header__top__right__auth">
-                                <a href="<?= ACCOUNT_URL ?>"><i class="fa fa-user"></i> Đăng nhập</a>
+                                <a href="#"><i class="fa fa-user"></i> Đăng nhập</a>
                             </div>
                         </div>
                     </div>

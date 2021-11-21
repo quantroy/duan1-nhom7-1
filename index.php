@@ -50,32 +50,6 @@ switch ($url) {
         require_once './client/business/account.php';
         reset_password();
         break;
-        // login
-    case 'dang-nhap':
-        require_once './client/business/account.php';
-        login();
-        break;
-    case 'dang-nhap/luu-dang-nhap':
-        require_once './client/business/account.php';
-        post();
-        break;
-        //Đăng ký
-    case 'tai-khoan/dang-ky':
-        require_once './client/business/account.php';
-        register();
-        break;
-
-        // staff- thử dữ liệu truyền đi sau khi login thành công
-    case 'dang-nhap/nhan-vien':
-        require_once './client/business/account.php';
-        staff();
-        break;
-    case 'dang-nhap/khach-hang':
-        require_once './client/business/account.php';
-        guest();
-        break;
-    // 
-
 
 
         // Controller Admin
