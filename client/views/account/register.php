@@ -62,9 +62,6 @@
     }
 
     .button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         margin: auto;
         width: 120px;
         height: 45px;
@@ -81,28 +78,35 @@
     span1{
         color: red;
     }
+    .but{
+        margin-left:120px;
+    }
 </style>
     <div class="form">
     <h3>Đăng Ký tài khoản để trở thành thành viên của Xiao Haha</h3>
         <form action="" method="post">
         <div class="a">
             <div> <label for="">Email <span1>(*)</span1> </label> </div>
-            <input type="email" name="email" placeholder="email">
+            <input type="email" name="email" id="" placeholder="Email" >
         </div>
         <div class="a">
             <div> <label for="">Mật Khấu <span1>(*)</span1> </label> </div>
-            <input type="text" name="password" placeholder="Mật Khẩu">
+            <input type="text" name="password" placeholder="Mật Khẩu" >
         </div>
         <div class="a">
             <div> <label for="">Họ Và Tên <span1>(*)</span1> </label> </div>
-            <input type="text" name="name" placeholder="Họ và Tên">
+            <input type="text" name="name" placeholder="Họ Và Tên">
         </div>
+        <div class="dot"></div>
         <div class="choose">
             <div>
                 Quên mật khẩu?bấm <a href=""><span>vào đây</span></a>
             </div>
         </div>
 
-        <button class="button" name="damg-ky" type="submit">Đăng Ký</button>
+        <div class="but">
+        <input class="button"  type="submit" name="dang-ky" value="Đăng Ký">
+        <button class="button" type="reset">Nhập Lại</button>
+        </div>
         </form>
     </div>
