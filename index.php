@@ -59,7 +59,11 @@ switch ($url) {
         require_once './client/business/account.php';
         post();
         break;
-        // 
+        //Đăng ký
+    case 'tai-khoan/dang-ky':
+        require_once './client/business/account.php';
+        register();
+        break;
 
         // staff- thử dữ liệu truyền đi sau khi login thành công
     case 'dang-nhap/nhan-vien':
