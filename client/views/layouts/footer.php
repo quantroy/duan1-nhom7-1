@@ -19,7 +19,6 @@
                     <ul>
                         <li><a href="#">Về chúng tôi</a></li>
                         <li><a href="#">Liên hệ</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Chính sách bảo mật</a></li>
                         <li><a href="#">Chính sách đổi trả</a></li>
                     </ul>
