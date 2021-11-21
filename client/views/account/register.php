@@ -103,6 +103,6 @@
             </div>
         </div>
 
-        <button class="button" name="damg-ky" type="submit">Đăng Ký</button>
+        <button class="button" name="dang-ky" type="submit">Đăng Ký</button>
         </form>
     </div>
