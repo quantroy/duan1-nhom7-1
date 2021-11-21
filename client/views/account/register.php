@@ -15,22 +15,13 @@
                     <div> <label style="font-weight: bold" for="">Họ Và Tên <span1 style="color:red">(*)</span1> </label> </div>
                     <input class="form-control" type="text" name="name" value placeholder="Họ Và Tên">
                 </div>
-
-                    <div>
-                        Quên mật khẩu?bấm <a href="" style="color: #0d713d; font-style: italic;"><strong>Vào đây</strong></a></a>
-                    </div>
-
-
-
-                    <input style="margin-left:50px;margin-top:30px;background:#0d713d;" class="btn btn-success btn-lg" type="submit" name="dang-ky" value="Đăng Ký">
-                    <button style="margin-top:30px;background:#0d713d;"  class="btn btn-success btn-lg"  type="reset">Nhập Lại</button>
+                <div>
+                    Quên mật khẩu?bấm <a href="" style="color: #0d713d; font-style: italic;"><strong>Vào đây</strong></a></a>
+                </div>
+                <input style="margin-left:50px;margin-top:30px;background:#0d713d;" class="btn btn-success btn-lg" type="submit" name="dang-ky" value="Đăng Ký">
+                <button style="margin-top:30px;background:#0d713d;"  class="btn btn-success btn-lg"  type="reset">Nhập Lại</button>
 
             </form>
         </div>
     </div>
 </section>
-<style>
-    input{
-        background
-    }
-</style>
