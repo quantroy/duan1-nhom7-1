@@ -87,7 +87,7 @@
         <form action="" method="post">
         <div class="a">
             <div> <label for="">Email <span1>(*)</span1> </label> </div>
-            <input type="text" name="email" id="" placeholder="Email" >
+            <input type="email" name="email" id="" placeholder="Email" >
         </div>
         <div class="a">
             <div> <label for="">Mật Khấu <span1>(*)</span1> </label> </div>
