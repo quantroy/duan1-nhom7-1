@@ -34,7 +34,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="trang-chu"><img src="<?= CLIENT_ASSET ?>img/logo.png" alt=""></a>
+            <a href="<?= BASE_URL ?>trang-chu"><img src="<?= CLIENT_ASSET ?>img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -50,11 +50,11 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="/">Trang Chủ</a></li>
-                <li><a href="san-pham">Sản phẩm</a></li>
+                <li class="active"><a href="<?= BASE_URL ?>trang-chu">Trang Chủ</a></li>
+                <li><a href="<?= BASE_URL ?>san-pham">Sản phẩm</a></li>
 
-                <li><a href="tin-tuc">Tin Tức</a></li>
-                <li><a href="lien-he">Liên Hệ</a></li>
+                <li><a href="<?= BASE_URL ?>tin-tuc">Tin Tức</a></li>
+                <li><a href="<?= BASE_URL ?>lien-he">Liên Hệ</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -105,17 +105,17 @@
             <div class="row d-flex align-items-center">
                 <div class=" col-lg-3">
                     <div class="header__logo">
-                        <a href="trang-chu"><img src="<?= CLIENT_ASSET ?>img/logo.png" alt=""></a>
+                        <a href="<?= BASE_URL ?>trang-chu"><img src="<?= CLIENT_ASSET ?>img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="trang-chu">Trang Chủ</a></li>
-                            <li><a href="san-pham">Sản Phẩm</a></li>
+                            <li><a href="<?= BASE_URL ?>trang-chu">Trang Chủ</a></li>
+                            <li><a href="<?= BASE_URL ?>san-pham">Sản Phẩm</a></li>
 
-                            <li class=""><a href="tin-tuc">Tin Tức</a></li>
-                            <li><a href="lien-he">Liên Hệ</a></li>
+                            <li class=""><a href="<?= BASE_URL ?>tin-tuc">Tin Tức</a></li>
+                            <li><a href="<?= BASE_URL ?>lien-he">Liên Hệ</a></li>
                         </ul>
                     </nav>
                 </div>
