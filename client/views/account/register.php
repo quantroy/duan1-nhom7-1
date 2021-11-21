@@ -12,7 +12,7 @@
                     <input  class="form-control  " type="password" name="password" value placeholder="Mật Khẩu">
                 </div>
                 <div class="form-group" >
-                    <div> <label style="font-weight: bold" for="">Họ Và Tên <span1 style="color:red">(*)</span1> </label> </div>
+                    <div> <label style="font-weight: bold" for="">Họ và Tên <span1 style="color:red">(*)</span1> </label> </div>
                     <input class="form-control" type="text" name="name" value placeholder="Họ Và Tên">
                 </div>
                 <div>
