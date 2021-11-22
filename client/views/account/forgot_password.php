@@ -10,7 +10,7 @@
                         <span class='text-danger'><?= $_SESSION['false'] ?></span>
 
                     <?php } ?>
-                    <input class="form-control " type="email" name="email" id="" value placeholder="Email">
+                    <input class="form-control " type="email" name="email" id="" value placeholder="Nhập email của bạn">
                 </div>
 
 

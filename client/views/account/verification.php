@@ -13,7 +13,7 @@
                     <div class='alert alert-primary' role="alert">Nhập mã xác nhận chúng tôi đã gửi cho bạn về Email</div>
                 <?php endif ?>
                 <div class="form-group">
-
+                    <div> <label style="font-weight: bold" for="">Mã xác nhận </label> </div>
                     <input class="form-control " type="text" name="code" value placeholder="Nhập mã xác nhận">
                 </div>
 
