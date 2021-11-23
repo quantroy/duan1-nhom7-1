@@ -22,6 +22,14 @@ switch ($url) {
         require_once './client/business/product.php';
         list_product();
         break;
+        // case 'san-pham/moi-nhat':
+        //     require_once './client/business/product.php';
+        //     list_new_product();
+        //     break;
+    case 'san-pham/tim-kiem':
+        require_once './client/business/product.php';
+        search_product();
+        break;
 
     case 'tin-tuc':
         require_once './client/business/blog.php';
@@ -54,7 +62,14 @@ switch ($url) {
         require_once './client/business/account.php';
         register();
         break;
-
+    case 'tai-khoan/cap-nhat':
+        require_once './client/business/account.php';
+        update_account();
+        break;
+    case 'tai-khoan/dang-nhap':
+        require_once './client/business/account.php';
+        login();
+        break;
         // Controller Admin
     case 'cp-admin':
         require_once './admin/business/dashboard.php';

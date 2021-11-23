@@ -1,3 +1,8 @@
+if (isset($_GET['id']) && ($_GET['id'])) {
+    $id = $_GET['id'];
+}
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Xiao Haha">
@@ -94,7 +99,8 @@
                             </div>
 
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Đăng nhập</a>
+                                <a href="<?= BASE_URL ?>tai-khoan/dang-nhap"><i class="fa fa-user"></i> Đăng nhập</a>
+                                <a href="<?= BASE_URL ?>tai-khoan/cap-nhat?id=<?= $id ?>"><i class="fa fa-id-card"></i>Thông tin</a>
                             </div>
                         </div>
                     </div>

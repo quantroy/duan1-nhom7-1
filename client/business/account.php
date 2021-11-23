@@ -104,3 +104,54 @@ function register()
     }
     client_render('account/register.php');
 }
+function update_account()
+{
+    if (isset($_POST['update']) && $_POST['update']) {
+        $id = $_GET['id'];
+        $name_new = $_POST['name'];
+        $email_new = $_POST['email'];
+        $phone_new = $_POST['phone'];
+        $date_upadte = date('Y/m/d');
+        if (isset($_FILES['image']) && $_FILES['image']['name']) {
+            $img_new = $_FILES['image'];
+            $maxSize = 800000;
+            $dir = "./public/uploads/";
+            $target_file = $dir . basename($img_new['name']);
+            $type = pathinfo($target_file, PATHINFO_EXTENSION);
+            $allowtypes    = array('jpg', 'png', 'jpeg');
+            if ($img_new["size"] > $maxSize) {
+                $_SESSION['fale'] = "File ảnh quá lớn. Vui lòng chọn ảnh khác";
+            } elseif (!in_array($type, $allowtypes)) {
+                $_SESSION['fale'] = "Chỉ được upload các định dạng JPG, PNG, JPEG";
+            } elseif (in_array($type, $allowtypes)) {
+                $avatar_new = uniqid() . "-" . $img_new['name'];
+                move_uploaded_file($img_new['tmp_name'], $dir . $avatar_new);
+                $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new', avatar = '$avatar_new', avatar = '$avatar_new' WHERE id = '$id'";
+                pdo_execute("$sql");
+                $_SESSION['success'] = "Cập nhật thành công";
+                header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
+            }
+        }
+        $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new', phone = '$phone_new', updated_at = '$date_upadte' WHERE id = '$id'";
+        pdo_execute($sql);
+        header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
+        $_SESSION['success'] = "Cập nhật thành công";
+    }
+    client_render('account/update_account.php');
+}
+
+function login()
+{
+    if (isset($_POST['login']) && $_POST['login']) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        foreach (selectDb("SELECT * FROM accounts WHERE email = '$email' AND password = '$password'") as $row) {
+            if ($email == $row['email']) {
+                header('location:' . BASE_URL . 'trang-chu' . '?id=' . $row['id']);
+            } else {
+                header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
+            }
+        }
+    }
+    client_render('account/login.php');
+}
