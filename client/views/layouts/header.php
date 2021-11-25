@@ -158,8 +158,8 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="Bạn cần tìm sản phẩm...">
+                            <form action="" method="get">
+                                <input type="text" name="keyword" value="<?= $keyword ?>" placeholder="Bạn cần tìm sản phẩm...">
                                 <button type="submit" class="site-btn">Tìm Kiếm</button>
                             </form>
                         </div>

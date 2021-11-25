@@ -27,3 +27,12 @@ function admin_render($view, $data = [], $jsFile = null)
     $view = './admin/views/' . $view;
     include_once "./admin/views/layouts/main.php";
 }
+//
+
+function search_pro()
+{
+    $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : "";
+    $sql = "SELECT * FROM products where name like '%$keyword%'";
+    $products = executeQuery($sql, true);
+    client_render('product/index.php');
+}
