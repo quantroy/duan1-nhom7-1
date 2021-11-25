@@ -129,17 +129,16 @@ function update_account()
                 $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new', avatar = '$avatar_new', avatar = '$avatar_new' WHERE id = '$id'";
                 pdo_execute("$sql");
                 $_SESSION['success'] = "Cập nhật thành công";
-                header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
+                header('location:' . BASE_URL . 'trang-chu'  . '?id=' . $id['id']);
             }
         }
         $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new', phone = '$phone_new', updated_at = '$date_upadte' WHERE id = '$id'";
         pdo_execute($sql);
-        header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
-        $_SESSION['success'] = "Cập nhật thành công";
+        header('location:' . BASE_URL . 'trang-chu'  . '?id=' . $id['id']);
     }
     client_render('account/update_account.php');
 }
-
+//cái login này khánh tạo để test chức năng cập nhật ko phải login chính thức
 function login()
 {
     if (isset($_POST['login']) && $_POST['login']) {
@@ -155,3 +154,4 @@ function login()
     }
     client_render('account/login.php');
 }
+//end login

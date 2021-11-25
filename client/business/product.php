@@ -8,10 +8,3 @@ function list_new_product()
 {
     client_render('product/new_product.php');
 }
-
-function search_product()
-{
-    
-
-    client_render('product/search_product.php');
-}
