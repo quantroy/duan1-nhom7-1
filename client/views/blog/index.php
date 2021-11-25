@@ -1,5 +1,5 @@
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="<?= CLIENT_ASSET ?>img/breadcrumb.jpg">
+<section class="breadcrumb-section set-bg" data-setbg="<?= CLIENT_ASSET ?>img/banner/banner-top2.png">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
