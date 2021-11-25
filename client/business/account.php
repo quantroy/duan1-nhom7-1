@@ -104,6 +104,7 @@ function register()
     }
     client_render('account/register.php');
 }
+//cập nhật tài khoản người dùng
 function update_account()
 {
     if (isset($_POST['update']) && $_POST['update']) {
