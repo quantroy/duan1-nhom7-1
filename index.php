@@ -6,6 +6,8 @@ $url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : "/";
 require_once './commons/utils.php';
 require_once './mail/index.php';
 require_once './dao/system_dao.php';
+require_once './client/business/product.php';
+
 
 // dd($url);
 switch ($url) {
@@ -18,14 +20,17 @@ switch ($url) {
         home();
         break;
 
+        // controller Product
     case 'san-pham':
         require_once './client/business/product.php';
-        list_product();
+        // list_product();
+        search_product();
         break;
 
     case 'tin-tuc':
         require_once './client/business/blog.php';
         blog();
+
         break;
 
     case 'lien-he':
