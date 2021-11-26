@@ -24,7 +24,9 @@ switch ($url) {
     case 'san-pham':
         require_once './client/business/product.php';
         // list_product();
-        search_product();
+        // search_product();
+        product_pagination();
+
         break;
 
     case 'tin-tuc':
