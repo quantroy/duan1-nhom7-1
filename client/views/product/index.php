@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="product__item__text">
                                         <h6><a href="#"><?= $product['name'] ?></a></h6>
-                                        <h5><?= $product['price'] ?></h5>
+                                        <h5><?= number_format($product['price'], 0, '', ',') ?>đ</h5>
                                     </div>
                                 </div>
                             </div>
