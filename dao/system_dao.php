@@ -98,3 +98,8 @@ function selectDb($sql)
     $result = $stmt->fetchAll();
     return $result;
 }
+function action($sql)
+{
+    $conn = pdo_get_connection();
+    $conn->exec($sql);
+}

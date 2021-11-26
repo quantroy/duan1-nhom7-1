@@ -22,15 +22,6 @@ switch ($url) {
         require_once './client/business/product.php';
         list_product();
         break;
-        // case 'san-pham/moi-nhat':
-        //     require_once './client/business/product.php';
-        //     list_new_product();
-        //     break;
-    case 'san-pham/tim-kiem':
-        require_once './client/business/product.php';
-        search_product();
-        break;
-
     case 'tin-tuc':
         require_once './client/business/blog.php';
         blog();
@@ -90,6 +81,10 @@ switch ($url) {
     case 'cp-admin/danh-muc/luu-tao-moi':
         require_once './admin/business/category.php';
         cate_save_add();
+        break;
+    case 'cp-admin/danh-muc/cap-nhat':
+        require_once './admin/business/category.php';
+        cate_update();
         break;
 
     default:

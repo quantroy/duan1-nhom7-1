@@ -153,12 +153,11 @@ if (isset($_GET['id']) && ($_GET['id'])) {
                             <span>Danh Mục</span>
                         </div>
                         <ul>
-                            <li><a href="#">Sản Phẩm Nổi Bật</a></li>
-                            <li><a href="#">Trà Sữa</a></li>
-                            <li><a href="#">Fresh Fruit Tea</a></li>
-                            <li><a href="#">Machito</a></li>
-                            <li><a href="#">Trà Đào</a></li>
-                            <li><a href="#">Sữa Chua Dẻo</a></li>
+                            <?php foreach (selectDb("SELECT * FROM categories WHERE show_menu = '1'") as $items) { ?>
+
+                                <li><a href="<?php echo $items['cate_slug'] ?>"><?php echo $items['name'] ?></a></li>
+
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>

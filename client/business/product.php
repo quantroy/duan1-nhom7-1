@@ -4,7 +4,11 @@ function list_product()
 {
     client_render('product/index.php');
 }
-function list_new_product()
+function search_product()
 {
-    client_render('product/new_product.php');
+    $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : "";
+    // var_dump($keyword);
+    $sql = "SELECT * FROM products where name like '%$keyword%'";
+    $products = executeQuery($sql, true);
+    client_render('product/index.php', compact('keyword', 'products'));
 }

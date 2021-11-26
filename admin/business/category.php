@@ -15,7 +15,7 @@ function cate_remove()
 {
     $id = $_GET['id'];
     $sql = "DELETE from categories where id = $id";
-    executeQuery($sql);
+    pdo_execute($sql);
     header("location: " . ADMIN_URL . 'danh-muc');
 }
 
@@ -29,6 +29,22 @@ function cate_save_add()
     $name = $_POST['name'];
     $show_menu = isset($_POST['show_menu']) ? 1 : 0;
     $sql = "INSERT into categories (name, show_menu) values ('$name', $show_menu)";
-    executeQuery($sql);
+    pdo_execute($sql);
     header("location: " . ADMIN_URL . 'danh-muc');
 }
+//cập nhật danh mục
+function cate_update()
+{
+    if (isset($_POST['update'])) {
+        $id = $_GET['id'];
+        $link_cate = BASE_URL."danh-muc?id=".$id;
+        $update_at = date('y/m/d');
+        $cate_show_new = $_POST['show_menu'];
+        $cate_name_new = $_POST['name'];
+        $sql = "UPDATE categories SET name = '$cate_name_new', show_menu = '$cate_show_new', updated_at = '$update_at', cate_slug = '$link_cate' WHERE id = '$id'";
+        pdo_execute($sql);
+        header("location: " . BASE_URL . "cp-admin/danh-muc");
+    }
+    admin_render('category/cate_update.php');
+}
+//end 
