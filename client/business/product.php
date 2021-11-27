@@ -32,11 +32,6 @@ function product_index()
     // dd($total_page);
 }
 function loadall_sanpham($cate_id=0){
-    if(isset($_POST['filter'])&& ($_POST['filter']>0)){
-        $cate_id = $_POST['cate_id'];
-    }else{
-        $cate_id = 0;
-    }
     $sql = "SELECT * FROM products where 1 ";
     if($cate_id>0){
         $sql .= " and cate_id LIKE '".$cate_id."'";
@@ -50,3 +45,9 @@ function loadall_sanpham_top10(){
     $top10 = pdo_query($sql);
     return $top10;
 } 
+function load_ten_dm($cate_id){
+    $sql = "SELECT *  FROM categories where id=".$cate_id;
+    $dm=pdo_query_one($sql);
+    extract($dm);
+    return $name;
+}

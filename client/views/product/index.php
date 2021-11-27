@@ -25,16 +25,13 @@
                     <div class="sidebar__item">
                         <h4>Department</h4>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
+                        <?php
+                        $listdanhmuc = loadall_danhmuc();
+                        ?>
+                        <?php foreach($listdanhmuc as $danhmuc):?>
+                                    <li><a href="<?= BASE_URL . 'san-pham?cate_id=' . $danhmuc['id']?>"><?=$danhmuc['name']?></a></li>
+                        
+                        <?php endforeach;?>
                         </ul>
                     </div>
                     <div class="sidebar__item">
@@ -75,19 +72,14 @@
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
                                 <span>Kiểu lọc</span>
-                                <form action="" method="post" style="margin-left: 50px;margin-top: -25px;">
-                                    <select class="cate_id" name="cate_id" id="">
-                                        <option value="0" selected>Tất cả</option>
-                                        <?php 
-                                        $listdanhmuc = loadall_danhmuc();
-                                        foreach ($listdanhmuc as $danhmuc){
-                                        extract($danhmuc);
-                                        echo '<option value="'.$id.'">'.$name.'</option>';
-                                        }
-                                        ?>
-                                    </select>
-                                <input class="btn btn-success btn-sm " name="filter" type="submit" value="Filter">
-                                </form>
+                                <?php  if(isset($_GET['cate_id'])&&($_GET['cate_id']>0)){
+                                $cate_id=$_GET['cate_id'];
+                                    }else{
+                                        $cate_id=0;
+                                    }
+                                    $tendm = load_ten_dm($cate_id);
+                                    ?>
+                                <span><?=$tendm?></span>
                             </div>
                         </div>
 

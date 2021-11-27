@@ -150,11 +150,11 @@
                         <ul>
                         <?php
                         $listdanhmuc = loadall_danhmuc();
-                        foreach($listdanhmuc as $danhmuc){
-                            echo '
-                                    <li><a href="#">'.$danhmuc['name'].'</a></li>';
-                        }
                         ?>
+                        <?php foreach($listdanhmuc as $danhmuc):?>
+                                    <li><a href="<?= BASE_URL . 'san-pham?cate_id=' . $danhmuc['id']?>"><?=$danhmuc['name']?></a></li>
+                        
+                        <?php endforeach;?>
                         </ul>
                     </div>
                 </div>
