@@ -75,10 +75,19 @@
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
                                 <span>Kiểu lọc</span>
-                                <select>
-                                    <option value="0">Mặc định</option>
-                                    <option value="0">mặc định</option>
-                                </select>
+                                <form action="" method="post" style="margin-left: 50px;margin-top: -25px;">
+                                    <select class="cate_id" name="cate_id" id="">
+                                        <option value="0" selected>Tất cả</option>
+                                        <?php 
+                                        $listdanhmuc = loadall_danhmuc();
+                                        foreach ($listdanhmuc as $danhmuc){
+                                        extract($danhmuc);
+                                        echo '<option value="'.$id.'">'.$name.'</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                <input class="btn btn-success btn-sm " name="filter" type="submit" value="Filter">
+                                </form>
                             </div>
                         </div>
 
@@ -86,6 +95,13 @@
                 </div>
                 <div class="row">
                     <?php if (!empty($products)) : ?>
+                        <?php if(isset($_GET['cate_id'])&&($_GET['cate_id']>0)){
+                                $cate_id=$_GET['cate_id'];
+                            }else{
+                                $cate_id=0;
+                            } 
+                            $products=loadall_sanpham($cate_id);
+                        ?>
                         <?php foreach ($products as $product) : ?>
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">

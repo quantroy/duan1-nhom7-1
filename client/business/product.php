@@ -31,3 +31,22 @@ function product_index()
 
     // dd($total_page);
 }
+function loadall_sanpham($cate_id=0){
+    if(isset($_POST['filter'])&& ($_POST['filter']>0)){
+        $cate_id = $_POST['cate_id'];
+    }else{
+        $cate_id = 0;
+    }
+    $sql = "SELECT * FROM products where 1 ";
+    if($cate_id>0){
+        $sql .= " and cate_id LIKE '".$cate_id."'";
+    }
+    $sql.= " order by id desc";
+    $products = pdo_query($sql);
+    return $products;
+}
+function loadall_sanpham_top10(){
+    $sql = "SELECT * FROM products where 1 order by luotxem desc limit 0,7 ";
+    $top10 = pdo_query($sql);
+    return $top10;
+} 
