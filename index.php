@@ -22,8 +22,14 @@ switch ($url) {
 
         // controller Product
     case 'san-pham':
+        if (isset($_GET['cate_id']) && ($_GET['cate_id'] > 0)) {
+            $cate_id = $_GET['cate_id'];
+            $products = loadall_sanpham($cate_id);
+        } else {
+            product_index();
+        }
+
         require_once './client/business/product.php';
-        product_index();
         break;
 
     case 'tin-tuc':

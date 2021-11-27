@@ -25,13 +25,13 @@
                     <div class="sidebar__item">
                         <h4>Department</h4>
                         <ul>
-                        <?php
-                        $listdanhmuc = loadall_danhmuc();
-                        ?>
-                        <?php foreach($listdanhmuc as $danhmuc):?>
-                                    <li><a href="<?= BASE_URL . 'san-pham?cate_id=' . $danhmuc['id']?>"><?=$danhmuc['name']?></a></li>
-                        
-                        <?php endforeach;?>
+                            <?php
+                            $listdanhmuc = loadall_danhmuc();
+                            ?>
+                            <?php foreach ($listdanhmuc as $danhmuc) : ?>
+                                <li><a href="<?= BASE_URL . 'san-pham?cate_id=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a></li>
+
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                     <div class="sidebar__item">
@@ -72,14 +72,7 @@
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
                                 <span>Kiểu lọc</span>
-                                <?php  if(isset($_GET['cate_id'])&&($_GET['cate_id']>0)){
-                                $cate_id=$_GET['cate_id'];
-                                    }else{
-                                        $cate_id=0;
-                                    }
-                                    $tendm = load_ten_dm($cate_id);
-                                    ?>
-                                <span><?=$tendm?></span>
+
                             </div>
                         </div>
 
@@ -87,13 +80,7 @@
                 </div>
                 <div class="row">
                     <?php if (!empty($products)) : ?>
-                        <?php if(isset($_GET['cate_id'])&&($_GET['cate_id']>0)){
-                                $cate_id=$_GET['cate_id'];
-                            }else{
-                                $cate_id=0;
-                            } 
-                            $products=loadall_sanpham($cate_id);
-                        ?>
+
                         <?php foreach ($products as $product) : ?>
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
@@ -120,10 +107,13 @@
                 <div class="product__pagination">
                     <!-- nut prev -->
                     <?php if ($current_page > 1 && $total_page > 1) : ?>
-                        <?php if (!isset($_GET['keyword'])) : ?>
-                            <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
-                        <?php else : ?>
+                        <?php if (isset($_GET['keyword'])) : ?>
                             <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                        <?php elseif (isset($_GET['cate_id'])) : ?>
+                            <a href="<?= BASE_URL . 'san-pham?cate_id=' . $_GET['cate_id'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+
+                        <?php else : ?>
+                            <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
                         <?php endif ?>
                     <?php endif ?>
 
@@ -132,20 +122,27 @@
                         <?php if ($i == $current_page) : ?>
                             <a disabled style="background-color: #7fad39; color: white"><?= $i ?></a>
                         <?php else : ?>
-                            <?php if (!isset($_GET['keyword'])) : ?>
-                                <a href="<?= BASE_URL . 'san-pham?trang=' . $i ?>"><?= $i ?></a>
-                            <?php else : ?>
+                            <?php if (isset($_GET['keyword'])) : ?>
                                 <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $i ?>"><?= $i ?></a>
+                            <?php elseif (isset($_GET['cate_id'])) : ?>
+                                <a href="<?= BASE_URL . 'san-pham?cate_id=' . $_GET['cate_id'] . '&trang=' . $i ?>"><?= $i ?></a>
+
+                            <?php else : ?>
+                                <a href="<?= BASE_URL . 'san-pham?trang=' . $i ?>"><?= $i ?></a>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endfor ?>
 
                     <!-- nut next -->
                     <?php if ($current_page < $total_page && $total_page > 1) : ?>
-                        <?php if (!isset($_GET['keyword'])) : ?>
-                            <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
-                        <?php else : ?>
+                        <?php if (isset($_GET['keyword'])) : ?>
                             <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+                        <?php elseif (isset($_GET['cate_id'])) : ?>
+                            <a href="<?= BASE_URL . 'san-pham?cate_id=' . $_GET['cate_id'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+
+                        <?php else : ?>
+                            <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+
                         <?php endif ?> <?php endif ?>
                 </div>
             </div>
