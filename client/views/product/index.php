@@ -72,7 +72,6 @@
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
                                 <span>Kiểu lọc</span>
-
                             </div>
                         </div>
 
@@ -80,7 +79,6 @@
                 </div>
                 <div class="row">
                     <?php if (!empty($products)) : ?>
-
                         <?php foreach ($products as $product) : ?>
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
