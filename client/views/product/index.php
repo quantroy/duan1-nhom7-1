@@ -112,13 +112,17 @@
                 <div class="product__pagination">
                     <!-- nut prev -->
                     <?php if ($current_page > 1 && $total_page > 1) : ?>
-                        <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                        <?php if (!isset($_GET['keyword'])) : ?>
+                            <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                        <?php else : ?>
+                            <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                        <?php endif ?>
                     <?php endif ?>
 
                     <!-- phan trang -->
                     <?php for ($i = 1; $i <= $total_page; $i++) : ?>
                         <?php if ($i == $current_page) : ?>
-                            <a disabled><?= $i ?></a>
+                            <a disabled style="background-color: #7fad39; color: white"><?= $i ?></a>
                         <?php else : ?>
                             <?php if (!isset($_GET['keyword'])) : ?>
                                 <a href="<?= BASE_URL . 'san-pham?trang=' . $i ?>"><?= $i ?></a>
@@ -130,8 +134,11 @@
 
                     <!-- nut next -->
                     <?php if ($current_page < $total_page && $total_page > 1) : ?>
-                        <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
-                    <?php endif ?>
+                        <?php if (!isset($_GET['keyword'])) : ?>
+                            <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+                        <?php else : ?>
+                            <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+                        <?php endif ?> <?php endif ?>
                 </div>
             </div>
         </div>

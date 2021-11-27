@@ -23,10 +23,7 @@ switch ($url) {
         // controller Product
     case 'san-pham':
         require_once './client/business/product.php';
-        // list_product();
-        // search_product();
-        product_pagination();
-
+        product_index();
         break;
 
     case 'tin-tuc':
