@@ -160,8 +160,6 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <?php search_product();
-                            ?>
                             <form action="<?= BASE_URL ?>san-pham" method="get">
                                 <input type="text" name="keyword" value="<?= $keyword = '' ?>" placeholder="Bạn cần tìm sản phẩm...">
                                 <button type="submit" class="site-btn">Tìm Kiếm</button>
