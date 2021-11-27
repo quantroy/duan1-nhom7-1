@@ -72,14 +72,6 @@
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
                                 <span>Kiểu lọc</span>
-                                <?php  if(isset($_GET['cate_id'])&&($_GET['cate_id']>0)){
-                                $cate_id=$_GET['cate_id'];
-                                    }else{
-                                        $cate_id=0;
-                                    }
-                                    $tendm = load_ten_dm($cate_id);
-                                    ?>
-                                <span><?=$tendm?></span>
                             </div>
                         </div>
 
@@ -89,10 +81,10 @@
                     <?php if (!empty($products)) : ?>
                         <?php if(isset($_GET['cate_id'])&&($_GET['cate_id']>0)){
                                 $cate_id=$_GET['cate_id'];
-                            }else{
-                                $cate_id=0;
+                                $products=loadall_sanpham($cate_id);
+
                             } 
-                            $products=loadall_sanpham($cate_id);
+                            
                         ?>
                         <?php foreach ($products as $product) : ?>
                             <div class="col-lg-4 col-md-6 col-sm-6">
