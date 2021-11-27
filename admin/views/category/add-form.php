@@ -12,6 +12,10 @@
                             <input type="text" name="name" class="form-control" placeholder="" aria-describedby="helpId">
                         </div>
                         <div class="form-group">
+                            <label for="">Đường dẫn danh mục</label>
+                            <input type="text" name="url" class="form-control" placeholder="" aria-describedby="helpId">
+                        </div>
+                        <div class="form-group">
                             <div class="form-check">
                                 <input class="form-check-input" id="show_menu" name="show_menu" value="1" type="checkbox">
                                 <label class="form-check-label" for="show_menu">Hiển thị menu</label>
