@@ -99,38 +99,8 @@ function register()
         $name = $_POST['name'];
         $password = $_POST['password'];
         $email = $_POST['email'];
-        $password = password_hash($password,PASSWORD_DEFAULT);
-
-        $getUserByEmail = "SELECT * FROM accounts WHERE email = '$email'";
-        $user = executeQuery($getUserByEmail, false);
-
-        $errors = "";
-        if (empty($email)) {
-            $errors .= "email-err=Hãy nhập email&";
-        } else if ($email == $user['email']) {
-            $errors .= "email-err=Tài khoản đã tồn tại&";
-        }
-        if (empty($password)) {
-            $errors .= "password-err=Hãy nhập mật khẩu&";
-        } else if ($password >= 6) {
-            $errors .= "password-err=Tối thiểu phải có 6 kí tự trở lên&";
-        }
-        if (empty($name)) {
-            $errors .= "name-err=Hãy nhập họ và tên&";
-        }
-
-        $errors = rtrim($errors, '&');
-
-        if (strlen($errors) > 0) {
-            header('location:' . BASE_URL . 'tai-khoan/dang-ky' . '?' . $errors);
-            die;
-        }
-        else {
         $sql = "INSERT INTO accounts(email,name,password) values('$email','$name','$password')";
         pdo_execute($sql);
-        header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
-        die;
-     }
     }
     client_render('account/register.php');
 }
