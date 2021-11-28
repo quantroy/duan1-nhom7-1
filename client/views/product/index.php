@@ -85,6 +85,7 @@
                 <div class="row">
                     <?php if (!empty($products)) : ?>
                         <?php foreach ($products as $product) : ?>
+
                             <?php if($product['status'] == 1):?>
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product__item">
@@ -93,6 +94,7 @@
                                             <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null):?>
                                                 <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id']?>"><i class="fa fa-heart"></i></a></li>
                                             <?php endif ?>
+
                                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>

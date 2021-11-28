@@ -31,7 +31,6 @@ switch ($url) {
 
         require_once './client/business/product.php';
         break;
-
     case 'tin-tuc':
         require_once './client/business/blog.php';
         blog();
@@ -48,9 +47,9 @@ switch ($url) {
         favorite_product();
         break;
         // controller tài khoản
-    case 'tai-khoan':
-        require_once './client/business/account.php';
-        //Viết hàm hiển thị thông tin người dùng
+    // case 'tai-khoan':
+    //     require_once './client/business/account.php';
+    //     update_account();
         break;
     case 'tai-khoan/quen-mat-khau':
         require_once './client/business/account.php';
@@ -67,6 +66,10 @@ switch ($url) {
     case 'tai-khoan/dang-ky':
         require_once './client/business/account.php';
         register();
+        break;
+    case 'tai-khoan/cap-nhat':
+        require_once './client/business/account.php';
+        update_account();
         break;
     case 'tai-khoan/dang-nhap':
         require_once './client/business/account.php';
@@ -102,6 +105,9 @@ switch ($url) {
         require_once './admin/business/category.php';
         cate_save_add();
         break;
+    case 'cp-admin/danh-muc/cap-nhat':
+        require_once './admin/business/category.php';
+        cate_update();
      // product
      case 'cp-admin/san-pham':
         require_once './admin/business/product.php';
@@ -126,6 +132,7 @@ switch ($url) {
     case 'cp-admin/san-pham/luu-sua':
         require_once './admin/business/product.php';
         pro_save_fix();
+
         break;
 
     default:
