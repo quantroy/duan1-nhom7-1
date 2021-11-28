@@ -130,12 +130,13 @@ function update_account()
                 $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new',updated_at = '$date_upadte', avatar = '$avatar_new', avatar = '$avatar_new', phone = '$phone_new' WHERE id = '$id'";
                 pdo_execute("$sql");
                 $_SESSION['success'] = "Cập nhật thành công";
-                header('location:' . BASE_URL . 'trang-chu'  . '?id=' . $id['id']);
+                header('refresh:3;' . BASE_URL . 'trang-chu?id='.$id);
             }
         }
         $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new', updated_at = '$date_upadte', phone = '$phone_new' WHERE id = '$id'";
         pdo_execute($sql);
-        header('location:' . BASE_URL . 'trang-chu'  . '?id=' . $id['id']);
+        $_SESSION['success'] = "Cập nhật thành công";
+        header('refresh:3;' . BASE_URL . 'trang-chu?id='.$id);
     }
     client_render('account/update_account.php');
 }

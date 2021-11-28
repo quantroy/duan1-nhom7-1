@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+
 function pdo_get_connection()
 {
     $dburl = "mysql:host=localhost;dbname=2021-duan1-nhom7;charset=utf8";

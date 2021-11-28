@@ -3,8 +3,6 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     foreach (selectDb("SELECT * FROM categories WHERE id = '$id'") as $key) {
         $name = $key['name'];
-        $cate_url = $key['cate_slug'];
-        $id_cate = $key['id'];
     }
 }
 ?>
@@ -15,15 +13,11 @@ if (isset($_GET['id'])) {
                 <h3 class="card-title">Cập nhật danh mục</h3>
             </div>
             <div class="card-body">
-                <form action="<?= ADMIN_URL . 'danh-muc/cap-nhat?id=' . $id_cate ?>" method="post">
+                <form action="<?= ADMIN_URL . 'danh-muc/cap-nhat?id=' . $id ?>" method="post">
                     <div class="col-6 offset-3">
                         <div class="form-group">
                             <label for="">Tên danh mục</label>
                             <input type="text" name="name" class="form-control" value="<?= $name ?>" placeholder="" aria-describedby="helpId">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Đường dẫn danh mục</label>
-                            <input type="text" name="url" class="form-control" value="<?= $cate_url ?>" placeholder="" aria-describedby="helpId">
                         </div>
                         <div class="form-group">
                             <div class="form-check">

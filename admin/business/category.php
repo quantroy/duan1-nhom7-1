@@ -26,10 +26,9 @@ function cate_add_form()
 function cate_save_add()
 {
     $name = $_POST['name'];
-    $cate_url = $_POST['url'];
-    $link_cate = BASE_URL . "danh-muc/" . $cate_url;
+    $created_at = date('Y/m/d H:i:s');
     $show_menu = isset($_POST['show_menu']) ? 1 : 0;
-    $sql = "INSERT into categories (name, show_menu,cate_slug) values ('$name', $show_menu,'$link_cate')";
+    $sql = "INSERT into categories (name, show_menu,created_at) values ('$name', $show_menu,'$created_at')";
     pdo_execute($sql);
     header("location: " . ADMIN_URL . 'danh-muc');
 }
@@ -38,12 +37,10 @@ function cate_update()
 {
     if (isset($_POST['update'])) {
         $id = $_GET['id'];
-        $update_at = date('y/m/d');
+        $update_at = date('y/m/d H:i:s');
         $cate_show_new = $_POST['show_menu'];
         $cate_name_new = $_POST['name'];
-        $cate_url = $_POST['url'];
-        $link_cate =  $cate_url;
-        $sql = "UPDATE categories SET name = '$cate_name_new', show_menu = '$cate_show_new', updated_at = '$update_at', cate_slug = '$link_cate' WHERE id = '$id'";
+        $sql = "UPDATE categories SET name = '$cate_name_new', show_menu = '$cate_show_new', updated_at = '$update_at' WHERE id = '$id'";
         pdo_execute($sql);
         header("location: " . BASE_URL . "cp-admin/danh-muc");
     }
