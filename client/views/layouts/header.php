@@ -97,8 +97,8 @@
 
                             <div class="header__top__right__auth">
                             <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null):?>
-                                   <div style="display:flex;justify-content:space-around;width:150px">
-                                  <a href=""><i class="fa fa-user"></i><?= $_SESSION['auth']['name'] ?> </a>
+                                   <div style="display:flex; justify-content:flex-end; min-width:100px">
+                                  <a style="margin-right:30px" href=""><i class="fa fa-user"></i><?= $_SESSION['auth']['name'] ?> </a>
                                     <a href="<?= BASE_URL . 'tai-khoan/dang-xuat'?>">Đăng xuất</a>
                                    </div>
                             <?php else: ?>
