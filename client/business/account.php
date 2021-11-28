@@ -146,7 +146,7 @@ function login()
                                     where remember_token = '$loginToken'
                                     and remember_expire >= '$currentTime'";
 
-        $user = executeQuery($getUserByRememberToken, false);
+        $user = pdo_execute($getUserByRememberToken, false);
 
         if ($user['role'] == 1) {
             unset($user['password']);
