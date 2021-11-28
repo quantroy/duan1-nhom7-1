@@ -99,8 +99,38 @@ function register()
         $name = $_POST['name'];
         $password = $_POST['password'];
         $email = $_POST['email'];
+        $password = password_hash($password,PASSWORD_DEFAULT);
+
+        $getUserByEmail = "SELECT * FROM accounts WHERE email = '$email'";
+        $user = executeQuery($getUserByEmail, false);
+
+        $errors = "";
+        if (empty($email)) {
+            $errors .= "email-err=Hãy nhập email&";
+        } else if ($email == $user['email']) {
+            $errors .= "email-err=Tài khoản đã tồn tại&";
+        }
+        if (empty($password)) {
+            $errors .= "password-err=Hãy nhập mật khẩu&";
+        } else if ($password >= 6) {
+            $errors .= "password-err=Tối thiểu phải có 6 kí tự trở lên&";
+        }
+        if (empty($name)) {
+            $errors .= "name-err=Hãy nhập họ và tên&";
+        }
+
+        $errors = rtrim($errors, '&');
+
+        if (strlen($errors) > 0) {
+            header('location:' . BASE_URL . 'tai-khoan/dang-ky' . '?' . $errors);
+            die;
+        }
+        else {
         $sql = "INSERT INTO accounts(email,name,password) values('$email','$name','$password')";
         pdo_execute($sql);
+        header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
+        die;
+     }
     }
     client_render('account/register.php');
 }
@@ -130,30 +160,121 @@ function update_account()
                 $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new',updated_at = '$date_upadte', avatar = '$avatar_new', avatar = '$avatar_new', phone = '$phone_new' WHERE id = '$id'";
                 pdo_execute("$sql");
                 $_SESSION['success'] = "Cập nhật thành công";
-                header('refresh:3;' . BASE_URL . 'trang-chu?id='.$id);
+                header('refresh:3;' . BASE_URL . 'trang-chu');
             }
         }
         $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new', updated_at = '$date_upadte', phone = '$phone_new' WHERE id = '$id'";
         pdo_execute($sql);
         $_SESSION['success'] = "Cập nhật thành công";
-        header('refresh:3;' . BASE_URL . 'trang-chu?id='.$id);
+        header('refresh:3;' . BASE_URL . 'trang-chu');
     }
     client_render('account/update_account.php');
 }
-//cái login này khánh tạo để test chức năng cập nhật ko phải login chính thức
 function login()
 {
-    if (isset($_POST['login']) && $_POST['login']) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        foreach (selectDb("SELECT * FROM accounts WHERE email = '$email' AND password = '$password'") as $row) {
-            if ($email == $row['email']) {
-                header('location:' . BASE_URL . 'trang-chu' . '?id=' . $row['id']);
-            } else {
-                header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
-            }
+    $loginToken = isset($_COOKIE['remember_login']) ? $_COOKIE['remember_login'] : "";
+    if ($loginToken != "") {
+        $now = new DateTime();
+        $currentTime = $now->format('Y-m-d H:i:s');
+        $getUserByRememberToken = "select 
+                                            * 
+                                    from accounts 
+                                    where remember_token = '$loginToken'
+                                    and remember_expire >= '$currentTime'";
+
+        $user = pdo_execute($getUserByRememberToken, false);
+
+        if ($user['role'] == 1) {
+            unset($user['password']);
+            $_SESSION['auth'] = $user;
+            header('location:' . BASE_URL);
+            die;
+        } else if ($user['role'] == 2) {
+            unset($user['password']);
+            $_SESSION['auth'] = $user;
+            header('location:' . BASE_URL);
+            die;
+        } else if ($user['role'] == 5) {
+            unset($user['password']);
+            $_SESSION['auth'] = $user;
+            header('location:' . ADMIN_URL);
+            die;
         }
     }
+
+
     client_render('account/login.php');
 }
-//end login
+function logout(){
+    unset($_SESSION['auth']);
+    // $remember_expire=($_SESSION['auth']['remember_expire']);
+    // $sql = "DELETE from accounts where remember_expire = $remember_expire";
+    // executeQuery($sql);
+    header('location: ' . BASE_URL);
+}
+function post()
+{
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $remember = $_POST['remember'];
+    $getUserByEmail = "select * from accounts where email = '$email'";
+    $user = executeQuery($getUserByEmail, false);
+    $k= password_verify($password, $user['password']);
+
+    $errors = "";
+    if (empty($email)) {
+        $errors .= "email-err=Hãy nhập email&";
+    }else if($email !=$user['email']){
+        $errors .= "email-err=Tài khoản không tồn tại&";
+    }
+    if (empty($password)) {
+        $errors .= "password-err=Hãy nhập mật khẩu&";
+    }else if($password!=$k ){
+        $errors .= "password-err=Sai mật khẩu&";
+
+    }
+
+    $errors = rtrim($errors, '&');
+
+    if (strlen($errors) > 0) {
+        header('location:' . BASE_URL . 'tai-khoan/dang-nhap' . '?' . $errors);
+        die;
+    }
+
+    if ($user && password_verify($password, $user['password'])) {
+        if ($remember == 1) {
+            $remember_token = sha1(uniqid() . $user['email']);
+
+            $expireObj = new DateTime("+3 minutes");
+            $expireTime = $expireObj->format("Y-m-d H:i:s");
+
+            $updateRememberQuery = "update accounts 
+                                    set 
+                                        remember_token = '$remember_token', 
+                                        remember_expire = '$expireTime'
+                                    where id = " . $user['id'];
+            pdo_execute($updateRememberQuery, false);
+        }
+
+
+        if ($user['role'] == 1) {
+            unset($user['password']);
+            $_SESSION['auth'] = $user;
+            header('location:' . BASE_URL);
+            die;
+        } else if ($user['role'] == 2) {
+            unset($user['password']);
+            $_SESSION['auth'] = $user;
+            header('location:' . BASE_URL);
+            die;
+        } else if ($user['role'] == 5) {
+            unset($user['password']);
+            $_SESSION['auth'] = $user;
+            header('location:' . ADMIN_URL);
+            die;
+        }
+    }
+    header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
+}

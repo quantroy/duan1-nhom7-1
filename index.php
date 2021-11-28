@@ -23,8 +23,7 @@ switch ($url) {
         // controller Product
     case 'san-pham':
         require_once './client/business/product.php';
-        // list_product();
-        search_product();
+        product_index();
         break;
     case 'tin-tuc':
         require_once './client/business/blog.php';
@@ -38,9 +37,9 @@ switch ($url) {
         break;
 
         // controller tài khoản
-    case 'tai-khoan':
-        require_once './client/business/account.php';
-        //Viết hàm hiển thị thông tin người dùng
+    // case 'tai-khoan':
+    //     require_once './client/business/account.php';
+    //     update_account();
         break;
     case 'tai-khoan/quen-mat-khau':
         require_once './client/business/account.php';
@@ -66,6 +65,15 @@ switch ($url) {
         require_once './client/business/account.php';
         login();
         break;
+    case 'tai-khoan/dang-xuat':
+        require_once './client/business/account.php';
+        logout();
+        break;
+    case 'tai-khoan/luu-dang-nhap':
+        require_once './client/business/account.php';
+        post();
+        break;
+
         // Controller Admin
     case 'cp-admin':
         require_once './admin/business/dashboard.php';

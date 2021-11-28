@@ -110,10 +110,35 @@
 
                 </div>
                 <div class="product__pagination">
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                    <!-- nut prev -->
+                    <?php if ($current_page > 1 && $total_page > 1) : ?>
+                        <?php if (!isset($_GET['keyword'])) : ?>
+                            <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                        <?php else : ?>
+                            <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                        <?php endif ?>
+                    <?php endif ?>
+
+                    <!-- phan trang -->
+                    <?php for ($i = 1; $i <= $total_page; $i++) : ?>
+                        <?php if ($i == $current_page) : ?>
+                            <a disabled style="background-color: #7fad39; color: white"><?= $i ?></a>
+                        <?php else : ?>
+                            <?php if (!isset($_GET['keyword'])) : ?>
+                                <a href="<?= BASE_URL . 'san-pham?trang=' . $i ?>"><?= $i ?></a>
+                            <?php else : ?>
+                                <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $i ?>"><?= $i ?></a>
+                            <?php endif ?>
+                        <?php endif ?>
+                    <?php endfor ?>
+
+                    <!-- nut next -->
+                    <?php if ($current_page < $total_page && $total_page > 1) : ?>
+                        <?php if (!isset($_GET['keyword'])) : ?>
+                            <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+                        <?php else : ?>
+                            <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+                        <?php endif ?> <?php endif ?>
                 </div>
             </div>
         </div>

@@ -102,8 +102,14 @@ if (isset($_GET['id']) && ($_GET['id'])) {
                             </div>
 
                             <div class="header__top__right__auth">
-                                <a href="<?= BASE_URL ?>tai-khoan/dang-nhap"><i class="fa fa-user"></i> Đăng nhập</a>
-                                <a href="<?= BASE_URL ?>tai-khoan/cap-nhat?id=<?= $id ?>"><i class="fa fa-id-card"></i>Thông tin</a>
+                                <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
+                                    <div style="display:flex; justify-content:flex-end; min-width:100px">
+                                        <a style="margin-right:30px" href="<?= BASE_URL . 'tai-khoan/cap-nhat?id=' . $_SESSION['auth']['id'] ?>"><i class="fa fa-user"></i><?= $_SESSION['auth']['name'] ?> </a>
+                                        <a href="<?= BASE_URL . 'tai-khoan/dang-xuat' ?>">Đăng xuất</a>
+                                    </div>
+                                <?php else : ?>
+                                    <a href="<?= BASE_URL ?>tai-khoan/dang-nhap"> Đăng nhập</a>
+                                <?php endif ?>
                             </div>
                         </div>
                     </div>
@@ -166,8 +172,6 @@ if (isset($_GET['id']) && ($_GET['id'])) {
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <?php search_product();
-                            ?>
                             <form action="<?= BASE_URL ?>san-pham" method="get">
                                 <input type="text" name="keyword" value="<?= $keyword = '' ?>" placeholder="Bạn cần tìm sản phẩm...">
                                 <button type="submit" class="site-btn">Tìm Kiếm</button>
