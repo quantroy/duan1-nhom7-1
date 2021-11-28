@@ -72,6 +72,10 @@
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
                                 <span>Kiểu lọc</span>
+                                <select>
+                                    <option value="0">Mặc định</option>
+                                    <option value="0">mặc định</option>
+                                </select>
                             </div>
                         </div>
 
