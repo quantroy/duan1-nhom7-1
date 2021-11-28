@@ -10,51 +10,41 @@ if (isset($_GET['id']) && ($_GET['id'])) {
     }
 }
 ?>
-<style>
-    .mb-3,
-    .my-3 {
-        margin-bottom: 1rem !important;
-        width: 525px;
-        margin-left: 670px;
-    }
-
-    .text {
-        text-align: center;
-    }
-</style>
-<form action="cap-nhat?id=<?= $id ?>" enctype="multipart/form-data" method="POST">
-    <div style="max-width: 575px; text-align: center; margin:0 auto;" class="p-4">
-        <?php if (isset($_SESSION['false'])) { ?>
-            <div class='alert alert-danger' role="alert">
-                <?= $_SESSION['false'] ?>
-            </div>
-        <?php } elseif (isset($_SESSION['success'])) {  ?>
-            <div class='alert alert-success' role="alert">
-                <?= $_SESSION['success'] ?>
-            </div>
-        <?php  } ?>
-    </div>
-    <p class="text-uppercase text">Thông tin tài khoản</p>
-    <div class="mb-3">
-        <div class="container mt-3">
-            <img src="/duan1-nhom7/public/uploads/<?= $avatar ?>" class="" alt="Cinque Terre" width="150" height="150" style="margin-left: 170px;">
+<section class="featured spad" style="background:#efefef;">
+    <div class="container shadow p-3 mb-5 bg-body rounded " style="background:#fff">
+        <h3 style="font-weight:bold;text-align: center;font-size: 24px;color:#0d713d;margin-bottom: 50px;padding-top: 70px;">Thông Tin Tài Khoản: <?= $name ?></h3>
+        <div class="align-middle" style="text-align:center;">
+            <form class="w-80" style="display: inline-block;text-align: left;padding: 45px 250px;" action="<?= BASE_URL . 'tai-khoan/cap-nhat?id=' . $id ?>" method="post" enctype="multipart/form-data">
+                <div style="max-width: 575px; text-align: center; margin:0 auto;" class="p-4">
+                    <?php if (isset($_SESSION['false'])) { ?>
+                        <div class='alert alert-danger' role="alert">
+                            <?= $_SESSION['false'] ?>
+                        </div>
+                    <?php } elseif (isset($_SESSION['success'])) {  ?>
+                        <div class='alert alert-success' role="alert">
+                            <?= $_SESSION['success'] ?>
+                        </div>
+                    <?php  } ?>
+                </div>
+                <img src="/duan1-nhom7/public/uploads/<?= $avatar ?>" class="" alt="Cinque Terre" width="150" height="150" style="margin-left: 110px;">
+                <div class="form-group">
+                    <div> <label style="font-weight: bold" for="">Tên tài khoản</label> </div>
+                    <input class="form-control  " type="text" name="name" value="<?= $name ?>">
+                </div>
+                <div class="form-group">
+                    <div> <label style="font-weight: bold" for="">Email </label> </div>
+                    <input class="form-control " type="email" name="email" id="" value="<?= $email ?>">
+                </div>
+                <div class="form-group">
+                    <div> <label style="font-weight: bold" for="">Số điện thoại </label> </div>
+                    <input class="form-control  " type="text" name="phone" value="<?= $phone ?>">
+                </div>
+                <div class="form-group">
+                    <div> <label style="font-weight: bold" for="">Tải ảnh nên </label> </div>
+                    <input class="form-control  " type="file" name="image">
+                </div>
+                <input style="background-color: #198754;" type="submit" value="Cập nhật" name="update" class="form-control" id="exampleFormControlInput1">
+            </form>
         </div>
-        <label for="exampleFormControlInput1" class="form-label">Email</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" name="email" value="<?= $email ?>">
     </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Số điện thoại</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" value="<?= $phone ?>">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Họ và tên</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="<?= $name ?>">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Tải ảnh nên</label>
-        <input value="chọn ảnh" type="file" class="form-control" onchange="changeImg(this)" id="exampleFormControlInput1" name="image">
-    </div>
-    <div class="mb-3">
-        <input style="background-color: #198754;" type="submit" value="Cập nhật" name="update" class="form-control" id="exampleFormControlInput1">
-    </div>
-</form>
+</section>

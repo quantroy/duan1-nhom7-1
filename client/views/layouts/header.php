@@ -163,7 +163,7 @@ if (isset($_GET['id']) && ($_GET['id'])) {
                         <ul>
                             <?php foreach (selectDb("SELECT * FROM categories WHERE show_menu = '1'") as $items) { ?>
 
-                                <li><a href="<?php echo $items['cate_slug'] ?>"><?php echo $items['name'] ?></a></li>
+                                <li><a href=""><?php echo $items['name'] ?></a></li>
 
                             <?php } ?>
                         </ul>

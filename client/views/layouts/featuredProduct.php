@@ -13,7 +13,7 @@
             <?php foreach (selectDb("SELECT * FROM products ORDER BY id DESC LIMIT 8") as $items) { ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="<?= BASE_URL ?>public/uploads/<?php echo $items['thumbnail'] ?>">
+                        <div class="featured__item__pic set-bg" data-setbg="<?php echo $items['thumbnail'] ?>">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
