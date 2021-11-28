@@ -1,8 +1,3 @@
-<?php
-if (isset($_GET['id']) && ($_GET['id'])) {
-    $id = $_GET['id'];
-}
-?>
 
 <head>
     <meta charset="UTF-8">
@@ -160,12 +155,15 @@ if (isset($_GET['id']) && ($_GET['id'])) {
                             <i class="fa fa-bars"></i>
                             <span>Danh Mục</span>
                         </div>
-                        <ul>
-                            <?php foreach (selectDb("SELECT * FROM categories WHERE show_menu = '1'") as $items) { ?>
+                        <ul>                    
+                        <?php
+                        $listdanhmuc = loadall_danhmuc();
+                        ?>
+                        <?php foreach($listdanhmuc as $danhmuc):?>
+                                    <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id']?>"><?=$danhmuc['name']?></a></li>
+                        
+                        <?php endforeach;?>
 
-                                <li><a href=""><?php echo $items['name'] ?></a></li>
-
-                            <?php } ?>
                         </ul>
                     </div>
                 </div>
