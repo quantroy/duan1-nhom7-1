@@ -104,6 +104,31 @@ switch ($url) {
     case 'cp-admin/danh-muc/cap-nhat':
         require_once './admin/business/category.php';
         cate_update();
+     // product
+     case 'cp-admin/san-pham':
+        require_once './admin/business/product.php';
+        pro_index();
+        break;
+    case 'cp-admin/san-pham/xoa':
+        require_once './admin/business/product.php';
+        pro_remove();
+        break;
+    case 'cp-admin/san-pham/tao-moi':
+        require_once './admin/business/product.php';
+        pro_add_form();
+        break;
+    case 'cp-admin/san-pham/luu-tao-moi':
+        require_once './admin/business/product.php';
+        pro_save_add();
+        break;
+    case 'cp-admin/san-pham/sua':
+        require_once './admin/business/product.php';
+        pro_fix();
+        break;
+    case 'cp-admin/san-pham/luu-sua':
+        require_once './admin/business/product.php';
+        pro_save_fix();
+
         break;
 
     default:
