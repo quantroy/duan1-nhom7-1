@@ -31,3 +31,17 @@ function cate_save_add()
     executeQuery($sql);
     header("location: " . ADMIN_URL . 'danh-muc');
 }
+function cate_update()
+{
+    if (isset($_POST['update'])) {
+        $id = $_GET['id'];
+        $update_at = date('y/m/d H:i:s');
+        $cate_show_new = $_POST['show_menu'];
+        $cate_name_new = $_POST['name'];
+        $sql = "UPDATE categories SET name = '$cate_name_new', show_menu = '$cate_show_new', updated_at = '$update_at' WHERE id = '$id'";
+        pdo_execute($sql);
+        header("location: " . BASE_URL . "cp-admin/danh-muc");
+    }
+    admin_render('category/cate_update.php');
+}
+//end 
