@@ -27,7 +27,7 @@ function pro_add_form()
 function pro_save_add()
 {
     date_default_timezone_set('Asia/Ho_Chi_Minh');
-    $create_at = date(" Y-m-d h:i:s ");
+    $create_at = date(" Y-m-d H:i:s ");
 
     $name = $_POST['name'];
     $thumbnail = $_FILES['thumbnail'];
@@ -80,7 +80,7 @@ function pro_save_fix()
         die;
     }
     date_default_timezone_set('Asia/Ho_Chi_Minh');
-    $update_at = date(" Y-m-d h:i:s ");
+    $update_at = date(" Y-m-d H:i:s ");
     $name = $_POST['name'];
     $price = $_POST['price'];
     $status = $_POST['status'];
