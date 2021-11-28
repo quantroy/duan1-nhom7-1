@@ -13,8 +13,10 @@ function cate_index()
 function cate_remove()
 {
     $id = $_GET['id'];
+    $sql1 = "DELETE from products where cate_id = $id";
+    pdo_execute($sql1);
     $sql = "DELETE from categories where id = $id";
-    executeQuery($sql);
+    pdo_execute($sql);
     header("location: " . ADMIN_URL . 'danh-muc');
 }
 
