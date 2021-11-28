@@ -155,12 +155,13 @@
                             <span>Danh Mục</span>
                         </div>
                         <ul>
-                            <li><a href="#">Sản Phẩm Nổi Bật</a></li>
-                            <li><a href="#">Trà Sữa</a></li>
-                            <li><a href="#">Fresh Fruit Tea</a></li>
-                            <li><a href="#">Machito</a></li>
-                            <li><a href="#">Trà Đào</a></li>
-                            <li><a href="#">Sữa Chua Dẻo</a></li>
+                        <?php
+                        $listdanhmuc = loadall_danhmuc();
+                        ?>
+                        <?php foreach($listdanhmuc as $danhmuc):?>
+                                    <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id']?>"><?=$danhmuc['name']?></a></li>
+                        
+                        <?php endforeach;?>
                         </ul>
                     </div>
                 </div>

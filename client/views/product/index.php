@@ -23,18 +23,15 @@
             <div class="col-lg-3 col-md-5">
                 <div class="sidebar">
                     <div class="sidebar__item">
-                        <h4>Department</h4>
+                        <h4>Danh Mục</h4>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
+                            <?php
+                            $listdanhmuc = loadall_danhmuc();
+                            ?>
+                            <?php foreach ($listdanhmuc as $danhmuc) : ?>
+                                <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a></li>
+
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                     <div class="sidebar__item">
@@ -112,10 +109,13 @@
                 <div class="product__pagination">
                     <!-- nut prev -->
                     <?php if ($current_page > 1 && $total_page > 1) : ?>
-                        <?php if (!isset($_GET['keyword'])) : ?>
-                            <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
-                        <?php else : ?>
+                        <?php if (isset($_GET['keyword'])) : ?>
                             <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                        <?php elseif (isset($_GET['id-danhmuc'])) : ?>
+                            <a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $_GET['id-danhmuc'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+
+                        <?php else : ?>
+                            <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
                         <?php endif ?>
                     <?php endif ?>
 
@@ -124,20 +124,27 @@
                         <?php if ($i == $current_page) : ?>
                             <a disabled style="background-color: #7fad39; color: white"><?= $i ?></a>
                         <?php else : ?>
-                            <?php if (!isset($_GET['keyword'])) : ?>
-                                <a href="<?= BASE_URL . 'san-pham?trang=' . $i ?>"><?= $i ?></a>
-                            <?php else : ?>
+                            <?php if (isset($_GET['keyword'])) : ?>
                                 <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $i ?>"><?= $i ?></a>
+                            <?php elseif (isset($_GET['id-danhmuc'])) : ?>
+                                <a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $_GET['id-danhmuc'] . '&trang=' . $i ?>"><?= $i ?></a>
+
+                            <?php else : ?>
+                                <a href="<?= BASE_URL . 'san-pham?trang=' . $i ?>"><?= $i ?></a>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endfor ?>
 
                     <!-- nut next -->
                     <?php if ($current_page < $total_page && $total_page > 1) : ?>
-                        <?php if (!isset($_GET['keyword'])) : ?>
-                            <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
-                        <?php else : ?>
+                        <?php if (isset($_GET['keyword'])) : ?>
                             <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+                        <?php elseif (isset($_GET['id-danhmuc'])) : ?>
+                            <a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $_GET['id-danhmuc'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+
+                        <?php else : ?>
+                            <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+
                         <?php endif ?> <?php endif ?>
                 </div>
             </div>
