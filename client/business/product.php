@@ -54,7 +54,7 @@ function loadall_product_by_categories($cate_id = 0)
 
 function loadall_sanpham_top10()
 {
-    $sql = "SELECT * FROM products where 1 order by luotxem desc limit 0,7 ";
+    $sql = "SELECT * FROM products where 1 order by favorites desc limit 0,7 ";
     $top10 = pdo_query($sql);
     return $top10;
 }
@@ -64,4 +64,23 @@ function load_ten_dm($cate_id)
     $dm = pdo_query_one($sql);
     extract($dm);
     return $name;
+}
+function favorite_product(){
+    $id = $_GET['id'];
+    // ktra xem đã được yêu thích sản phẩm này hay chưa 
+    $userId = $_SESSION['auth']['id'];
+    $checkFavoriteProduct = "select * from favorite_products where product_id = $id ";
+    $favorite = executeQuery($checkFavoriteProduct, false);
+    // nếu chưa có thì lưu vào db
+    if(!$favorite){
+        $currentTime = date("Y-m-d h:i:s");
+        $addFavoriteQuery = "insert into favorite_products 
+                                (user_id, product_id, created_at)
+                            values 
+                                ('$userId', '$id', '$currentTime')";
+        executeQuery($addFavoriteQuery);
+        $sqlQuery = "UPDATE  products set  favorites = favorites + 1 where id = $id";
+        executeQuery($sqlQuery);
+    }
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 }

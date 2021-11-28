@@ -27,3 +27,12 @@ function admin_render($view, $data = [], $jsFile = null)
     $view = './admin/views/' . $view;
     include_once "./admin/views/layouts/main.php";
 }
+function getFavoriteProducts(){
+    if(!isset($_SESSION['auth']) || $_SESSION['auth'] == null){
+        return false;
+    }
+    $userId = $_SESSION['auth']['id'];
+    $getFavoriteProductQuery = "select * from favorite_products where user_id = $userId";
+    $favoriteProducts = executeQuery($getFavoriteProductQuery, true);
+    return $favoriteProducts;
+}

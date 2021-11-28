@@ -41,7 +41,11 @@ switch ($url) {
         require_once './client/business/contact.php';
         contact();
         break;
-
+    //Thích Sản Phẩm
+    case 'yeu-thich':
+        require_once './client/business/product.php';
+        favorite_product();
+        break;
         // controller tài khoản
     // case 'tai-khoan':
     //     require_once './client/business/account.php';

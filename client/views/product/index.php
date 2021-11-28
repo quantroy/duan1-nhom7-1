@@ -29,8 +29,9 @@
                             $listdanhmuc = loadall_danhmuc();
                             ?>
                             <?php foreach ($listdanhmuc as $danhmuc) : ?>
+                                <?php if($danhmuc['show_menu'] == 1):?>
                                 <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a></li>
-
+                                <?php endif; ?>
                             <?php endforeach; ?>
                         </ul>
                     </div>
@@ -84,20 +85,26 @@
                 <div class="row">
                     <?php if (!empty($products)) : ?>
                         <?php foreach ($products as $product) : ?>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="<?= BASE_URL ?>public/uploads/<?php echo $product['thumbnail'] ?>">
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+
+                            <?php if($product['status'] == 1):?>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="<?= $product['thumbnail'] ?>">
+                                            <ul class="product__item__pic__hover">
+                                            <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null):?>
+                                                <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id']?>"><i class="fa fa-heart"></i></a></li>
+                                            <?php endif ?>
+
                                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <h6><a href="#"><?= $product['name'] ?></a></h6>
-                                        <h5><?= number_format($product['price'], 0, '', ',') ?>đ</h5>
+                                            </ul>
+                                        </div>
+                                        <div class="product__item__text">
+                                            <h6><a href="#"><?= $product['name'] ?></a></h6>
+                                            <h5><?= number_format($product['price'], 0, '', ',') ?>đ</h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php endif; ?>
                         <?php endforeach ?>
                     <?php else : ?>
                         <div class="col-lg-4 col-md-6 col-sm-6">
