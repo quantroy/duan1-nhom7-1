@@ -1,6 +1,4 @@
 <?php
-date_default_timezone_set('Asia/Ho_Chi_Minh');
-
 function pdo_get_connection()
 {
     $dburl = "mysql:host=localhost;dbname=2021-duan1-nhom7;charset=utf8";
@@ -91,17 +89,4 @@ function pdo_query_value($sql)
     } finally {
         unset($conn);
     }
-}
-function selectDb($sql)
-{
-    $conn = pdo_get_connection();
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-    return $result;
-}
-function action($sql)
-{
-    $conn = pdo_get_connection();
-    $conn->exec($sql);
 }

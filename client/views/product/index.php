@@ -29,8 +29,8 @@
                             $listdanhmuc = loadall_danhmuc();
                             ?>
                             <?php foreach ($listdanhmuc as $danhmuc) : ?>
-                                <?php if($danhmuc['show_menu'] == 1):?>
-                                <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a></li>
+                                <?php if ($danhmuc['show_menu'] == 1) : ?>
+                                    <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a></li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </ul>
@@ -86,16 +86,16 @@
                     <?php if (!empty($products)) : ?>
                         <?php foreach ($products as $product) : ?>
 
-                            <?php if($product['status'] == 1):?>
+                            <?php if ($product['status'] == 1) : ?>
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="<?= $product['thumbnail'] ?>">
+                                        <div class="product__item__pic set-bg" data-setbg="<?= $product['thumbnail'] ?>">
                                             <ul class="product__item__pic__hover">
-                                            <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null):?>
-                                                <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id']?>"><i class="fa fa-heart"></i></a></li>
-                                            <?php endif ?>
+                                                <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
+                                                    <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
+                                                <?php endif ?>
 
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__item__text">

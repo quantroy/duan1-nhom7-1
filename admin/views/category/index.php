@@ -14,8 +14,6 @@
                     <thead>
                         <th>STT</th>
                         <th>Tên danh mục</th>
-                        <th>Ngày tạo</th>
-                        <th>Cập nhật lần cuối</th>
                         <th>Hiển thị menu</th>
                         <th>
                             <a href="<?= ADMIN_URL . 'danh-muc/tao-moi' ?>" class="btn btn-sm btn-success">Tạo mới</a>
@@ -26,8 +24,6 @@
                             <tr>
                                 <td><?= $index + 1 ?></td>
                                 <td><?= $item['name'] ?></td>
-                                <td><?= $item['created_at'] ?></td>
-                                <td><?= $item['updated_at'] ?></td>
                                 <td><?= $item['show_menu'] == 1 ? "Có" : "Không" ?></td>
                                 <td>
                                     <a href="<?= ADMIN_URL . 'danh-muc/cap-nhat?id=' . $item['id'] ?>" class="btn btn-sm btn-info">
