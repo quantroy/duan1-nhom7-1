@@ -96,14 +96,7 @@
                             </div>
 
                             <div class="header__top__right__auth">
-                            <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null):?>
-                                   <div style="display:flex;justify-content:space-around;width:150px">
-                                  <a href=""><i class="fa fa-user"></i><?= $_SESSION['auth']['name'] ?> </a>
-                                    <a href="<?= BASE_URL . 'tai-khoan/dang-xuat'?>">Đăng xuất</a>
-                                   </div>
-                            <?php else: ?>
-                                <a href="<?= BASE_URL ?>tai-khoan/dang-nhap"> Đăng nhập</a>
-                                <?php endif ?>
+                                <a href="<?= BASE_URL ?>tai-khoan/dang-nhap"><i class="fa fa-user"></i> Đăng nhập</a>
                             </div>
                         </div>
                     </div>
