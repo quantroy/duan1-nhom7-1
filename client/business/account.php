@@ -99,7 +99,7 @@ function register()
         $name = $_POST['name'];
         $password = $_POST['password'];
         $email = $_POST['email'];
-        $password = password_hash($password,PASSWORD_DEFAULT);
+        $password = password_hash($password, PASSWORD_DEFAULT);
 
         $getUserByEmail = "SELECT * FROM accounts WHERE email = '$email'";
         $user = executeQuery($getUserByEmail, false);
@@ -124,16 +124,16 @@ function register()
         if (strlen($errors) > 0) {
             header('location:' . BASE_URL . 'tai-khoan/dang-ky' . '?' . $errors);
             die;
+        } else {
+            $sql = "INSERT INTO accounts(email,name,password) values('$email','$name','$password')";
+            pdo_execute($sql);
+            header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
+            die;
         }
-        else {
-        $sql = "INSERT INTO accounts(email,name,password) values('$email','$name','$password')";
-        pdo_execute($sql);
-        header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
-        die;
-     }
     }
     client_render('account/register.php');
 }
+//cập nhật tài khoản người dùng
 function login()
 {
     $loginToken = isset($_COOKIE['remember_login']) ? $_COOKIE['remember_login'] : "";
@@ -146,7 +146,7 @@ function login()
                                     where remember_token = '$loginToken'
                                     and remember_expire >= '$currentTime'";
 
-        $user = executeQuery($getUserByRememberToken, false);
+        $user = pdo_execute($getUserByRememberToken, false);
 
         if ($user['role'] == 1) {
             unset($user['password']);
@@ -169,7 +169,8 @@ function login()
 
     client_render('account/login.php');
 }
-function logout(){
+function logout()
+{
     unset($_SESSION['auth']);
     // $remember_expire=($_SESSION['auth']['remember_expire']);
     // $sql = "DELETE from accounts where remember_expire = $remember_expire";
@@ -185,19 +186,18 @@ function post()
     $remember = $_POST['remember'];
     $getUserByEmail = "select * from accounts where email = '$email'";
     $user = executeQuery($getUserByEmail, false);
-    $k= password_verify($password, $user['password']);
+    $k = password_verify($password, $user['password']);
 
     $errors = "";
     if (empty($email)) {
         $errors .= "email-err=Hãy nhập email&";
-    }else if($email !=$user['email']){
+    } else if ($email != $user['email']) {
         $errors .= "email-err=Tài khoản không tồn tại&";
     }
     if (empty($password)) {
         $errors .= "password-err=Hãy nhập mật khẩu&";
-    }else if($password!=$k ){
+    } else if ($password != $k) {
         $errors .= "password-err=Sai mật khẩu&";
-
     }
 
     $errors = rtrim($errors, '&');
@@ -219,7 +219,7 @@ function post()
                                         remember_token = '$remember_token', 
                                         remember_expire = '$expireTime'
                                     where id = " . $user['id'];
-            executeQuery($updateRememberQuery, false);
+            pdo_execute($updateRememberQuery, false);
         }
 
 

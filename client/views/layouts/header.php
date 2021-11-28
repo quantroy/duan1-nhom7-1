@@ -1,3 +1,4 @@
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Xiao Haha">
@@ -96,13 +97,13 @@
                             </div>
 
                             <div class="header__top__right__auth">
-                            <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null):?>
-                                   <div style="display:flex; justify-content:flex-end; min-width:100px">
-                                  <a style="margin-right:30px" href=""><i class="fa fa-user"></i><?= $_SESSION['auth']['name'] ?> </a>
-                                    <a href="<?= BASE_URL . 'tai-khoan/dang-xuat'?>">Đăng xuất</a>
-                                   </div>
-                            <?php else: ?>
-                                <a href="<?= BASE_URL ?>tai-khoan/dang-nhap"> Đăng nhập</a>
+                                <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
+                                    <div style="display:flex; justify-content:flex-end; min-width:100px">
+                                        <a style="margin-right:30px" href=""><i class="fa fa-user"></i><?= $_SESSION['auth']['name'] ?> </a>
+                                        <a href="<?= BASE_URL . 'tai-khoan/dang-xuat' ?>">Đăng xuất</a>
+                                    </div>
+                                <?php else : ?>
+                                    <a href="<?= BASE_URL ?>tai-khoan/dang-nhap"> Đăng nhập</a>
                                 <?php endif ?>
                             </div>
                         </div>
@@ -154,7 +155,7 @@
                             <i class="fa fa-bars"></i>
                             <span>Danh Mục</span>
                         </div>
-                        <ul>
+                        <ul>                    
                         <?php
                         $listdanhmuc = loadall_danhmuc();
                         ?>
@@ -162,6 +163,7 @@
                                     <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id']?>"><?=$danhmuc['name']?></a></li>
                         
                         <?php endforeach;?>
+
                         </ul>
                     </div>
                 </div>
