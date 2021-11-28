@@ -66,7 +66,7 @@ switch ($url) {
         // case 'tai-khoan/cap-nhat':
         //     require_once './client/business/account.php';
         //     update_account();
-        break;
+        // break;
     case 'tai-khoan/dang-nhap':
         require_once './client/business/account.php';
         login();
