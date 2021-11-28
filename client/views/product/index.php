@@ -24,11 +24,13 @@ if (isset($_SESSION['auth']['id'])) {
     $log_error = 'none';
     $log_note = 'none';
 } else {
+    
     $check_login = "";
     $log_note = 'flex';
     $log_error = 'none';
     $log_success = 'none';
     $mesNote = "Không thể đặt hàng, hãy đăng nhập để đặt hàng và nhận thưởng";
+    include_once "./client/views/layouts/log.php";
 }
 
 ?>
@@ -166,7 +168,3 @@ if (isset($_SESSION['auth']['id'])) {
 <!-- Form_option start -->
 <?php include_once "./client/views/layouts/form_option.php" ?>
 <!-- Form_option end -->
-
-<!-- logmes star -->
-<?php include_once "./client/views/layouts/log.php" ?>
-<!-- logmes end -->
