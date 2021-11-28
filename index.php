@@ -22,8 +22,8 @@ switch ($url) {
 
         // controller Product
     case 'san-pham':
-        if (isset($_GET['cate_id']) && ($_GET['cate_id'] > 0)) {
-            $cate_id = $_GET['cate_id'];
+        if (isset($_GET['id-danhmuc']) && ($_GET['id-danhmuc'] > 0)) {
+            $cate_id = $_GET['id-danhmuc'];
             $products = loadall_product_by_categories($cate_id);
         } else {
             product_index();

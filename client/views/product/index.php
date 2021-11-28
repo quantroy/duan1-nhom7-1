@@ -29,7 +29,7 @@
                             $listdanhmuc = loadall_danhmuc();
                             ?>
                             <?php foreach ($listdanhmuc as $danhmuc) : ?>
-                                <li><a href="<?= BASE_URL . 'san-pham?cate_id=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a></li>
+                                <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a></li>
 
                             <?php endforeach; ?>
                         </ul>
@@ -107,8 +107,8 @@
                     <?php if ($current_page > 1 && $total_page > 1) : ?>
                         <?php if (isset($_GET['keyword'])) : ?>
                             <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
-                        <?php elseif (isset($_GET['cate_id'])) : ?>
-                            <a href="<?= BASE_URL . 'san-pham?cate_id=' . $_GET['cate_id'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                        <?php elseif (isset($_GET['id-danhmuc'])) : ?>
+                            <a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $_GET['id-danhmuc'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
 
                         <?php else : ?>
                             <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
@@ -122,8 +122,8 @@
                         <?php else : ?>
                             <?php if (isset($_GET['keyword'])) : ?>
                                 <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $i ?>"><?= $i ?></a>
-                            <?php elseif (isset($_GET['cate_id'])) : ?>
-                                <a href="<?= BASE_URL . 'san-pham?cate_id=' . $_GET['cate_id'] . '&trang=' . $i ?>"><?= $i ?></a>
+                            <?php elseif (isset($_GET['id-danhmuc'])) : ?>
+                                <a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $_GET['id-danhmuc'] . '&trang=' . $i ?>"><?= $i ?></a>
 
                             <?php else : ?>
                                 <a href="<?= BASE_URL . 'san-pham?trang=' . $i ?>"><?= $i ?></a>
@@ -135,8 +135,8 @@
                     <?php if ($current_page < $total_page && $total_page > 1) : ?>
                         <?php if (isset($_GET['keyword'])) : ?>
                             <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
-                        <?php elseif (isset($_GET['cate_id'])) : ?>
-                            <a href="<?= BASE_URL . 'san-pham?cate_id=' . $_GET['cate_id'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+                        <?php elseif (isset($_GET['id-danhmuc'])) : ?>
+                            <a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $_GET['id-danhmuc'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
 
                         <?php else : ?>
                             <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
