@@ -43,9 +43,9 @@ switch ($url) {
         break;
 
         // controller tài khoản
-    // case 'tai-khoan':
-    //     require_once './client/business/account.php';
-    //     update_account();
+        // case 'tai-khoan':
+        //     require_once './client/business/account.php';
+        //     update_account();
         break;
     case 'tai-khoan/quen-mat-khau':
         require_once './client/business/account.php';
@@ -63,10 +63,10 @@ switch ($url) {
         require_once './client/business/account.php';
         register();
         break;
-    case 'tai-khoan/cap-nhat':
-        require_once './client/business/account.php';
-        update_account();
-        break;
+        // case 'tai-khoan/cap-nhat':
+        //     require_once './client/business/account.php';
+        //     update_account();
+        //     break;
     case 'tai-khoan/dang-nhap':
         require_once './client/business/account.php';
         login();
