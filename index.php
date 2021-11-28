@@ -40,7 +40,7 @@ switch ($url) {
         // controller tài khoản
     case 'tai-khoan':
         require_once './client/business/account.php';
-        //Viết hàm hiển thị thông tin người dùng
+        update_account();
         break;
     case 'tai-khoan/quen-mat-khau':
         require_once './client/business/account.php';
