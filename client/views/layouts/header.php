@@ -131,9 +131,12 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null):?>
-                                <li><a href="<?= BASE_URL . 'san-pham-yeu-thich'?>"><i class="fa fa-heart"></i> <span><?= count(getFavoriteProducts())?></span></a></li>
+                            
+                                <li><a href="<?= BASE_URL . 'san-pham-yeu-thich'?>"><i class="fa fa-heart"></i> <span>
+                                <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null):?>
+                                    <?= count(getFavoriteProducts())?>
                             <?php endif ?>
+                            </span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
                     </div>
