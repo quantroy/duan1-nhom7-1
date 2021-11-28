@@ -20,7 +20,7 @@ function product_index()
     $records = executeQuery($sql, true);
     $total_records = count($records);
     $current_page = isset($_GET['trang']) ? $_GET['trang'] : 1;
-    $limit = 2;
+    $limit = 9;
     $total_page = ceil($total_records / $limit);  //tinh tong so trang
     $start = ($current_page - 1) * $limit;
 
@@ -31,7 +31,7 @@ function product_index()
 
     // dd($total_page);
 }
-function loadall_sanpham($cate_id = 0)
+function loadall_product_by_categories($cate_id = 0)
 {
     // $sql = "SELECT * FROM products where 1 ";
     // if ($cate_id > 0) {
@@ -42,7 +42,7 @@ function loadall_sanpham($cate_id = 0)
     $records = executeQuery($sql, true);
     $total_records = count($records);
     $current_page = isset($_GET['trang']) ? $_GET['trang'] : 1;
-    $limit = 1;
+    $limit = 9;
     $total_page = ceil($total_records / $limit);  //tinh tong so trang
     $start = ($current_page - 1) * $limit;
 

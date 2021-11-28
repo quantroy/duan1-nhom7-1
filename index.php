@@ -24,7 +24,7 @@ switch ($url) {
     case 'san-pham':
         if (isset($_GET['cate_id']) && ($_GET['cate_id'] > 0)) {
             $cate_id = $_GET['cate_id'];
-            $products = loadall_sanpham($cate_id);
+            $products = loadall_product_by_categories($cate_id);
         } else {
             product_index();
         }

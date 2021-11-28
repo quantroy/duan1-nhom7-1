@@ -23,7 +23,7 @@
             <div class="col-lg-3 col-md-5">
                 <div class="sidebar">
                     <div class="sidebar__item">
-                        <h4>Department</h4>
+                        <h4>Danh Mục</h4>
                         <ul>
                             <?php
                             $listdanhmuc = loadall_danhmuc();
