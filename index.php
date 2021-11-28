@@ -47,10 +47,6 @@ switch ($url) {
         require_once './client/business/product.php';
         favorite_product();
         break;
-    case 'san-pham-yeu-thich':
-        require_once './client/business/product_like.php';
-        products_like();
-        break;
         // controller tài khoản
     case 'tai-khoan':
         require_once './client/business/account.php';
