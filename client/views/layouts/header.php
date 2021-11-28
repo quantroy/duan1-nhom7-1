@@ -161,7 +161,9 @@
                         $listdanhmuc = loadall_danhmuc();
                         ?>
                         <?php foreach($listdanhmuc as $danhmuc):?>
-                                    <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id']?>"><?=$danhmuc['name']?></a></li>
+                            <?php if($danhmuc['show_menu'] == 1):?>
+                                <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a></li>
+                                <?php endif; ?>
                         
                         <?php endforeach;?>
                         </ul>
