@@ -77,6 +77,17 @@ switch ($url) {
         post();
         break;
 
+        // Manager address 
+    case 'tai-khoan/dia-chi':
+        require_once './client/business/address.php';
+        address($_SESSION['auth']['id']);
+        break;
+
+    case 'tai-khoan/chinh-sua-dia-chi':
+        require_once './client/business/address.php';
+        edit_address($_GET['id']);
+        break;
+
         // Controller Admin
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
@@ -98,8 +109,25 @@ switch ($url) {
         require_once './admin/business/category.php';
         cate_save_add();
         break;
-     // product
-     case 'cp-admin/san-pham':
+
+        // mananger tai khoan
+    case 'cp-admin/tai-khoan/khach-hang':
+        require_once './admin/business/users.php';
+        account_index(1);
+        break;
+
+    case 'cp-admin/tai-khoan/nhan-vien':
+        require_once './admin/business/users.php';
+        account_index(2);
+        break;
+
+    case 'cp-admin/tai-khoan/chinh-sua':
+        require_once './admin/business/users.php';
+        edit_account($_GET['id']);
+        break;
+
+        // product
+    case 'cp-admin/san-pham':
         require_once './admin/business/product.php';
         pro_index();
         break;
@@ -124,6 +152,22 @@ switch ($url) {
         pro_save_fix();
         break;
 
+
+        // dat hang
+    case 'data.php':
+        require_once './client/business/cart.php';
+        creat_cart($_SESSION['auth']['id'], $_GET['quantity'], $_GET['size'], $_GET['productId'], $_GET['sugar'], $_GET['ice'], $_GET['toppingIP'], $_GET['priceProOpt']);
+        // gio hang
+    case 'gio-hang':
+        if (isset($_SESSION['auth']['id'])) {
+            require_once './client/business/cart.php';
+            myCart($_SESSION['auth']['id']);
+        } else {
+            echo header("refresh:0; url =tai-khoan/dang-nhap?null_account");
+            exit();
+        }
+
+        break;
     default:
         include_once './client/views/404.php';
         break;

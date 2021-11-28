@@ -4,6 +4,21 @@
         <div class="align-middle" style="text-align:center;">
             <form class="w-80" style="display: inline-block;text-align: left;padding: 45px 250px;" action="<?= BASE_URL . 'tai-khoan/luu-dang-nhap' ?>" method="post">
                 <div class="form-group">
+                    <?php
+
+                    if (isset($_GET['null_account'])) {
+                        $log_success = 'none';
+                        $log_error = 'none';
+                        $log_note = 'block';
+                        $mesNote = "Hãy đăng nhập để đặt hàng nhé ";
+                    }
+                    else{
+                        $log_success = 'none';
+                        $log_error = 'none';
+                        $log_note = 'none';
+                    }
+
+                    ?>
                     <div> <label style="font-weight: bold" for="">Email <span1 style="color:red">(*)</span1> </label> </div>
                     <?php if (isset($_GET['email-err'])) : ?>
                         <p style="color: red;margin-bottom:2px"><?= $_GET['email-err']; ?></p>
@@ -36,5 +51,7 @@
         </div>
     </div>
 </section>
+<!-- log mes -->
+<?php include_once './client/views/layouts/log.php' ?>
 <style>
 </style>

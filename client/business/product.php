@@ -65,3 +65,18 @@ function load_ten_dm($cate_id)
     extract($dm);
     return $name;
 }
+
+
+function list_size()
+{
+    $sqlQuery = "SELECT * from size";
+    $sizes = executeQuery($sqlQuery, true);
+    return $sizes;
+}
+
+function list_topping()
+{
+    $sqlQuery = "SELECT * from toppings";
+    $topping = executeQuery($sqlQuery, true);
+    return $topping;
+}
