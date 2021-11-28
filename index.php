@@ -64,6 +64,18 @@ switch ($url) {
         require_once './client/business/account.php';
         register();
         break;
+    case 'tai-khoan/dang-nhap':
+        require_once './client/business/account.php';
+        login();
+        break;
+    case 'tai-khoan/dang-xuat':
+        require_once './client/business/account.php';
+        logout();
+        break;
+    case 'tai-khoan/luu-dang-nhap':
+        require_once './client/business/account.php';
+        post();
+        break;
 
         // Controller Admin
     case 'cp-admin':
