@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="row featured__filter">
-            <?php foreach (selectDb("SELECT * FROM products ORDER BY id DESC LIMIT 8") as $items) { ?>
+            <?php foreach (pdo_select("SELECT * FROM products ORDER BY id DESC LIMIT 8") as $items) { ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="<?php echo $items['thumbnail'] ?>">

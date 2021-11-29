@@ -91,7 +91,7 @@ function pdo_query_value($sql)
         unset($conn);
     }
 }
-function selectDb($sql)
+function pdo_select($sql)
 {
     $conn = pdo_get_connection();
     $stmt = $conn->prepare($sql);
