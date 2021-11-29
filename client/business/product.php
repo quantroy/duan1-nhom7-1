@@ -69,10 +69,8 @@ function favorite_product(){
     $id = $_GET['id'];
     // ktra xem đã được yêu thích sản phẩm này hay chưa 
     $userId = $_SESSION['auth']['id'];
-    $checkFavoriteProduct = "select * from favorite_products where product_id = $id ";
-    $favorite = executeQuery($checkFavoriteProduct, false);
-    // nếu chưa có thì lưu vào db
-    if(!$favorite){
+
+
         $currentTime = date("Y-m-d h:i:s");
         $addFavoriteQuery = "insert into favorite_products 
                                 (user_id, product_id, created_at)
@@ -81,6 +79,28 @@ function favorite_product(){
         executeQuery($addFavoriteQuery);
         $sqlQuery = "UPDATE  products set  favorites = favorites + 1 where id = $id";
         executeQuery($sqlQuery);
-    }
     header('Location: ' . $_SERVER['HTTP_REFERER']);
+}
+
+function loadall_product_like()
+{
+    $sql = "SELECT * FROM favorite_products";
+    $product_like = executeQuery($sql, true);
+    return $product_like;
+}
+function product_like()
+{
+    client_render('product_like/index.php');
+}
+function loadall_product_favorite_by_product_favorite()
+{
+    $sql = "SELECT * FROM products";
+    $favorite_product = executeQuery($sql, true);
+    return $favorite_product;
+}
+function delete_favorite_product(){
+    $id = $_GET['id'];
+    $sql = "DELETE from favorite_products where id = $id";
+    pdo_execute($sql);
+    header("location: " . CLIENT_URL . 'san-pham-yeu-thich');
 }

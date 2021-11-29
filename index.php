@@ -36,6 +36,12 @@ switch ($url) {
         require_once './client/business/product.php';
         favorite_product();
         break;
+
+    case 'san-pham-yeu-thich':
+        require_once './client/business/product.php';
+        product_like();
+        break;
+
     case 'tin-tuc':
         require_once './client/business/blog.php';
         blog();

@@ -132,7 +132,9 @@
                     <div class="header__cart">
                         <ul>
 
-                            <li><a href="<?= BASE_URL . 'san-pham-yeu-thich' ?>"><i class="fa fa-heart"></i> <span>
+                            <li><?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
+                                <a href="<?= BASE_URL . 'san-pham-yeu-thich' ?>">
+                                        <?php endif ?><i class="fa fa-heart"></i> <span>
                                         <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
                                             <?= count(getFavoriteProducts()) ?>
                                         <?php endif ?>
