@@ -16,6 +16,17 @@
 </section>
 <!-- Breadcrumb Section End -->
 
+<?php
+
+if (isset($_SESSION['auth']['id'])) {
+    $check_login = "data-target='#modal-lg'";
+    $log = "";
+} else {
+    $log = "swalDefaultWarning";
+    $check_login = "";
+}
+
+?>
 <!-- Product Section Begin -->
 <section class="product spad">
     <div class="container">
@@ -23,16 +34,18 @@
             <div class="col-lg-3 col-md-5">
                 <div class="sidebar">
                     <div class="sidebar__item">
-                        <h4>Danh Mục</h4>
+                        <h4>Department</h4>
                         <ul>
-                            <?php
-                            $listdanhmuc = loadall_danhmuc();
-                            ?>
-                            <?php foreach ($listdanhmuc as $danhmuc) : ?>
-                                <?php if ($danhmuc['show_menu'] == 1) : ?>
-                                    <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a></li>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
+                            <li><a href="#">Fresh Meat</a></li>
+                            <li><a href="#">Vegetables</a></li>
+                            <li><a href="#">Fruit & Nut Gifts</a></li>
+                            <li><a href="#">Fresh Berries</a></li>
+                            <li><a href="#">Ocean Foods</a></li>
+                            <li><a href="#">Butter & Eggs</a></li>
+                            <li><a href="#">Fastfood</a></li>
+                            <li><a href="#">Fresh Onion</a></li>
+                            <li><a href="#">Papayaya & Crisps</a></li>
+                            <li><a href="#">Oatmeal</a></li>
                         </ul>
                     </div>
                     <div class="sidebar__item">
@@ -84,27 +97,22 @@
                 </div>
                 <div class="row">
                     <?php if (!empty($products)) : ?>
-                        <?php foreach ($products as $product) : ?>
-
-                            <?php if ($product['status'] == 1) : ?>
-                                <div class="col-lg-4 col-md-6 col-sm-6">
-                                    <div class="product__item">
-                                        <div class="product__item__pic set-bg" data-setbg="<?= $product['thumbnail'] ?>">
-                                            <ul class="product__item__pic__hover">
-                                                <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
-                                                    <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
-                                                <?php endif ?>
-
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product__item__text">
-                                            <h6><a href="#"><?= $product['name'] ?></a></h6>
-                                            <h5><?= number_format($product['price'], 0, '', ',') ?>đ</h5>
-                                        </div>
+                        <?php foreach ($products as $k => $product) : ?>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product_id" style="display: none;"><?php echo $product['id'] ?></div>
+                                    <div id="value_image" class="product__item__pic set-bg" data-setbg="<?= CLIENT_ASSET ?>img/product/sp1.jpg">
+                                        <ul class="product__item__pic__hover">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a class="<?php echo $log ?>" id="btn_cart" data-toggle="modal" <?php echo $check_login ?> index="<?php echo $k ?>"><i class="fa fa-shopping-cart "></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6><a id="value_name"><?php echo $product['name'] ?></a></a></h6>
+                                        <h5 data="<?php echo $product['price'] ?>" id="value_price"><?= number_format($product['price'], 0, '', ',') ?>đ</h5>
                                     </div>
                                 </div>
-                            <?php endif; ?>
+                            </div>
                         <?php endforeach ?>
                     <?php else : ?>
                         <div class="col-lg-4 col-md-6 col-sm-6">
@@ -116,13 +124,10 @@
                 <div class="product__pagination">
                     <!-- nut prev -->
                     <?php if ($current_page > 1 && $total_page > 1) : ?>
-                        <?php if (isset($_GET['keyword'])) : ?>
-                            <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
-                        <?php elseif (isset($_GET['id-danhmuc'])) : ?>
-                            <a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $_GET['id-danhmuc'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
-
-                        <?php else : ?>
+                        <?php if (!isset($_GET['keyword'])) : ?>
                             <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                        <?php else : ?>
+                            <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
                         <?php endif ?>
                     <?php endif ?>
 
@@ -131,27 +136,20 @@
                         <?php if ($i == $current_page) : ?>
                             <a disabled style="background-color: #7fad39; color: white"><?= $i ?></a>
                         <?php else : ?>
-                            <?php if (isset($_GET['keyword'])) : ?>
-                                <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $i ?>"><?= $i ?></a>
-                            <?php elseif (isset($_GET['id-danhmuc'])) : ?>
-                                <a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $_GET['id-danhmuc'] . '&trang=' . $i ?>"><?= $i ?></a>
-
-                            <?php else : ?>
+                            <?php if (!isset($_GET['keyword'])) : ?>
                                 <a href="<?= BASE_URL . 'san-pham?trang=' . $i ?>"><?= $i ?></a>
+                            <?php else : ?>
+                                <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $i ?>"><?= $i ?></a>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endfor ?>
 
                     <!-- nut next -->
                     <?php if ($current_page < $total_page && $total_page > 1) : ?>
-                        <?php if (isset($_GET['keyword'])) : ?>
-                            <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
-                        <?php elseif (isset($_GET['id-danhmuc'])) : ?>
-                            <a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $_GET['id-danhmuc'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
-
-                        <?php else : ?>
+                        <?php if (!isset($_GET['keyword'])) : ?>
                             <a href="<?= BASE_URL . 'san-pham?trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
-
+                        <?php else : ?>
+                            <a href="<?= BASE_URL . 'san-pham?keyword=' . $_GET['keyword'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
                         <?php endif ?> <?php endif ?>
                 </div>
             </div>
@@ -159,3 +157,7 @@
     </div>
 </section>
 <!-- Product Section End -->
+
+<!-- Form_option start -->
+<?php include_once "./client/views/layouts/form_option.php" ?>
+<!-- Form_option end -->

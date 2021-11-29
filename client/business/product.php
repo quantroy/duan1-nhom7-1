@@ -65,14 +65,15 @@ function load_ten_dm($cate_id)
     extract($dm);
     return $name;
 }
-function favorite_product(){
+function favorite_product()
+{
     $id = $_GET['id'];
     // ktra xem đã được yêu thích sản phẩm này hay chưa 
     $userId = $_SESSION['auth']['id'];
     $checkFavoriteProduct = "select * from favorite_products where product_id = $id ";
     $favorite = executeQuery($checkFavoriteProduct, false);
     // nếu chưa có thì lưu vào db
-    if(!$favorite){
+    if (!$favorite) {
         $currentTime = date("Y-m-d h:i:s");
         $addFavoriteQuery = "insert into favorite_products 
                                 (user_id, product_id, created_at)
@@ -83,4 +84,17 @@ function favorite_product(){
         executeQuery($sqlQuery);
     }
     header('Location: ' . $_SERVER['HTTP_REFERER']);
+}
+function list_size()
+{
+    $sqlQuery = "SELECT * from size";
+    $sizes = executeQuery($sqlQuery, true);
+    return $sizes;
+}
+
+function list_topping()
+{
+    $sqlQuery = "SELECT * from toppings";
+    $topping = executeQuery($sqlQuery, true);
+    return $topping;
 }

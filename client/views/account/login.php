@@ -3,6 +3,20 @@
         <h3 style="font-weight:bold;text-align: center;font-size: 24px;color:#0d713d;margin-bottom: 50px;padding-top: 70px;">ĐĂNG NHẬP ĐỂ TRỞ THÀNH THÀNH VIÊN CỦA XIAO HAHA</h3>
         <div class="align-middle" style="text-align:center;">
             <form class="w-80" style="display: inline-block;text-align: left;padding: 45px 250px;" action="<?= BASE_URL . 'tai-khoan/luu-dang-nhap' ?>" method="post">
+                <?php
+
+                if (isset($_GET['null_account'])) {
+                    $log_success = 'none';
+                    $log_error = 'none';
+                    $log_note = 'block';
+                    $mesNote = "Hãy đăng nhập để đặt hàng nhé ";
+                } else {
+                    $log_success = 'none';
+                    $log_error = 'none';
+                    $log_note = 'none';
+                }
+
+                ?>
                 <div class="form-group">
                     <div> <label style="font-weight: bold" for="">Email <span1 style="color:red">(*)</span1> </label> </div>
                     <?php if (isset($_GET['email-err'])) : ?>
@@ -36,5 +50,7 @@
         </div>
     </div>
 </section>
+<!-- log mes -->
+<?php include_once './client/views/layouts/log.php' ?>
 <style>
 </style>

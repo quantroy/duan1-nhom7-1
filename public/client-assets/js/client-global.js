@@ -12,6 +12,22 @@ function confirm_remove(url, name, pageName = null) {
     }
   });
 }
+var checkboxs = document.getElementsByName("checkbox[]");
+
+function confirm_remove(url, name, pageName = null) {
+  Swal.fire({
+    title: `Bạn có thực sự muốn xóa ${pageName} "${name}"?`,
+    // showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: "Đồng ý",
+    cancelButtonText: `Hủy`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      window.location.href = url;
+    }
+  });
+}
 
 delList = [];
 
@@ -31,14 +47,12 @@ function reInput() {
 }
 
 function chooseAll() {
-  var checkboxs = document.getElementsByName("checkbox[]");
   for (var i = 0; i < checkboxs.length; i++) {
     checkboxs[i].checked = true;
   }
 }
 
 function unchooseAll() {
-  var checkboxs = document.getElementsByName("checkbox[]");
   for (var i = 0; i < checkboxs.length; i++) {
     checkboxs[i].checked = false;
   }
@@ -46,7 +60,6 @@ function unchooseAll() {
 
 function checkbox() {
   var key = document.querySelectorAll(".key");
-  var checkboxs = document.getElementsByName("checkbox[]");
   for (var i = 0; i < checkboxs.length; i++) {
     if (checkboxs[i].checked == true) {
       delList.push(key[i].innerHTML);
@@ -78,9 +91,6 @@ function checkbox() {
     //this will reload the page, it's likely better to store this until finished
     document.location.search = kvp.join("&");
   }
-  if (delList.length == 0) {
-    // return "Chưa có mục nào được chọn";
-  }
   insertParam("dels", delList);
 }
 
@@ -107,15 +117,8 @@ function check_isset_box() {
 }
 
 function check_delete($value) {
+
   const modal = document.querySelector("#modal-body");
   modal.innerHTML = "Bạn chắc chắn xóa " + $value;
+  
 }
-
-const swal2 = document.getElementsByClassName(
-  "swal2-container swal2-top-end swal2-backdrop-hidden"
-);
-setTimeout(function () {
-  swal2[0].style.display = "none";
-  swal2[1].style.display = "none";
-  swal2[2].style.display = "none";
-}, 5000);
