@@ -106,10 +106,6 @@ function check_isset_box() {
   }
 }
 
-function check_delete($value) {
-  const modal = document.querySelector("#modal-body");
-  modal.innerHTML = "Bạn chắc chắn xóa " + $value;
-}
 
 const swal2 = document.getElementsByClassName(
   "swal2-container swal2-top-end swal2-backdrop-hidden"

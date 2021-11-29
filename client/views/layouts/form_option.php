@@ -4,7 +4,7 @@
             <div style="background-color: #FAFAFA;" class="modal-header">
                 <div style="width: 100%;" class="row">
                     <div class="col-5">
-                        <img style="width: 60%;" src="" alt="image" id="set_image">
+                        <img style="width: 60%;" src="" alt="image" id="set_image" >
                     </div>
                     <div class="col-7">
                         <h3 id="set_name"></h3>
@@ -97,4 +97,4 @@
     </div>
     <!-- /.modal-dialog -->
 
-</div>
+</div> 

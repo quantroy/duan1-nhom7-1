@@ -12,7 +12,7 @@ $(function () {
     toast: true,
     position: "top-end",
     showConfirmButton: false,
-    timer: 5000,
+    timer: 3000,
   });
 
   $(".swalDefaultSuccess").click(function () {
@@ -36,7 +36,7 @@ $(function () {
   $(".swalDefaultWarning").click(function () {
     Toast.fire({
       icon: "warning",
-      title: "Không thể đặt hàng, hãy đăng nhập để đặt hàn và nhân thưởng",
+      title: "Không thể đặt hàng, hãy đăng nhập để đặt hàng và nhận thưởng",
     });
   });
   $(".swalDefaultQuestion").click(function () {

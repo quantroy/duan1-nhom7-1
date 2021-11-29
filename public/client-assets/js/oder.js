@@ -39,20 +39,21 @@ function click_size() {
 // lay data cho option
 for (var i = 0; i < btnCart.length; i++) {
 
+
   btnCart[i].onclick = function () {
     inputSize[0].checked = true;
     for (var i = 0; i < topping.length; i++) {
       topping[i].checked = false;
     }
-    index = this.getAttribute("index");
-    setImage.src = getImage[index].getAttribute("data-setbg");
+    index =  this.getAttribute('data');
+    setImage.src = getImage[index].getAttribute("data");
     setPrice.innerText = getPrice[index].getAttribute("data");
     localStorage.setItem("initial", getPrice[index].getAttribute("data"));
     setTotal.innerText = getPrice[index].getAttribute("data").replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "đ";
     setName.innerText = getName[index].innerText;
     setId.value = getId[index].innerText;
-    setNameIP.value = getName[index].innerText;
-    setImageIP.value = getImage[index].getAttribute("data-setbg");
+    setNameIP.value = "getName[index].innerText";
+    setImageIP.value = getImage[index].getAttribute("data");
     priceProOpt.value = setTotal.innerText;
   };
 }

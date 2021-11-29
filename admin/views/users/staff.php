@@ -34,7 +34,6 @@
     </div>
     <div class="row ml-5 pb-5">
         <?php
-        $id;
         if (isset($_GET['success'])) {
             $log_success = 'flex';
             $log_error = 'none';
@@ -62,7 +61,7 @@
                 <form class="mt-1" action="" method="post">
                     <input type="checkbox" name="checkbox[]">
                 </form>
-                <div style="display: none;" class="key"><?php $id = $account[$i]['id'];
+                <div style="display: none;" class="key"><?php
                                                         echo $account[$i]['id']; ?></div>
                 <div class="card-header text-muted border-bottom-0">
                     <h2 class="lead"><b>Họ Tên: <?php echo $account[$i]['name'] ?></b></h2>
@@ -83,23 +82,16 @@
                 </div>
                 <div style="text-align: right;" class="card-footer">
 
-                    <a class="btn btn-success" href="chinh-sua&id=<?php echo $account[$i]['id']; ?>"> <i class="fas fa-edit"></i> Sửa</a>
-                    <btn class="btn btn-danger " data-toggle="modal" data-target="#dell" onclick="check_delete('tài khoản có tên /<?= $account[$i]['name'], ' /' ?>')"><i class="fas fa-trash"></i>Xóa</btn>
+                    <a class="btn btn-success" href="chinh-sua&id=<?php echo $account[$i]['id']; ?>"> <i class="fas fa-edit"></i> </a>
                 </div>
             </div>
         <?php
         }
         ?>
     </div>
-    <div style="position: fixed; bottom: 60px;right: 10px;">
-        <btn onclick="chooseAll()" class="btn btn-success">Chọn tất cả</btn>
-        <btn onclick="unchooseAll()" class="btn btn-success">Bỏ chọn tất cả</btn>
-        <btn onclick="check_isset_box();" data-toggle="modal" data-target="#myModal" class="btn btn-danger">Xóa đã chọn</btn>
-    </div>
     <!-- The Modal -->
 
     <?php include_once "./admin/views/layouts/modal_warning.php" ?>
-    <?php include_once "./admin/views/layouts/modal_delete.php" ?>
 
     <!-- logmes star -->
     <?php include_once "./admin/views/layouts/log.php" ?>

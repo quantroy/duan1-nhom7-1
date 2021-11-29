@@ -94,23 +94,24 @@ if (isset($_SESSION['auth']['id'])) {
                 </div>
                 <div class="row">
                     <?php if (!empty($products)) : ?>
-                        <?php foreach ($products as $product) : ?>
+                        <?php foreach ($products as $k => $product) : ?>
 
                             <?php if ($product['status'] == 1) : ?>
+                                <p style="display: none;" class="product_id"><?php echo $product['id'] ?></p>
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product__item">
-                                        <div class="product__item__pic set-bg" data-setbg="<?= $product['thumbnail'] ?>">
+                                        <div src="<?= $product['thumbnail'] ?>" id="value_image" class="product__item__pic set-bg" data-setbg="<?= $product['thumbnail'] ?>" data="<?= $product['thumbnail'] ?>" >
                                             <ul class="product__item__pic__hover">
                                                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
                                                     <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
                                                 <?php endif ?>
-
-                                                <li><a class="<?php echo $log ?>" id="btn_cart" data-toggle="modal" <?php echo $check_login ?> index="<?php echo $k ?>"><i class="fa fa-shopping-cart "></i></a></li>
+                                                <li><a class="<?php echo $log ?>" id="btn_cart" data-toggle="modal" <?php echo $check_login ?> data="<?php echo $k ?>"><i class="fa fa-shopping-cart "></i></a></li>
                                             </ul>
                                         </div>
+
                                         <div class="product__item__text">
-                                            <h6><a href="#"><?= $product['name'] ?></a></h6>
-                                            <h5><?= number_format($product['price'], 0, '', ',') ?>đ</h5>
+                                            <h6><a id="value_name"><?= $product['name'] ?></a></h6>
+                                            <h5 id="value_price" data="<?php echo $product['price'] ?>"><?= number_format($product['price'], 0, '', ',') ?>đ</h5>
                                         </div>
                                     </div>
                                 </div>
