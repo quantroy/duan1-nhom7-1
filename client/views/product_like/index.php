@@ -30,6 +30,7 @@
                                     <th>Tên Sản Phẩm</th>
                                     <th>Giá</th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,14 +42,17 @@
                                         
                                         <?php foreach ($favorite_product as $pf) : ?>
                                             <?php if ($pf['id'] == $like['product_id']): ?>
-                                                <td class="shoping__cart__item">
+                                                <td class="shoping__cart__item" style="width:200px;">
                                                     <img src="<?=$pf['thumbnail']?>" alt="" style="width:90%">
                                                 </td>
                                                 <td>
                                                     <h5><?=$pf['name']?></h5>
                                                 </td>
                                                 <td class="shoping__cart__price">
-                                                    <?=$pf['price']?>
+                                                <?= number_format($pf['price'], 0, '', ',') ?>đ
+                                                </td>
+                                                <td class="shoping__cart__item__close">
+                                                    <span class="fa fa-shopping-cart"></span>
                                                 </td>
                                                 <td class="shoping__cart__item__close">
                                                 <span class="icon_close"></span>        
