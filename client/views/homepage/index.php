@@ -29,23 +29,7 @@
 
 
 <!-- check login dạt hang -->
-<?php
 
-if (isset($_SESSION['auth']['id'])) {
-    $check_login = "#modal-lg";
-    $log_success = 'none';
-    $log_error = 'none';
-    $log_note = 'none';
-} else {
-    $check_login = "";
-    $log_note = 'flex';
-    $log_error = 'none';
-    $log_success = 'none';
-    $mesNote = "Hãy đăng nhập để đặt hàng và nhận thưởng";
-}
-
-
-?>
 <!-- logmes star -->
-<?php include_once "./client/views/layouts/log.php" ?>
+
 <!-- logmes end -->

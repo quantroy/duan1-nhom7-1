@@ -12,7 +12,7 @@ $(function () {
     toast: true,
     position: "top-end",
     showConfirmButton: false,
-    timer: 3000,
+    timer: 5000,
   });
 
   $(".swalDefaultSuccess").click(function () {
@@ -24,25 +24,25 @@ $(function () {
   $(".swalDefaultInfo").click(function () {
     Toast.fire({
       icon: "info",
-      title: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+      title: "Không thể đặt hàng, hãy đăng nhập để đặt hàn và nhân thưởng",
     });
   });
   $(".swalDefaultError").click(function () {
     Toast.fire({
       icon: "error",
-      title: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+      title: "Không thể đặt hàng, hãy đăng nhập để đặt hàn và nhân thưởng",
     });
   });
   $(".swalDefaultWarning").click(function () {
     Toast.fire({
       icon: "warning",
-      title: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+      title: "Không thể đặt hàng, hãy đăng nhập để đặt hàn và nhân thưởng",
     });
   });
   $(".swalDefaultQuestion").click(function () {
     Toast.fire({
       icon: "question",
-      title: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+      title: "Không thể đặt hàng, hãy đăng nhập để đặt hàn và nhân thưởng",
     });
   });
 

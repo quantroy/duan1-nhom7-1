@@ -19,18 +19,11 @@
 <?php
 
 if (isset($_SESSION['auth']['id'])) {
-    $check_login = "#modal-lg";
-    $log_success = 'none';
-    $log_error = 'none';
-    $log_note = 'none';
+    $check_login = "data-target='#modal-lg'";
+    $log = "";
 } else {
-    
+    $log = "swalDefaultWarning";
     $check_login = "";
-    $log_note = 'flex';
-    $log_error = 'none';
-    $log_success = 'none';
-    $mesNote = "Không thể đặt hàng, hãy đăng nhập để đặt hàng và nhận thưởng";
-    include_once "./client/views/layouts/log.php";
 }
 
 ?>
@@ -111,7 +104,7 @@ if (isset($_SESSION['auth']['id'])) {
                                     <div id="value_image" class="product__item__pic set-bg" data-setbg="<?= CLIENT_ASSET ?>img/product/sp1.jpg">
                                         <ul class="product__item__pic__hover">
                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a id="btn_cart" data-toggle="modal" data-target="<?php echo $check_login ?>" index="<?php echo $k ?>"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a class="<?php echo $log ?>" id="btn_cart" data-toggle="modal" <?php echo $check_login ?> index="<?php echo $k ?>"><i class="fa fa-shopping-cart "></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
