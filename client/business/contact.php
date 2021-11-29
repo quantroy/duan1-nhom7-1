@@ -1,5 +1,8 @@
 <?php
 function contact()
 {
-    client_render('contact/index.php');
+    $sql = "SELECT * FROM  contact";
+    $contact = pdo_execute($sql);
+    client_render('contact/index.php', compact('contact'));
 }
+?>
