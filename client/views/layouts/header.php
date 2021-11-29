@@ -96,13 +96,13 @@
                             </div>
 
                             <div class="header__top__right__auth">
-                            <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null):?>
-                                   <div style="display:flex; justify-content:flex-end; min-width:100px">
-                                  <a style="margin-right:30px" href=""><i class="fa fa-user"></i><?= $_SESSION['auth']['name'] ?> </a>
-                                    <a href="<?= BASE_URL . 'tai-khoan/dang-xuat'?>">Đăng xuất</a>
-                                   </div>
-                            <?php else: ?>
-                                <a href="<?= BASE_URL ?>tai-khoan/dang-nhap"> Đăng nhập</a>
+                                <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
+                                    <div style="display:flex; justify-content:flex-end; min-width:100px">
+                                        <a style="margin-right:30px" href=""><i class="fa fa-user"></i><?= $_SESSION['auth']['name'] ?> </a>
+                                        <a href="<?= BASE_URL . 'tai-khoan/dang-xuat' ?>">Đăng xuất</a>
+                                    </div>
+                                <?php else : ?>
+                                    <a href="<?= BASE_URL ?>tai-khoan/dang-nhap"> Đăng nhập</a>
                                 <?php endif ?>
                             </div>
                         </div>
@@ -131,7 +131,12 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+
+                            <li><a href="<?= BASE_URL . 'san-pham-yeu-thich' ?>"><i class="fa fa-heart"></i> <span>
+                                        <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
+                                            <?= count(getFavoriteProducts()) ?>
+                                        <?php endif ?>
+                                    </span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
                     </div>
@@ -155,13 +160,15 @@
                             <span>Danh Mục</span>
                         </div>
                         <ul>
-                        <?php
-                        $listdanhmuc = loadall_danhmuc();
-                        ?>
-                        <?php foreach($listdanhmuc as $danhmuc):?>
-                                    <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id']?>"><?=$danhmuc['name']?></a></li>
-                        
-                        <?php endforeach;?>
+                            <?php
+                            $listdanhmuc = loadall_danhmuc();
+                            ?>
+                            <?php foreach ($listdanhmuc as $danhmuc) : ?>
+                                <?php if ($danhmuc['show_menu'] == 1) : ?>
+                                    <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a></li>
+                                <?php endif; ?>
+
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>
