@@ -65,15 +65,16 @@ function load_ten_dm($cate_id)
     extract($dm);
     return $name;
 }
-function favorite_product(){
-    $sql="SELECT * FROM products";
+function favorite_product()
+{
+    $sql = "SELECT * FROM products";
     $id = $_GET['id'];
     // ktra xem đã được yêu thích sản phẩm này hay chưa 
     $userId = $_SESSION['auth']['id'];
     $checkFavoriteProduct = "select * from favorite_products where user_id = $userId and product_id = $id";
     $favorite = executeQuery($checkFavoriteProduct, false);
     // nếu chưa có thì lưu vào db
-    if(!$favorite){
+    if (!$favorite) {
         $currentTime = date("Y-m-d h:i:s");
         $addFavoriteQuery = "insert into favorite_products 
                                 (user_id, product_id, created_at)
