@@ -21,7 +21,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="<?= BASE_URL . 'danh-muc/san-pham?id=' . $items['id'] ?>"><?php echo $items['name'] ?></a></h6>
-                            <h5><?php echo $items['price'] ?>đ</h5>
+                            <h5><?=  number_format($items['price'], 0, '', ',') ?>đ</h5>
                         </div>
                     </div>
                 </div>
