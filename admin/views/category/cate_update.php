@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    foreach (selectDb("SELECT * FROM categories WHERE id = '$id'") as $key) {
+    foreach (pdo_select("SELECT * FROM categories WHERE id = '$id'") as $key) {
         $name = $key['name'];
     }
 }
