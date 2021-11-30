@@ -28,6 +28,10 @@ switch ($url) {
         } else {
             product_index();
         }
+        break;
+    case 'yeu-thich':
+        favorite_product();
+        break;
 
         require_once './client/business/product.php';
         break;

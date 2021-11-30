@@ -15,15 +15,15 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="<?php echo $items['thumbnail'] ?>">
                             <ul class="featured__item__pic__hover">
-                                <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
-                                <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
-                                <?php  endif ?>
+                                <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
+                                    <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $items['id'] ?>"><i class="fa fa-heart"></i></a></li>
+                                <?php endif ?>
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="<?= BASE_URL . 'danh-muc/san-pham?id=' . $items['id'] ?>"><?php echo $items['name'] ?></a></h6>
-                            <h5><?=  number_format($items['price'], 0, '', ',') ?>đ</h5>
+                            <h5><?= number_format($items['price'], 0, '', ',') ?>đ</h5>
                         </div>
                     </div>
                 </div>

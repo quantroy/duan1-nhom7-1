@@ -147,17 +147,17 @@ function update_account()
             $dir = "./public/uploads/";
             $target_file = $dir . basename($img_new['name']);
             $type = pathinfo($target_file, PATHINFO_EXTENSION);
-                $avatar_new = uniqid() . "-" . $img_new['name'];
-                move_uploaded_file($img_new['tmp_name'], $dir . $avatar_new);
-                $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new',updated_at = '$date_upadte', avatar = '$avatar_new', avatar = '$avatar_new', phone = '$phone_new' WHERE id = '$id'";
-                pdo_execute($sql);
-                $_SESSION['success'] = "Cập nhật thành công";
-                header('location:' . BASE_URL . 'tai-khoan/cap-nhat?id='.$id);          
-        }else{
-        $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new', updated_at = '$date_upadte', phone = '$phone_new' WHERE id = '$id'";
-        pdo_execute($sql);
-        $_SESSION['success'] = "Cập nhật thành công";
-        header('location:' . BASE_URL . 'tai-khoan/cap-nhat?id='.$id);
+            $avatar_new = uniqid() . "-" . $img_new['name'];
+            move_uploaded_file($img_new['tmp_name'], $dir . $avatar_new);
+            $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new',updated_at = '$date_upadte', avatar = '$avatar_new', avatar = '$avatar_new', phone = '$phone_new' WHERE id = '$id'";
+            pdo_execute($sql);
+            $_SESSION['success'] = "Cập nhật thành công";
+            header('location:' . BASE_URL . 'tai-khoan/cap-nhat?id=' . $id);
+        } else {
+            $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new', updated_at = '$date_upadte', phone = '$phone_new' WHERE id = '$id'";
+            pdo_execute($sql);
+            $_SESSION['success'] = "Cập nhật thành công";
+            header('location:' . BASE_URL . 'tai-khoan/cap-nhat?id=' . $id);
         }
     }
     client_render('account/update_account.php');
@@ -247,7 +247,7 @@ function post()
                                         remember_token = '$remember_token', 
                                         remember_expire = '$expireTime'
                                     where id = " . $user['id'];
-            pdo_execute($updateRememberQuery, false);
+            pdo_execute($updateRememberQuery);
         }
 
 
