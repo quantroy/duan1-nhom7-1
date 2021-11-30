@@ -29,6 +29,11 @@ switch ($url) {
             product_index();
         }
 
+    case 'yeu-thich':
+        require_once './client/business/product.php';
+        favorite_product();
+        break;
+
         require_once './client/business/product.php';
         break;
     case 'tin-tuc':
@@ -63,10 +68,10 @@ switch ($url) {
         require_once './client/business/account.php';
         register();
         break;
-    // case 'tai-khoan/cap-nhat':
-    //     require_once './client/business/account.php';
-    //     update_account();
-    //     break;
+        // case 'tai-khoan/cap-nhat':
+        //     require_once './client/business/account.php';
+        //     update_account();
+        //     break;
     case 'tai-khoan/dang-nhap':
         require_once './client/business/account.php';
         login();

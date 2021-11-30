@@ -219,7 +219,7 @@ function post()
                                         remember_token = '$remember_token', 
                                         remember_expire = '$expireTime'
                                     where id = " . $user['id'];
-            pdo_execute($updateRememberQuery, false);
+            pdo_execute($updateRememberQuery);
         }
 
 
