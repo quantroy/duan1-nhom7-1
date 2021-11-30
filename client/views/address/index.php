@@ -29,7 +29,6 @@
             </tr>
 
             <?php
-            $id;
             if (isset($_GET['dell']) || isset($_GET['delss'])) {
                 $log_success = 'flex';
                 $log_error = 'none';
@@ -64,10 +63,9 @@
                     <td><?php echo $address[$i]['phone'] ?></td>
                     <td><?php echo $address[$i]['address'] ?></td>
                     <td><?php echo $address[$i]['note'] ?></td>
-                    <?php $id =  $address[$i]['id'] ?>
                     <td>
                         <a class="btn btn-success" href="chinh-sua-dia-chi&id=<?php echo $address[$i]['id']; ?>">Sửa</a>
-                        <btn class="btn btn-danger " data-toggle="modal" data-target="#dell" onclick="check_delete('địa chỉ có tên /<?php echo $address[$i]['recciever'] . '/ ' ?>')">Xóa</btn>
+                        <btn class="btn btn-danger " data-toggle="modal" data-target="#dell" onclick="check_delete('địa chỉ có tên /<?php echo $address[$i]['recciever'] . '/ ' ?>',<?= $address[$i]['id'] ?> )">Xóa</btn>
                     </td>
                 </tr>
             <?php

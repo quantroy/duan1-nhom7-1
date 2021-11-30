@@ -116,9 +116,11 @@ function check_isset_box() {
   }
 }
 
-function check_delete($value) {
-
+function check_delete($value, $id) {
+  
+  const btn_dell = document.querySelector("#btn_dell");
   const modal = document.querySelector("#modal-body");
   modal.innerHTML = "Bạn chắc chắn xóa " + $value;
-  
+  btn_dell.setAttribute('href', '?dellid='+$id);
+
 }

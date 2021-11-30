@@ -4,7 +4,7 @@
             <div style="background-color: #FAFAFA;" class="modal-header">
                 <div style="width: 100%;" class="row">
                     <div class="col-5">
-                        <img style="width: 60%;" src="" alt="image" id="set_image" >
+                        <img style="width: 60%;" src="" alt="image" id="set_image">
                     </div>
                     <div class="col-7">
                         <h3 id="set_name"></h3>
@@ -18,7 +18,7 @@
                             <input style="display: none;" type="text" id="toppingIP" name="toppingIP">
                             <div style="display: flex; align-items: center; width: 170px;" class="btn-group">
                                 <button id="reduce" style="width: 20px; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle ">-</button>
-                                <input id="quantity" style="width: 50px; text-align: center; border: none; background-color: #FAFAFA;" value="1" type="text" id="quantity" name="quantity">
+                                <input onkeyup="toTal()" id="quantity" style="width: 50px; text-align: center; border: none; background-color: #FAFAFA;" value="1" type="text" id="quantity" name="quantity">
 
                                 <button id="augment" style="width: 20px;text-align: center; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle">+</button>
                                 <button style=" display: flex; justify-content: center; align-items: center; " id="total" type="button" class="btn btn-warning ml-3"></button>
@@ -97,4 +97,4 @@
     </div>
     <!-- /.modal-dialog -->
 
-</div> 
+</div>
