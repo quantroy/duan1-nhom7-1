@@ -141,31 +141,25 @@ function update_account()
         $name_new = $_POST['name'];
         $email_new = $_POST['email'];
         $phone_new = $_POST['phone'];
-        $date_upadte = date('Y/m/d');
+        $date_upadte = date('Y/m/d H:i:s');
         if (isset($_FILES['image']) && $_FILES['image']['name']) {
             $img_new = $_FILES['image'];
-            $maxSize = 800000;
             $dir = "./public/uploads/";
             $target_file = $dir . basename($img_new['name']);
             $type = pathinfo($target_file, PATHINFO_EXTENSION);
-            $allowtypes    = array('jpg', 'png', 'jpeg');
-            if ($img_new["size"] > $maxSize) {
-                $_SESSION['fale'] = "File ảnh quá lớn. Vui lòng chọn ảnh khác";
-            } elseif (!in_array($type, $allowtypes)) {
-                $_SESSION['fale'] = "Chỉ được upload các định dạng JPG, PNG, JPEG";
-            } else {
                 $avatar_new = uniqid() . "-" . $img_new['name'];
                 move_uploaded_file($img_new['tmp_name'], $dir . $avatar_new);
                 $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new',updated_at = '$date_upadte', avatar = '$avatar_new', avatar = '$avatar_new', phone = '$phone_new' WHERE id = '$id'";
-                pdo_execute("$sql");
+                pdo_execute($sql);
                 $_SESSION['success'] = "Cập nhật thành công";
                 header('refresh:3;' . BASE_URL . 'trang-chu');
-            }
-        }
+            
+        }else{
         $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new', updated_at = '$date_upadte', phone = '$phone_new' WHERE id = '$id'";
         pdo_execute($sql);
         $_SESSION['success'] = "Cập nhật thành công";
         header('refresh:3;' . BASE_URL . 'trang-chu');
+        }
     }
     client_render('account/update_account.php');
 }
