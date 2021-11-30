@@ -15,23 +15,18 @@
 
 <body>
     <h1 style="width: 100%; text-align: center;">Quản lý nhân viên</h1>
-    <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-info">
-            <div class="inner">
-                <h3><?php   ?></h3>
-                <p>Số lượng nhân viên</p>
-            </div>
-
+    <!-- small box -->
+    <div class=" ml-5">
+        <div class="row ml-5">
+            <form action="" method="get" class="form-inline">
+                <div class="form-group">
+                    <input type="text" name="keyword" value="<?php if (isset($keyword)) $keyword  ?>" class="form-control mr-2" placeholder="Tìm kiếm...">
+                </div>
+                <input class="btn btn-sm btn-outline-dark" type="submit" value="Tìm kiếm">
+            </form>
         </div>
-        <h2>Danh sách </h2>
-        <form action="" method="get" class="form-inline">
-            <div class="form-group">
-                <input type="text" name="keyword" value="<?php if (isset($keyword)) $keyword  ?>" class="form-control mr-2" placeholder="Tìm kiếm...">
-            </div>
-            <input class="btn btn-sm btn-outline-dark" type="submit" value="Tìm kiếm">
-        </form>
     </div>
+
     <div class="row ml-5 pb-5">
         <?php
         if (isset($_GET['success'])) {
@@ -59,7 +54,7 @@
 
             <div class="col-sm-5 card bg-light d-flex flex-fill ml-5 mt-3">
                 <form class="mt-1" action="" method="post">
-                    <input type="checkbox" name="checkbox[]">
+                    <input style="display: none;" type="checkbox" name="checkbox[]">
                 </form>
                 <div style="display: none;" class="key"><?php
                                                         echo $account[$i]['id']; ?></div>
@@ -72,6 +67,7 @@
 
                             <ul class="ml-4 mb-0 fa-ul text-muted">
                                 <li class="small"><span class="fa-li"><i class="fas fa-envelope-open"></i></span> Gmail <?php echo $account[$i]['email'] ?></li>
+                                <li class="small"><span class="fa-li"><i class="fas fa-envelope-open"></i></span> Phone <?php echo $account[$i]['phone'] ?></li>
                             </ul>
                         </div>
                         <div class="col-5 text-center">
