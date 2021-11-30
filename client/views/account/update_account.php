@@ -15,17 +15,8 @@ if (isset($_GET['id']) && ($_GET['id'])) {
         <div class="align-middle" style="text-align:center;">
             <form class="w-80" style="display: inline-block;text-align: left;padding: 45px 250px;" action="<?= BASE_URL . 'tai-khoan/cap-nhat?id=' . $id ?>" method="post" enctype="multipart/form-data">
                 <div style="max-width: 575px; text-align: center; margin:0 auto;" class="p-4">
-                    <?php if (isset($_SESSION['false'])) { ?>
-                        <div class='alert alert-danger' role="alert">
-                            <?php $_SESSION['false'] ?>
-                        </div>
-                    <?php } elseif (isset($_SESSION['success'])) {  ?>
-                        <div class='alert alert-success' role="alert">
-                            <?php $_SESSION['success'] ?>
-                        </div>
-                    <?php  } ?>
                 </div>
-                <img src="/duan1-nhom7/public/uploads/<?= $avatar ?>" class="" alt="Cinque Terre" width="150" height="150" style="margin-left: 110px;">
+                <img src="/duan1-nhom7/public/uploads/<?= $avatar ?>" class="" alt="Cinque Terre" width="150" height="150" style="margin-left: 110px; margin-top: -120px;">
                 <div class="form-group">
                     <div> <label style="font-weight: bold" for="">Tên tài khoản</label> </div>
                     <input class="form-control  " type="text" name="name" value="<?= $name ?>">
