@@ -15,10 +15,7 @@
 
 <!-- Featured Section End -->
 
-<!-- Banner Begin -->
 
-<?php include_once './client/views/layouts/subBanner.php'; ?>
-<!-- Banner End -->
 
 <!-- Blog Section Begin -->
 

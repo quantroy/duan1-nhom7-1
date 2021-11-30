@@ -5,6 +5,8 @@ const ADMIN_URL = BASE_URL . 'cp-admin/';
 const ADMIN_ASSET = BASE_URL . 'public/admin-assets/';
 const CLIENT_ASSET = BASE_URL . 'public/client-assets/';
 
+date_default_timezone_set("Asia/Ho_Chi_Minh");
+
 function dd()
 {
     $data = func_get_args();

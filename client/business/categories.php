@@ -4,4 +4,3 @@ function loadall_danhmuc(){
     $listdanhmuc = executeQuery($sql, true);
     return $listdanhmuc;
 }
-?>

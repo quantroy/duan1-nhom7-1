@@ -28,13 +28,12 @@ switch ($url) {
         } else {
             product_index();
         }
-
-        require_once './client/business/product.php';
+        break;
+    case 'yeu-thich':
+        favorite_product();
         break;
 
-    case 'yeu-thich':
         require_once './client/business/product.php';
-        favorite_product();
         break;
     case 'tin-tuc':
         require_once './client/business/blog.php';
@@ -94,10 +93,10 @@ switch ($url) {
         require_once './client/business/address.php';
         edit_address($_GET['id']);
         break;
-        // case 'tai-khoan/cap-nhat':
-        //     require_once './client/business/account.php';
-        //     update_account();
-        // break;
+    case 'tai-khoan/cap-nhat':
+        require_once './client/business/account.php';
+        update_account();
+        break;
     case 'tai-khoan/dang-nhap':
         require_once './client/business/account.php';
         login();

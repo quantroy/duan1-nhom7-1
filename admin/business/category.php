@@ -28,8 +28,9 @@ function cate_add_form()
 function cate_save_add()
 {
     $name = $_POST['name'];
+    $created_at = date('y/m/d H:i:s');
     $show_menu = isset($_POST['show_menu']) ? 1 : 0;
-    $sql = "INSERT into categories (name, show_menu) values ('$name', $show_menu)";
+    $sql = "INSERT into categories (name, show_menu,created_at) values ('$name', $show_menu,'$created_at')";
     executeQuery($sql);
     header("location: " . ADMIN_URL . 'danh-muc');
 }
