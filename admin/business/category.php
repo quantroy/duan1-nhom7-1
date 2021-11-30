@@ -31,7 +31,7 @@ function cate_save_add()
     $created_at = date('y/m/d H:i:s');
     $show_menu = isset($_POST['show_menu']) ? 1 : 0;
     $sql = "INSERT into categories (name, show_menu,created_at) values ('$name', $show_menu,'$created_at')";
-    pdo_execute($sql);
+    executeQuery($sql);
     header("location: " . ADMIN_URL . 'danh-muc');
 }
 function cate_update()
