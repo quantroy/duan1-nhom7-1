@@ -10,13 +10,17 @@
             </div>
         </div>
         <div class="row featured__filter">
-            <?php foreach (pdo_select("SELECT * FROM products ORDER BY id DESC LIMIT 8") as $items) { ?>
+            <?php foreach (pdo_select("SELECT * FROM products WHERE status = '1' ORDER BY id DESC LIMIT 8") as $items) { ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="<?php echo $items['thumbnail'] ?>">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null) { ?>
+                                <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <?php } else{ ?>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <?php } ?>
                             </ul>
                         </div>
                         <div class="featured__item__text">

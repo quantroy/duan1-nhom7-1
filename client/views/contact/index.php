@@ -20,7 +20,6 @@
 <section class="contact spad">
     <div class="container">
         <div class="row">
-            <?php foreach($contact as $contact){ ?>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_phone"></span>
@@ -49,7 +48,6 @@
                     <p>xiaohaha@gmail.com</p>
                 </div>
             </div>
-            <?php } ?>
         </div>
     </div>
 </section>
