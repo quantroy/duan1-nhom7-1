@@ -45,7 +45,7 @@ for (var i = 0; i < btnCart.length; i++) {
     for (var i = 0; i < topping.length; i++) {
       topping[i].checked = false;
     }
-    index =  this.getAttribute('data');
+    index = this.getAttribute('data');
     setImage.src = getImage[index].getAttribute("data");
     setPrice.innerText = getPrice[index].getAttribute("data");
     localStorage.setItem("initial", getPrice[index].getAttribute("data"));
@@ -54,7 +54,7 @@ for (var i = 0; i < btnCart.length; i++) {
     setId.value = getId[index].innerText;
     setNameIP.value = "getName[index].innerText";
     setImageIP.value = getImage[index].getAttribute("data");
-    priceProOpt.value = setTotal.innerText;
+    priceProOpt.value = getPrice[index].getAttribute("data");
   };
 }
 // tao nut tang giam so luong
@@ -73,7 +73,7 @@ function toTal() {
     Number(document.getElementById("set_price").innerText) + topPing();
   var total = quantity.value * setPrice.innerText;
   setTotal.innerText = topPing() + total + "đ";
-  setTotal.innerText =  setTotal.innerText.replace(/\B(?=(\d{3})+(?!\d))/g, ',') ;
+  setTotal.innerText = setTotal.innerText.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 //chon topping
