@@ -8,6 +8,7 @@ require_once './mail/index.php';
 require_once './dao/system_dao.php';
 require_once './client/business/product.php';
 require_once './client/business/categories.php';
+require_once './client/business/blog.php';
 
 // dd($url);
 switch ($url) {
