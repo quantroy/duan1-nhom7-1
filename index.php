@@ -33,9 +33,6 @@ switch ($url) {
         require_once './client/business/product.php';
         favorite_product();
         break;
-
-        require_once './client/business/product.php';
-        break;
     case 'tin-tuc':
         require_once './client/business/blog.php';
         blog();
