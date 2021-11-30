@@ -22,21 +22,22 @@ if (isset($_SESSION['auth']['id'])) {
                 </div>
             </div>
         </div>
-        <div class="row">
-            <?php foreach (selectDb("SELECT * FROM products ORDER BY id DESC LIMIT 8") as $items) { ?>
+        <div class="row ">
+            <?php foreach (pdo_select("SELECT * FROM products WHERE status = '1' ORDER BY id DESC LIMIT 8") as $k => $items) { ?>
+                <p style="display: none;" class="product_id"><?php echo $items['id'] ?></p>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="<?php echo $items['thumbnail'] ?>">
+                        <div id="value_image" class="featured__item__pic set-bg" data-setbg="<?php echo $items['thumbnail'] ?>"data="<?= $items['thumbnail'] ?>">
                             <ul class="featured__item__pic__hover">
                                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
                                     <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $items['id'] ?>"><i class="fa fa-heart"></i></a></li>
                                 <?php endif ?>
-                                <li><a class="<?php echo $log ?> " id="btn_cart" data-toggle="modal" <?php echo $check_login ?>><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a class="<?php echo $log ?>" id="btn_cart" data-toggle="modal" <?php echo $check_login ?> data="<?php echo $k ?>"><i class="fa fa-shopping-cart "></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="<?= BASE_URL . 'danh-muc/san-pham?id=' . $items['id'] ?>"><?php echo $items['name'] ?></a></h6>
-                            <h5><?= number_format($items['price'], 0, '', ',') ?>đ</h5>
+                            <h6><a id="value_name" href="<?= BASE_URL . 'danh-muc/san-pham?id=' . $items['id'] ?>"><?php echo $items['name'] ?></a></h6>
+                            <h5 id="value_price" data="<?php echo $items['price'] ?>"><?= number_format($items['price'], 0, '', ',') ?>đ</h5>
                         </div>
                     </div>
                 </div>
