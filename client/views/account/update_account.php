@@ -17,11 +17,11 @@ if (isset($_GET['id']) && ($_GET['id'])) {
                 <div style="max-width: 575px; text-align: center; margin:0 auto;" class="p-4">
                     <?php if (isset($_SESSION['false'])) { ?>
                         <div class='alert alert-danger' role="alert">
-                            <?= $_SESSION['false'] ?>
+                            <?php $_SESSION['false'] ?>
                         </div>
                     <?php } elseif (isset($_SESSION['success'])) {  ?>
                         <div class='alert alert-success' role="alert">
-                            <?= $_SESSION['success'] ?>
+                            <?php $_SESSION['success'] ?>
                         </div>
                     <?php  } ?>
                 </div>
