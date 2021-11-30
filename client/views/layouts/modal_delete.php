@@ -12,10 +12,10 @@
             <div id="modal-body" class="modal-body">
 
             </div>
-
+            <p id="dellid"></p>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <a href="?dellid=<?php echo $id ?>" class="btn btn-danger btn_false " >Xóa</a>
+                <a id="btn_dell" class="btn btn-danger btn_false ">Xóa</a>
             </div>
 
         </div>
