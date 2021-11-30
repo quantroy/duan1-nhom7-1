@@ -85,3 +85,16 @@ function favorite_product()
     }
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
+function list_size()
+{
+    $sqlQuery = "SELECT * from size";
+    $sizes = executeQuery($sqlQuery, true);
+    return $sizes;
+}
+
+function list_topping()
+{
+    $sqlQuery = "SELECT * from toppings";
+    $topping = executeQuery($sqlQuery, true);
+    return $topping;
+}
