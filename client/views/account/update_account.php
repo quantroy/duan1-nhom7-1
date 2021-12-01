@@ -16,7 +16,7 @@ if (isset($_GET['id']) && ($_GET['id'])) {
             <form class="w-80" style="display: inline-block;text-align: left;padding: 45px 250px;" action="<?= BASE_URL . 'tai-khoan/cap-nhat?id=' . $id ?>" method="post" enctype="multipart/form-data">
                 <div style="max-width: 575px; text-align: center; margin:0 auto;" class="p-4">
                 </div>
-                <img src="/duan1-nhom7/public/uploads/<?= $avatar ?>" class="" alt="Cinque Terre" width="150" height="150" style="margin-left: 110px; margin-top: -120px;">
+                <img src="<?= IMG_URL . $avatar ?>" class="" alt="ảnh đại diện" width="150" height="150" style="margin-left: 110px; margin-top: -120px;">
                 <div class="form-group">
                     <div> <label style="font-weight: bold" for="">Tên tài khoản</label> </div>
                     <input class="form-control  " type="text" name="name" value="<?= $name ?>">
