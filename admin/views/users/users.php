@@ -69,7 +69,7 @@
                             </ul>
                         </div>
                         <div class="col-5 text-center">
-                            <img src="<?php echo $account[$i]['avatar'] ?>" class="img-circle img-fluid">
+                            <img src="<?php echo IMG_URL . $account[$i]['avatar'] ?>" class="img-circle img-fluid">
                         </div>
                     </div>
 
