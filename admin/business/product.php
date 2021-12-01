@@ -41,7 +41,7 @@ function pro_save_add()
     $product = executeQuery($getProducts, false);
     if (empty($name)) {
         $errors .= "name-err=Hãy nhập tên sản phẩm&";
-    }else if($name==$product['name']){
+    } else if ($name == $product['name']) {
         $errors .= "name-err=Tên sản phẩm đã có vui lòng chọn tên khác&";
     }
     if (empty($price)) {
@@ -56,7 +56,6 @@ function pro_save_add()
     if ($thumbnail['size'] > 0) {
         $filename = uniqid() . '-' . $thumbnail['name'];
         move_uploaded_file($thumbnail['tmp_name'], './public/uploads/' . $filename);
-        $filename = BASE_URL . 'public/uploads/' . $filename;
     }
 
     $sql = "INSERT into products (name, thumbnail ,price, status, cate_id, create_at) values ('$name','$filename', '$price', '$status', '$cate_id', '$create_at')";
@@ -76,7 +75,7 @@ function pro_save_fix()
     $getUserQuery = "select * from products where id = $id";
     $products = executeQuery($getUserQuery, false);
     if (!$products) {
-        header('location'.ADMIN_URL . 'san-pham' .'?msg' .'sản phẩm không tồn tại');
+        header('location' . ADMIN_URL . 'san-pham' . '?msg' . 'sản phẩm không tồn tại');
         die;
     }
     date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -89,8 +88,8 @@ function pro_save_fix()
     $thumbnail = $_FILES['thumbnail'];
 
     $errors = "";
-    if(empty($update_at)) {
-        $errors.= "update_at-err=Hãy nhập&";
+    if (empty($update_at)) {
+        $errors .= "update_at-err=Hãy nhập&";
     }
     $errors = rtrim($errors, '&');
     if (strlen($errors) > 0) {
@@ -115,5 +114,5 @@ function pro_save_fix()
                             update_at = '$update_at'
                     where id = $id";
     executeQuery($updateUserQuery);
-    header('location:'.ADMIN_URL.'san-pham');
+    header('location:' . ADMIN_URL . 'san-pham');
 }

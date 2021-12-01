@@ -1,5 +1,5 @@
-<div style="height:700px ;" class="modal fade mt-5" id="modal-lg" style="display: none;" aria-hidden="true">
-    <div style="width: 60%;" class="modal-dialog modal-lg">
+<div class="modal fade" id="modal-lg" style="display: none;" aria-hidden="true">
+    <div style="width: 40%;" class="modal-dialog modal-lg">
         <div class="modal-content">
             <div style="background-color: #FAFAFA;" class="modal-header">
                 <div style="width: 100%;" class="row">
@@ -21,7 +21,7 @@
                                 <input onkeyup="toTal()" id="quantity" style="width: 50px; text-align: center; border: none; background-color: #FAFAFA;" value="1" type="text" id="quantity" name="quantity">
 
                                 <button id="augment" style="width: 20px;text-align: center; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle">+</button>
-                                <button style=" display: flex; justify-content: center; align-items: center; " id="total" type="button" class="btn btn-warning ml-3"></button>
+                                <button style=" display: flex; justify-content: center; align-items: center; " id="total" type="button" class="btn-warning ml-3"></button>
                             </div>
 
                     </div>
