@@ -67,7 +67,6 @@ function load_ten_dm($cate_id)
 }
 function favorite_product()
 {
-    $sql = "SELECT * FROM products";
     $id = $_GET['id'];
     // ktra xem đã được yêu thích sản phẩm này hay chưa 
     $userId = $_SESSION['auth']['id'];

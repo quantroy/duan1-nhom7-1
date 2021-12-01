@@ -16,7 +16,7 @@
                         <div class="featured__item__pic set-bg" data-setbg="<?php echo $items['thumbnail'] ?>">
                             <ul class="featured__item__pic__hover">
                                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
-                                    <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $items['id'] ?>"><i class="fa fa-heart"></i></a></li>
                                 <?php endif ?>
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
