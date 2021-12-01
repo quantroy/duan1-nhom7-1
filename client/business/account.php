@@ -100,6 +100,7 @@ function register()
         $password = $_POST['password'];
         $email = $_POST['email'];
         $password = password_hash($password, PASSWORD_DEFAULT);
+        $created_at = date('Y/m/d H:i:s');
 
         $getUserByEmail = "SELECT * FROM accounts WHERE email = '$email'";
         $user = executeQuery($getUserByEmail, false);
@@ -125,7 +126,7 @@ function register()
             header('location:' . BASE_URL . 'tai-khoan/dang-ky' . '?' . $errors);
             die;
         } else {
-            $sql = "INSERT INTO accounts(email,name,password) values('$email','$name','$password')";
+            $sql = "INSERT INTO accounts(email,name,password,created_at) values('$email','$name','$password','$created_at')";
             pdo_execute($sql);
             header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
             die;
