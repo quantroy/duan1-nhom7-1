@@ -174,7 +174,7 @@ function login()
                                     where remember_token = '$loginToken'
                                     and remember_expire >= '$currentTime'";
 
-        $user = pdo_execute($getUserByRememberToken, false);
+        $user = pdo_execute($getUserByRememberToken);
 
         if ($user['role'] == 1) {
             unset($user['password']);
@@ -213,7 +213,7 @@ function post()
     $password = $_POST['password'];
     $remember = $_POST['remember'];
     $getUserByEmail = "select * from accounts where email = '$email'";
-    $user = executeQuery($getUserByEmail, false);
+    $user = pdo_execute($getUserByEmail);
     $k = password_verify($password, $user['password']);
 
     $errors = "";
