@@ -213,7 +213,7 @@ function post()
     $password = $_POST['password'];
     $remember = $_POST['remember'];
     $getUserByEmail = "select * from accounts where email = '$email'";
-    $user = executeQuery($getUserByEmail, false);
+    $user = pdo_execute($getUserByEmail, false);
     $k = password_verify($password, $user['password']);
 
     $errors = "";
