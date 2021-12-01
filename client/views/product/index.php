@@ -99,7 +99,7 @@ if (isset($_SESSION['auth']['id'])) {
                                 <p style="display: none;" class="product_id"><?php echo $product['id'] ?></p>
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product__item">
-                                        <div id="value_image" class="product__item__pic set-bg" data-setbg="<?= $product['thumbnail'] ?>" data="<?= $product['thumbnail'] ?>" >
+                                        <div id="value_image" class="product__item__pic set-bg" data-setbg="<?= IMG_URL . $product['thumbnail'] ?>" data="<?= IMG_URL . $product['thumbnail'] ?>">
                                             <ul class="product__item__pic__hover">
                                                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
                                                     <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
