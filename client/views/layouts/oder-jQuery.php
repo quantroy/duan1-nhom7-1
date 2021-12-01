@@ -130,8 +130,7 @@
           if (data == "false") {
             document.getElementById("content").innerText = "Đặt hàng thất bại";
           } else {
-            document.getElementById("content").innerText =
-              "Đặt hàng thành công ";
+            document.getElementById("content").innerText = data;
             // dữ liệu HTML trả về sẽ được chèn vào trong thẻ có id content
           }
         },

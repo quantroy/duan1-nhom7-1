@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="<?= CLIENT_ASSET ?>css/style.css" type="text/css">
     <link rel="shortcut icon" href="<?= CLIENT_ASSET ?>img/logo-small.png">
     <link rel="stylesheet" href="<?= ADMIN_ASSET ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" /> -->
 
 </head>
 

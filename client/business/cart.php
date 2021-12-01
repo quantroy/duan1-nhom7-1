@@ -1,7 +1,7 @@
 <?php
 function myCart($ma_kh)
 {
-    $sqlQuery = "select * from cart where userId = $ma_kh";
+    $sqlQuery = "select * from cart where user_id = $ma_kh";
     $carts = executeQuery($sqlQuery, true);
     client_render('cart/index.php', compact('carts'), 'admin-assets/custom/admin-global.js');
 }
@@ -29,8 +29,9 @@ function del($id)
 
 function creat_cart($userId, $quantity, $size, $productID, $sugar, $ice, $topping, $priceProOpt)
 {
-    $sql = " INSERT into cart ( userId, quantity, product_size, product_id, sugar, ice, topping, priceProOpt ) values ('$userId', '$quantity', '$size', '$productID', '$sugar', '$ice', '$topping', '$priceProOpt') ";
-    executeQuery($sql);
+    $sql = " INSERT into cart ( user_id, quantity, product_size, product_id, sugar, ice, topping, price_pro_opt ) values ('$userId', '$quantity', '$size', '$productID', '$sugar', '$ice', '$topping', '$priceProOpt') ";
+    $a = executeQuery($sql);
+    return $a;
 }
 
 function address($ma_kh)
@@ -52,4 +53,22 @@ function point($ma_kh)
     $sqlQuery = "select * from points where user_id = $ma_kh";
     $points = executeQuery($sqlQuery, true);
     return $points[0]['points'];
+}
+
+function updateAll($valueUpdate)
+{
+    $query = "SELECT * from cart";
+    $listUpdate = executeQuery($query, true);
+    for ($i = 0; $i < count($listUpdate); $i++) {
+        $num = $listUpdate[$i]['id'];
+        $result = (int)$num;
+        $sql = "UPDATE cart set quantity = '$valueUpdate[$i]' where id = '$result'";
+        executeQuery($sql, false);
+    }
+}
+
+function addAddress($userId,$name, $phone, $address, $note)
+{
+    $sqlQuery = "INSERT into address  (user_id, recciever, phone, address, note) values ('$userId', '$name', '$phone', '$address', '$note')";
+    executeQuery($sqlQuery, false);
 }
