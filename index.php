@@ -33,14 +33,16 @@ switch ($url) {
     case 'yeu-thich':
         favorite_product();
         break;
-
         require_once './client/business/product.php';
         break;
-    case 'tin-tuc':
-        require_once './client/business/blog.php';
-        blog();
 
-        break;
+    case 'tin-tuc':
+        if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+            $id = $_GET['id'];
+            $post = loadone_blog($id);
+        } else {
+            blog();
+        }
 
     case 'lien-he':
         require_once './client/business/contact.php';
