@@ -137,28 +137,54 @@ function register()
 //cập nhật tài khoản người dùng
 function update_account()
 {
+    unset($_SESSION['false_email']);
+    unset($_SESSION['false_phone']);
+    unset($_SESSION['empty_email']);
+    unset($_SESSION['false_empty_phone']);
+    unset($_SESSION['false_empty_name']);
+    foreach(pdo_select("SELECT * FROM accounts") as $user_check){
+        $check_mail = $user_check['email'];
+        $check_phone = $user_check['phone'];
+    }
     if (isset($_POST['update']) && $_POST['update']) {
         $id = $_GET['id'];
         $name_new = $_POST['name'];
         $email_new = $_POST['email'];
         $phone_new = $_POST['phone'];
         $date_upadte = date('Y/m/d H:i:s');
-        if (isset($_FILES['image']) && $_FILES['image']['name']) {
-            $img_new = $_FILES['image'];
-            $dir = "./public/uploads/";
-            $target_file = $dir . basename($img_new['name']);
-            $type = pathinfo($target_file, PATHINFO_EXTENSION);
-            $avatar_new = uniqid() . "-" . $img_new['name'];
-            move_uploaded_file($img_new['tmp_name'], $dir . $avatar_new);
-            $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new',updated_at = '$date_upadte', avatar = '$avatar_new', avatar = '$avatar_new', phone = '$phone_new' WHERE id = '$id'";
-            pdo_execute($sql);
-            $_SESSION['success'] = "Cập nhật thành công";
-            header('location:' . BASE_URL . 'tai-khoan/cap-nhat?id=' . $id);
-        } else {
+        if (empty($name_new)){
+            $_SESSION['false_empty_name'] = 'Mời nhập lại';
+        }
+        elseif (empty($email_new)){
+            $_SESSION['empty_email'] = 'Mời nhập lại';
+        }
+        elseif ($email_new === $check_mail) {
+            $_SESSION['false_email'] = 'Email bạn vừa nhập đã tồn tại';
+        }
+        elseif( empty($phone_new)){
+            $_SESSION['false_empty_phone'] = 'Mời nhập lại';
+        } 
+        elseif ($phone_new === $check_phone) {
+            $_SESSION['false_phone'] = 'Số điện thoại bạn vừa nhập đã tồn tại';
+        }
+        else{
+            if (isset($_FILES['image']) && $_FILES['image']['name']) {
+                 $img_new = $_FILES['image'];
+                 $dir = "./public/uploads/";
+                 $target_file = $dir . basename($img_new['name']);
+                 $type = pathinfo($target_file, PATHINFO_EXTENSION);
+                 $avatar_new = uniqid() . "-" . $img_new['name'];
+                 move_uploaded_file($img_new['tmp_name'], $dir . $avatar_new);
+                 $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new',updated_at = '$date_upadte', avatar = '$avatar_new', avatar = '$avatar_new', phone = '$phone_new' WHERE id = '$id'";
+                 pdo_execute($sql);
+                 unset($_SESSION['auth']);
+                 header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
+            }else{
             $sql = "UPDATE accounts SET name = '$name_new', email = '$email_new', updated_at = '$date_upadte', phone = '$phone_new' WHERE id = '$id'";
             pdo_execute($sql);
-            $_SESSION['success'] = "Cập nhật thành công";
-            header('location:' . BASE_URL . 'tai-khoan/cap-nhat?id=' . $id);
+            unset($_SESSION['auth']);
+            header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
+            }
         }
     }
     client_render('account/update_account.php');
