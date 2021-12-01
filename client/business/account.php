@@ -138,7 +138,7 @@ function update_account()
 {
     unset($_SESSION['false_email']);
     unset($_SESSION['false_phone']);
-    unset($_SESSION['false_empty_mail']);
+    unset($_SESSION['empty_email']);
     unset($_SESSION['false_empty_phone']);
     unset($_SESSION['false_empty_name']);
     foreach(pdo_select("SELECT * FROM accounts") as $user_check){
@@ -148,18 +148,22 @@ function update_account()
     if (isset($_POST['update']) && $_POST['update']) {
         $id = $_GET['id'];
         $name_new = $_POST['name'];
+        $email_new = $_POST['email'];
         $phone_new = $_POST['phone'];
         $date_upadte = date('Y/m/d H:i:s');
-        $email_new = $_POST['email'];
-        if(empty($name_new)){
+        if (empty($name_new)){
             $_SESSION['false_empty_name'] = 'Mời nhập lại';
-        }else if(empty($email_new)){
-            $_SESSION['false_empty_email'] = 'Mời nhập lại';
-        }else if ($email_new === $check_mail) {
+        }
+        elseif (empty($email_new)){
+            $_SESSION['empty_email'] = 'Mời nhập lại';
+        }
+        elseif ($email_new === $check_mail) {
             $_SESSION['false_email'] = 'Email bạn vừa nhập đã tồn tại';
-        }else if(empty($phone_new)){
+        }
+        elseif( empty($phone_new)){
             $_SESSION['false_empty_phone'] = 'Mời nhập lại';
-        } else if ($phone_new === $check_phone) {
+        } 
+        elseif ($phone_new === $check_phone) {
             $_SESSION['false_phone'] = 'Số điện thoại bạn vừa nhập đã tồn tại';
         }
         else{

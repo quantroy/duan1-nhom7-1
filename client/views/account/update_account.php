@@ -29,14 +29,14 @@ if (isset($_GET['id']) && ($_GET['id'])) {
                 <div class="form-group">
                     <div> <label style="font-weight: bold" for="">Email </label> </div>
                     <input class="form-control " type="email"  name="email" id="" value="<?= $email ?>">
+                    <?php if (isset($_SESSION['empty_email'])) { ?>
+                    <div class='alert alert-danger mb-3' role="alert">
+                        <?= $_SESSION['empty_email'] ?>
+                    </div>
+                    <?php } ?>
                     <?php if (isset($_SESSION['false_email'])) { ?>
                     <div class='alert alert-danger mb-3' role="alert">
                         <?= $_SESSION['false_email'] ?>
-                    </div>
-                    <?php } ?>
-                    <?php if (isset($_SESSION['false_empty_mail'])) { ?>
-                    <div class='alert alert-danger mb-3' role="alert">
-                        <?= $_SESSION['false_empty_mail'] ?>
                     </div>
                     <?php } ?>
                 </div>
