@@ -42,9 +42,9 @@
                             <div class="blog__sidebar__recent">
                                 <a href="<?= BASE_URL . 'tin-tuc?id=' . $p['id'] ?>" class="blog__sidebar__recent__item" style="margin-bottom:10px;">
                                     <div class="blog__sidebar__recent__item__pic" style="width:100px">
-                                        <img src="<?= $p['thumbnail'] ?>" alt="">
+                                        <img src="<?= $p['thumbnail1'] ?>" alt="">
                                     </div>
-                                    <div class="blog__sidebar__recent__item__text" style="width:240px;margin-top:20px;">
+                                    <div class="blog__sidebar__recent__item__text" style="width:200px;">
                                         <h6><?= $p['title'] ?></h6>
                                         <span><?= $p['created_at'] ?></span>
                                     </div>
@@ -62,12 +62,11 @@
 
                             <div class="blog__item">
                                 <div class="blog__item__pic">
-                                    <img src="<?= $post['thumbnail'] ?>" alt="">
+                                    <img src="<?= $post['thumbnail1'] ?>" alt="">
                                 </div>
                                 <div class="blog__item__text">
                                     <ul>
                                         <li><i class="fa fa-calendar-o"></i> <?= $post['created_at'] ?></li>
-                                        <li><i class="fa fa-comment-o"></i> 5</li>
                                     </ul>
                                     <h5><a href="<?= BASE_URL . 'tin-tuc?id=' . $post['id'] ?>"><?= $post['title'] ?></a></h5>
                                     <p><?= $post['content'] ?></p>
