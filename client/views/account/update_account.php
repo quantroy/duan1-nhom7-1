@@ -16,7 +16,7 @@ if (isset($_GET['id']) && ($_GET['id'])) {
             <form class="w-80" style="display: inline-block;text-align: left;padding: 45px 250px;" action="<?= BASE_URL . 'tai-khoan/cap-nhat?id=' . $id ?>" method="post" enctype="multipart/form-data">
             <div style="max-width: 575px; text-align: center; margin:0 auto;" class="p-4">
                 </div>
-                <img src="/duan1-nhom7/public/uploads/<?= $avatar ?>" class="" alt="Cinque Terre" width="150" height="150" style="margin-left: 110px; margin-top: -120px;">
+                <img id="avatar" src="/duan1-nhom7/public/<?= $avatar ?>" class="" alt="Cinque Terre" width="150" height="150" style="margin-left: 100px; margin-top: -120px; border-radius: 50%;">
                 <div class="form-group">
                     <div> <label style="font-weight: bold" for="">Tên tài khoản</label> </div>
                     <input class="form-control  " type="text"  name="name" value="<?= $name ?>">
@@ -56,10 +56,32 @@ if (isset($_GET['id']) && ($_GET['id'])) {
                 </div>
                 <div class="form-group">
                     <div> <label style="font-weight: bold" for="">Tải ảnh nên </label> </div>
-                    <input class="control  " type="file" name="image">
+                    <input id="img" class="control  " type="file" name="image" onchange="changeImg(this)">
                 </div>
                 <input style="background: #0d713d; font-style: ital;margin-top: 20px; color: #ffff;" type="submit" value="Cập nhật" name="update" class="form-control" id="exampleFormControlInput1">
             </form>
         </div>
     </div>
 </section>
+<!-- <script src="../../../public/client-assets/js/jquery.wmuSlider.js"></script>
+<script>
+		$('.example1').wmuSlider();
+
+		function changeImg(input) {
+			//Nếu như tồn thuộc tính file, đồng nghĩa người dùng đã chọn file mới
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				//Sự kiện file đã được load vào website
+				reader.onload = function(e) {
+					//Thay đổi đường dẫn ảnh
+					$('#avatar').attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+		$(document).ready(function() {
+			$('#avatar').click(function() {
+				$('#img').click();
+			});
+		});
+	</script> -->
