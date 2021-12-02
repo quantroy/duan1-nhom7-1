@@ -42,7 +42,7 @@
                                         <?php foreach ($favorite_product as $pf) : ?>
                                             <?php if ($pf['id'] == $like['product_id']) : ?>
                                                 <td class="shoping__cart__item" style="width:200px;">
-                                                    <img src="<?= $pf['thumbnail'] ?>" alt="" style="width:90%">
+                                                    <img src="<?= IMG_URL . $pf['thumbnail'] ?>" alt="" style="width:90%">
                                                 </td>
                                                 <td>
                                                     <h5><?= $pf['name'] ?></h5>
