@@ -74,6 +74,7 @@ function favorite_product()
     $favorite = executeQuery($checkFavoriteProduct, false);
     // nếu chưa có thì lưu vào db
     if (!$favorite) {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $currentTime = date("Y-m-d H:i:s");
         $addFavoriteQuery = "insert into favorite_products 
                                 (user_id, product_id, created_at)
