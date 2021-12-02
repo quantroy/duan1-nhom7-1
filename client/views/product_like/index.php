@@ -7,7 +7,7 @@
                     <h2>Sản Phẩm Yêu Thích</h2>
                     <div class="breadcrumb__option">
                         <a href="<?= BASE_URL ?>trang-chu">Trang Chủ</a>
-                        <span>Shopping Cart</span>
+                        <span>Sản Phẩm Yêu Thích</span>
                     </div>
                 </div>
             </div>
