@@ -80,7 +80,7 @@ if (isset($_GET['id']) && ($_GET['id'])) {
                     <?php } ?>
                 </div>
                 <div class="form-group">
-                    <div> <label style="font-weight: bold" for="">Tải ảnh nên </label> </div>
+                    <div> <label style="font-weight: bold" for="">Tải ảnh lên </label> </div>
                     <input id="img" class="control  " type="file" name="image" onchange="changeImg(this)">
                 </div>
                 <input style="background-color: #0d713d;font-style: ital; color: #ffff;" type="submit" value="Cập nhật"
