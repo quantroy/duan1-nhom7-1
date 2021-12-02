@@ -53,7 +53,7 @@
                                                     <span class="fa fa-shopping-cart" style="color:green;"></span>
                                                 </td>
                                                 <td class="shoping__cart__item__close">
-                                                    <a href="<?= BASE_URL . 'san-pham-yeu-thich/xoa?id=' . $pf['id'] ?>"><span class=" icon_close"></span></a>
+                                                    <a href="<?= BASE_URL . 'san-pham-yeu-thich/xoa?product_id=' . $pf['id'] ?>"><span class=" icon_close"></span></a>
                                                 </td>
                                             <?php endif; ?>
                                         <?php endforeach ?>

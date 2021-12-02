@@ -104,8 +104,9 @@ function loadall_product_favorite_by_product_favorite()
 }
 function delete_product_favorite()
 {
-    $id = $_GET['id'];
-    $sql = "DELETE from favorite_products where id = $id";
+    $product_id = $_GET['product_id'];
+    $sql = "DELETE from favorite_products where product_id = $product_id";
+
     executeQuery($sql);
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
