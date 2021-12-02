@@ -74,7 +74,7 @@ function favorite_product()
     $favorite = executeQuery($checkFavoriteProduct, false);
     // nếu chưa có thì lưu vào db
     if (!$favorite) {
-        $currentTime = date("Y-m-d h:i:s");
+        $currentTime = date("Y-m-d H:i:s");
         $addFavoriteQuery = "insert into favorite_products 
                                 (user_id, product_id, created_at)
                             values 
