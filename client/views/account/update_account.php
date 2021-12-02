@@ -53,7 +53,7 @@ if (isset($_GET['id']) && ($_GET['id'])) {
                 <div class="form-group">
                     <div> <label style="font-weight: bold" for="">Số điện thoại </label> </div>
 
-                    <input class="form-control  " type="text" name="phone" value="<?= $phone ?>">
+                    <input class="form-control" type="tel" name="phone" value="<?= $phone ?>" pattern=[0-9]{1,10} >
 
                     <?php if (isset($_SESSION['false_phone'])) { ?>
 
