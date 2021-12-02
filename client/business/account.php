@@ -141,16 +141,16 @@ function update_account()
     unset($_SESSION['empty_email']);
     unset($_SESSION['false_empty_phone']);
     unset($_SESSION['false_empty_name']);
-    foreach(pdo_select("SELECT * FROM accounts") as $user_check){
-        $check_mail = $user_check['email'];
-        $check_phone = $user_check['phone'];
-    }
     if (isset($_POST['update']) && $_POST['update']) {
         $id = $_GET['id'];
         $name_new = $_POST['name'];
         $email_new = $_POST['email'];
         $phone_new = $_POST['phone'];
         $date_upadte = date('Y/m/d H:i:s');
+        foreach(pdo_select("SELECT DISTINCT  email, phone FROM accounts WHERE id != '$id'") as $user_check){
+            $check_mail = $user_check['email'];
+            $check_phone = $user_check['phone'];
+        }
         if (empty($name_new)){
             $_SESSION['false_empty_name'] = 'Mời nhập lại';
         }
@@ -158,7 +158,7 @@ function update_account()
             $_SESSION['empty_email'] = 'Mời nhập lại';
         }
         elseif ($email_new === $check_mail) {
-            $_SESSION['false_email'] = 'Email bạn vừa nhập đã tồn tại';
+            $_SESSION['false_email'] = 'Email vừa nhập đã tồn tại';
         }
         elseif( empty($phone_new)){
             $_SESSION['false_empty_phone'] = 'Mời nhập lại';
