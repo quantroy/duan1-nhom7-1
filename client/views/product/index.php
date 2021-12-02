@@ -94,7 +94,6 @@
                                                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
                                                     <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
                                                 <?php endif ?>
-
                                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>

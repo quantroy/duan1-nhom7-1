@@ -25,9 +25,10 @@
                     <table>
                         <thead>
                             <tr>
-                                <th class="shoping__product">Sản Phẩm</th>
+                                <th class="shoping__product"></th>
                                 <th>Tên Sản Phẩm</th>
                                 <th>Giá</th>
+                                <th>Ngày Tạo</th>
                                 <th>Mua Ngay</th>
                                 <th></th>
                             </tr>
@@ -48,6 +49,9 @@
                                                 </td>
                                                 <td class="shoping__cart__price">
                                                     <?= number_format($pf['price'], 0, '', ',') ?>đ
+                                                </td>
+                                                <td class="shoping__created_at" style="margin: 0;color: #111111;font-weight: 400;font-family:  Cairo, sans-serif;font-size:18px;">
+                                                    <?= $like['created_at'] ?>
                                                 </td>
                                                 <td class="shoping__cart__item__close" style="text-align: center;">
                                                     <span class="fa fa-shopping-cart" style="color:green;"></span>
