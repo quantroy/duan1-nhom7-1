@@ -4,11 +4,11 @@
 unset($_SESSION['success']);
 unset($_SESSION['false']);
 unset($_SESSION['false_email']);
-    unset($_SESSION['false_phone']);
-    unset($_SESSION['empty_email']);
-    unset($_SESSION['false_empty_phone']);
-    unset($_SESSION['false_empty_name']);
-    unset($_SESSION['false_number']);
+unset($_SESSION['false_phone']);
+unset($_SESSION['empty_email']);
+unset($_SESSION['false_empty_phone']);
+unset($_SESSION['false_empty_name']);
+unset($_SESSION['false_number']);
 
 
 function getUesrEmail($email)
@@ -193,7 +193,39 @@ function update_account()
             }
         }
     }
-    client_render('account/update_account.php');
+     client_render('account/update_account.php');
+}
+function check_mail($accounts,$get_email){
+
+    $set_email = $get_email;
+    $id = $_SESSION['auth']['id'];
+    $flag = true;
+
+    for ($i=0; $i < count($accounts) ; $i++) { 
+        $id_new = $accounts[$i]['id'];
+        if($id_new!=$id){
+            if($set_email==$accounts[$i]['email']){
+                $flag = false;
+            }
+        }
+    }
+    return $flag;
+}
+function check_phone($accounts,$get_phone){
+
+    $set_phone = $get_phone;
+    $phone = $_SESSION['auth']['id'];
+    $flag = true;
+
+    for ($i=0; $i < count($accounts) ; $i++) { 
+        $id_new = $accounts[$i]['id'];
+        if($id_new!=$phone){
+            if($set_phone==$accounts[$i]['phone']){
+                $flag = false;
+            }
+        }
+    }
+    return $flag;
 }
 function login()
 {
@@ -302,36 +334,4 @@ function post()
         }
     }
     header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
-}
-function check_mail($accounts,$get_email){
-
-    $set_email = $get_email;
-    $id = $_SESSION['auth']['id'];
-    $flag = true;
-
-    for ($i=0; $i < count($accounts) ; $i++) { 
-        $id_new = $accounts[$i]['id'];
-        if($id_new!=$id){
-            if($set_email==$accounts[$i]['email']){
-                $flag = false;
-            }
-        }
-    }
-    return $flag;
-}
-function check_phone($accounts,$get_phone){
-
-    $set_phone = $get_phone;
-    $phone = $_SESSION['auth']['id'];
-    $flag = true;
-
-    for ($i=0; $i < count($accounts) ; $i++) { 
-        $id_new = $accounts[$i]['id'];
-        if($id_new!=$phone){
-            if($set_phone==$accounts[$i]['phone']){
-                $flag = false;
-            }
-        }
-    }
-    return $flag;
 }
