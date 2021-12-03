@@ -42,7 +42,7 @@
                             <div class="blog__sidebar__recent">
                                 <a href="<?= BASE_URL . 'tin-tuc?id=' . $p['id'] ?>" class="blog__sidebar__recent__item" style="margin-bottom:10px;">
                                     <div class="blog__sidebar__recent__item__pic" style="width:100px">
-                                        <img src="<?= IMG_URL . $p['thumbnail1'] ?>" alt="">
+                                        <img src="<?= IMG_URL . $p['thumbnail'] ?>" alt="">
                                     </div>
                                     <div class="blog__sidebar__recent__item__text" style="width:240px;">
                                         <h6><?= $p['title'] ?></h6>
@@ -59,7 +59,7 @@
                     <div class="blog__details__text">
                         <h3><?= $post['title'] ?></h3>
                         <p><?= $post['content1'] ?></p>
-                        <img src="<?= IMG_URL . $post['thumbnail1'] ?>" alt="" style="width:70%">
+                        <img src="<?= IMG_URL . $post['thumbnail'] ?>" alt="" style="width:70%">
                         <p><?= $post['content2'] ?></p>
                     </div>
                     <div class="blog__details__content">

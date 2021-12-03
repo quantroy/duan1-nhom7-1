@@ -31,14 +31,8 @@ $cates = executeQuery($getBDQuery, true);
                         <div class="form-group">
                             <label for="">Ảnh1</label>
                             <br>
-                            <input style="width:600px" type="file" name="thumbnail1" placeholder="">
+                            <input style="width:600px" type="file" name="thumbnail" placeholder="">
                         </div>
-                        <div class="form-group">
-                            <label for="">Ảnh2</label>
-                            <br>
-                            <input style="width:600px" type="file" name="thumbnail2" placeholder="">
-                        </div>
-
                         <div class="form-group">
                             <label for="">Nội dung1</label>
                             <?php if (isset($_GET['content1-err'])) : ?>

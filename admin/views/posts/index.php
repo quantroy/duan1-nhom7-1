@@ -20,8 +20,7 @@ $cates = executeQuery($getBDQuery, true);
                         <th>ID</th>
                         <th>Tiêu đề</th>
                         <th>Người viết</th>
-                        <th>Ảnh 1</th>
-                        <th>Ảnh 2</th>
+                        <th>Ảnh </th>
                         <th>Nội dung 1</th>
                         <th>Nội dung 2</th>
                         <th>Thời gian tạo</th>
@@ -34,17 +33,14 @@ $cates = executeQuery($getBDQuery, true);
                         <?php foreach ($posts as $index => $item) : ?>
                             <tr>
                                 <td><?= $index + 1 ?></td>
-                                <td style="white-space: nowrap; max-width: 120px; overflow: hidden;text-overflow: ellipsis; " ><?= $item['title'] ?></td>
-                                <td style="white-space: nowrap; max-width: 120px; overflow: hidden;text-overflow: ellipsis; " ><?= $item['created_by'] ?></td>
+                                <td style="white-space: nowrap; max-width: 120px; overflow: hidden;text-overflow: ellipsis; "><?= $item['title'] ?></td>
+                                <td style="white-space: nowrap; max-width: 120px; overflow: hidden;text-overflow: ellipsis; "><?= $item['created_by'] ?></td>
                                 <td>
-                                    <img style="display: block;max-width:65px;max-height:65px;width: auto;height: auto;" src="<?= IMG_URL . $item['thumbnail1'] ?>">
+                                    <img style="display: block;max-width:65px;max-height:65px;width: auto;height: auto;" src="<?= IMG_URL . $item['thumbnail'] ?>">
                                 </td>
-                                <td>
-                                    <img style="display: block;max-width:65px;max-height:65px;width: auto;height: auto;" src="<?= IMG_URL . $item['thumbnail2'] ?>">
-                                </td>
-                                <td style="white-space: nowrap; max-width: 120px; overflow: hidden;text-overflow: ellipsis; "><?= $item['content1']?></td>
-                                <td style="white-space: nowrap; max-width: 120px; overflow: hidden;text-overflow: ellipsis; " ><?= $item['content2']?></td>
-                                <td><?= $item['create_at'] ?></td>
+                                <td style="white-space: nowrap; max-width: 120px; overflow: hidden;text-overflow: ellipsis; "><?= $item['content1'] ?></td>
+                                <td style="white-space: nowrap; max-width: 120px; overflow: hidden;text-overflow: ellipsis; "><?= $item['content2'] ?></td>
+                                <td><?= $item['created_at'] ?></td>
                                 <td><?= $item['update_at'] ?></td>
                                 <td>
                                     <a href="<?= ADMIN_URL . 'bai-viet/sua?id=' . $item['id'] ?>" class="btn btn-sm btn-info">

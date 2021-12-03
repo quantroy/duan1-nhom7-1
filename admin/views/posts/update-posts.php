@@ -33,36 +33,24 @@ if (!$posts) {
                             <div>
                                 <label for="">Ảnh1</label>
                                 <br>
-                                <input style="width:600px; margin-bottom:20px" type="file" name="thumbnail1" placeholder="" aria-describedby="helpId" >
+                                <input style="width:600px; margin-bottom:20px" type="file" name="thumbnail" placeholder="" aria-describedby="helpId">
                             </div>
-                            <?php if ($posts['thumbnail1'] != "") : ?>
+                            <?php if ($posts['thumbnail'] != "") : ?>
                                 <div>
-                                    <img src="<?= IMG_URL.$posts['thumbnail1'] ?>" width="100px" height="100px">
+                                    <img src="<?= IMG_URL . $posts['thumbnail'] ?>" width="100px" height="100px">
                                 </div>
                             <?php endif ?>
                         </div>
 
-                        <div class="form-group">
-                            <div>
-                                <label for="">Ảnh2</label>
-                                <br>
-                                <input style="width:600px; margin-bottom:20px" type="file" name="thumbnail2" placeholder="" aria-describedby="helpId" >
-                            </div>
-                            <?php if ($posts['thumbnail2'] != "") : ?>
-                                <div>
-                                    <img src="<?= IMG_URL. $posts['thumbnail2'] ?>" width="100px" height="100px">
-                                </div>
-                            <?php endif ?>
-                        </div>
 
                         <div class="form-group">
                             <label for="">Nội dung1</label>
-                            <textarea name="content1" rows="4" cols="50" class="form-control" placeholder="" aria-describedby="helpId"><?=$posts['content1']?></textarea>
+                            <textarea name="content1" rows="4" cols="50" class="form-control" placeholder="" aria-describedby="helpId"><?= $posts['content1'] ?></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="">Nội dung2</label>
-                            <textarea name="content2" rows="4" cols="50" class="form-control" placeholder="" aria-describedby="helpId"><?=$posts['content2']?></textarea>
+                            <textarea name="content2" rows="4" cols="50" class="form-control" placeholder="" aria-describedby="helpId"><?= $posts['content2'] ?></textarea>
                         </div>
                         <br>
                         <div class="">
