@@ -1,6 +1,6 @@
 <?php
 
-const BASE_URL = "http://localhost/duan1-nhom7/";
+const BASE_URL = "http://localhost:8080/duan1-nhom7/";
 const IMG_URL = BASE_URL . 'public/uploads/';
 const ADMIN_URL = BASE_URL . 'cp-admin/';
 const ADMIN_ASSET = BASE_URL . 'public/admin-assets/';

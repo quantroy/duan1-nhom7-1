@@ -72,14 +72,14 @@ if(isset($_GET['n']) ){
                             <?php for ($i = 0; $i < count($carts); $i++) { ?>
                             <tr>
                                 <td class="shoping__cart__item">
-                                    <img src=" <?= getImagePro($carts[$i]['product_id']) ?> alt=">
+                                    <img style="width: 10%;" src=" <?= IMG_URL. getImagePro($carts[$i]['product_id'])?> ">
                                     <h5><?= getNamePro($carts[$i]['product_id']) ?> (<?= $carts[$i]['product_size'] ?>)
                                     </h5>
                                 </td>
                                 <td id="price" class="shoping__cart__price">
                                     <?= number_format($carts[$i]['price_pro_opt'], 0, '', ',') ?>
                                 </td>
-                                <td style="text-align: center;" class="btn-group">
+                                <td style="display: flex; justify-content: center;align-items: center;height: 124px;" class="">
                                     <button index="<?= $i ?>" id="reduce"
                                         style="width: 20px; height: 25px;display: flex; justify-content: center; align-items: center;"
                                         type="button" class="btn btn-info rounded-circle ">-</button>
@@ -152,29 +152,29 @@ if(isset($_GET['n']) ){
                                     <form id="form_address" action="" method="get">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                <span class="input-group-text"><i style="width: 14px;"  class="fa fa-user" aria-hidden="true"></i></span>
                                             </div>
                                             <input onkeyup="saveBlock()" id="nameIp" style="text-align: left;" type="text"
                                                 class="form-control" placeholder="Tên người nhận">
                                         </div>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                <span class="input-group-text"><i style="width: 14px;"   class="fa fa-phone" aria-hidden="true"></i></span>
                                             </div>
                                             <input onkeyup="saveBlock()" id="phoneIp" style="text-align: left;" type="text"
                                                 class="form-control" placeholder="Số điện thoại người nhận">
                                         </div>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i
-                                                        class="fas fa-map-marker-alt"></i></span>
+                                                <span class="input-group-text"><i style="width: 14px;" class="fa fa-map-marker" aria-hidden="true"></i></span>
                                             </div>
                                             <input onkeyup="saveBlock()" id="addressIp" style="text-align: left;" type="text"
                                                 class="form-control" placeholder="Địa chỉ người nhận">
                                         </div>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fas fa-sticky-note"></i></span>
+                                                <span class="input-group-text"><i class="fa fa-sticky-note" aria-hidden="true"></i></span>
+                                                
                                             </div>
                                             <input onkeyup="saveBlock()" id="noteIp" style="text-align: left;" type="text"
                                                 class="form-control" placeholder="Ghi chú địa chỉ">

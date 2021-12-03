@@ -117,18 +117,16 @@ function saveBlock() {
       flag = false;
       flagAddress = false;
       mesAddress.innerHTML = "note: số điện thoại không hợp lệ !";
-      
     } else {
       flag = true;
       flagAddress = true;
-      
     }
   }
 
   if (flag == true) {
     mesAddress.style.display = "none";
     none_save.style.display = "flex";
-    saveAddress.checked = true;  
+    saveAddress.checked = true;
   }
 }
 
@@ -178,32 +176,6 @@ function checkbox() {
       delList.push(key[i].innerHTML);
     }
   }
-
-  function insertParam(key, value) {
-    key = encodeURI(key);
-    value = encodeURI(value);
-
-    var kvp = document.location.search.substr(1).split("&");
-
-    var i = kvp.length;
-    var x;
-    while (i--) {
-      x = kvp[i].split("=");
-
-      if (x[0] == key) {
-        x[1] = value;
-        kvp[i] = x.join("=");
-        break;
-      }
-    }
-
-    if (i < 0) {
-      kvp[kvp.length] = [key, value].join("=");
-    }
-
-    //this will reload the page, it's likely better to store this until finished
-    document.location.search = kvp.join("&");
-  }
   if (delList.length == 0) {
     // return "Chưa có mục nào được chọn";
   }
@@ -220,31 +192,29 @@ function getUpdate() {
 }
 
 function Buy() {
-  if (saveAddress.checked == true) {
-    window.location =
-      "?n=" +
-      nameIp.value +
-      "&p=" +
-      phoneIp.value +
-      "&a=" +
-      addressIp.value +
-      "&note=" +
-      noteIp.value;
-  }
   if (flagAddress == false || flagUpdate == false) {
-    setTimeout(function() {
-      noteError.style.display = "none"; 
-    },3000)
-    if(flagAddress == false) {
+    setTimeout(function () {
+      noteError.style.display = "none";
+    }, 3000);
+    if (flagAddress == false) {
       noteError.style.display = "flex";
-      titleError.innerHTML = "Kiểm tra thông tin giao hàng!"
+      titleError.innerHTML = "Kiểm tra thông tin giao hàng!";
     }
-    if(flagUpdate == false) {
+    if (flagUpdate == false) {
       noteError.style.display = "flex";
-      titleError.innerHTML = "Phải cập nhật lại giỏ hàng sau khi thay đổi!"
+      titleError.innerHTML = "Phải cập nhật lại giỏ hàng sau khi thay đổi!";
     }
-  }
-  else{
-    
+  } else {
+    if (saveAddress.checked == true) {
+      window.location =
+        "?n=" +
+        nameIp.value +
+        "&p=" +
+        phoneIp.value +
+        "&a=" +
+        addressIp.value +
+        "&note=" +
+        noteIp.value;
+    }
   }
 }
