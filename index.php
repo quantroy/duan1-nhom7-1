@@ -33,7 +33,13 @@ switch ($url) {
         favorite_product();
         break;
 
+    case 'san-pham-yeu-thich':
         require_once './client/business/product.php';
+        product_like();
+        break;
+    case 'san-pham-yeu-thich/xoa':
+        require_once './client/business/product.php';
+        delete_product_favorite();
         break;
     case 'tin-tuc':
         require_once './client/business/blog.php';
@@ -93,10 +99,10 @@ switch ($url) {
         require_once './client/business/address.php';
         edit_address($_GET['id']);
         break;
-        // case 'tai-khoan/cap-nhat':
-        //     require_once './client/business/account.php';
-        //     update_account();
-        // break;
+    case 'tai-khoan/cap-nhat':
+        require_once './client/business/account.php';
+        update_account();
+        break;
     case 'tai-khoan/cap-nhat':
         require_once './client/business/account.php';
         update_account();

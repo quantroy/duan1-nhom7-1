@@ -27,7 +27,7 @@ if (isset($_SESSION['auth']['id'])) {
                 <p style="display: none;" class="product_id"><?php echo $items['id'] ?></p>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix">
                     <div class="featured__item">
-                        <div id="value_image" class="featured__item__pic set-bg" data-setbg="<?php echo $items['thumbnail'] ?>"data="<?= $items['thumbnail'] ?>">
+                        <div id="value_image" class="featured__item__pic set-bg" data-setbg="<?= IMG_URL . $items['thumbnail'] ?>" data="<?= IMG_URL . $items['thumbnail'] ?>">
                             <ul class="featured__item__pic__hover">
                                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
                                     <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $items['id'] ?>"><i class="fa fa-heart"></i></a></li>
