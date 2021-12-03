@@ -43,7 +43,7 @@
                             <div class="blog__sidebar__recent">
                                 <a href="<?= BASE_URL . 'tin-tuc?id=' . $p['id'] ?>" class="blog__sidebar__recent__item" style="margin-bottom:10px;">
                                     <div class="blog__sidebar__recent__item__pic" style="width:100px">
-                                        <img src="<?= $p['thumbnail1'] ?>" alt="">
+                                        <img src="<?= IMG_URL . $p['thumbnail1'] ?>" alt="">
                                     </div>
                                     <div class="blog__sidebar__recent__item__text" style="width:240px;">
                                         <h6><?= $p['title'] ?></h6>
