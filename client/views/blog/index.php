@@ -69,7 +69,7 @@
                                         <li><i class="fa fa-calendar-o"></i> <?= $post['created_at'] ?></li>
                                     </ul>
                                     <h5><a href="<?= BASE_URL . 'tin-tuc?id=' . $post['id'] ?>"><?= $post['title'] ?></a></h5>
-                                    <p><?= $post['content'] ?></p>
+                                    <p><?= $post['content1'] ?></p>
                                     <a href="<?= BASE_URL . 'tin-tuc?id=' . $post['id'] ?>" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                                 </div>
                             </div>
