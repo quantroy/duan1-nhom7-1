@@ -59,9 +59,9 @@
                 <div class="col-lg-8 col-md-7 order-md-1 order-1">
                     <div class="blog__details__text">
                         <h3><?= $post['title'] ?></h3>
-                        <p><?= $post['content'] ?></p>
+                        <p><?= $post['content1'] ?></p>
                         <img src="<?= $post['thumbnail1'] ?>" alt="" style="width:70%">
-                        <p><?= $post['content'] ?></p>
+                        <p><?= $post['content2'] ?></p>
                     </div>
                     <div class="blog__details__content">
                         <div class="row">
