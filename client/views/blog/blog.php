@@ -3,12 +3,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="blog__details__hero__text">
-                    <?php foreach ($post as $posts) : ?>
-                        <h2><?= $posts['title'] ?></h2>
-                        <ul>
-                            <li><?= $posts['created_at'] ?></li>
-                        </ul>
-                    <?php endforeach; ?>
+                    <h2>Blog</h2>
+                    <div class="breadcrumb__option">
+                        <a href="<?= BASE_URL ?>trang-chu">Trang chủ</a>
+                        <span>Tin Tức</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -68,8 +67,8 @@
                             <div class="col-lg-6">
                                 <div class="blog__details__author">
                                     <div class="blog__details__author__text" style="margin-top: -45px;">
-                                        <h6>Tác Giả:<?= $post['created_by'] ?></h6>
-                                        <span>Ngày Đăng:<?= $post['created_at'] ?></span>
+                                        <h6>Tác Giả : <?= $post['created_by'] ?></h6>
+                                        <span>Ngày Đăng : <?= $post['created_at'] ?></span>
                                     </div>
                                 </div>
                             </div>

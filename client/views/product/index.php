@@ -1,14 +1,3 @@
-<?php
-
-if (isset($_SESSION['auth']['id'])) {
-    $check_login = "data-target='#modal-lg'";
-    $log = "";
-} else {
-    $log = "swalDefaultWarning";
-    $check_login = "";
-}
-
-?>
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="<?= CLIENT_ASSET ?>img/banner/banner-top2.png">
     <div class="container">
@@ -17,7 +6,7 @@ if (isset($_SESSION['auth']['id'])) {
                 <div class="breadcrumb__text">
                     <h2>Sản phẩm</h2>
                     <div class="breadcrumb__option">
-                        <a href="trang-chủ">Trang chủ</a>
+                        <a href="<?= BASE_URL ?>trang-chu">Trang chủ</a>
                         <span>Sản phẩm</span>
                     </div>
                 </div>
@@ -73,6 +62,7 @@ if (isset($_SESSION['auth']['id'])) {
                     <div class="section-title product__discount__title">
                         <h2>Sale Off</h2>
                     </div>
+
                 </div> -->
                 <div class="">
                     <div class="section-title product__discount__title">
@@ -93,24 +83,23 @@ if (isset($_SESSION['auth']['id'])) {
                 </div>
                 <div class="row">
                     <?php if (!empty($products)) : ?>
-                        <?php foreach ($products as $k => $product) : ?>
+                        <?php foreach ($products as $product) : ?>
 
                             <?php if ($product['status'] == 1) : ?>
-                                <p style="display: none;" class="product_id"><?php echo $product['id'] ?></p>
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product__item">
-                                        <div id="value_image" class="product__item__pic set-bg" data-setbg="<?= IMG_URL . $product['thumbnail'] ?>" data="<?= IMG_URL . $product['thumbnail'] ?>">
+                                        <div class="product__item__pic set-bg" data-setbg="<?= $product['thumbnail'] ?>">
                                             <ul class="product__item__pic__hover">
                                                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
                                                     <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
                                                 <?php endif ?>
-                                                <li><a class="<?php echo $log ?>" id="btn_cart" data-toggle="modal" <?php echo $check_login ?> data="<?php echo $k ?>"><i class="fa fa-shopping-cart "></i></a></li>
+
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
-
                                         <div class="product__item__text">
-                                            <h6><a id="value_name"><?= $product['name'] ?></a></h6>
-                                            <h5 id="value_price" data="<?php echo $product['price'] ?>"><?= number_format($product['price'], 0, '', ',') ?>đ</h5>
+                                            <h6><a href="#"><?= $product['name'] ?></a></h6>
+                                            <h5><?= number_format($product['price'], 0, '', ',') ?>đ</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -168,6 +157,4 @@ if (isset($_SESSION['auth']['id'])) {
         </div>
     </div>
 </section>
-<!-- Form_option start -->
-<?php include_once "./client/views/layouts/form_option.php" ?>
-<!-- Form_option end -->
+<!-- Product Section End -->
