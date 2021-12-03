@@ -176,7 +176,31 @@ switch ($url) {
     case 'cp-admin/san-pham/luu-sua':
         require_once './admin/business/product.php';
         pro_save_fix();
-
+        break;
+        // posts
+    case 'cp-admin/bai-viet':
+        require_once './admin/business/posts.php';
+        posts_index();
+        break;
+    case 'cp-admin/bai-viet/xoa':
+        require_once './admin/business/posts.php';
+        posts_remove();
+        break;
+    case 'cp-admin/bai-viet/tao-moi':
+        require_once './admin/business/posts.php';
+        posts_add_form();
+        break;
+    case 'cp-admin/bai-viet/luu-tao-moi':
+        require_once './admin/business/posts.php';
+        posts_save_add();
+        break;
+    case 'cp-admin/bai-viet/sua':
+        require_once './admin/business/posts.php';
+        posts_fix();
+        break;
+    case 'cp-admin/bai-viet/luu-sua':
+        require_once './admin/business/posts.php';
+        posts_save_fix();
         break;
 
     default:
