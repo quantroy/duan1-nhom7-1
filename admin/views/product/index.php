@@ -36,7 +36,7 @@ $cates = executeQuery($getBDQuery, true);
                                 <td><?= $index + 1 ?></td>
                                 <td><?= $item['name'] ?></td>
                                 <td>
-                                    <img style="display: block;max-width:70px;max-height:70px;width: auto;height: auto;" src="<?= $item['thumbnail'] ?>">
+                                    <img style="display: block;max-width:70px;max-height:70px;width: auto;height: auto;" src="<?= IMG_URL . $item['thumbnail'] ?>">
                                 </td>
                                 <td><?= number_format($item['price'], 0, '', ',') ?></td>
                                 <td><?= $item['favorites'] ?></td>

@@ -1,6 +1,7 @@
 <?php
 
 const BASE_URL = "http://localhost/duan1-nhom7/";
+const IMG_URL = BASE_URL . 'public/uploads/';
 const ADMIN_URL = BASE_URL . 'cp-admin/';
 const ADMIN_ASSET = BASE_URL . 'public/admin-assets/';
 const CLIENT_ASSET = BASE_URL . 'public/client-assets/';
@@ -38,4 +39,12 @@ function getFavoriteProducts()
     $getFavoriteProductQuery = "select * from favorite_products where user_id = $userId";
     $favoriteProducts = executeQuery($getFavoriteProductQuery, true);
     return $favoriteProducts;
+}
+
+function delAll($nameTable, $key, $listDel)
+{
+    for ($i = 0; $i < count($listDel); $i++) {
+        $query = "DELETE from $nameTable where $key = '$listDel[$i]'";
+        executeQuery($query, true);
+    }
 }

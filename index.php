@@ -31,9 +31,17 @@ switch ($url) {
         }
         break;
     case 'yeu-thich':
+        require_once './client/business/product.php';
         favorite_product();
         break;
+
+    case 'san-pham-yeu-thich':
         require_once './client/business/product.php';
+        product_like();
+        break;
+    case 'san-pham-yeu-thich/xoa':
+        require_once './client/business/product.php';
+        delete_product_favorite();
         break;
 
     case 'tin-tuc':
@@ -53,6 +61,22 @@ switch ($url) {
         // case 'tai-khoan':
         //     require_once './client/business/account.php';
         //     update_account();
+
+        // mananger tai khoan
+    case 'cp-admin/tai-khoan/khach-hang':
+        require_once './admin/business/users.php';
+        account_index(1);
+        break;
+
+    case 'cp-admin/tai-khoan/nhan-vien':
+        require_once './admin/business/users.php';
+        account_index(2);
+        break;
+
+    case 'cp-admin/tai-khoan/chinh-sua':
+        require_once './admin/business/users.php';
+        edit_account($_GET['id']);
+        break;
         break;
     case 'tai-khoan/quen-mat-khau':
         require_once './client/business/account.php';
@@ -70,6 +94,20 @@ switch ($url) {
         require_once './client/business/account.php';
         register();
         break;
+        // Manager address 
+    case 'tai-khoan/dia-chi':
+        require_once './client/business/address.php';
+        address($_SESSION['auth']['id']);
+        break;
+
+    case 'tai-khoan/chinh-sua-dia-chi':
+        require_once './client/business/address.php';
+        edit_address($_GET['id']);
+        break;
+        // case 'tai-khoan/cap-nhat':
+        //     require_once './client/business/account.php';
+        //     update_account();
+        // break;
     case 'tai-khoan/cap-nhat':
         require_once './client/business/account.php';
         update_account();
@@ -87,6 +125,20 @@ switch ($url) {
         post();
         break;
 
+        // dat hang
+    case 'data.php':
+        require_once './client/business/cart.php';
+        creat_cart($_SESSION['auth']['id'], $_GET['quantity'], $_GET['size'], $_GET['productId'], $_GET['sugar'], $_GET['ice'], $_GET['toppingIP'], $_GET['priceProOpt']);
+        // gio hang
+    case 'gio-hang':
+        if (isset($_SESSION['auth']['id'])) {
+            require_once './client/business/cart.php';
+            myCart($_SESSION['auth']['id']);
+        } else {
+            echo header("refresh:0; url =tai-khoan/dang-nhap?null_account");
+            exit();
+        }
+        break;
         // Controller Admin
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
