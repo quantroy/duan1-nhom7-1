@@ -60,7 +60,7 @@
                     <div class="blog__details__text">
                         <h3><?= $post['title'] ?></h3>
                         <p><?= $post['content1'] ?></p>
-                        <img src="<?= $post['thumbnail1'] ?>" alt="" style="width:70%">
+                        <img src="<?= IMG_URL . $post['thumbnail1'] ?>" alt="" style="width:70%">
                         <p><?= $post['content2'] ?></p>
                     </div>
                     <div class="blog__details__content">

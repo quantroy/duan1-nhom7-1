@@ -62,7 +62,7 @@
 
                             <div class="blog__item">
                                 <div class="blog__item__pic">
-                                    <img src="<?= $post['thumbnail1'] ?>" alt="">
+                                    <img src="<?= IMG_URL . $post['thumbnail1'] ?>" alt="">
                                 </div>
                                 <div class="blog__item__text">
                                     <ul>
