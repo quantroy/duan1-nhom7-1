@@ -6,11 +6,13 @@
                     <div class="footer__about__logo">
                         <a href="<?= BASE_URL ?>trang-chu"><img src="<?= CLIENT_ASSET ?>img/logo.png" alt=""></a>
                     </div>
+                    <?php foreach(pdo_select("SELECT * FROM contact") as $items){ ?>
                     <ul>
-                        <li>Địa chỉ: Số 1, Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</li>
-                        <li>Số điện thoại: 0987878999</li>
-                        <li>Email: quandmph13848@fpt.edu.vn</li>
+                        <li><?php echo $items['address'] ?></li>
+                        <li><?php echo $items['phone'] ?></li>
+                        <li><?php echo $items['email'] ?></li>
                     </ul>
+                    <?php } ?>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 mt-5 pl-5">
