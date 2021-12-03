@@ -51,14 +51,6 @@ $cates = executeQuery($getBDQuery, true);
                             <label for="">Nội dung2</label>
                             <textarea name="content2" rows="4" cols="50" class="form-control" placeholder="" aria-describedby="helpId"></textarea>
                         </div>
-
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" id="status" name="status" value="1" type="checkbox">
-                                <label class="form-check-label" for="show_menu">Hiển thị sản phẩm ra menu</label>
-                            </div>
-                        </div>
-
                         <br>
                         <div class="">
                             <a href="<?= ADMIN_URL . 'bai-viet' ?>" class="btn btn-sm btn-danger">Hủy</a>

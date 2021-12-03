@@ -33,7 +33,6 @@ function posts_save_add()
     $content2 = $_POST['content2'];
     $thumbnail1 = $_FILES['thumbnail1'];
     $thumbnail2 = $_FILES['thumbnail2'];
-    $status = isset($_POST['status']) ? 1 : 0;
     $filename = "";
     $filename2 = "";
 
@@ -49,7 +48,7 @@ function posts_save_add()
         $errors .= "created_by-err=Hãy nhập tên người viết viết&";
     }
     if (empty($content1)) {
-        $errors .= "content1-err=Hãy nhập nội dung bài viết thứ nhất&";
+        $errors .= "content1-err=Hãy nhập nội dung phần văn bản thứ nhất&";
     }
     $errors = rtrim($errors, '&');
     if (strlen($errors) > 0) {
@@ -66,7 +65,7 @@ function posts_save_add()
         move_uploaded_file($thumbnail2['tmp_name'], './public/uploads/' . $filename2);
     }
 
-    $sql = "INSERT into posts (title, created_by, thumbnail1, thumbnail2 ,content1, content2, status, create_at) values ('$title','$created_by','$filename', '$filename2', '$content1', '$content2', '$status', '$create_at')";
+    $sql = "INSERT into posts (title, created_by, thumbnail1, thumbnail2 ,content1, content2, create_at) values ('$title','$created_by','$filename', '$filename2', '$content1', '$content2', '$create_at')";
     executeQuery($sql);
     header("location: " . ADMIN_URL . 'bai-viet');
 }
@@ -95,8 +94,7 @@ function posts_save_fix()
     $content2 = $_POST['content2'];
     $thumbnail1 = $_FILES['thumbnail1'];
     $thumbnail2 = $_FILES['thumbnail2'];
-    $status = isset($_POST['status']) ? 1 : 0;
-    $imageValue1 = $posts['thumbnail'];
+    $imageValue1 = $posts['thumbnail1'];
     $imageValue2 = $posts['thumbnail2'];
 
     if ($thumbnail1['size'] > 0) {
@@ -114,7 +112,6 @@ function posts_save_fix()
                             thumbnail2 = '$imageValue2',
                             content1 = '$content1',
                             content2 = '$content2',
-                            status = '$status',
                             update_at = '$update_at'
                     where id = $id";
     executeQuery($updateUserQuery);

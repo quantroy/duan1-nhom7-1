@@ -20,12 +20,12 @@ if (!$posts) {
                         <input type="hidden" value="<?= $posts['id'] ?>" name="id">
 
                         <div class="form-group">
-                            <label for="">Tên tiêu đề</label>
+                            <label for="">Tiêu đề</label>
                             <input type="text" name="title" value="<?= $posts['title'] ?>" class="form-control" placeholder="" aria-describedby="helpId">
                         </div>
 
                         <div class="form-group">
-                            <label for="">Tên người viết</label>
+                            <label for="">Người viết</label>
                             <input type="text" name="created_by" value="<?= $posts['created_by'] ?>" class="form-control" placeholder="" aria-describedby="helpId">
                         </div>
 
@@ -40,7 +40,6 @@ if (!$posts) {
                                     <img src="<?= IMG_URL.$posts['thumbnail1'] ?>" width="100px" height="100px">
                                 </div>
                             <?php endif ?>
-
                         </div>
 
                         <div class="form-group">
@@ -58,23 +57,13 @@ if (!$posts) {
 
                         <div class="form-group">
                             <label for="">Nội dung1</label>
-                            <textarea name="content1" rows="4" cols="50" class="form-control" placeholder="" aria-describedby="helpId">
-                                <?=$posts['content1']?> </textarea>
+                            <textarea name="content1" rows="4" cols="50" class="form-control" placeholder="" aria-describedby="helpId"><?=$posts['content1']?></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="">Nội dung2</label>
-                            <textarea name="content2" rows="4" cols="50" class="form-control" placeholder="" aria-describedby="helpId">
-                                 <?=$posts['content2']?> </textarea>
+                            <textarea name="content2" rows="4" cols="50" class="form-control" placeholder="" aria-describedby="helpId"><?=$posts['content2']?></textarea>
                         </div>
-
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" id="status" name="status" value="1" type="checkbox">
-                                <label class="form-check-label" for="status">Hiển thị sản phẩm ra menu</label>
-                            </div>
-                        </div>
-
                         <br>
                         <div class="">
                             <a href="<?= ADMIN_URL . 'bai-viet' ?>" class="btn btn-sm btn-danger">Hủy</a>
