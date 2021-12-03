@@ -6,7 +6,7 @@
                 <div class="breadcrumb__text">
                     <h2>Blog</h2>
                     <div class="breadcrumb__option">
-                        <a href="trang-chủ">Trang chủ</a>
+                        <a href="<?= BASE_URL ?>trang-chu">Trang chủ</a>
                         <span>Tin Tức</span>
                     </div>
                 </div>
