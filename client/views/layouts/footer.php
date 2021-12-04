@@ -61,3 +61,4 @@
         </div>
     </div>
 </footer>
+<script lang="javascript">var __vnp = {code : 9927,key:'', secret : '6066e45e736f2c9c810db8f3465ad816'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//core.vchat.vn/code/tracking.js';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
