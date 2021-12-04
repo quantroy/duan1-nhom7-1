@@ -31,10 +31,12 @@ switch ($url) {
         }
         break;
 
-    case 'bai-viet':
+    case 'tin-tuc':
         if (isset($_GET['id']) && ($_GET['id'] > 0)) {
             $cate_post = $_GET['id'];
-            $cate_post = load_post_by_cate($cate_post);
+            $posts = load_post_by_cate($cate_post);
+        } else {
+            blog();
         }
         break;
     case 'yeu-thich':
@@ -46,12 +48,13 @@ switch ($url) {
         require_once './client/business/product.php';
         product_like();
         break;
+
     case 'san-pham-yeu-thich/xoa':
         require_once './client/business/product.php';
         delete_product_favorite();
         break;
 
-    case 'tin-tuc':
+    case 'bai-viet':
         if (isset($_GET['id']) && ($_GET['id'] > 0)) {
             $id = $_GET['id'];
             $post = loadone_blog($id);

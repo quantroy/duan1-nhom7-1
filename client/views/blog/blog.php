@@ -30,7 +30,7 @@
                             ?>
                             <?php foreach ($cate_posts as $cate) : ?>
                                 <?php if ($cate['show_menu'] == 1) : ?>
-                                    <li><a href="<?= BASE_URL . 'bai-viet?id=' . $cate['id'] ?>"><?= $cate['name'] ?></a></li>
+                                    <li><a href="<?= BASE_URL . 'tin-tuc?id=' . $cate['id'] ?>"><?= $cate['name'] ?></a></li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </ul>
@@ -40,7 +40,7 @@
                         <?php $post_new = loadall_blog_new(); ?>
                         <?php foreach ($post_new as $p) : ?>
                             <div class="blog__sidebar__recent">
-                                <a href="<?= BASE_URL . 'tin-tuc?id=' . $p['id'] ?>" class="blog__sidebar__recent__item" style="margin-bottom:10px;">
+                                <a href="<?= BASE_URL . 'bai-viet?id=' . $p['id'] ?>" class="blog__sidebar__recent__item" style="margin-bottom:10px;">
                                     <div class="blog__sidebar__recent__item__pic" style="width:100px">
                                         <img src="<?= IMG_URL . $p['thumbnail'] ?>" alt="">
                                     </div>

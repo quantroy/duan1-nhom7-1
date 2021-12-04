@@ -3,7 +3,17 @@
 
 function blog()
 {
-    client_render('blog/index.php');
+    $sql = "SELECT * FROM posts";
+    $records = executeQuery($sql, true);
+    $total_records = count($records);
+    $current_page = isset($_GET['trang']) ? $_GET['trang'] : 1;
+    $limit = 4;
+    $total_page = ceil($total_records / $limit);  //tinh tong so trang
+    $start = ($current_page - 1) * $limit;
+
+    $sqls = "SELECT * FROM posts  limit $start, $limit";
+    $posts = executeQuery($sqls, true);
+    client_render('blog/index.php', compact('posts', 'total_records', 'current_page', 'total_page'));
 }
 function loadone_blog($id)
 {
@@ -25,7 +35,15 @@ function loadall_cate_post()
 }
 function load_post_by_cate($cate_post = 0)
 {
-    $sql = "SELECT * FROM posts WHERE cate_post = '$cate_post'";
-    $cate_post = executeQuery($sql, true);
-    client_render('blog/index.php', compact('cate_post'));
+    $sql = "SELECT * FROM posts where cate_post = '$cate_post'";
+    $records = executeQuery($sql, true);
+    $total_records = count($records);
+    $current_page = isset($_GET['trang']) ? $_GET['trang'] : 1;
+    $limit = 4;
+    $total_page = ceil($total_records / $limit);  //tinh tong so trang
+    $start = ($current_page - 1) * $limit;
+
+    $sqls = "SELECT * FROM posts where cate_post = '$cate_post'  limit $start, $limit";
+    $posts = executeQuery($sqls, true);
+    client_render('blog/index.php', compact('posts', 'total_records', 'current_page', 'total_page'));
 }

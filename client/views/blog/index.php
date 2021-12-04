@@ -30,7 +30,7 @@
                             ?>
                             <?php foreach ($cate_posts as $cate) : ?>
                                 <?php if ($cate['show_menu'] == 1) : ?>
-                                    <li><a href="<?= BASE_URL . 'bai-viet?id=' . $cate['id'] ?>"><?= $cate['name'] ?></a></li>
+                                    <li><a href="<?= BASE_URL . 'tin-tuc?id=' . $cate['id'] ?>"><?= $cate['name'] ?></a></li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </ul>
@@ -40,7 +40,7 @@
                         <?php $post_new = loadall_blog_new(); ?>
                         <?php foreach ($post_new as $p) : ?>
                             <div class="blog__sidebar__recent">
-                                <a href="<?= BASE_URL . 'tin-tuc?id=' . $p['id'] ?>" class="blog__sidebar__recent__item" style="margin-bottom:10px;">
+                                <a href="<?= BASE_URL . 'bai-viet?id=' . $p['id'] ?>" class="blog__sidebar__recent__item" style="margin-bottom:10px;">
                                     <div class="blog__sidebar__recent__item__pic" style="width:100px">
                                         <img src="<?= IMG_URL . $p['thumbnail'] ?>" alt="">
                                     </div>
@@ -56,7 +56,7 @@
             </div>
             <div class="col-lg-8 col-md-7">
                 <div class="row">
-                    <?php foreach ($cate_post as $post) : ?>
+                    <?php foreach ($posts as $post) : ?>
                         <div class="col-lg-6 col-md-6 col-sm-6">
 
                             <div class="blog__item">
@@ -75,14 +75,38 @@
 
                         </div>
                     <?php endforeach; ?>
-                    <div class="col-lg-12">
-                        <div class="product__pagination blog__pagination">
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
+                </div>
+                <div class="product__pagination">
+                    <!-- nut prev -->
+                    <?php if ($current_page > 1 && $total_page > 1) : ?>
+                        <?php if (isset($_GET['id'])) : ?>
+                            <a href="<?= BASE_URL . 'tin-tuc?id=' . $_GET['id'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                        <?php else : ?>
+                            <a href="<?= BASE_URL . 'tin-tuc?trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                        <?php endif ?>
+                    <?php endif ?>
+
+                    <!-- phan trang -->
+                    <?php for ($i = 1; $i <= $total_page; $i++) : ?>
+                        <?php if ($i == $current_page) : ?>
+                            <a disabled style="background-color: #7fad39; color: white"><?= $i ?></a>
+                        <?php else : ?>
+                            <?php if (isset($_GET['id'])) : ?>
+                                <a href="<?= BASE_URL . 'tin-tuc?id=' . $_GET['id'] . '&trang=' . $i ?>"><?= $i ?></a>
+
+                            <?php else : ?>
+                                <a href="<?= BASE_URL . 'tin-tuc?trang=' . $i ?>"><?= $i ?></a>
+                            <?php endif ?>
+                        <?php endif ?>
+                    <?php endfor ?>
+
+                    <!-- nut next -->
+                    <?php if ($current_page < $total_page && $total_page > 1) : ?>
+                        <?php if (isset($_GET['id'])) : ?>
+                            <a href="<?= BASE_URL . 'tin-tuc?id=' . $_GET['id'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+                        <?php else : ?>
+                            <a href="<?= BASE_URL . 'tin-tuc?trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+                        <?php endif ?> <?php endif ?>
                 </div>
             </div>
         </div>
