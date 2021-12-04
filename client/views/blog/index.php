@@ -26,11 +26,11 @@
                         <h4>Danh Mục Sản Phẩm</h4>
                         <ul>
                             <?php
-                            $listdanhmuc = loadall_danhmuc();
+                            $cate_posts = loadall_cate_post();
                             ?>
-                            <?php foreach ($listdanhmuc as $danhmuc) : ?>
-                                <?php if ($danhmuc['show_menu'] == 1) : ?>
-                                    <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a></li>
+                            <?php foreach ($cate_posts as $cate) : ?>
+                                <?php if ($cate['show_menu'] == 1) : ?>
+                                    <li><a href="<?= BASE_URL . 'bai-viet?id=' . $cate['id'] ?>"><?= $cate['name'] ?></a></li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </ul>
@@ -56,8 +56,7 @@
             </div>
             <div class="col-lg-8 col-md-7">
                 <div class="row">
-                    <?php $posts = loadall_blog() ?>
-                    <?php foreach ($posts as $post) : ?>
+                    <?php foreach ($cate_post as $post) : ?>
                         <div class="col-lg-6 col-md-6 col-sm-6">
 
                             <div class="blog__item">

@@ -30,6 +30,13 @@ switch ($url) {
             product_index();
         }
         break;
+
+    case 'bai-viet':
+        if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+            $cate_post = $_GET['id'];
+            $cate_post = load_post_by_cate($cate_post);
+        }
+        break;
     case 'yeu-thich':
         require_once './client/business/product.php';
         favorite_product();
