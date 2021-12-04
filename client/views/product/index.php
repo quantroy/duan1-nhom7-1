@@ -127,6 +127,7 @@ if (isset($_SESSION['auth']['id'])) {
                     <?php endif ?>
 
                 </div>
+                <div id="content"></div>
                 <div class="product__pagination">
                     <!-- nut prev -->
                     <?php if ($current_page > 1 && $total_page > 1) : ?>

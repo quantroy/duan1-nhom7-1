@@ -26,6 +26,7 @@
 </head>
 
 
+<?php include_once "./client/business/cart.php"; ?>
 
 <body>
     <!-- Page Preloder -->
@@ -138,7 +139,7 @@
                                             <?= count(getFavoriteProducts()) ?>
                                         <?php endif ?>
                                     </span></a></li>
-                            <li><a href="gio-hang"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="gio-hang"><i class="fa fa-shopping-bag"></i> <span><?php echo countCart() ?></span></a></li>
                         </ul>
                     </div>
                 </div>

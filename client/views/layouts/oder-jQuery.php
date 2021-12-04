@@ -39,19 +39,20 @@
 
   // lay data cho option
   for (var i = 0; i < btnCart.length; i++) {
-    btnCart[i].onclick = function () {
+    btnCart[i].onclick = function() {
       inputSize[0].checked = true;
       for (var i = 0; i < topping.length; i++) {
         topping[i].checked = false;
       }
+      toppingIP.value = "";
       index = this.getAttribute("data");
       setImage.src = getImage[index].getAttribute("data");
       setPrice.innerText = getPrice[index].getAttribute("data");
       localStorage.setItem("initial", getPrice[index].getAttribute("data"));
       setTotal.innerText =
         getPrice[index]
-          .getAttribute("data")
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "đ";
+        .getAttribute("data")
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "đ";
       setName.innerText = getName[index].innerText;
       setId.value = getId[index].innerText;
       setNameIP.value = "getName[index].innerText";
@@ -60,16 +61,17 @@
     };
   }
   // tao nut tang giam so luong
-  reduce.onclick = function () {
+  reduce.onclick = function() {
     if (quantity.value >= 2) {
       quantity.value = quantity.value - 1;
       toTal();
     }
   };
-  augment.onclick = function () {
+  augment.onclick = function() {
     quantity.value = Number(quantity.value) + 1;
     toTal();
   };
+
   function toTal() {
     valide();
     priceProOpt.value =
@@ -96,26 +98,28 @@
   }
 
   function topPingText() {
+
     var result = "";
     var initial;
     for (var i = 0; i < topping.length; i++) {
       if (topping[i].checked == true) {
-        initial = topping[i].value;
-        result += initial;
+        initial = topping[i].getAttribute('data_id');
+        result +=' '+ initial;
       }
     }
     toppingIP.value = result;
   }
+
   function valide() {
     if (quantity.value > 49) {
       quantity.value = 49;
     }
   }
   // du lieu tu form
-  $(document).ready(function () {
+  $(document).ready(function() {
     var submit = $("button[type='submit']");
 
-    submit.click(function () {
+    submit.click(function() {
       //Lấy toàn bộ dữ liệu trong Form
       var data = $("form#form_option").serialize();
 
@@ -124,7 +128,7 @@
         type: "GET", //Sử dụng kiểu gửi dữ liệu POST
         url: "data.php", //gửi dữ liệu sang trang data.php
         data: data, //dữ liệu sẽ được gửi
-        success: function (
+        success: function(
           data // Hàm thực thi khi nhận dữ liệu được từ server
         ) {
           if (data == "false") {

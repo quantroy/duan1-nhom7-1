@@ -5,14 +5,15 @@ setTimeout(function () {
   swal2[0].style.display = "none";
   swal2[1].style.display = "none";
   swal2[2].style.display = "none";
-}, 3000);
+  swal2[3].style.display = "none";
+}, 4000);
 
 $(function () {
   var Toast = Swal.mixin({
     toast: true,
     position: "top-end",
     showConfirmButton: false,
-    timer: 3000,
+    timer: 4000,
   });
 
   $(".swalDefaultSuccess").click(function () {

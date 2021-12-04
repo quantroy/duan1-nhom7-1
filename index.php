@@ -116,8 +116,15 @@ switch ($url) {
 
         // dat hang
     case 'data.php':
+        countCart();
+        $toppings = trim($_GET['toppingIP']);
+        $toppings = explode(' ',$toppings);
         require_once './client/business/cart.php';
-        creat_cart($_SESSION['auth']['id'], $_GET['quantity'], $_GET['size'], $_GET['productId'], $_GET['sugar'], $_GET['ice'], $_GET['toppingIP'], $_GET['priceProOpt']);
+        $cart_id = creat_cart($_SESSION['auth']['id'], $_GET['quantity'], $_GET['size'], $_GET['productId'], $_GET['sugar'], $_GET['ice'],$_GET['priceProOpt']);
+        if(($toppings[0]) > 0) {
+            product_optinon($cart_id, $toppings);
+        }
+        
         // gio hang
     case 'gio-hang':
         if (isset($_SESSION['auth']['id'])) {

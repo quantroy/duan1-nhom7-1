@@ -195,7 +195,7 @@ function Buy() {
   if (flagAddress == false || flagUpdate == false) {
     setTimeout(function () {
       noteError.style.display = "none";
-    }, 3000);
+    }, 4000);
     if (flagAddress == false) {
       noteError.style.display = "flex";
       titleError.innerHTML = "Kiểm tra thông tin giao hàng!";
@@ -207,14 +207,42 @@ function Buy() {
   } else {
     if (saveAddress.checked == true) {
       window.location =
-        "?n=" +
+        "?saveAddress" +
+        "&n=" +
         nameIp.value +
         "&p=" +
         phoneIp.value +
         "&a=" +
         addressIp.value +
         "&note=" +
-        noteIp.value;
+        noteIp.value +
+        "subTotal=" +
+        priceTem.innerText +
+        "&point=" +
+        render_points.innerText +
+        "&shipping=" +
+        priceShip.innerHTML.replace("đ", "") +
+        "&total=" +
+        totalcart.innerText;
+    } else {
+      window.location =
+        "?buycuccess" +
+        "&n=" +
+        nameIp.value +
+        "&p=" +
+        phoneIp.value +
+        "&a=" +
+        addressIp.value +
+        "&note=" +
+        noteIp.value +
+        "subTotal=" +
+        priceTem.innerText +
+        "&point=" +
+        render_points.innerText +
+        "&shipping=" +
+        priceShip.innerHTML.replace("đ", "") +
+        "&total=" +
+        totalcart.innerText;
     }
   }
 }
