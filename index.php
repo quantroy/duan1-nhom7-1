@@ -114,10 +114,10 @@ switch ($url) {
         require_once './client/business/address.php';
         edit_address($_GET['id']);
         break;
-        // case 'tai-khoan/cap-nhat':
-        //     require_once './client/business/account.php';
-        //     update_account();
-        // break;
+    case 'tai-khoan/cap-nhat':
+        require_once './client/business/account.php';
+        update_account();
+        break;
     case 'tai-khoan/cap-nhat':
         require_once './client/business/account.php';
         update_account();
