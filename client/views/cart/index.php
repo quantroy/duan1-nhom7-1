@@ -40,7 +40,7 @@ if (isset($_GET['Buy'])) {
         addAddress($_SESSION['auth']['id'], $_GET['n'], $_GET['p'], $_GET['a'], $_GET['note']);
     }
     updateStatusAll();
-    if($_GET['point'] != 'Áp dụng'){
+    if ($_GET['point'] != 'Áp dụng') {
         updatepoints($_SESSION['auth']['id']);
     }
     echo header("refresh:0; url =?Buycusscess");
