@@ -41,7 +41,8 @@ if (isset($_SESSION['auth']['id'])) {
                             ?>
                             <?php foreach ($listdanhmuc as $danhmuc) : ?>
                                 <?php if ($danhmuc['show_menu'] == 1) : ?>
-                                    <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a></li>
+                                    <li><a href="<?= BASE_URL . 'san-pham?id-danhmuc=' . $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></a>
+                                    </li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </ul>
@@ -110,7 +111,8 @@ if (isset($_SESSION['auth']['id'])) {
 
                                         <div class="product__item__text">
                                             <h6><a id="value_name"><?= $product['name'] ?></a></h6>
-                                            <h5 id="value_price" data="<?php echo $product['price'] ?>"><?= number_format($product['price'], 0, '', ',') ?>đ</h5>
+                                            <h5 id="value_price" data="<?php echo $product['price'] ?>">
+                                                <?= number_format($product['price'], 0, '', ',') ?>đ</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -123,6 +125,7 @@ if (isset($_SESSION['auth']['id'])) {
                     <?php endif ?>
 
                 </div>
+                <!-- <div id="content"></div> -->
                 <div class="product__pagination">
                     <!-- nut prev -->
                     <?php if ($current_page > 1 && $total_page > 1) : ?>
@@ -164,6 +167,7 @@ if (isset($_SESSION['auth']['id'])) {
 
                         <?php endif ?> <?php endif ?>
                 </div>
+                <!-- <div id="content"></div> -->
             </div>
         </div>
     </div>
@@ -171,3 +175,5 @@ if (isset($_SESSION['auth']['id'])) {
 <!-- Form_option start -->
 <?php include_once "./client/views/layouts/form_option.php" ?>
 <!-- Form_option end -->
+
+<?php include_once "./client/views/layouts/oder-jQuery.php" ?>

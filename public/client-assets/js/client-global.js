@@ -116,9 +116,12 @@ function check_isset_box() {
   }
 }
 
-function check_delete($value) {
-
-  const modal = document.querySelector("#modal-body");
-  modal.innerHTML = "Bạn chắc chắn xóa " + $value;
+function check_delete($value, $id) {
   
+  const btn_dell = document.querySelector("#btn_dell");
+  const modal = document.querySelector("#modal-body");
+  modal.innerHTML = "Bạn chắc chắn " + $value;
+  btn_dell.setAttribute('href', '?dellid='+$id);
+
 }
+
