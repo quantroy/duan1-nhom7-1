@@ -47,10 +47,8 @@ if (isset($_GET['dellSuccess'])) {
             delOrder($_GET['dellid']);
             echo header("refresh:0; url =?dellSuccess");
             exit();
-        } else {
-            echo header("refresh:0; url =?dellError");
-            exit();
         }
+        // echo '<pre>';
     }
 ?>
 
@@ -157,7 +155,7 @@ if (isset($_GET['dellSuccess'])) {
                     $checkStatus = "select * from oder where id = $id";
                     $resultCheck = executeQuery($checkStatus);
                     $none = "";
-                    
+
                     if ($resultCheck['status'] == 0) {
                         $clickCheckStatus = "#dell";
                         $bg = "danger";
@@ -172,7 +170,7 @@ if (isset($_GET['dellSuccess'])) {
                         $none = "display:none;";
                     }
                     ?>
-                    <span style="<?= $none ?>" id="huyOder" onmouseover="<?= $clickHuy ?>" class="btn btn-<?= $bg ?>" data-toggle="modal" data-target="<?= $clickCheckStatus ?>" onclick="check_delete('hủy hóa đơn đã chọn (nó sẽ quay lại giỏ hàng của bạn)', <?= $order[$i]['id'] ?> )"> Hủy đơn hàng này</span>
+                    <span style="<?= $none ?>" id="huyOder" onmouseover="<?= $clickHuy ?>" class="btn btn-<?= $bg ?>" data-toggle="modal" data-target="<?= $clickCheckStatus ?>" onclick="check_delete('hủy hóa đơn đã chọn (nó sẽ quay lại giỏ hàng của bạn)', <?= ($order[$i]['id']) ?> )"> Hủy đơn hàng này</span>
 
                 </div>
                 <div style="height: 1px;width: 100%; background-color: black; margin-top: 30px;"></div>
