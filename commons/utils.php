@@ -41,10 +41,3 @@ function getFavoriteProducts()
     return $favoriteProducts;
 }
 
-function delAll($nameTable, $key, $listDel)
-{
-    for ($i = 0; $i < count($listDel); $i++) {
-        $query = "DELETE from $nameTable where $key = '$listDel[$i]'";
-        executeQuery($query, true);
-    }
-}

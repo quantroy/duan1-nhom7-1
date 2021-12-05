@@ -65,7 +65,7 @@
                     <td><?php echo $address[$i]['note'] ?></td>
                     <td>
                         <a class="btn btn-success" href="chinh-sua-dia-chi&id=<?php echo $address[$i]['id']; ?>">Sửa</a>
-                        <btn class="btn btn-danger " data-toggle="modal" data-target="#dell" onclick="check_delete('địa chỉ có tên /<?php echo $address[$i]['recciever'] . '/ ' ?>',<?= $address[$i]['id'] ?> )">Xóa</btn>
+                        <btn class="btn btn-danger " data-toggle="modal" data-target="#dell" onclick="check_delete('xóa địa chỉ có tên /<?php echo $address[$i]['recciever'] . '/ ' ?>',<?= $address[$i]['id'] ?> )">Xóa</btn>
                     </td>
                 </tr>
             <?php

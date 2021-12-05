@@ -60,6 +60,7 @@ for (var i = 0; i < reduce.length; i++) {
 for (var i = 0; i < augment.length; i++) {
   augment[i].onclick = function () {
     index = this.getAttribute("index");
+    console.log(index);
     quanTity[index].value = Number(quanTity[index].value) + 1;
     toTal(index);
     flagUpdate = false;
@@ -73,7 +74,7 @@ for (var i = 0; i < augment.length; i++) {
 function toTal(index) {
   valide();
   total[index].innerHTML =
-    price[index].innerHTML.replace(",", "") * quanTity[index].value;
+    price[index].innerHTML.replace(",", "").replace('đ', "") * quanTity[index].value;
   total[index].innerHTML =
     total[index].innerHTML.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "đ";
   price_tem();
@@ -120,13 +121,17 @@ function saveBlock() {
     } else {
       flag = true;
       flagAddress = true;
+      btnBuy.removeAttribute("style");
+      btnBuy.style.cursor = "pointer";
+
     }
   }
 
   if (flag == true) {
     mesAddress.style.display = "none";
     none_save.style.display = "flex";
-    saveAddress.checked = true;
+    btnBuy.removeAttribute("style");
+    btnBuy.style.cursor = "pointer";
   }
 }
 
@@ -205,44 +210,27 @@ function Buy() {
       titleError.innerHTML = "Phải cập nhật lại giỏ hàng sau khi thay đổi!";
     }
   } else {
+    var check = "?Buy";
     if (saveAddress.checked == true) {
-      window.location =
-        "?saveAddress" +
-        "&n=" +
-        nameIp.value +
-        "&p=" +
-        phoneIp.value +
-        "&a=" +
-        addressIp.value +
-        "&note=" +
-        noteIp.value +
-        "subTotal=" +
-        priceTem.innerText +
-        "&point=" +
-        render_points.innerText +
-        "&shipping=" +
-        priceShip.innerHTML.replace("đ", "") +
-        "&total=" +
-        totalcart.innerText;
-    } else {
-      window.location =
-        "?buycuccess" +
-        "&n=" +
-        nameIp.value +
-        "&p=" +
-        phoneIp.value +
-        "&a=" +
-        addressIp.value +
-        "&note=" +
-        noteIp.value +
-        "subTotal=" +
-        priceTem.innerText +
-        "&point=" +
-        render_points.innerText +
-        "&shipping=" +
-        priceShip.innerHTML.replace("đ", "") +
-        "&total=" +
-        totalcart.innerText;
+      check += "&saveAddress";
     }
+    window.location =
+      check +
+      "&n=" +
+      nameIp.value +
+      "&p=" +
+      phoneIp.value +
+      "&a=" +
+      addressIp.value +
+      "&note=" +
+      noteIp.value +
+      "&subTotal=" +
+      priceTem.innerText.replace(",", "") +
+      "&point=" +
+      render_points.innerText.replace("đ", "").replace(",", "") +
+      "&shipping=" +
+      priceShip.innerHTML.replace("đ", "").replace(",", "") +
+      "&total=" +
+      totalcart.innerText.replace("đ", "").replace(",", "");
   }
 }

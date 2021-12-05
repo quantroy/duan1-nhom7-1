@@ -11,7 +11,7 @@
     $log_error = 'none';
     $log_success = 'flex';
     $mesSuccess = "Đã xóa một sản phẩm khỏi giỏ hàng ";
-} elseif (isset($_GET['buycuccess'])) {
+} elseif (isset($_GET['Buycusscess'])) {
     $log_note = 'none';
     $log_error = 'none';
     $log_success = 'flex';
@@ -33,17 +33,20 @@ if (isset($_GET['updateAll'])) {
     echo header("refresh:0; url =?update");
     exit();
 }
-if (isset($_GET['saveAddress'])) {
-    addAddress($_SESSION['auth']['id'], $_GET['n'], $_GET['p'], $_GET['a'], $_GET['note']);
-    addOder($_SESSION['auth']['id'], $_GET['n'], $_GET['a'], $_GET['p'], $_GET['note'], $_GET['subTotal'], $_GET['point'], $_GET['shipping'], $_GET['total']);
+if (isset($_GET['Buy'])) {
+    $idOder = addOder($_SESSION['auth']['id'], $_GET['n'], $_GET['a'], $_GET['p'], $_GET['note'], $_GET['subTotal'], $_GET['point'], $_GET['shipping'], $_GET['total']);
+    addOderDetail($_SESSION['auth']['id'], $idOder);
+    if (isset($_GET['saveAddress'])) {
+        addAddress($_SESSION['auth']['id'], $_GET['n'], $_GET['p'], $_GET['a'], $_GET['note']);
+    }
     updateStatusAll();
-    // echo header("refresh:0");
-    // exit();
+    if($_GET['point'] != 'Áp dụng'){
+        updatepoints($_SESSION['auth']['id']);
+    }
+    echo header("refresh:0; url =?Buycusscess");
+    exit();
 }
-if (isset($_GET['buycuccess'])) {
-    addOder($_SESSION['auth']['id'], $_GET['n'], $_GET['a'], $_GET['p'], $_GET['note'], $_GET['subTotal'], $_GET['point'], $_GET['shipping'], $_GET['total']);
-    updateStatusAll();
-}
+
 ?>
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="<?= CLIENT_ASSET ?>img/banner/banner-top2.png">
@@ -73,6 +76,7 @@ if (isset($_GET['buycuccess'])) {
                         <thead>
                             <tr>
                                 <th class="shoping__product">Trà sữa</th>
+                                <th class="">Thêm topping</th>
                                 <th>Giá</th>
                                 <th style="text-align: center;">Số lượng</th>
                                 <th>Thành tiền</th>
@@ -81,32 +85,34 @@ if (isset($_GET['buycuccess'])) {
                         </thead>
                         <tbody>
                             <?php for ($i = 0; $i < count($carts); $i++) {
-                                if ($carts[$i]['status'] == 1) {
-                            ?>
-                                    <tr>
-                                        <td class="shoping__cart__item">
-                                            <img style="width: 10%;" src=" <?= IMG_URL . getImagePro($carts[$i]['product_id']) ?> ">
-                                            <h5><?= getNamePro($carts[$i]['product_id']) ?> (<?= $carts[$i]['product_size'] ?>)
-                                            </h5>
-                                        </td>
-                                        <td id="price" class="shoping__cart__price">
-                                            <?= number_format($carts[$i]['price_pro_opt'], 0, '', ',') ?>
-                                        </td>
-                                        <td style="display: flex; justify-content: center;align-items: center;height: 124px;" class="">
-                                            <button index="<?= $i ?>" id="reduce" style="width: 20px; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle ">-</button>
-                                            <input onkeyup="toTal(<?= $i ?>)" id="quantity" style="width: 50px; text-align: center; border: none; background-color: #FAFAFA;" value="<?= $carts[$i]['quantity'] ?>" type="text" name="quantity">
 
-                                            <button index="<?= $i ?>" id="augment" style="width: 20px;text-align: center; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle">+</button>
-                                        </td>
-                                        <td onchange="totalCart()" id="total" class="shoping__cart__total">
-                                            <?php $id =  $carts[$i]['product_id'] ?>
-                                        </td>
-                                        <td class="shoping__cart__item__close">
-                                            <span data-toggle="modal" data-target="#dell" onclick="check_delete('trà sữa có tên /<?= getNamePro($carts[$i]['product_id']) . '(' . $carts[$i]['product_size'] . ')' . '/ Khỏi giỏ hàng' ?>', <?= $carts[$i]['id'] ?> )" class="icon_close"></span>
-                                        </td>
-                                    </tr>
+                            ?>
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        <img style="width: 10%;" src=" <?= IMG_URL . getImagePro($carts[$i]['product_id']) ?> ">
+                                        <h5><?php echo getNamePro($carts[$i]['product_id']) ?> (<?php echo $carts[$i]['product_size'] . ')';
+                                                                                                echo '(' . number_format(getPriceProSize($carts[$i]['product_id'], $carts[$i]['product_size']), 0, '', ',') . 'đ'  ?>)
+                                        </h5>
+                                    </td>
+                                    <td> <?php echo getoptionName(getCartoption($carts[$i]['id']));
+                                            echo '(' . number_format(priOption($carts[$i]['id']), 0, '', ',') . 'đ' ?>)</td>
+                                    <td id="price" class="shoping__cart__price">
+                                        <?php echo number_format(getprice($carts[$i]['product_id']) + getoption(getCartoption($carts[$i]['id'])), 0, '', ',') . 'đ'; ?>
+                                    </td>
+                                    <td style="display: flex; justify-content: center;align-items: center;height: 124px;" class="">
+                                        <button index="<?php echo $i ?>" id="reduce" style="width: 20px; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle ">-</button>
+                                        <input onkeyup="toTal(<?= $i ?>)" id="quantity" style="width: 50px; text-align: center; border: none; background-color: #FAFAFA;" value="<?= $carts[$i]['quantity'] ?>" type="text" name="quantity">
+
+                                        <button index="<?= $i ?>" id="augment" style="width: 20px;text-align: center; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle">+</button>
+                                    </td>
+                                    <td onchange="totalCart()" id="total" class="shoping__cart__total">
+                                        <?php $id =  $carts[$i]['product_id'] ?>
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                        <span data-toggle="modal" data-target="#dell" onclick="check_delete('trà sữa có tên /<?= getNamePro($carts[$i]['product_id']) . '(' . $carts[$i]['product_size'] . ')' . '/ Khỏi giỏ hàng' ?>', <?= $carts[$i]['id'] ?> )" class="icon_close"></span>
+                                    </td>
+                                </tr>
                             <?php
-                                }
                             } ?>
 
                         </tbody>
@@ -229,7 +235,7 @@ if (isset($_GET['buycuccess'])) {
             <div style="overflow-y: auto;height: 250px; " class="modal-body mt-5">
                 <ul>
 
-                    <?php $address = address($_SESSION['auth']['id']);
+                    <?php $address = aRess($_SESSION['auth']['id']);
 
                     for ($i = 0; $i < count($address); $i++) {
                     ?>

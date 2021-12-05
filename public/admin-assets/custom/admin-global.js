@@ -106,7 +106,6 @@ function check_isset_box() {
   }
 }
 
-
 const swal2 = document.getElementsByClassName(
   "swal2-container swal2-top-end swal2-backdrop-hidden"
 );
