@@ -184,6 +184,16 @@ switch ($url) {
         pro_save_fix();
 
         break;
+    case 'cp-admin/lien-he':
+        require_once './admin/business/contact.php';
+        contact_index();
+    
+        break;
+    case 'cp-admin/lien-he/cap-nhat':
+        require_once './admin/business/contact.php';
+        contact_update();
+    
+        break;
 
     default:
         include_once './client/views/404.php';
