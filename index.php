@@ -122,8 +122,14 @@ switch ($url) {
 
         // dat hang
     case 'data.php':
+        $toppings = trim($_GET['toppingIP']);
+        $toppings = explode(' ', $toppings);
         require_once './client/business/cart.php';
-        creat_cart($_SESSION['auth']['id'], $_GET['quantity'], $_GET['size'], $_GET['productId'], $_GET['sugar'], $_GET['ice'], $_GET['toppingIP'], $_GET['priceProOpt']);
+        $cart_id = creat_cart($_SESSION['auth']['id'], $_GET['quantity'], $_GET['size'], $_GET['productId'], $_GET['sugar'], $_GET['ice']);
+        if (($toppings[0]) > 0) {
+            product_optinon($cart_id, $toppings);
+        }
+
         // gio hang
     case 'gio-hang':
         if (isset($_SESSION['auth']['id'])) {
@@ -134,6 +140,16 @@ switch ($url) {
             exit();
         }
         break;
+    case 'don-hang':
+        if (isset($_SESSION['auth']['id'])) {
+            require_once './client/business/order.php';
+            myOrder($_SESSION['auth']['id']);
+        } else {
+            echo header("refresh:0; url =tai-khoan/dang-nhap?null_account");
+            exit();
+        }
+        break;
+
         // Controller Admin
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
@@ -184,7 +200,15 @@ switch ($url) {
         pro_save_fix();
 
         break;
-
+    case 'cp-admin/quan-ly-don-hang':
+        if (isset($_SESSION['auth']['id'])) {
+            require_once './admin/business/order.php';
+            OrderAll();
+        } else {
+            echo header("refresh:0; url =tai-khoan/dang-nhap?null_account");
+            exit();
+        }
+        break;
     default:
         include_once './client/views/404.php';
         break;

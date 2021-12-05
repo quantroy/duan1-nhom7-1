@@ -21,10 +21,57 @@
     <link rel="stylesheet" href="<?= CLIENT_ASSET ?>css/style.css" type="text/css">
     <link rel="shortcut icon" href="<?= CLIENT_ASSET ?>img/logo-small.png">
     <link rel="stylesheet" href="<?= ADMIN_ASSET ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" /> -->
 
 </head>
 
 
+<?php include_once "./client/business/cart.php"; ?>
+<style>
+    .nut_dropdown {
+        border: none;
+        background-color: none;
+    }
+
+    /* Thiết lập vị trí cho thẻ div với class dropdown*/
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Nội dung Dropdown */
+    .noidung_dropdown {
+        /*Ẩn nội dung các đường dẫn*/
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    /* Thiết kế style cho các đường dẫn trong Dropdown */
+    .noidung_dropdown a {
+        text-align: left;
+        color: black;
+        padding: 12px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* thay đổi màu background khi hover vào đường dẫn */
+    .noidung_dropdown a:hover {
+        background-color: #ddd;
+    }
+
+    /* hiển thị nội dung dropdown khi hover */
+    .dropdown:hover .noidung_dropdown {
+        display: block;
+    }
+
+
+    /* Thay đổi màu background cho nút khi được hover */
+</style>
 
 <body>
     <!-- Page Preloder -->
@@ -97,9 +144,18 @@
 
                             <div class="header__top__right__auth">
                                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
-                                    <div style="display:flex; justify-content:flex-end; min-width:100px">
-                                        <a style="margin-right:30px" href="<?= BASE_URL . 'tai-khoan/cap-nhat?id=' . $_SESSION['auth']['id'] ?>"><i class="fa fa-user"></i><?= $_SESSION['auth']['name'] ?> </a>
-                                        <a href="<?= BASE_URL . 'tai-khoan/dang-xuat' ?>">Đăng xuất</a>
+                                    <div style="display:flex; justify-content:flex-end; min-width:80px;align-items: center;">
+                                        <div class="dropdown">
+                                            <div style="color: #6666FF;" class="mr-2 nut_dropdown"><i id="drop" class="fa fa-chevron-down mr-1" aria-hidden="true"> </i><?= $_SESSION['auth']['name'] ?></div>
+                                            <div class="noidung_dropdown">
+                                                <a href="<?= BASE_URL . 'tai-khoan/cap-nhat?id=' . $_SESSION['auth']['id'] ?>">Thông tin tài khoản</a>
+                                                <a href="<?= BASE_URL . 'don-hang' ?>">Đơn hàng</a>
+                                                <a href="<?= BASE_URL . 'gio-hang' ?>">Giỏ hàng</a>
+                                                <a href="<?= BASE_URL . 'tai-khoan/dia-chi' ?>">Địa chỉ nhận hàng</a>
+                                                <a href="<?= BASE_URL . 'tai-khoan/dang-xuat' ?>">Đăng xuất</a>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 <?php else : ?>
                                     <a href="<?= BASE_URL ?>tai-khoan/dang-nhap"> Đăng nhập</a>
@@ -139,7 +195,7 @@
                                             <?= count(getFavoriteProducts()) ?>
                                         <?php endif ?>
                                     </span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="gio-hang"><i class="fa fa-shopping-bag"></i> <span><?php echo countCart() ?></span></a></li>
                         </ul>
                     </div>
                 </div>

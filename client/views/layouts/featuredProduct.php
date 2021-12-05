@@ -48,3 +48,4 @@ if (isset($_SESSION['auth']['id'])) {
 <!-- Form_option start -->
 <?php include_once "./client/views/layouts/form_option.php" ?>
 <!-- Form_option end -->
+<?php include_once "./client/views/layouts/oder-jQuery.php" ?>

@@ -2,7 +2,7 @@
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 function pdo_get_connection()
 {
-    $dburl = "mysql:host=localhost;dbname=2021-duan1-nhom7;charset=utf8";
+    $dburl = "mysql:host=localhost;dbname=2021-duan;charset=utf8";
     $username = 'root';
     $password = '';
 
@@ -98,4 +98,24 @@ function pdo_select($sql)
     $stmt->execute();
     $result = $stmt->fetchAll();
     return $result;
+}
+
+function returnId($sqL)
+{
+
+    // Tạo kết nối
+    $conn = new PDO("mysql:host=localhost;dbname=2021-duan", 'root', '');
+
+    // Cấu hình exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+    // Câu SQL Insert
+    $sql = $sqL;
+
+    // Thực hiện thêm record
+    $conn->exec($sql);
+
+    $last_id = $conn->lastInsertId();
+    return $last_id;
 }

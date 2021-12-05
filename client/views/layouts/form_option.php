@@ -18,7 +18,7 @@
                             <input style="display: none;" type="text" id="toppingIP" name="toppingIP">
                             <div style="display: flex; align-items: center; width: 170px;" class="btn-group">
                                 <button id="reduce" style="width: 20px; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle ">-</button>
-                                <input id="quantity" style="width: 50px; text-align: center; border: none; background-color: #FAFAFA;" value="1" type="text" id="quantity" name="quantity">
+                                <input onkeyup="toTal()" id="quantity" style="width: 50px; text-align: center; border: none; background-color: #FAFAFA;" value="1" type="text" id="quantity" name="quantity">
 
                                 <button id="augment" style="width: 20px;text-align: center; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle">+</button>
                                 <button style=" display: flex; justify-content: center; align-items: center; " id="total" type="button" class="btn-warning ml-3"></button>
@@ -81,7 +81,7 @@
                     $topping = list_topping();
                     for ($i = 0; $i < count($topping); $i++) {
                     ?>
-                        <input data="<?php echo $topping[$i]['price'] ?>" onchange="toTal(), topPingText()" id="topping" type="checkbox" class="" value="<?php echo $topping[$i]['name'] ?>" name="topping"> <?php echo $topping[$i]['name'] ?><br>
+                        <input data_id="<?php echo $topping[$i]['id'] ?>" data="<?php echo $topping[$i]['price'] ?>" onchange="toTal(), topPingText()" id="topping" type="checkbox" class="" value="<?php echo $topping[$i]['name'] ?>" name="topping"> <?php echo $topping[$i]['name'] ?><br>
                     <?php
                     }
                     ?>

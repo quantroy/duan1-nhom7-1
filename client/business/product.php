@@ -98,6 +98,7 @@ function list_topping()
     $topping = executeQuery($sqlQuery, true);
     return $topping;
 }
+
 function loadall_product_like()
 {
     $sql = "SELECT * FROM favorite_products";
