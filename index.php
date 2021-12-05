@@ -99,10 +99,10 @@ switch ($url) {
         require_once './client/business/address.php';
         edit_address($_GET['id']);
         break;
-        // case 'tai-khoan/cap-nhat':
-        //     require_once './client/business/account.php';
-        //     update_account();
-        // break;
+    case 'tai-khoan/cap-nhat':
+        require_once './client/business/account.php';
+        update_account();
+        break;
     case 'tai-khoan/cap-nhat':
         require_once './client/business/account.php';
         update_account();
@@ -183,30 +183,30 @@ switch ($url) {
         require_once './admin/business/product.php';
         pro_save_fix();
         break;
-        // posts
+    //bai viết
     case 'cp-admin/bai-viet':
-        require_once './admin/business/posts.php';
-        posts_index();
+        require_once './admin/business/post.php';
+        post_index();
         break;
     case 'cp-admin/bai-viet/xoa':
-        require_once './admin/business/posts.php';
-        posts_remove();
+        require_once './admin/business/post.php';
+        post_remove();
         break;
     case 'cp-admin/bai-viet/tao-moi':
-        require_once './admin/business/posts.php';
-        posts_add_form();
+        require_once './admin/business/post.php';
+        post_add_form();
         break;
     case 'cp-admin/bai-viet/luu-tao-moi':
-        require_once './admin/business/posts.php';
-        posts_save_add();
+        require_once './admin/business/post.php';
+        post_save_add();
         break;
     case 'cp-admin/bai-viet/sua':
-        require_once './admin/business/posts.php';
-        posts_fix();
+        require_once './admin/business/post.php';
+        post_fix();
         break;
     case 'cp-admin/bai-viet/luu-sua':
-        require_once './admin/business/posts.php';
-        posts_save_fix();
+        require_once './admin/business/post.php';
+        post_save_fix();
         break;
 
     default:
