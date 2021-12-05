@@ -81,9 +81,11 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="header__top__left">
+                            <?php foreach(pdo_select("SELECT * FROM contact LIMIT 1") as $key){ ?>
                             <ul>
-                                <li><i class="fa fa-envelope"></i> quandmph13848@fpt.edu.vn</li>
+                                <li><i class="fa fa-envelope"></i><?php echo $key['email'] ?></li>
                             </ul>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="col-lg-6">

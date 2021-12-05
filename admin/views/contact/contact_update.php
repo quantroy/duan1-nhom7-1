@@ -15,23 +15,28 @@ if (isset($_GET['id'])) {
                     <div class="col-6 offset-3">
                         <div class="form-group">
                             <label for="">Số điện thoại</label>
-                            <input type="text" name="phone" class="form-control" value="<?php echo $key['phone'] ?>" placeholder="" aria-describedby="helpId">
+                            <input required type="text" name="phone" class="form-control" value="<?php echo $key['phone'] ?>" placeholder="" aria-describedby="helpId">
                         </div>
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input type="text" name="email" class="form-control" value="<?php echo $key['email'] ?>" placeholder="" aria-describedby="helpId">
+                            <input required type="text" name="email" class="form-control" value="<?php echo $key['email'] ?>" placeholder="" aria-describedby="helpId">
                         </div>
                         <div class="form-group">
                             <label for="">Địa chỉ</label>
-                            <input type="text" name="address" class="form-control" value="<?php echo $key['address'] ?>" placeholder="" aria-describedby="helpId">
+                            <input required type="text" name="address" class="form-control" value="<?php echo $key['address'] ?>" placeholder="" aria-describedby="helpId">
                         </div>
                         <div class="form-group">
                             <label for="">Giờ mở cửa</label>
-                            <input type="text" name="time_open" class="form-control" value="<?php echo $key['time_open'] ?>" placeholder="" aria-describedby="helpId">
+                            <input required type="text" name="time_open" class="form-control" value="<?php echo $key['time_open'] ?>" placeholder="" aria-describedby="helpId">
                         </div>
                         <div class="form-group">
                             <label for="">Giờ đóng cửa</label>
-                            <input type="text" name="time_close" class="form-control" value="<?php echo $key['time_close'] ?>" placeholder="" aria-describedby="helpId">
+                            <input required type="text" name="time_close" class="form-control" value="<?php echo $key['time_close'] ?>" placeholder="" aria-describedby="helpId">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Bản đồ</label>
+                            
+                            <textarea required type="text" name="map" class="form-control"><?php echo $key['map'] ?></textarea>
                         </div>
                         <br>
                         <div class="">
