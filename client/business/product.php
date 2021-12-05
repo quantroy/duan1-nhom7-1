@@ -122,3 +122,12 @@ function delete_product_favorite()
     executeQuery($sql);
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
+function check_favorite_product($id)
+{
+    $userId = $_SESSION['auth']['id'];
+    $sql = "select * from favorite_products where user_id = $userId and product_id = $id";
+    $result = executeQuery($sql, true);
+    if (count($result) > 0) {
+        return 'none';
+    }
+}
