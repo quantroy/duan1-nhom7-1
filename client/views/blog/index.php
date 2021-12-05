@@ -30,7 +30,7 @@
                             ?>
                             <?php foreach ($cate_posts as $cate) : ?>
                                 <?php if ($cate['show_menu'] == 1) : ?>
-                                    <li><a href="<?= BASE_URL . 'tin-tuc?id=' . $cate['id'] ?>"><?= $cate['name'] ?></a></li>
+                                    <li><a href="<?= BASE_URL . 'bai-viet?id=' . $cate['id'] ?>"><?= $cate['name'] ?></a></li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </ul>
@@ -67,9 +67,9 @@
                                     <ul>
                                         <li><i class="fa fa-calendar-o"></i> <?= $post['create_at'] ?></li>
                                     </ul>
-                                    <h5><a href="<?= BASE_URL . 'bai_viet?id=' . $post['id'] ?>"><?= $post['name'] ?></a></h5>
+                                    <h5><a href="<?= BASE_URL . 'bai-viet?id=' . $post['id'] ?>"><?= $post['name'] ?></a></h5>
                                     <p><?= $post['summary'] ?></p>
-                                    <a href="<?= BASE_URL . 'tin-tuc?id=' . $post['id'] ?>" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+                                    <a href="<?= BASE_URL . 'bai-viet?id=' . $post['id'] ?>" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                                 </div>
                             </div>
 
@@ -80,9 +80,9 @@
                     <!-- nut prev -->
                     <?php if ($current_page > 1 && $total_page > 1) : ?>
                         <?php if (isset($_GET['id'])) : ?>
-                            <a href="<?= BASE_URL . 'tin-tuc?id=' . $_GET['id'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                            <a href="<?= BASE_URL . 'bai-viet?id=' . $_GET['id'] . '&trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
                         <?php else : ?>
-                            <a href="<?= BASE_URL . 'tin-tuc?trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
+                            <a href="<?= BASE_URL . 'bai-viet?trang=' . $current_page - 1 ?>"><i class=" fa fa-long-arrow-left"></i></a>
                         <?php endif ?>
                     <?php endif ?>
 
@@ -92,10 +92,10 @@
                             <a disabled style="background-color: #7fad39; color: white"><?= $i ?></a>
                         <?php else : ?>
                             <?php if (isset($_GET['id'])) : ?>
-                                <a href="<?= BASE_URL . 'tin-tuc?id=' . $_GET['id'] . '&trang=' . $i ?>"><?= $i ?></a>
+                                <a href="<?= BASE_URL . 'bai-viet?id=' . $_GET['id'] . '&trang=' . $i ?>"><?= $i ?></a>
 
                             <?php else : ?>
-                                <a href="<?= BASE_URL . 'tin-tuc?trang=' . $i ?>"><?= $i ?></a>
+                                <a href="<?= BASE_URL . 'bai-viet?trang=' . $i ?>"><?= $i ?></a>
                             <?php endif ?>
                         <?php endif ?>
                     <?php endfor ?>
@@ -103,9 +103,9 @@
                     <!-- nut next -->
                     <?php if ($current_page < $total_page && $total_page > 1) : ?>
                         <?php if (isset($_GET['id'])) : ?>
-                            <a href="<?= BASE_URL . 'tin-tuc?id=' . $_GET['id'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+                            <a href="<?= BASE_URL . 'bai-viet?id=' . $_GET['id'] . '&trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
                         <?php else : ?>
-                            <a href="<?= BASE_URL . 'tin-tuc?trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
+                            <a href="<?= BASE_URL . 'bai-viet?trang=' . $current_page + 1 ?>"><i class=" fa fa-long-arrow-right"></i></a>
                         <?php endif ?> <?php endif ?>
                 </div>
             </div>

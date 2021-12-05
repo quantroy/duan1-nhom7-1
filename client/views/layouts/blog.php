@@ -19,7 +19,7 @@
                             <ul>
                                 <li><i class="fa fa-calendar-o"></i><?= $post['create_at'] ?></li>
                             </ul>
-                            <h5><a href="<?= BASE_URL . 'tin-tuc?id=' . $post['id'] ?>"><?= $post['name'] ?></a></h5>
+                            <h5><a href="<?= BASE_URL . 'bai-viet?id=' . $post['id'] ?>"><?= $post['name'] ?></a></h5>
                             <p><?= $post['summary'] ?></p>
                         </div>
                     </div>
