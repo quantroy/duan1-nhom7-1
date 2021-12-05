@@ -8,7 +8,7 @@ require_once './mail/index.php';
 require_once './dao/system_dao.php';
 require_once './client/business/product.php';
 require_once './client/business/categories.php';
-
+require_once './client/business/blog.php';
 // dd($url);
 switch ($url) {
     case '/':
@@ -42,9 +42,21 @@ switch ($url) {
         delete_product_favorite();
         break;
     case 'tin-tuc':
-        require_once './client/business/blog.php';
-        blog();
+        if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+            $cate_post_id = $_GET['id'];
+            $posts = load_post_by_cate($cate_post_id);
+        } else {
+            blog();
+        }
+        break;
 
+    case 'bai-viet':
+        if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+            $id = $_GET['id'];
+            $post = loadone_blog($id);
+        } else {
+            blog();
+        }
         break;
 
     case 'lien-he':
@@ -183,7 +195,7 @@ switch ($url) {
         require_once './admin/business/product.php';
         pro_save_fix();
         break;
-    //bai viết
+        //bai viết
     case 'cp-admin/bai-viet':
         require_once './admin/business/post.php';
         post_index();
@@ -211,5 +223,26 @@ switch ($url) {
 
     default:
         include_once './client/views/404.php';
+        break;
+        // danh mục bài viêt
+    case 'cp-admin/danh-muc-bai-viet':
+        require_once './admin/business/cate_post.php';
+        cate_post_index();
+        break;
+    case 'cp-admin/danh-muc-bai-viet/xoa':
+        require_once './admin/business/cate_post.php';
+        cate_post_remove();
+        break;
+    case 'cp-admin/danh-muc-bai-viet/tao-moi':
+        require_once './admin/business/cate_post.php';
+        cate_post_add_form();
+        break;
+    case 'cp-admin/danh-muc-bai-viet/luu-tao-moi':
+        require_once './admin/business/cate_post.php';
+        cate_post_save_add();
+        break;
+    case 'cp-admin/danh-muc-bai-viet/cap-nhat':
+        require_once './admin/business/cate_post.php';
+        cate_post_update();
         break;
 }
