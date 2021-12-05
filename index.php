@@ -173,6 +173,26 @@ switch ($url) {
     case 'cp-admin/danh-muc/cap-nhat':
         require_once './admin/business/category.php';
         cate_update();
+        // danh mục bài viêt
+    case 'cp-admin/danh-muc-bai-viet':
+        require_once './admin/business/cate_post.php';
+        cate_post_index();
+        break;
+    case 'cp-admin/danh-muc-bai-viet/xoa':
+        require_once './admin/business/cate_post.php';
+        cate_post_remove();
+        break;
+    case 'cp-admin/danh-muc-bai-viet/tao-moi':
+        require_once './admin/business/cate_post.php';
+        cate_post_add_form();
+        break;
+    case 'cp-admin/danh-muc-bai-viet/luu-tao-moi':
+        require_once './admin/business/cate_post.php';
+        cate_post_save_add();
+        break;
+    case 'cp-admin/danh-muc-bai-viet/cap-nhat':
+        require_once './admin/business/cate_post.php';
+        cate_post_update();
         // product
     case 'cp-admin/san-pham':
         require_once './admin/business/product.php';
