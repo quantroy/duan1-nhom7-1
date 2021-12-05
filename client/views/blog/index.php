@@ -45,8 +45,8 @@
                                         <img src="<?= IMG_URL . $p['thumbnail'] ?>" alt="">
                                     </div>
                                     <div class="blog__sidebar__recent__item__text" style="width:200px;">
-                                        <h6><?= $p['title'] ?></h6>
-                                        <span><?= $p['created_at'] ?></span>
+                                        <h6><?= $p['name'] ?></h6>
+                                        <span><?= $p['create_at'] ?></span>
                                     </div>
                                 </a>
                             </div>
@@ -65,10 +65,10 @@
                                 </div>
                                 <div class="blog__item__text">
                                     <ul>
-                                        <li><i class="fa fa-calendar-o"></i> <?= $post['created_at'] ?></li>
+                                        <li><i class="fa fa-calendar-o"></i> <?= $post['create_at'] ?></li>
                                     </ul>
-                                    <h5><a href="<?= BASE_URL . 'tin-tuc?id=' . $post['id'] ?>"><?= $post['title'] ?></a></h5>
-                                    <p><?= $post['content1'] ?></p>
+                                    <h5><a href="<?= BASE_URL . 'tin-tuc?id=' . $post['id'] ?>"><?= $post['name'] ?></a></h5>
+                                    <p><?= $post['summary'] ?></p>
                                     <a href="<?= BASE_URL . 'tin-tuc?id=' . $post['id'] ?>" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                                 </div>
                             </div>

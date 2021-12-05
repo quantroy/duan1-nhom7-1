@@ -45,7 +45,7 @@
                                         <img src="<?= IMG_URL . $p['thumbnail'] ?>" alt="">
                                     </div>
                                     <div class="blog__sidebar__recent__item__text" style="width:240px;">
-                                        <h6><?= $p['title'] ?></h6>
+                                        <h6><?= $p['name'] ?></h6>
                                         <span><?= $p['created_at'] ?></span>
                                     </div>
                                 </a>
@@ -57,18 +57,18 @@
             <?php foreach ($post as $post) : ?>
                 <div class="col-lg-8 col-md-7 order-md-1 order-1">
                     <div class="blog__details__text">
-                        <h3><?= $post['title'] ?></h3>
-                        <p><?= $post['content1'] ?></p>
+                        <h3><?= $post['name'] ?></h3>
+                        <p><?= $post['summary'] ?></p>
                         <img src="<?= IMG_URL . $post['thumbnail'] ?>" alt="" style="width:70%">
-                        <p><?= $post['content2'] ?></p>
+                        <p><?= $post['content'] ?></p>
                     </div>
                     <div class="blog__details__content">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="blog__details__author">
                                     <div class="blog__details__author__text" style="margin-top: -45px;">
-                                        <h6>Tác Giả : <?= $post['created_by'] ?></h6>
-                                        <span>Ngày Đăng : <?= $post['created_at'] ?></span>
+                                        <h6>Tác Giả : <?= $post['create_by'] ?></h6>
+                                        <span>Ngày Đăng : <?= $post['create_at'] ?></span>
                                     </div>
                                 </div>
                             </div>
