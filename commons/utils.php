@@ -4,7 +4,7 @@ const BASE_URL = "http://localhost/duan1-nhom7/";
 const ADMIN_URL = BASE_URL . 'cp-admin/';
 const ADMIN_ASSET = BASE_URL . 'public/admin-assets/';
 const CLIENT_ASSET = BASE_URL . 'public/client-assets/';
-
+const IMG_URL = BASE_URL . 'public/uploads/';
 function dd()
 {
     $data = func_get_args();
@@ -27,8 +27,9 @@ function admin_render($view, $data = [], $jsFile = null)
     $view = './admin/views/' . $view;
     include_once "./admin/views/layouts/main.php";
 }
-function getFavoriteProducts(){
-    if(!isset($_SESSION['auth']) || $_SESSION['auth'] == null){
+function getFavoriteProducts()
+{
+    if (!isset($_SESSION['auth']) || $_SESSION['auth'] == null) {
         return false;
     }
     $userId = $_SESSION['auth']['id'];

@@ -89,10 +89,11 @@
                             <?php if ($product['status'] == 1) : ?>
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product__item">
-                                        <div class="product__item__pic set-bg" data-setbg="<?= $product['thumbnail'] ?>">
+                                        <div class="product__item__pic set-bg" data-setbg="<?= IMG_URL . $product['thumbnail'] ?>">
                                             <ul class="product__item__pic__hover">
                                                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
-                                                    <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
+                                                    <?php $check = check_favorite_product($product['id']) ?>
+                                                    <li style="display:<?= $check  ?>"><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
                                                 <?php endif ?>
                                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
