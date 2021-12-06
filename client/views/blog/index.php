@@ -69,7 +69,7 @@
                                     </ul>
                                     <h5><a href="<?= BASE_URL . 'bai-viet?id=' . $post['id'] ?>"><?= $post['name'] ?></a></h5>
                                     <p><?= $post['summary'] ?></p>
-                                    <a href="<?= BASE_URL . 'bai-viet?id=' . $post['id'] ?>" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+                                    <a href="<?= BASE_URL . 'bai-viet?id=' . $post['id'] ?>" class="blog__btn">Xem Thêm<span class="arrow_right"></span></a>
                                 </div>
                             </div>
 
