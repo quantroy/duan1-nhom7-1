@@ -13,7 +13,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="<?= IMG_URL . $post['thumbnail'] ?>" alt="" style="width:70%">
+                            <img src=" <?= IMG_URL . $post['thumbnail'] ?>" alt="" style="width:360px; height:240px;">
                         </div>
                         <div class="blog__item__text">
                             <ul>

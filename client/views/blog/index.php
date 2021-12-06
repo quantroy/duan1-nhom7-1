@@ -30,7 +30,7 @@
                             ?>
                             <?php foreach ($cate_posts as $cate) : ?>
                                 <?php if ($cate['show_menu'] == 1) : ?>
-                                    <li><a href="<?= BASE_URL . 'bai-viet?id=' . $cate['id'] ?>"><?= $cate['name'] ?></a></li>
+                                    <li><a href="<?= BASE_URL . 'tin-tuc?id=' . $cate['id'] ?>"><?= $cate['name'] ?></a></li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </ul>
@@ -61,9 +61,9 @@
 
                             <div class="blog__item">
                                 <div class="blog__item__pic">
-                                    <img src="<?= IMG_URL . $post['thumbnail'] ?>" alt="">
+                                    <img src="<?= IMG_URL . $post['thumbnail'] ?>" alt="" style="width:360px; height:240px;">
                                 </div>
-                                <div class="blog__item__text">
+                                <div class=" blog__item__text">
                                     <ul>
                                         <li><i class="fa fa-calendar-o"></i> <?= $post['create_at'] ?></li>
                                     </ul>
