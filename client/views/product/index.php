@@ -103,7 +103,8 @@ if (isset($_SESSION['auth']['id'])) {
                                         <div id="value_image" class="product__item__pic set-bg" data-setbg="<?= IMG_URL . $product['thumbnail'] ?>" data="<?= IMG_URL . $product['thumbnail'] ?>">
                                             <ul class="product__item__pic__hover">
                                                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
-                                                    <li><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
+                                                    <?php $check = check_favorite_product($product['id']) ?>
+                                                    <li style="display:<?= $check  ?>"><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
                                                 <?php endif ?>
                                                 <li><a class="<?php echo $log ?>" id="btn_cart" data-toggle="modal" <?php echo $check_login ?> data="<?php echo $k ?>"><i class="fa fa-shopping-cart "></i></a></li>
                                             </ul>
