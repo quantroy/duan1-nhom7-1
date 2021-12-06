@@ -245,7 +245,9 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>0987789999</h5>
+                            <?php foreach(pdo_select("SELECT * FROM contact LIMIT 1") as $key){ ?>
+                                <h5><?php echo $key['phone'] ?></h5>
+                            <?php } ?>
                                 <span>Hỗ trợ 24/7</span>
                             </div>
                         </div>

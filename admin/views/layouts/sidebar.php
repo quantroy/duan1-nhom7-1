@@ -178,6 +178,12 @@
             <p>Quản lý thông tin chung</p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="<?= ADMIN_URL . 'phan-hoi' ?>" class="nav-link">
+            <i class="fas fa-comment-dots"></i>
+            <p>Khách hàng phản hồi</p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
