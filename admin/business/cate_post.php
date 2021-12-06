@@ -13,7 +13,7 @@ function cate_post_index()
 function cate_post_remove()
 {
     $id = $_GET['id'];
-    $sql1 = "DELETE from posts where cate_post = $id";
+    $sql1 = "DELETE from posts where cate_post_id = $id";
     pdo_execute($sql1);
     $sql = "DELETE from cate_post where id = $id";
     pdo_execute($sql);
