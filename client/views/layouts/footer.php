@@ -6,12 +6,12 @@
                     <div class="footer__about__logo">
                         <a href="<?= BASE_URL ?>trang-chu"><img src="<?= CLIENT_ASSET ?>img/logo.png" alt=""></a>
                     </div>
-                    <?php foreach(pdo_select("SELECT * FROM contact") as $items){ ?>
-                    <ul>
-                        <li><?php echo $items['address'] ?></li>
-                        <li><?php echo $items['phone'] ?></li>
-                        <li><?php echo $items['email'] ?></li>
-                    </ul>
+                    <?php foreach (pdo_select("SELECT * FROM contact") as $items) { ?>
+                        <ul>
+                            <li><?php echo $items['address'] ?></li>
+                            <li><?php echo $items['phone'] ?></li>
+                            <li><?php echo $items['email'] ?></li>
+                        </ul>
                     <?php } ?>
                 </div>
             </div>
@@ -36,8 +36,9 @@
                     </form>
                     <div class="footer__widget__social">
                         <a href="https://www.facebook.com/Xiao-HaHa-111735664678169" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/xiaohaha.adm/" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="https://twitter.com/xiao_haha_adm" target="_blank"><i class=" fa
+                            fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-pinterest"></i></a>
                     </div>
                 </div>
@@ -55,10 +56,11 @@
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
-                    <div class="footer__copyright__payment"><img src="<?= CLIENT_ASSET ?>img/payment-item.png" alt=""></div>
+                    <div class="footer__copyright__payment"><img src="<?= CLIENT_ASSET ?>img/payment-item.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </footer>
-<script lang="javascript">var __vnp = {code : 9927,key:'', secret : '6066e45e736f2c9c810db8f3465ad816'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//core.vchat.vn/code/tracking.js';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
+<!-- <script lang="javascript">var __vnp = {code : 9927,key:'', secret : '6066e45e736f2c9c810db8f3465ad816'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//core.vchat.vn/code/tracking.js';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script> -->

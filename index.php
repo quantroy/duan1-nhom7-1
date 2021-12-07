@@ -66,6 +66,10 @@ switch ($url) {
         require_once './client/business/contact.php';
         contact();
         break;
+    case 'phan-hoi':
+        require_once './client/business/contact.php';
+        insert_feed_back();
+        break;
 
         // controller tài khoản
         // case 'tai-khoan':
@@ -264,6 +268,18 @@ switch ($url) {
         require_once './admin/business/contact.php';
         contact_update();
 
+        break;
+    case 'cp-admin/phan-hoi':
+        require_once './admin/business/feed_back.php';
+        feed_back_index();
+        break;
+    case 'cp-admin/phan-hoi-xoa':
+        require_once './admin/business/feed_back.php';
+        feed_back_delete();
+        break;
+    case 'cp-admin/phan-hoi-user':
+        require_once './admin/business/feed_back.php';
+        feed_back_update();
         break;
 
     default:

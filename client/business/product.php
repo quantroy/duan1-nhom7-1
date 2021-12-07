@@ -132,3 +132,12 @@ function check_favorite_product($id)
         return 'none';
     }
 }
+function check_favorite_pro($id)
+{
+    $userId = $_SESSION['auth']['id'];
+    $sql = "select * from favorite_products where user_id = $userId and product_id = $id";
+    $result = executeQuery($sql, true);
+    if (count($result) == null) {
+        return 'none';
+    }
+}
