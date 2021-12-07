@@ -83,7 +83,7 @@
     function showGraph() {
         $.post("revenue_statistics.php",
             function(data) {
-                // console.log(data);
+                console.log(data);
                 var labels = [];
                 var result = [];
                 for (var i in data) {

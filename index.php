@@ -12,7 +12,6 @@ require_once './client/business/blog.php';
 require_once './carbon/autoload.php';
 
 
-// dd($url);
 switch ($url) {
     case '/':
         require_once './client/business/homepage.php';
@@ -177,10 +176,15 @@ switch ($url) {
         require_once './admin/business/dashboard.php';
         dashboard_index();
         break;
+
+        //thống kê
     case 'revenue_statistics.php':
-        // dd('qussssssssssssssssssssssssssan');
+        dd($url);
+
+        dd('qussssssssssssssssssssssssssan');
         require_once './admin/business/revenue_statistics.php';
         break;
+
     case 'cp-admin/danh-muc':
         require_once './admin/business/category.php';
         cate_index();
@@ -282,9 +286,7 @@ switch ($url) {
         feed_back_update();
         break;
 
-    default:
-        include_once './client/views/404.php';
-        break;
+
         // danh mục bài viêt
     case 'cp-admin/danh-muc-bai-viet':
         require_once './admin/business/cate_post.php';
@@ -305,5 +307,8 @@ switch ($url) {
     case 'cp-admin/danh-muc-bai-viet/cap-nhat':
         require_once './admin/business/cate_post.php';
         cate_post_update();
+        break;
+    default:
+        include_once './client/views/404.php';
         break;
 }

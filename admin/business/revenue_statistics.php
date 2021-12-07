@@ -1,11 +1,9 @@
 <?php
-// dd(111111111);
-header('Content-Type: application/json');
+// header('Content-Type: application/json');
 
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 
-// printf("Now: %s", Carbon::now('Asia/Ho-Chi-Minh'));
 $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subdays(365)->toDateString();
 $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
 
