@@ -168,14 +168,6 @@ switch ($url) {
         }
         break;
 
-        // Controller Admin
-        //thống kê
-
-    case 'revenueStatistics.php':
-        require_once 'admin/business/revenue_statistics.php';
-        dd('qussssssssssssssssssssssssssan');
-        break;
-
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
         dashboard_index();
@@ -183,6 +175,7 @@ switch ($url) {
 
         //thống kê doanh thu
     case 'revenue_statistics.php':
+        // dd($url);
         require_once './admin/business/revenue_statistics.php';
         break;
 

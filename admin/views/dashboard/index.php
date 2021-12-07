@@ -18,7 +18,7 @@
         <div class="small-box bg-success">
             <div class="inner">
                 <h3>$<?= number_format($totalProfit, 0, ',', '.') ?></h3>
-                <p>Tổng lợi nhuận</p>
+                <p>Tổng doanh thu</p>
             </div>
             <div class="icon">
                 <i class="fas fa-money-bill-wave"></i>
@@ -83,7 +83,7 @@
     function showGraph() {
         $.post("revenue_statistics.php",
             function(data) {
-                // console.log(data);
+                console.log(data);
                 var labels = [];
                 var revenues = [];
                 var quantitys = [];

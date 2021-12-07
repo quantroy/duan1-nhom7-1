@@ -1,12 +1,21 @@
 <?php
 
-function dashboard_index(){
-    $totalProduct = rand(100, 999);
-    $totalProfit = rand(1000, 500000);
-    $totalCustomer = rand(50, 20000);
-    admin_render('dashboard/index.php', 
-        compact('totalProduct', 'totalProfit', 'totalCustomer')); 
+function dashboard_index()
+{
+    $sql = "SELECT * from products";
+    $listPro = executeQuery($sql, true);
+    $totalProduct = count($listPro);
+
+    $sql = "SELECT * from accounts where role = 1";
+    $listCustomer = executeQuery($sql, true);
+    $totalCustomer = count($listCustomer);
+
+    $sql = "SELECT sum(revenue) as profit from statistical";
+    $sum = executeQuery($sql);
+
+    $totalProfit = $sum['profit'];
+    admin_render(
+        'dashboard/index.php',
+        compact('totalProduct', 'totalCustomer', 'totalProfit')
+    );
 }
-
-
-?>
