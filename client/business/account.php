@@ -225,93 +225,41 @@ function check_phone($accounts, $get_phone)
 }
 function login()
 {
-    $loginToken = isset($_COOKIE['remember_login']) ? $_COOKIE['remember_login'] : "";
-    if ($loginToken != "") {
-        $now = new DateTime();
-        $currentTime = $now->format('Y-m-d H:i:s');
-        $getUserByRememberToken = "select 
-                                            * 
-                                    from accounts 
-                                    where remember_token = '$loginToken'
-                                    and remember_expire >= '$currentTime'";
-
-        $user = pdo_execute($getUserByRememberToken, false);
-
-        if ($user['role'] == 1) {
-            unset($user['password']);
-            $_SESSION['auth'] = $user;
-            header('location:' . BASE_URL);
-            die;
-        } else if ($user['role'] == 2) {
-            unset($user['password']);
-            $_SESSION['auth'] = $user;
-            header('location:' . BASE_URL);
-            die;
-        } else if ($user['role'] == 5) {
-            unset($user['password']);
-            $_SESSION['auth'] = $user;
-            header('location:' . ADMIN_URL);
-            die;
-        }
-    }
-
-
     client_render('account/login.php');
 }
 function logout()
 {
     unset($_SESSION['auth']);
-    // $remember_expire=($_SESSION['auth']['remember_expire']);
-    // $sql = "DELETE from accounts where remember_expire = $remember_expire";
-    // executeQuery($sql);
     header('location: ' . BASE_URL);
 }
 function post()
 {
-    date_default_timezone_set('Asia/Ho_Chi_Minh');
-
     $email = $_POST['email'];
     $password = $_POST['password'];
     $remember = $_POST['remember'];
     $getUserByEmail = "select * from accounts where email = '$email'";
     $user = executeQuery($getUserByEmail, false);
-    $k = password_verify($password, $user['password']);
+    $k= password_verify($password, $user['password']);
 
     $errors = "";
     if (empty($email)) {
         $errors .= "email-err=Hãy nhập email&";
-    } else if ($email != $user['email']) {
+    }else if($email !=$user['email']){
         $errors .= "email-err=Tài khoản không tồn tại&";
     }
     if (empty($password)) {
         $errors .= "password-err=Hãy nhập mật khẩu&";
-    } else if ($password != $k) {
+    }else if($password!=$k ){
         $errors .= "password-err=Sai mật khẩu&";
+
     }
-
     $errors = rtrim($errors, '&');
-
     if (strlen($errors) > 0) {
         header('location:' . BASE_URL . 'tai-khoan/dang-nhap' . '?' . $errors);
         die;
     }
 
     if ($user && password_verify($password, $user['password'])) {
-        if ($remember == 1) {
-            $remember_token = sha1(uniqid() . $user['email']);
-
-            $expireObj = new DateTime("+3 minutes");
-            $expireTime = $expireObj->format("Y-m-d H:i:s");
-
-            $updateRememberQuery = "update accounts 
-                                    set 
-                                        remember_token = '$remember_token', 
-                                        remember_expire = '$expireTime'
-                                    where id = " . $user['id'];
-            pdo_execute($updateRememberQuery);
-        }
-
-
         if ($user['role'] == 1) {
             unset($user['password']);
             $_SESSION['auth'] = $user;
