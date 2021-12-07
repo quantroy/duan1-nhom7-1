@@ -41,7 +41,7 @@ function post_save_add()
     $getProducts = "SELECT * FROM posts WHERE name = '$name'";
     $post = executeQuery($getProducts, false);
     if (empty($name)) {
-        $errors .= "name-err=Hãy nhập tên bài viết";
+        $errors .= "name-err=Hãy nhập tên bài viết&";
     } else if ($name == $post['name']) {
         $errors .= "name-err=Tên bài viết đã có vui lòng chọn tên khác&";
     }
