@@ -107,7 +107,6 @@ function register()
         $name = $_POST['name'];
         $password = $_POST['password'];
         $email = $_POST['email'];
-        $password = password_hash($password, PASSWORD_DEFAULT);
 
         $getUserByEmail = "SELECT * FROM accounts WHERE email = '$email'";
         $user = executeQuery($getUserByEmail, false);
@@ -120,8 +119,6 @@ function register()
         }
         if (empty($password)) {
             $errors .= "password-err=Hãy nhập mật khẩu&";
-        } else if ($password >= 6) {
-            $errors .= "password-err=Tối thiểu phải có 6 kí tự trở lên&";
         }
         if (empty($name)) {
             $errors .= "name-err=Hãy nhập họ và tên&";
@@ -133,6 +130,7 @@ function register()
             header('location:' . BASE_URL . 'tai-khoan/dang-ky' . '?' . $errors);
             die;
         } else {
+            $password = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO accounts(email,name,password) values('$email','$name','$password')";
             $point_id = returnId($sql);
             $d = '1000';
