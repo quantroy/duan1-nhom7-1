@@ -134,7 +134,10 @@ function register()
             die;
         } else {
             $sql = "INSERT INTO accounts(email,name,password) values('$email','$name','$password')";
-            pdo_execute($sql);
+            $point_id = returnId($sql);
+            $d = '1000';
+            $points= "INSERT INTO points(user_id,points) values('$point_id','$d')";
+            pdo_execute($points);
             header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
             die;
         }
