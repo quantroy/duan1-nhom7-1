@@ -1,5 +1,6 @@
 <?php
 unset($_SESSION['false_number']);
+unset($_SESSION['success']);
 function contact()
 {
 
@@ -20,7 +21,7 @@ function insert_feed_back()
     } else {
         $sql = "INSERT INTO feedback(name,email,phone,message,create_at) VALUES ('$name','$email','$phone','$message', '$create_at')";
         pdo_execute($sql);
-        header('Location:' . BASE_URL . 'lien-he');
+        $_SESSION['success'] = 'Cảm ơn bạn đã liên hệ với chúng tôi';
     }
     client_render('contact/index.php');
 }

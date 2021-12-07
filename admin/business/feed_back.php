@@ -1,7 +1,7 @@
 <?php
 function feed_back_index()
 {
-    $sql = "SELECT * from feed_back";
+    $sql = "SELECT * from feedback";
     $feed_back = executeQuery($sql, true);
     admin_render('feed_back/index.php', compact('feed_back', ), 'admin-assets/custom/admin-global.js');
 }

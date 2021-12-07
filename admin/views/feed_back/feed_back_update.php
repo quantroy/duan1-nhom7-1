@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
             </div>
             <div class="card-body">
                 <form action="<?=ADMIN_URL . 'phan-hoi-user?id=' . $id?>" method="post">
-                    <?php foreach (pdo_select("SELECT active FROM feed_back WHERE id = '$id'") as $key) {?>
+                    <?php foreach (pdo_select("SELECT active FROM feedback WHERE id = '$id'") as $key) {?>
                     <div class="col-6 offset-3">
                         <div class="form-group">
                             <label for="">Trạng thái</label> <br>

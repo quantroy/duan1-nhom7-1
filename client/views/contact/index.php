@@ -66,10 +66,27 @@
             <div class="col-lg-12">
                 <div class="contact__form__title">
                     <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
+                    <?php if (isset($_SESSION['success'])) {?>
+                    <div class='alert alert-success mb-3' role="alert">
+                        <?=$_SESSION['success']?>
+                    </div>
+                    <?php }?>
                 </div>
             </div>
         </div>
         <form action="<?=BASE_URL . 'phan-hoi'?>" method="post">
+            <?php if (isset($_SESSION['false_number'])) {?>
+            <div class="alert alert-success d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                    <use xlink:href="#check-circle-fill" />
+                </svg>
+
+                <div>
+                    <?=$_SESSION['false_number']?>
+                </div>
+
+            </div>
+            <?php }?>
             <div class="row" style="height: 250px;">
                 <div class="col-6" style="height: 100%;">
                     <div class="col-lg-12 col-md-12">
@@ -96,7 +113,7 @@
 
                 </div>
                 <div class="col-lg-12 text-center">
-                    <button id="send" type="submit" class="site-btn">GỬI</button>
+                    <button id="pn-1" type="submit" class="btn btn-success site-btn">GỬI</button>
                 </div>
             </div>
         </form>
