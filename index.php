@@ -180,18 +180,12 @@ switch ($url) {
         require_once './admin/business/dashboard.php';
         dashboard_index();
         break;
-<<<<<<< HEAD
 
-        //thống kê
+        //thống kê doanh thu
     case 'revenue_statistics.php':
-        dd($url);
-
-        dd('qussssssssssssssssssssssssssan');
         require_once './admin/business/revenue_statistics.php';
         break;
 
-=======
->>>>>>> parent of c5c9cf0 (Merge branch 'main' into sp3]-task20_minhQuan_thong-ke)
     case 'cp-admin/danh-muc':
         require_once './admin/business/category.php';
         cate_index();

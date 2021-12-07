@@ -83,36 +83,45 @@
     function showGraph() {
         $.post("revenue_statistics.php",
             function(data) {
-<<<<<<< HEAD
-                console.log(data);
-=======
->>>>>>> parent of c5c9cf0 (Merge branch 'main' into sp3]-task20_minhQuan_thong-ke)
+                // console.log(data);
                 var labels = [];
-                var result = [];
+                var revenues = [];
+                var quantitys = [];
+                var orders = [];
                 for (var i in data) {
                     labels.push(data[i].order_date);
-                    result.push(data[i].revenue);
+                    revenues.push(data[i].revenue);
+                    quantitys.push(data[i].quantity);
+                    orders.push(data[i].order);
                     // console.log(result)
                 }
                 var ctx = document.getElementById("areaChart").getContext('2d');
                 var myChart = new Chart(ctx, {
                     type: 'line',
                     data: {
-                        labels: ["Tokyo", "Mumbai", "Mexico City", "Shanghai", "Sao Paulo", "New York", "Karachi", "Buenos Aires", "Delhi", "Moscow"],
+                        labels: labels,
                         datasets: [{
-                                label: 'Series 1', // Name the series
-                                data: [500, 50, 2424, 14040, 14141, 4111, 4544, 47, 5555, 6811], // Specify the data values array
+                                label: 'Doanh thu (đ)', // Name the series
+                                data: revenues,
                                 fill: true,
                                 borderColor: '#2196f3', // Add custom color border (Line)
                                 backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
                                 borderWidth: 1 // Specify bar border width
                             },
                             {
-                                label: 'Series 2', // Name the series
-                                data: [1288, 88942, 44545, 7588, 99, 242, 1417, 5504, 75, 457], // Specify the data values array
+                                label: 'Số lượng trà sữa đã bán', // Name the series
+                                data: quantitys,
                                 fill: true,
                                 borderColor: '#4CAF50', // Add custom color border (Line)
                                 backgroundColor: '#4CAF50', // Add custom color background (Points and Fill)
+                                borderWidth: 1 // Specify bar border width
+                            },
+                            {
+                                label: 'Số lượt đặt hàng', // Name the series
+                                data: orders,
+                                fill: true,
+                                borderColor: '#ffa400', // Add custom color border (Line)
+                                backgroundColor: '#ffa400', // Add custom color background (Points and Fill)
                                 borderWidth: 1 // Specify bar border width
                             }
                         ]
