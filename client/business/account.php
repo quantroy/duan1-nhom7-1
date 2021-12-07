@@ -236,7 +236,6 @@ function post()
 {
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $remember = $_POST['remember'];
     $getUserByEmail = "select * from accounts where email = '$email'";
     $user = executeQuery($getUserByEmail, false);
     $k= password_verify($password, $user['password']);
