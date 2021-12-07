@@ -172,14 +172,14 @@ switch ($url) {
         // Controller Admin
         //thống kê
 
-    case 'revenueStatistics.php':
-        require_once 'admin/business/revenue_statistics.php';
-        dd('qussssssssssssssssssssssssssan');
-        break;
 
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
         dashboard_index();
+        break;
+    case 'revenue_statistics.php':
+        // dd('qussssssssssssssssssssssssssan');
+        require_once './admin/business/revenue_statistics.php';
         break;
     case 'cp-admin/danh-muc':
         require_once './admin/business/category.php';
