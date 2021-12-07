@@ -31,12 +31,6 @@
                     <?php endif ?>
                     <input class="form-control  " type="password" name="password" value placeholder="Mật Khẩu">
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="1" name="remember" checked>
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Lưu đăng nhập
-                    </label>
-                </div>
                 <div style="display:flex;margin-top:10px">
                     <div style="margin-right:30px">
                         Quên mật khẩu? <a href="<?= BASE_URL ?>tai-khoan/quen-mat-khau" style="color: #0d713d; font-style: italic;"><strong>vào đây</strong></a></a>
