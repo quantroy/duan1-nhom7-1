@@ -1,7 +1,7 @@
 <?php
 function myCart($ma_kh)
 {
-    $sqlQuery = "select * from cart where user_id = $ma_kh and status = 1";
+    $sqlQuery = "SELECT * from cart where user_id = $ma_kh and status = 1 order by id DESC" ;
     $carts = executeQuery($sqlQuery, true);
     client_render('cart/index.php', compact('carts'), 'admin-assets/custom/admin-global.js');
 }

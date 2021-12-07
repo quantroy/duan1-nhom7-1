@@ -131,6 +131,7 @@ if (isset($_GET['dellSuccess'])) {
                                     <li><strong>Tên người nhận:</strong> <?= $order[$i]['name']  ?> </li>
                                     <li><strong>Số điện thoại:</strong> <?= $order[$i]['phone']  ?> </li>
                                     <li><strong>Địa chỉ nhận:</strong> <?= $order[$i]['address']  ?> </li>
+                                    <li><strong>Tạo đơn lúc:</strong> <?= $order[$i]['created_at']  ?> </li>
                                     <li><strong>Ghi chú:</strong> <?= $order[$i]['note']  ?> </li>
                                 </ul>
 
