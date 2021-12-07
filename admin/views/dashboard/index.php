@@ -83,21 +83,25 @@
     function showGraph() {
         $.post("revenue_statistics.php",
             function(data) {
+<<<<<<< HEAD
                 console.log(data);
+=======
+>>>>>>> parent of c5c9cf0 (Merge branch 'main' into sp3]-task20_minhQuan_thong-ke)
                 var labels = [];
                 var result = [];
                 for (var i in data) {
                     labels.push(data[i].order_date);
                     result.push(data[i].revenue);
+                    // console.log(result)
                 }
                 var ctx = document.getElementById("areaChart").getContext('2d');
                 var myChart = new Chart(ctx, {
                     type: 'line',
                     data: {
-                        labels: labels,
+                        labels: ["Tokyo", "Mumbai", "Mexico City", "Shanghai", "Sao Paulo", "New York", "Karachi", "Buenos Aires", "Delhi", "Moscow"],
                         datasets: [{
-                                label: 'Doanh thu(đ)', // Name the series
-                                data: result,
+                                label: 'Series 1', // Name the series
+                                data: [500, 50, 2424, 14040, 14141, 4111, 4544, 47, 5555, 6811], // Specify the data values array
                                 fill: true,
                                 borderColor: '#2196f3', // Add custom color border (Line)
                                 backgroundColor: '#2196f3', // Add custom color background (Points and Fill)

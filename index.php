@@ -171,11 +171,16 @@ switch ($url) {
         // Controller Admin
         //thống kê
 
+    case 'revenueStatistics.php':
+        require_once 'admin/business/revenue_statistics.php';
+        dd('qussssssssssssssssssssssssssan');
+        break;
 
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
         dashboard_index();
         break;
+<<<<<<< HEAD
 
         //thống kê
     case 'revenue_statistics.php':
@@ -185,6 +190,8 @@ switch ($url) {
         require_once './admin/business/revenue_statistics.php';
         break;
 
+=======
+>>>>>>> parent of c5c9cf0 (Merge branch 'main' into sp3]-task20_minhQuan_thong-ke)
     case 'cp-admin/danh-muc':
         require_once './admin/business/category.php';
         cate_index();
