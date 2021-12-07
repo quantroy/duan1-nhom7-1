@@ -63,6 +63,7 @@ if (isset($_GET['dellSuccess'])) {
                                 <tr>
                                     <th class="shoping__product">Trà sữa</th>
                                     <th class="">Thêm topping</th>
+                                    <th class="">lựa chọn khác</th>
                                     <th>Giá</th>
                                     <th style="text-align: center;width: 100px;">Số lượng</th>
                                     <th>Thành tiền</th>
@@ -84,6 +85,10 @@ if (isset($_GET['dellSuccess'])) {
                                         </td>
                                         <td> <?php echo optionName(Cartoption($cart[0]['id']));
                                                 echo '(' . number_format(priceOption($cart[0]['id']), 0, '', ',') . "đ" . ')' ?> </td>
+                                        <td>
+                                            <?= $cart[0]['ice'] . 'đá' ?>
+                                            <?= $cart[0]['sugar'] . 'đường'  ?>
+                                        </td>
                                         <td id="price" class="shoping__cart__price">
                                             <?php echo number_format($oder_detail[$j]['price_product'] + priceOption($cart[0]['id']), 0, '', ',') . "đ"  ?>
                                         </td>

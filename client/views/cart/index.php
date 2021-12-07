@@ -77,6 +77,7 @@ if (isset($_GET['Buy'])) {
                             <tr>
                                 <th class="shoping__product">Trà sữa</th>
                                 <th class="">Thêm topping</th>
+                                <th class="">Lựa chọn khác</th>
                                 <th>Giá</th>
                                 <th style="text-align: center;">Số lượng</th>
                                 <th>Thành tiền</th>
@@ -96,6 +97,10 @@ if (isset($_GET['Buy'])) {
                                     </td>
                                     <td> <?php echo getoptionName(getCartoption($carts[$i]['id']));
                                             echo '(' . number_format(priOption($carts[$i]['id']), 0, '', ',') . 'đ' ?>)</td>
+                                    <td>
+                                        <?= $carts[$i]['ice'] . 'đá' ?>
+                                        <?= $carts[$i]['sugar'] . 'đường'  ?>
+                                    </td>
                                     <td id="price" class="shoping__cart__price">
                                         <?php echo number_format(getprice($carts[$i]['product_id']) + getoption(getCartoption($carts[$i]['id'])), 0, '', ',') . 'đ'; ?>
                                     </td>

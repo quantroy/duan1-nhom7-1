@@ -35,7 +35,7 @@ if (isset($_GET['updateSuccess'])) {
     if (isset($_POST['status'])) {
         $id = $_POST['id'];
         updatestatusOrder($id, $_POST['status']);
-        if($_POST['status'] == 3) {
+        if ($_POST['status'] == 3) {
             updatepoints($_POST['user_id'], $_POST['total']);
         }
         echo header("refresh:0; url =?updateSuccess");
@@ -54,6 +54,7 @@ if (isset($_GET['updateSuccess'])) {
                                 <tr>
                                     <th class="shoping__product">Trà sữa</th>
                                     <th class="">Thêm topping</th>
+                                    <th class="">Lựa chọn khác</th>
                                     <th>Giá</th>
                                     <th style="text-align: center;width: 100px;">Số lượng</th>
                                     <th>Thành tiền</th>
@@ -73,8 +74,13 @@ if (isset($_GET['updateSuccess'])) {
                                             </h5>
 
                                         </td>
+
                                         <td style="width: 300px;"> <?php echo optionName(Cartoption($cart[0]['id']));
                                                                     echo '(' . number_format(priceOption($cart[0]['id']), 0, '', ',') . "đ" . ')' ?> </td>
+                                        <td>
+                                            <?= $cart[0]['ice'] . 'đá' ?>
+                                            <?= $cart[0]['sugar'] . 'đường'  ?>
+                                        </td>
                                         <td id="price" class="shoping__cart__price">
                                             <?php echo number_format($oder_detail[$j]['price_product'] + priceOption($cart[0]['id']), 0, '', ',') . "đ"  ?>
                                         </td>
@@ -126,7 +132,7 @@ if (isset($_GET['updateSuccess'])) {
                                     <input style="display: none;" type="text" name="id" value="<?= $id =  $order[$i]['id']; ?>">
                                     <input style="display: none;" type="text" name="user_id" value="<?= $id =  $order[$i]['user_id']; ?>">
                                     <input style="display: none;" type="text" name="total" value="<?= $id =  $order[$i]['total']; ?>">
-                                    <button  value="" style="background-color: green; font-size: 16px; color: wheat;" class="ml-4" type="submit">Cập nhật</button>
+                                    <button value="" style="background-color: green; font-size: 16px; color: wheat;" class="ml-4" type="submit">Cập nhật</button>
                                 </form>
 
 
