@@ -136,7 +136,7 @@ function register()
             $sql = "INSERT INTO accounts(email,name,password) values('$email','$name','$password')";
             $point_id = returnId($sql);
             $d = '1000';
-            $points= "INSERT INTO points(user_id,points) values('$point_id','$d')";
+            $points = "INSERT INTO points(user_id,points) values('$point_id','$d')";
             pdo_execute($points);
             header('location:' . BASE_URL . 'tai-khoan/dang-nhap');
             die;
@@ -241,19 +241,18 @@ function post()
     $password = $_POST['password'];
     $getUserByEmail = "select * from accounts where email = '$email'";
     $user = executeQuery($getUserByEmail, false);
-    $k= password_verify($password, $user['password']);
+    $k = password_verify($password, $user['password']);
 
     $errors = "";
     if (empty($email)) {
         $errors .= "email-err=Hãy nhập email&";
-    }else if($email !=$user['email']){
+    } else if ($email != $user['email']) {
         $errors .= "email-err=Tài khoản không tồn tại&";
     }
     if (empty($password)) {
         $errors .= "password-err=Hãy nhập mật khẩu&";
-    }else if($password!=$k ){
+    } else if ($password != $k) {
         $errors .= "password-err=Sai mật khẩu&";
-
     }
     $errors = rtrim($errors, '&');
     if (strlen($errors) > 0) {
@@ -270,7 +269,7 @@ function post()
         } else if ($user['role'] == 2) {
             unset($user['password']);
             $_SESSION['auth'] = $user;
-            header('location:' . BASE_URL);
+            header('location:' . ADMIN_URL);
             die;
         } else if ($user['role'] == 5) {
             unset($user['password']);
