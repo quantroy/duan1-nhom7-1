@@ -9,6 +9,9 @@ require_once './dao/system_dao.php';
 require_once './client/business/product.php';
 require_once './client/business/categories.php';
 require_once './client/business/blog.php';
+require_once './carbon/autoload.php';
+
+
 // dd($url);
 switch ($url) {
     case '/':
@@ -163,6 +166,13 @@ switch ($url) {
         break;
 
         // Controller Admin
+        //thống kê
+
+    case 'revenueStatistics.php':
+        require_once 'admin/business/revenue_statistics.php';
+        dd('qussssssssssssssssssssssssssan');
+        break;
+
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
         dashboard_index();
