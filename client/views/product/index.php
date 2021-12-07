@@ -105,9 +105,8 @@ if (isset($_SESSION['auth']['id'])) {
                                                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] != null) : ?>
                                                     <?php $check = check_favorite_product($product['id']) ?>
                                                     <?php $check2 = check_favorite_pro($product['id']) ?>
-
                                                     <li style="display:<?= $check ?>;"><a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id'] ?>"><i class="fa fa-heart"></i></a></li>
-                                                    <li style="display:<?= $check2 ?>;>"><i class="fa fa-heart" style="color:red;font-size: 16px;height: 40px;width: 40px;line-height: 40px;text-align: center;border: 1px solid #ebebeb;background: #ffffff;display: block;border-radius: 50%;"></i></li>
+                                                    <li style="display:<?= $check2 ?>;>"><a href="<?= BASE_URL . 'san-pham-yeu-thich/xoa?product_id=' . $product['id'] ?>" style="color:red"><i class="fa fa-heart"></i></a></li>
                                                 <?php endif ?>
                                                 <li><a class="<?php echo $log ?>" id="btn_cart" data-toggle="modal" <?php echo $check_login ?> data="<?php echo $k ?>"><i class="fa fa-shopping-cart "></i></a></li>
                                             </ul>
