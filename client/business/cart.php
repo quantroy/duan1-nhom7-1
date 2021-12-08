@@ -208,7 +208,8 @@ function priOption($id)
     }
 }
 
-function updatepoints($id) {
+function updatepoints($id)
+{
     $sql = "UPDATE points set points = 0 where user_id = $id";
     executeQuery($sql, false);
 }

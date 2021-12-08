@@ -17,7 +17,7 @@
         <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
-                <h3>$<?= number_format($totalProfit, 0, ',', '.') ?></h3>
+                <h3><?= number_format($totalProfit, 0, ',', ',') ?>đ</h3>
                 <p>Tổng doanh thu</p>
             </div>
             <div class="icon">

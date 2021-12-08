@@ -35,8 +35,9 @@ if (isset($_GET['updateSuccess'])) {
     if (isset($_POST['status'])) {
         $id = $_POST['id'];
         updatestatusOrder($id, $_POST['status']);
-        if($_POST['status'] == 3) {
+        if ($_POST['status'] == 3) {
             updatepoints($_POST['user_id'], $_POST['total']);
+            updateDoneAt($_POST['id']);
         }
         echo header("refresh:0; url =?updateSuccess");
         exit();
@@ -126,7 +127,7 @@ if (isset($_GET['updateSuccess'])) {
                                     <input style="display: none;" type="text" name="id" value="<?= $id =  $order[$i]['id']; ?>">
                                     <input style="display: none;" type="text" name="user_id" value="<?= $id =  $order[$i]['user_id']; ?>">
                                     <input style="display: none;" type="text" name="total" value="<?= $id =  $order[$i]['total']; ?>">
-                                    <button  value="" style="background-color: green; font-size: 16px; color: wheat;" class="ml-4" type="submit">Cập nhật</button>
+                                    <button value="" style="background-color: green; font-size: 16px; color: wheat;" class="ml-4" type="submit">Cập nhật</button>
                                 </form>
 
 

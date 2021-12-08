@@ -169,6 +169,7 @@ switch ($url) {
         break;
 
     case 'cp-admin':
+        checkAuth([STAFF_ROLE, ADMIN_ROLE]);
         require_once './admin/business/dashboard.php';
         dashboard_index();
         break;
@@ -184,6 +185,7 @@ switch ($url) {
         cate_index();
         break;
     case 'cp-admin/danh-muc/xoa':
+        checkAuth2();
         require_once './admin/business/category.php';
         cate_remove();
         break;
@@ -204,6 +206,7 @@ switch ($url) {
         pro_index();
         break;
     case 'cp-admin/san-pham/xoa':
+        checkAuth2();
         require_once './admin/business/product.php';
         pro_remove();
         break;
