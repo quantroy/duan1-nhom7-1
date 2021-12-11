@@ -37,6 +37,7 @@ if (isset($_GET['updateSuccess'])) {
         updatestatusOrder($id, $_POST['status']);
         if ($_POST['status'] == 3) {
             updatepoints($_POST['user_id'], $_POST['total']);
+            updateDoneAt($_POST['id']);
         }
         echo header("refresh:0; url =?updateSuccess");
         exit();

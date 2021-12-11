@@ -1,5 +1,5 @@
 <?php
-
+require_once './admin/business/revenue_statistics.php';
 function myOrder($ma_kh)
 {
     $sqlQuery = "select * from oder where user_id = $ma_kh ";

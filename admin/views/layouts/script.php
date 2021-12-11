@@ -1,5 +1,4 @@
 <!-- jQuery -->
-<script src="<?= ADMIN_ASSET ?>plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= ADMIN_ASSET ?>plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -9,7 +8,6 @@
 <!-- Bootstrap 4 -->
 <script src="<?= ADMIN_ASSET ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
-<script src="<?= ADMIN_ASSET ?>plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
 <script src="<?= ADMIN_ASSET ?>plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
@@ -36,6 +34,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace('content');
-    CKEDITOR.replace('summary');
+  CKEDITOR.replace('content');
+  CKEDITOR.replace('summary');
 </script>

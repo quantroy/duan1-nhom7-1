@@ -1,7 +1,7 @@
 <?php
 $getBDQuery = "SELECT * from categories";
 $cates = executeQuery($getBDQuery, true);
-
+unset($_SESSION['role']);
 ?>
 <div class="row">
     <div class="col-12">
@@ -14,6 +14,7 @@ $cates = executeQuery($getBDQuery, true);
                     <input class="btn btn-sm btn-outline-dark" type="submit" value="Tìm kiếm">
                 </form>
             </div>
+
             <div class="card-body">
                 <table class="table tabl-stripped">
                     <thead>
