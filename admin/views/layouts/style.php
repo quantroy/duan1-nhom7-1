@@ -20,3 +20,5 @@
 <link rel="stylesheet" href="<?= ADMIN_ASSET ?>plugins/daterangepicker/daterangepicker.css">
 <!-- summernote -->
 <link rel="stylesheet" href="<?= ADMIN_ASSET ?>plugins/summernote/summernote-bs4.min.css">
+<script src="<?= ADMIN_ASSET ?>plugins/jquery/jquery.min.js"></script>
+<script src="<?= ADMIN_ASSET ?>plugins/chart.js/Chart.min.js"></script>

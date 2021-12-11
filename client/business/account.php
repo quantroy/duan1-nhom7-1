@@ -272,7 +272,7 @@ function post()
         } else if ($user['role'] == 5) {
             unset($user['password']);
             $_SESSION['auth'] = $user;
-            header('location:' . ADMIN_URL);
+            header('location:' . BASE_URL . 'cp-admin');
             die;
         }
     }
