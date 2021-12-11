@@ -75,12 +75,12 @@ if (isset($_GET['Buy'])) {
                     <table>
                         <thead>
                             <tr>
-                                <th class="shoping__product">Trà sữa</th>
-                                <th class="">Thêm topping</th>
-                                <th class="">Lựa chọn khác</th>
-                                <th>Giá</th>
-                                <th style="text-align: center;">Số lượng</th>
-                                <th>Thành tiền</th>
+                                <th class="shoping__product col-4">Trà sữa</th>
+                                <th class="col-2">Thêm topping</th>
+                                <th class="col-2">Lựa chọn khác</th>
+                                <th class="col-1">Giá</th>
+                                <th class="col-1" style="text-align: center;">Số lượng</th>
+                                <th col="col-2">Thành tiền</th>
                                 <th></th>
                             </tr>
                         </thead>
