@@ -66,7 +66,7 @@ if (isset($_SESSION['auth']['id'])) {
                                                     <?= $like['created_at'] ?>
                                                 </td>
                                                 <td class="shoping__cart__item__close" style="text-align: center;">
-                                                    <div><a class="<?php echo $log ?>" id="btn_cart" data-toggle="modal" <?php echo $check_login ?> data="<?php echo $k ?>"><i class="fa fa-shopping-cart "></i></a></div>
+                                                    <div><a class="<?php echo $log ?>" id="btn_cart" data-toggle="modal" <?php echo $check_login ?> data="<?php echo $k ?>"><i class="fa fa-shopping-cart"></i></a></div>
                                                 </td>
                                                 <td class="shoping__cart__item__close">
                                                     <a href="<?= BASE_URL . 'san-pham-yeu-thich/xoa?product_id=' . $pf['id'] ?>"><span class=" icon_close"></span></a>
