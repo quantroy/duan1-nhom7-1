@@ -128,11 +128,11 @@ function delOrder($oderId)
     }
     $delOder = "delete from oder where id = $oderId";
     executeQuery($delOder);
+    
 }
 
 function updatestatusOrder($id, $status)
 {
     $sqlQuery = "Update oder set status = $status where id = $id";
     executeQuery($sqlQuery, false);
-
 }

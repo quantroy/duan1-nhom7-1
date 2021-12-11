@@ -1,7 +1,8 @@
 <head>
 
 </head>
-<?php if (isset($_GET['update'])) {
+<?php 
+if (isset($_GET['update'])) {
     $log_success = 'flex';
     $log_error = 'none';
     $log_note = 'none';
@@ -11,12 +12,17 @@
     $log_error = 'none';
     $log_success = 'flex';
     $mesSuccess = "Đã xóa một sản phẩm khỏi giỏ hàng ";
-} elseif (isset($_GET['Buycusscess'])) {
+} elseif (isset($_GET['dellsuccess'])) {
+    $log_note = 'none';
+    $log_error = 'none';
+    $log_success = 'flex';
+    $mesSuccess = "Hủy đơn hàng thành công ";
+}elseif (isset($_GET['Buycusscess'])) {
     $log_note = 'none';
     $log_error = 'none';
     $log_success = 'flex';
     $mesSuccess = "Mua trà sữa thành công. Bạn có thể vào hóa đơn để xem thông tin hóa đơn của bạn";
-} else {
+}  else {
     $log_note = 'none';
     $log_error = 'none';
     $log_success = 'none';
@@ -43,7 +49,7 @@ if (isset($_GET['Buy'])) {
     if ($_GET['point'] != 'Áp dụng') {
         updatepoints($_SESSION['auth']['id'], $_GET['point']);
     }
-    echo header("refresh:0; url =?Buycusscess");
+    echo header("refresh:0; url =don-hang?buysuccess");
     exit();
 }
 

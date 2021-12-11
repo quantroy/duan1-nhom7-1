@@ -130,6 +130,13 @@ function delete_product_favorite()
     executeQuery($sql);
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
+function del_product_favorite()
+{
+    $product_id = $_GET['productId'];
+    $userId = $_SESSION['auth']['id'];
+    $sql = "DELETE from favorite_products where user_id = $userId and  product_id = $product_id";
+    executeQuery($sql);
+}
 function check_favorite_product($id)
 {
     $userId = $_SESSION['auth']['id'];
@@ -137,5 +144,22 @@ function check_favorite_product($id)
     $result = executeQuery($sql, true);
     if (count($result) > 0) {
         return 'none';
+    }
+}
+
+function creat_car($userId, $quantity, $size, $productID, $sugar, $ice)
+{
+    $sql = " INSERT into cart ( user_id, quantity, product_size, product_id, sugar, ice ) values ('$userId', '$quantity', '$size', '$productID', '$sugar', '$ice') ";
+    $cart_id = returnId($sql);
+    return $cart_id;
+}
+function product_optino($cart_id, $optionIds)
+{
+    $numid = (int)$cart_id;
+    for ($i = 0; $i < count($optionIds); $i++) {
+        $optionId = (int)$optionIds[$i];
+        $price = getPriceOptoion($optionId);
+        $sql = "INSERT into products_options (cart_id, option_id, price_topping) values ($numid, $optionId, '$price')";
+        executeQuery($sql, false);
     }
 }
