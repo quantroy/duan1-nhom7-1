@@ -1,7 +1,7 @@
 <head>
 
 </head>
-<?php 
+<?php
 if (isset($_GET['update'])) {
     $log_success = 'flex';
     $log_error = 'none';
@@ -17,12 +17,12 @@ if (isset($_GET['update'])) {
     $log_error = 'none';
     $log_success = 'flex';
     $mesSuccess = "Hủy đơn hàng thành công ";
-}elseif (isset($_GET['Buycusscess'])) {
+} elseif (isset($_GET['Buycusscess'])) {
     $log_note = 'none';
     $log_error = 'none';
     $log_success = 'flex';
     $mesSuccess = "Mua trà sữa thành công. Bạn có thể vào hóa đơn để xem thông tin hóa đơn của bạn";
-}  else {
+} else {
     $log_note = 'none';
     $log_error = 'none';
     $log_success = 'none';
@@ -215,7 +215,7 @@ if (isset($_GET['Buy'])) {
                         <li>Tiền tạm tính <span id="priceTem"></span></li>
                         <li>Phí vận chuyển <span id="priceShip"><?= number_format(priceShip(), 0, '', ',') . 'đ' ?></span></li>
                         <li>Bạn có <strong id="points"><?php echo number_format(point($_SESSION['auth']['id'], 0, '', ',')) ?></strong>
-                            điểm tích<span id="render_points" dataWait=<?php echo point($_SESSION['auth']['id']) ?> data="0"><button onclick="clickpoints()" id="btn_points" type="button" class="btn btn-success">Áp dụng</button></span></li>
+                            điểm thưởng<span id="render_points" dataWait=<?php echo point($_SESSION['auth']['id']) ?> data="0"><button onclick="clickpoints()" id="btn_points" type="button" class="btn btn-success">Áp dụng</button></span></li>
                         <li>Tổng tiền <span id="totalCart"></span></li>
                     </ul>
                     <a onclick="Buy()" id="btn_buy" class="primary-btn">Mua hàng</a>

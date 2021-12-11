@@ -44,6 +44,14 @@
           </a>
         </li>
         <li class="nav-item">
+          <a href="<?= ADMIN_URL . 'quan-ly-don-hang' ?>" class="nav-link">
+            <i class="fas fa-luggage-cart" aria-hidden="true"></i>
+            <p>
+              Đơn hàng
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="fa fa-list-ol" aria-hidden="true"></i>
             <p>
@@ -114,17 +122,6 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a href="<?= ADMIN_URL . 'quan-ly-don-hang' ?>" class="nav-link">
-            <i class="fas fa-luggage-cart" aria-hidden="true"></i>
-            <p>
-              Đơn hàng
-            </p>
-          </a>
-        </li>
-
-
-
 
         <li class="nav-item">
           <a href="#" class="nav-link">
