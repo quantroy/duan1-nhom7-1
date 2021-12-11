@@ -9,6 +9,11 @@ if (isset($_GET['dellSuccess'])) {
     $log_error = 'flex';
     $log_note = 'none';
     $mesError = "Không thể hủy đơn hàng này. Chúng tôi đã xác nhận và đang xử lý";
+} elseif (isset($_GET['buysuccess'])) {
+    $log_success = 'flex';
+    $log_error = 'none';
+    $log_note = 'none';
+    $mesSuccess = "Tạo đơn hàng thành công";
 } else {
     $log_note = 'none';
     $log_error = 'none';
@@ -45,10 +50,9 @@ if (isset($_GET['dellSuccess'])) {
         $resultCheck = executeQuery($checkStatus);
         if ($resultCheck['status'] == 0) {
             delOrder($_GET['dellid']);
-            echo header("refresh:0; url =?dellSuccess");
-            exit();
         }
-        // echo '<pre>';
+        header("refresh:0; url =gio-hang?dellsuccess");
+        exit();
     }
 ?>
 

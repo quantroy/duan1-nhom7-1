@@ -105,7 +105,6 @@ if (isset($_GET['updateSuccess'])) {
                     <div class="shoping__continue">
                         <div class="shoping__discount">
 
-
                             <div class="container mt-3">
 
                                 <!-- Nav tabs -->

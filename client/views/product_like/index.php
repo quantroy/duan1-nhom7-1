@@ -1,5 +1,25 @@
 <?php
-
+if (isset($_GET['buy'])) {
+    $log_success = 'flex';
+    $log_error = 'none';
+    $log_note = 'none';
+    $mesSuccess = "Thêm vào giỏ hàng thành công";
+} else {
+    $log_note = 'none';
+    $log_error = 'none';
+    $log_success = 'none';
+}
+if (isset($_GET['productId'])) {
+    $toppings = trim($_GET['toppingIP']);
+    $toppings = explode(' ', $toppings);
+    $cart_id = creat_car($_SESSION['auth']['id'], $_GET['quantity'], $_GET['size'], $_GET['productId'], $_GET['sugar'], $_GET['ice']);
+    if (($toppings[0]) > 0) {
+        product_optino($cart_id, $toppings);
+    }
+    del_product_favorite();
+    echo header("refresh:0; url =?buy");
+    exit();
+}
 if (isset($_SESSION['auth']['id'])) {
     $check_login = "data-target='#modal-lg'";
     $log = "";
@@ -74,8 +94,6 @@ if (isset($_SESSION['auth']['id'])) {
                             <?php
                             } ?>
 
-
-
                         </tbody>
                     </table>
                 </div>
@@ -85,7 +103,8 @@ if (isset($_SESSION['auth']['id'])) {
 </section>
 <!-- Shoping Cart Section End -->
 <!-- Form_option start -->
-<?php include_once "./client/views/layouts/form_option.php" ?>
+<?php include_once "./client/views/layouts/form_option_proLike.php" ?>
 <!-- Form_option end -->
 
 <?php include_once "./client/views/layouts/oder-jQuery.php" ?>
+<?php include_once "./client/views/layouts/log.php" ?>
