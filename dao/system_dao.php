@@ -2,7 +2,7 @@
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 function pdo_get_connection()
 {
-    $dburl = "mysql:host=localhost;dbname=2021-duan1-nhom7;charset=utf8";
+    $dburl = "mysql:host=localhost;dbname=nhom7;charset=utf8";
     $username = 'root';
     $password = '';
 
@@ -104,7 +104,7 @@ function returnId($sqL)
 {
 
     // Tạo kết nối
-    $conn = new PDO("mysql:host=localhost;dbname=2021-duan1-nhom7", 'root', '');
+    $conn = new PDO("mysql:host=localhost;dbname=nhom7", 'root', '');
 
     // Cấu hình exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
