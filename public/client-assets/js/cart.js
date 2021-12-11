@@ -74,7 +74,8 @@ for (var i = 0; i < augment.length; i++) {
 function toTal(index) {
   valide();
   total[index].innerHTML =
-    price[index].innerHTML.replace(",", "").replace('đ', "") * quanTity[index].value;
+    price[index].innerHTML.replace(",", "").replace("đ", "") *
+    quanTity[index].value;
   total[index].innerHTML =
     total[index].innerHTML.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "đ";
   price_tem();
@@ -123,7 +124,6 @@ function saveBlock() {
       flagAddress = true;
       btnBuy.removeAttribute("style");
       btnBuy.style.cursor = "pointer";
-
     }
   }
 
@@ -152,19 +152,31 @@ function totalCart() {
 }
 totalCart();
 function clickpoints() {
-  render_points.innerHTML = "-" + points.innerHTML + "đ";
-  var changerData = render_points.getAttribute("dataWait");
-  render_points.setAttribute("data", changerData);
-  PointsDown();
-}
-
-function PointsDown() {
   var result = totalcart.innerText.replace(",", "");
   result = result.replace(",", "");
   result = result.replace("đ", "");
-  totalcart.innerText = result - Number(render_points.getAttribute("data"));
-  totalcart.innerText =
-    totalcart.innerText.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "đ";
+  if (Number(result) < Number(render_points.getAttribute("dataWait"))) {
+    render_points.innerHTML = "-" + result + "đ";
+    PointsDown("true");
+  } else {
+    render_points.innerHTML = "-" + points.innerHTML + "đ";
+    var changerData = render_points.getAttribute("dataWait");
+    render_points.setAttribute("data", changerData);
+    PointsDown("false");
+  }
+}
+
+function PointsDown(flag) {
+  if (flag == "true") {
+    totalcart.innerText =0;
+  } else {
+    var result = totalcart.innerText.replace(",", "");
+    result = result.replace(",", "");
+    result = result.replace("đ", "");
+    totalcart.innerText = result - Number(render_points.getAttribute("data"));
+    totalcart.innerText =
+      totalcart.innerText.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "đ";
+  }
 }
 
 delList = [];

@@ -101,7 +101,14 @@ function list_topping()
 
 function loadall_product_like()
 {
-    $sql = "SELECT * FROM favorite_products";
+    $id = $_SESSION['auth']['id'];
+    $sql = "SELECT * FROM favorite_products where user_id = $id";
+    $product_like = executeQuery($sql, true);
+    return $product_like;
+}
+function getProByid($id)
+{
+    $sql = "SELECT * FROM products where id = $id";
     $product_like = executeQuery($sql, true);
     return $product_like;
 }

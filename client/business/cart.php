@@ -1,7 +1,7 @@
 <?php
 function myCart($ma_kh)
 {
-    $sqlQuery = "SELECT * from cart where user_id = $ma_kh and status = 1 order by id DESC" ;
+    $sqlQuery = "SELECT * from cart where user_id = $ma_kh and status = 1 order by id DESC";
     $carts = executeQuery($sqlQuery, true);
     client_render('cart/index.php', compact('carts'), 'admin-assets/custom/admin-global.js');
 }
@@ -208,7 +208,8 @@ function priOption($id)
     }
 }
 
-function updatepoints($id) {
-    $sql = "UPDATE points set points = 0 where user_id = $id";
+function updatepoints($id, $points)
+{
+    $sql = "UPDATE points set points = points $points where user_id = $id";
     executeQuery($sql, false);
 }

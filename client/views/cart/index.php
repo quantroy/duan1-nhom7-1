@@ -41,7 +41,7 @@ if (isset($_GET['Buy'])) {
     }
     updateStatusAll();
     if ($_GET['point'] != 'Áp dụng') {
-        updatepoints($_SESSION['auth']['id']);
+        updatepoints($_SESSION['auth']['id'], $_GET['point']);
     }
     echo header("refresh:0; url =?Buycusscess");
     exit();
