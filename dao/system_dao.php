@@ -106,10 +106,7 @@ function returnId($sqL)
     // Tạo kết nối
     $conn = new PDO("mysql:host=localhost;dbname=2021-duan1-nhom7", 'root', '');
 
-    // Cấu hình exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
     // Câu SQL Insert
     $sql = $sqL;
 

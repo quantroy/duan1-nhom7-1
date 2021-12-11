@@ -9,6 +9,11 @@ if (isset($_GET['dellSuccess'])) {
     $log_error = 'flex';
     $log_note = 'none';
     $mesError = "Không thể hủy đơn hàng này. Chúng tôi đã xác nhận và đang xử lý";
+} elseif (isset($_GET['buysuccess'])) {
+    $log_success = 'flex';
+    $log_error = 'none';
+    $log_note = 'none';
+    $mesSuccess = "Tạo đơn hàng thành công";
 } else {
     $log_note = 'none';
     $log_error = 'none';
@@ -45,10 +50,9 @@ if (isset($_GET['dellSuccess'])) {
         $resultCheck = executeQuery($checkStatus);
         if ($resultCheck['status'] == 0) {
             delOrder($_GET['dellid']);
-            echo header("refresh:0; url =?dellSuccess");
-            exit();
         }
-        // echo '<pre>';
+        header("refresh:0; url =gio-hang?dellsuccess");
+        exit();
     }
 ?>
 
@@ -63,6 +67,7 @@ if (isset($_GET['dellSuccess'])) {
                                 <tr>
                                     <th class="shoping__product">Trà sữa</th>
                                     <th class="">Thêm topping</th>
+                                    <th class="">lựa chọn khác</th>
                                     <th>Giá</th>
                                     <th style="text-align: center;width: 100px;">Số lượng</th>
                                     <th>Thành tiền</th>
@@ -84,6 +89,10 @@ if (isset($_GET['dellSuccess'])) {
                                         </td>
                                         <td> <?php echo optionName(Cartoption($cart[0]['id']));
                                                 echo '(' . number_format(priceOption($cart[0]['id']), 0, '', ',') . "đ" . ')' ?> </td>
+                                        <td>
+                                            <?= $cart[0]['ice'] . 'đá' ?>
+                                            <?= $cart[0]['sugar'] . 'đường'  ?>
+                                        </td>
                                         <td id="price" class="shoping__cart__price">
                                             <?php echo number_format($oder_detail[$j]['price_product'] + priceOption($cart[0]['id']), 0, '', ',') . "đ"  ?>
                                         </td>
@@ -131,6 +140,7 @@ if (isset($_GET['dellSuccess'])) {
                                     <li><strong>Tên người nhận:</strong> <?= $order[$i]['name']  ?> </li>
                                     <li><strong>Số điện thoại:</strong> <?= $order[$i]['phone']  ?> </li>
                                     <li><strong>Địa chỉ nhận:</strong> <?= $order[$i]['address']  ?> </li>
+                                    <li><strong>Tạo đơn lúc:</strong> <?= $order[$i]['created_at']  ?> </li>
                                     <li><strong>Ghi chú:</strong> <?= $order[$i]['note']  ?> </li>
                                 </ul>
 

@@ -58,6 +58,7 @@
       setNameIP.value = "getName[index].innerText";
       setImageIP.value = getImage[index].getAttribute("data");
       priceProOpt.value = getPrice[index].getAttribute("data");
+      quantity.value = 1;
     };
   }
   // tao nut tang giam so luong
@@ -104,7 +105,7 @@
     for (var i = 0; i < topping.length; i++) {
       if (topping[i].checked == true) {
         initial = topping[i].getAttribute('data_id');
-        result +=' '+ initial;
+        result += ' ' + initial;
       }
     }
     toppingIP.value = result;

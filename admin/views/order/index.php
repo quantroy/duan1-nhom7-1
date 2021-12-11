@@ -35,7 +35,7 @@ if (isset($_GET['updateSuccess'])) {
     if (isset($_POST['status'])) {
         $id = $_POST['id'];
         updatestatusOrder($id, $_POST['status']);
-        if($_POST['status'] == 3) {
+        if ($_POST['status'] == 3) {
             updatepoints($_POST['user_id'], $_POST['total']);
         }
         echo header("refresh:0; url =?updateSuccess");
@@ -54,6 +54,7 @@ if (isset($_GET['updateSuccess'])) {
                                 <tr>
                                     <th class="shoping__product">Trà sữa</th>
                                     <th class="">Thêm topping</th>
+                                    <th class="">Lựa chọn khác</th>
                                     <th>Giá</th>
                                     <th style="text-align: center;width: 100px;">Số lượng</th>
                                     <th>Thành tiền</th>
@@ -73,8 +74,13 @@ if (isset($_GET['updateSuccess'])) {
                                             </h5>
 
                                         </td>
+
                                         <td style="width: 300px;"> <?php echo optionName(Cartoption($cart[0]['id']));
                                                                     echo '(' . number_format(priceOption($cart[0]['id']), 0, '', ',') . "đ" . ')' ?> </td>
+                                        <td>
+                                            <?= $cart[0]['ice'] . 'đá' ?>
+                                            <?= $cart[0]['sugar'] . 'đường'  ?>
+                                        </td>
                                         <td id="price" class="shoping__cart__price">
                                             <?php echo number_format($oder_detail[$j]['price_product'] + priceOption($cart[0]['id']), 0, '', ',') . "đ"  ?>
                                         </td>
@@ -98,7 +104,6 @@ if (isset($_GET['updateSuccess'])) {
                 <div class="col-lg-6">
                     <div class="shoping__continue">
                         <div class="shoping__discount">
-
 
                             <div class="container mt-3">
 
@@ -126,7 +131,7 @@ if (isset($_GET['updateSuccess'])) {
                                     <input style="display: none;" type="text" name="id" value="<?= $id =  $order[$i]['id']; ?>">
                                     <input style="display: none;" type="text" name="user_id" value="<?= $id =  $order[$i]['user_id']; ?>">
                                     <input style="display: none;" type="text" name="total" value="<?= $id =  $order[$i]['total']; ?>">
-                                    <button  value="" style="background-color: green; font-size: 16px; color: wheat;" class="ml-4" type="submit">Cập nhật</button>
+                                    <button value="" style="background-color: green; font-size: 16px; color: wheat;" class="ml-4" type="submit">Cập nhật</button>
                                 </form>
 
 
@@ -151,6 +156,7 @@ if (isset($_GET['updateSuccess'])) {
                             <li><strong>Tên người nhận:</strong> <?= $order[$i]['name']  ?> </li>
                             <li><strong>Số điện thoại:</strong> <?= $order[$i]['phone']  ?> </li>
                             <li><strong>Địa chỉ nhận:</strong> <?= $order[$i]['address']  ?> </li>
+                            <li><strong>Thời điểm đặt hàng:</strong> <?= $order[$i]['created_at']  ?> </li>
                             <li><strong>Ghi chú:</strong> <?= $order[$i]['note']  ?> </li>
                         </ul>
                     </div>

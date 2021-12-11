@@ -1,7 +1,8 @@
 <head>
 
 </head>
-<?php if (isset($_GET['update'])) {
+<?php 
+if (isset($_GET['update'])) {
     $log_success = 'flex';
     $log_error = 'none';
     $log_note = 'none';
@@ -11,12 +12,17 @@
     $log_error = 'none';
     $log_success = 'flex';
     $mesSuccess = "Đã xóa một sản phẩm khỏi giỏ hàng ";
-} elseif (isset($_GET['Buycusscess'])) {
+} elseif (isset($_GET['dellsuccess'])) {
+    $log_note = 'none';
+    $log_error = 'none';
+    $log_success = 'flex';
+    $mesSuccess = "Hủy đơn hàng thành công ";
+}elseif (isset($_GET['Buycusscess'])) {
     $log_note = 'none';
     $log_error = 'none';
     $log_success = 'flex';
     $mesSuccess = "Mua trà sữa thành công. Bạn có thể vào hóa đơn để xem thông tin hóa đơn của bạn";
-} else {
+}  else {
     $log_note = 'none';
     $log_error = 'none';
     $log_success = 'none';
@@ -41,9 +47,9 @@ if (isset($_GET['Buy'])) {
     }
     updateStatusAll();
     if ($_GET['point'] != 'Áp dụng') {
-        updatepoints($_SESSION['auth']['id']);
+        updatepoints($_SESSION['auth']['id'], $_GET['point']);
     }
-    echo header("refresh:0; url =?Buycusscess");
+    echo header("refresh:0; url =don-hang?buysuccess");
     exit();
 }
 
@@ -75,11 +81,12 @@ if (isset($_GET['Buy'])) {
                     <table>
                         <thead>
                             <tr>
-                                <th class="shoping__product">Trà sữa</th>
-                                <th class="">Thêm topping</th>
-                                <th>Giá</th>
-                                <th style="text-align: center;">Số lượng</th>
-                                <th>Thành tiền</th>
+                                <th class="shoping__product col-4">Trà sữa</th>
+                                <th class="col-2">Thêm topping</th>
+                                <th class="col-2">Lựa chọn khác</th>
+                                <th class="col-1">Giá</th>
+                                <th class="col-1" style="text-align: center;">Số lượng</th>
+                                <th col="col-2">Thành tiền</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -96,6 +103,10 @@ if (isset($_GET['Buy'])) {
                                     </td>
                                     <td> <?php echo getoptionName(getCartoption($carts[$i]['id']));
                                             echo '(' . number_format(priOption($carts[$i]['id']), 0, '', ',') . 'đ' ?>)</td>
+                                    <td>
+                                        <?= $carts[$i]['ice'] . 'đá' ?>
+                                        <?= $carts[$i]['sugar'] . 'đường'  ?>
+                                    </td>
                                     <td id="price" class="shoping__cart__price">
                                         <?php echo number_format(getprice($carts[$i]['product_id']) + getoption(getCartoption($carts[$i]['id'])), 0, '', ',') . 'đ'; ?>
                                     </td>
