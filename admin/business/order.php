@@ -2,14 +2,14 @@
 
 function myOrder($ma_kh)
 {
-    $sqlQuery = "select * from oder where user_id = $ma_kh";
+    $sqlQuery = "select * from oder where user_id = $ma_kh ";
     $order = executeQuery($sqlQuery, true);
     client_render('order/index.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }
 
 function OrderAll()
 {
-    $sqlQuery = "select * from oder";
+    $sqlQuery = "select * from oder order by id DESC";
     $order = executeQuery($sqlQuery, true);
     admin_render('order/index.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }
@@ -143,11 +143,12 @@ function priceShip()
     return $priceShip[0]['price_ship'];
 }
 
-function updatepoints($id, $total) {
+function updatepoints($id, $total)
+{
     $sqll = "select * from points where user_id = $id";
     $result = executeQuery($sqll, false);
     $points = $result['points'];
-    $points_up  = ( 10/100 ) * $total ;
+    $points_up  = (10 / 100) * $total;
     $pointsNew = $points + $points_up;
     $sql = "UPDATE points set points = $pointsNew where user_id = $id";
     executeQuery($sql, false);

@@ -2,14 +2,14 @@
 
 function myOrder($ma_kh)
 {
-    $sqlQuery = "select * from oder where user_id = $ma_kh";
+    $sqlQuery = "SELECT * from oder where user_id = $ma_kh order by id DESC";
     $order = executeQuery($sqlQuery, true);
     client_render('order/index.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }
 
 function OrderAll()
 {
-    $sqlQuery = "select * from oder";
+    $sqlQuery = "SELECT * from oder order by id DESC";
     $order = executeQuery($sqlQuery, true);
     client_render('order/managerOder.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }
@@ -128,11 +128,11 @@ function delOrder($oderId)
     }
     $delOder = "delete from oder where id = $oderId";
     executeQuery($delOder);
+    
 }
 
 function updatestatusOrder($id, $status)
 {
     $sqlQuery = "Update oder set status = $status where id = $id";
     executeQuery($sqlQuery, false);
-
 }

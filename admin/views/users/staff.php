@@ -65,12 +65,12 @@
                     <div class="row">
                         <div class="col-7">
 
-                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                            <ul class="ml-4 mb-0 fa-ul text-muted mt3">
                                 <li class="small"><span class="fa-li"><i class="fas fa-envelope-open"></i></span> Gmail <?php echo $account[$i]['email'] ?></li>
                                 <li class="small"><span class="fa-li"><i class="fas fa-envelope-open"></i></span> Phone <?php echo $account[$i]['phone'] ?></li>
                             </ul>
                         </div>
-                        <div class="col-5 text-center">
+                        <div style="width: 90px;" class="col-5 text-center">
                             <img src="<?php echo IMG_URL . $account[$i]['avatar'] ?>" class="img-circle img-fluid">
                         </div>
                     </div>
