@@ -6,12 +6,12 @@
                     <div class="footer__about__logo">
                         <a href="<?= BASE_URL ?>trang-chu"><img src="<?= CLIENT_ASSET ?>img/logo.png" alt=""></a>
                     </div>
-                    <?php foreach(pdo_select("SELECT * FROM contact") as $items){ ?>
-                    <ul>
-                        <li><?php echo $items['address'] ?></li>
-                        <li><?php echo $items['phone'] ?></li>
-                        <li><?php echo $items['email'] ?></li>
-                    </ul>
+                    <?php foreach (pdo_select("SELECT * FROM contact") as $items) { ?>
+                        <ul>
+                            <li><?php echo $items['address'] ?></li>
+                            <li><?php echo $items['phone'] ?></li>
+                            <li><?php echo $items['email'] ?></li>
+                        </ul>
                     <?php } ?>
                 </div>
             </div>
@@ -61,4 +61,4 @@
         </div>
     </div>
 </footer>
-<script lang="javascript">var __vnp = {code : 9927,key:'', secret : '6066e45e736f2c9c810db8f3465ad816'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//core.vchat.vn/code/tracking.js';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
+<!-- <script lang="javascript">var __vnp = {code : 9927,key:'', secret : '6066e45e736f2c9c810db8f3465ad816'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//core.vchat.vn/code/tracking.js';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script> -->
