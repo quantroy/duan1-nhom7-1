@@ -46,6 +46,7 @@ if (isset($_SESSION['auth']['id'])) {
                         </thead>
                         <tbody>
                             <?php $product_like = loadall_product_like(); ?>
+
                             <?php foreach ($product_like as $k => $like) : ?>
                                 <?php if ($_SESSION['auth']['id'] == $like['user_id']) : ?>
                                     <tr>

@@ -103,11 +103,9 @@ function pdo_select($sql)
 function returnId($sqL)
 {
 
-    $dburl = "mysql:host=localhost;dbname=2021-duan1-nhom7;charset=utf8";
-    $username = 'root';
-    $password = '';
+    // Tạo kết nối
+    $conn = new PDO("mysql:host=localhost;dbname=2021-duan1-nhom7", 'root', '');
 
-    $conn = new PDO($dburl, $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Câu SQL Insert
     $sql = $sqL;

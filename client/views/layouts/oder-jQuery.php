@@ -46,9 +46,10 @@
       }
       toppingIP.value = "";
       index = this.getAttribute("data");
-      // setImage.src = getImage[index].getAttribute("data");
-      // setPrice.innerText = getPrice[index].getAttribute("data");
-      // localStorage.setItem("initial", getPrice[index].getAttribute("data"));
+      console.log(index);
+      setImage.src = getImage[index].getAttribute("data");
+      setPrice.innerText = getPrice[index].getAttribute("data");
+      localStorage.setItem("initial", getPrice[index].getAttribute("data"));
       setTotal.innerText =
         getPrice[index]
         .getAttribute("data")
