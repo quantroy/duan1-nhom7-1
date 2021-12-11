@@ -26,23 +26,28 @@ function updateDoneAt($id)
     // $now = "20-10-11";
     $sqlQuery = "UPDATE oder set done_at = '$now' where id = $id";
     // var_dump($sqlQuery);
-    $updateDoneAt = executeQuery($sqlQuery, false);
+    executeQuery($sqlQuery, false);
+
     $listStatistical = getStatistiscById($now);
 
     $recordById =  getRecordById($id);
-    dd($recordById);
+
+    $revenue = 0;
+    $order = 0;
+    // $listStatistical['order'] = 0;
+    // dd($listStatistical);
     if ($listStatistical && isset($listStatistical)) {
-        $revenue = $recordById['revenue'] + $listStatistical['revenue'];
-        $order = $recordById['order'] + $listStatistical['order'];
+        $revenue = $recordById['total'] + $listStatistical['revenue'];
 
+        $order = $listStatistical['order'] + 1;
 
-        $sql = "UPDATE statistical set revenue = '$revenue', order = '$order' where id = $id";
+        $sql = "UPDATE statistical set `revenue` = '$revenue', `order` = '$order' where order_date = '$now'";
+        // dd($sql);
         executeQuery($sql);
     } else {
-        $revenue = $recordById['revenue'];
-        $order = $recordById['order'];
-
-        $sql = "INSERT statistcal (order_date, revenue, order) values ('$now', '$revenue')";
+        $revenue = $recordById['total'];
+        $order = $order + 1;
+        $sql = "INSERT into statistical (`order_date`, `revenue`, `order`) values ('$now', '$revenue', '$order')";
         executeQuery($sql);
     }
 }

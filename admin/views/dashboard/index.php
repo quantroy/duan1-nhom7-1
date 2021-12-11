@@ -67,6 +67,7 @@
                         </div>
                     </div>
                     <canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 444px;" width="666" height="375" class="chartjs-render-monitor"></canvas>
+                    <i class="d-flex justify-content-center"><br>Thống kê doanh thu và số lượt đặt hàng</i>
                 </div>
             </div>
             <!-- /.card-body -->
