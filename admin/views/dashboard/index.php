@@ -81,19 +81,18 @@
     });
 
     function showGraph() {
-        $.post("revenue_statistics.php",
+        $.post("statistics",
             function(data) {
-                console.log(data);
                 var labels = [];
                 var revenues = [];
                 var quantitys = [];
                 var orders = [];
                 for (var i in data) {
+                    // console.log(data);
                     labels.push(data[i].order_date);
                     revenues.push(data[i].revenue);
                     quantitys.push(data[i].quantity);
                     orders.push(data[i].order);
-                    // console.log(result)
                 }
                 var ctx = document.getElementById("areaChart").getContext('2d');
                 var myChart = new Chart(ctx, {
@@ -106,14 +105,6 @@
                                 fill: true,
                                 borderColor: '#2196f3', // Add custom color border (Line)
                                 backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
-                                borderWidth: 1 // Specify bar border width
-                            },
-                            {
-                                label: 'Số lượng trà sữa đã bán', // Name the series
-                                data: quantitys,
-                                fill: true,
-                                borderColor: '#4CAF50', // Add custom color border (Line)
-                                backgroundColor: '#4CAF50', // Add custom color background (Points and Fill)
                                 borderWidth: 1 // Specify bar border width
                             },
                             {

@@ -11,6 +11,7 @@ require_once './client/business/categories.php';
 require_once './client/business/blog.php';
 require_once './carbon/autoload.php';
 
+// dd($url);
 
 switch ($url) {
     case '/':
@@ -175,9 +176,14 @@ switch ($url) {
         break;
 
         //thống kê doanh thu
-    case 'revenue_statistics.php':
-        // dd($url);
+    case 'statistics':
         require_once './admin/business/revenue_statistics.php';
+        getDataStatistisc();
+
+        break;
+    case 'cp-admin/statistics':
+        require_once './admin/business/revenue_statistics.php';
+        getDataStatistisc();
         break;
 
     case 'cp-admin/danh-muc':

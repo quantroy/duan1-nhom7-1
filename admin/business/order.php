@@ -1,5 +1,5 @@
 <?php
-
+require_once './admin/business/revenue_statistics.php';
 function myOrder($ma_kh)
 {
     $sqlQuery = "select * from oder where user_id = $ma_kh";
@@ -152,17 +152,4 @@ function updatepoints($id, $total)
     $pointsNew = $points + $points_up;
     $sql = "UPDATE points set points = $pointsNew where user_id = $id";
     executeQuery($sql, false);
-}
-
-use Carbon\Carbon;
-
-function updateDoneAt($id)
-{
-
-
-    $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
-    // $now = "20-10-11";
-    $sqlQuery = "UPDATE oder set done_at = '$now' where id = $id";
-    // var_dump($sqlQuery);
-    executeQuery($sqlQuery, false);
 }
