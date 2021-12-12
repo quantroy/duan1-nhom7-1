@@ -51,7 +51,7 @@ if (isset($_GET['dellSuccess'])) {
         if ($resultCheck['status'] == 0) {
             delOrder($_GET['dellid']);
         }
-        header("refresh:0; url =gio-hang?dellsuccess");
+        header("refresh:0; url =?dellsuccess");
         exit();
     }
 ?>

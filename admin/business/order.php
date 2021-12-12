@@ -9,7 +9,7 @@ function myOrder($ma_kh)
 
 function OrderAll()
 {
-    $sqlQuery = "select * from oder order by id DESC";
+    $sqlQuery = "SELECT * from oder order by id DESC";
     $order = executeQuery($sqlQuery, true);
     admin_render('order/index.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }

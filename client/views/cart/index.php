@@ -73,136 +73,141 @@ if (isset($_GET['Buy'])) {
 <!-- Breadcrumb Section End -->
 
 <!-- Shoping Cart Section Begin -->
-<section class="shoping-cart spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="shoping__cart__table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="shoping__product col-4">Trà sữa</th>
-                                <th class="col-2">Thêm topping</th>
-                                <th class="col-2">Lựa chọn khác</th>
-                                <th class="col-1">Giá</th>
-                                <th class="col-1" style="text-align: center;">Số lượng</th>
-                                <th col="col-2">Thành tiền</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php for ($i = 0; $i < count($carts); $i++) {
+<?php
 
-                            ?>
+if (count($carts) > 0) {
+?>
+    <section class="shoping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
+                            <thead>
                                 <tr>
-                                    <td class="shoping__cart__item">
-                                        <img style="width: 10%;" src=" <?= IMG_URL . getImagePro($carts[$i]['product_id']) ?> ">
-                                        <h5><?php echo getNamePro($carts[$i]['product_id']) ?> (<?php echo $carts[$i]['product_size'] . ')';
-                                                                                                echo '(' . number_format(getPriceProSize($carts[$i]['product_id'], $carts[$i]['product_size']), 0, '', ',') . 'đ'  ?>)
-                                        </h5>
-                                    </td>
-                                    <td> <?php echo getoptionName(getCartoption($carts[$i]['id']));
-                                            echo '(' . number_format(priOption($carts[$i]['id']), 0, '', ',') . 'đ' ?>)</td>
-                                    <td>
-                                        <?= $carts[$i]['ice'] . 'đá' ?>
-                                        <?= $carts[$i]['sugar'] . 'đường'  ?>
-                                    </td>
-                                    <td id="price" class="shoping__cart__price">
-                                        <?php echo number_format(getprice($carts[$i]['product_id']) + getoption(getCartoption($carts[$i]['id'])), 0, '', ',') . 'đ'; ?>
-                                    </td>
-                                    <td style="display: flex; justify-content: center;align-items: center;height: 124px;" class="">
-                                        <button index="<?php echo $i ?>" id="reduce" style="width: 20px; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle ">-</button>
-                                        <input onkeyup="toTal(<?= $i ?>)" id="quantity" style="width: 50px; text-align: center; border: none; background-color: #FAFAFA;" value="<?= $carts[$i]['quantity'] ?>" type="text" name="quantity">
-
-                                        <button index="<?= $i ?>" id="augment" style="width: 20px;text-align: center; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle">+</button>
-                                    </td>
-                                    <td onchange="totalCart()" id="total" class="shoping__cart__total">
-                                        <?php $id =  $carts[$i]['product_id'] ?>
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span data-toggle="modal" data-target="#dell" onclick="check_delete('trà sữa có tên /<?= getNamePro($carts[$i]['product_id']) . '(' . $carts[$i]['product_size'] . ')' . '/ Khỏi giỏ hàng' ?>', <?= $carts[$i]['id'] ?> )" class="icon_close"></span>
-                                    </td>
+                                    <th class="shoping__product">Trà sữa</th>
+                                    <th class="">Thêm topping</th>
+                                    <th class="">Lựa chọn khác</th>
+                                    <th>Giá</th>
+                                    <th style="text-align: center;">Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th></th>
                                 </tr>
-                            <?php
-                            } ?>
+                            </thead>
+                            <tbody>
+                                <?php for ($i = 0; $i < count($carts); $i++) {
 
-                        </tbody>
-                    </table>
+                                ?>
+                                    <tr>
+                                        <td class="shoping__cart__item">
+                                            <img style="width: 10%;" src=" <?= IMG_URL . getImagePro($carts[$i]['product_id']) ?> ">
+                                            <h5><?php echo getNamePro($carts[$i]['product_id']) ?> (<?php echo $carts[$i]['product_size'] . ')';
+                                                                                                    echo '(' . number_format(getPriceProSize($carts[$i]['product_id'], $carts[$i]['product_size']), 0, '', ',') . 'đ'  ?>)
+                                            </h5>
+                                        </td>
+                                        <td> <?php echo getoptionName(getCartoption($carts[$i]['id']));
+                                                echo '(' . number_format(priOption($carts[$i]['id']), 0, '', ',') . 'đ' ?>)</td>
+                                        <td>
+                                            <?= $carts[$i]['ice'] . 'đá' ?>
+                                            <?= $carts[$i]['sugar'] . 'đường'  ?>
+                                        </td>
+                                        <td id="price" class="shoping__cart__price">
+                                            <?php echo number_format(getprice($carts[$i]['product_id']) + getoption(getCartoption($carts[$i]['id'])), 0, '', ',') . 'đ'; ?>
+                                        </td>
+                                        <td style="display: flex; justify-content: center;align-items: center;height: 124px;" class="">
+                                            <button index="<?php echo $i ?>" id="reduce" style="width: 20px; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle ">-</button>
+                                            <input onkeyup="toTal(<?= $i ?>)" id="quantity" style="width: 50px; text-align: center; border: none; background-color: #FAFAFA;" value="<?= $carts[$i]['quantity'] ?>" type="text" name="quantity">
+
+                                            <button index="<?= $i ?>" id="augment" style="width: 20px;text-align: center; height: 25px;display: flex; justify-content: center; align-items: center;" type="button" class="btn btn-info rounded-circle">+</button>
+                                        </td>
+                                        <td onchange="totalCart()" id="total" class="shoping__cart__total">
+                                            <?php $id =  $carts[$i]['product_id'] ?>
+                                        </td>
+                                        <td class="shoping__cart__item__close">
+                                            <span data-toggle="modal" data-target="#dell" onclick="check_delete('trà sữa có tên /<?= getNamePro($carts[$i]['product_id']) . '(' . $carts[$i]['product_size'] . ')' . '/ Khỏi giỏ hàng' ?>', <?= $carts[$i]['id'] ?> )" class="icon_close"></span>
+                                        </td>
+                                    </tr>
+                                <?php
+                                } ?>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="shoping__cart__btns">
-                    <a style="background-color: #32CD32;" href="san-pham" class="primary-btn cart-btn">Tiếp tục mua trà sữa</a>
-                    <a id="btn_update" class=" primary-btn cart-btn
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__btns">
+                        <a style="background-color: #32CD32;" href="san-pham" class="primary-btn cart-btn">Tiếp tục mua trà sữa</a>
+                        <a id="btn_update" class=" primary-btn cart-btn
                         cart-btn-right"><span class="icon_loading"></span>
-                        Cập nhật giỏ hàng</a>
+                            Cập nhật giỏ hàng</a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="shoping__continue">
-                    <div class="shoping__discount">
-                        <h5>Thông tin giao hàng</h5>
+                <div class="col-lg-6">
+                    <div class="shoping__continue">
+                        <div class="shoping__discount">
+                            <h5>Thông tin giao hàng</h5>
 
-                        <div class="container mt-3">
+                            <div class="container mt-3">
 
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
 
-                                <li class="nav-item">
-                                    <a style="cursor: default;" style="background-color: red; " class="nav-link active" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="true">Nhập thông tin</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a style="cursor: default;" style="background-color: red; " class="nav-link active" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="true">Nhập thông tin</a>
+                                    </li>
 
-                            </ul>
-                            <div class="mt-2" style="text-align: right;width: 100%;"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-lg">
-                                    Lấy thông tin cũ
-                                </button>
-                            </div>
-
-
-                            <!-- The Modal -->
-
-
-                            <div class="tab-content mt-3" id="custom-tabs-three-tabContent">
-
-                                <div class="tab-pane fade active show" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
-                                    <form id="form_address" action="" method="get">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i style="width: 14px;" class="fa fa-user" aria-hidden="true"></i></span>
-                                            </div>
-                                            <input onkeyup="saveBlock()" id="nameIp" style="text-align: left;" type="text" class="form-control" placeholder="Tên người nhận">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i style="width: 14px;" class="fa fa-phone" aria-hidden="true"></i></span>
-                                            </div>
-                                            <input onkeyup="saveBlock()" id="phoneIp" style="text-align: left;" type="text" class="form-control" placeholder="Số điện thoại người nhận">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i style="width: 14px;" class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                            </div>
-                                            <input onkeyup="saveBlock()" id="addressIp" style="text-align: left;" type="text" class="form-control" placeholder="Địa chỉ người nhận">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fa fa-sticky-note" aria-hidden="true"></i></span>
-
-                                            </div>
-                                            <input onkeyup="saveBlock()" id="noteIp" style="text-align: left;" type="text" class="form-control" placeholder="Ghi chú địa chỉ">
-                                        </div>
-                                        <div style="color: red;" id="mesAddress"></div>
-                                        <div id="none_save" style="display: none; align-items: center;">
-
-                                            <input id="saveAddress" style="width: 25px;" type="checkbox">
-                                            </input>
-                                            Lưu lại thông tin cho lần mua hàng sau
-                                        </div>
-                                    </form>
+                                </ul>
+                                <div class="mt-2" style="text-align: right;width: 100%;"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-lg">
+                                        Lấy thông tin cũ
+                                    </button>
                                 </div>
 
+
+                                <!-- The Modal -->
+
+
+                                <div class="tab-content mt-3" id="custom-tabs-three-tabContent">
+
+                                    <div class="tab-pane fade active show" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
+                                        <form id="form_address" action="" method="get">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i style="width: 14px;" class="fa fa-user" aria-hidden="true"></i></span>
+                                                </div>
+                                                <input onkeyup="saveBlock()" id="nameIp" style="text-align: left;" type="text" class="form-control" placeholder="Tên người nhận">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i style="width: 14px;" class="fa fa-phone" aria-hidden="true"></i></span>
+                                                </div>
+                                                <input onkeyup="saveBlock()" id="phoneIp" style="text-align: left;" type="text" class="form-control" placeholder="Số điện thoại người nhận">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i style="width: 14px;" class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                </div>
+                                                <input onkeyup="saveBlock()" id="addressIp" style="text-align: left;" type="text" class="form-control" placeholder="Địa chỉ người nhận">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fa fa-sticky-note" aria-hidden="true"></i></span>
+
+                                                </div>
+                                                <input onkeyup="saveBlock()" id="noteIp" style="text-align: left;" type="text" class="form-control" placeholder="Ghi chú địa chỉ">
+                                            </div>
+                                            <div style="color: red;" id="mesAddress"></div>
+                                            <div id="none_save" style="display: none; align-items: center;">
+
+                                                <input id="saveAddress" style="width: 25px;" type="checkbox">
+                                                </input>
+                                                Lưu lại thông tin cho lần mua hàng sau
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -222,8 +227,11 @@ if (isset($_GET['Buy'])) {
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php
+}
+
+?>
 <!-- Shoping Cart Section End -->
 
 
