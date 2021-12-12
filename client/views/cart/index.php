@@ -145,88 +145,89 @@ if (count($carts) > 0) {
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="shoping__continue">
-                        <div class="shoping__discount">
-                            <h5>Thông tin giao hàng</h5>
+                    <div>
+                        <div class="shoping__continue">
+                            <div class="shoping__discount">
+                                <h5>Thông tin giao hàng</h5>
 
-                            <div class="container mt-3">
+                                <div class="container mt-3">
 
-                                <!-- Nav tabs -->
-                                <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
 
-                                    <li class="nav-item">
-                                        <a style="cursor: default;" style="background-color: red; " class="nav-link active" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="true">Nhập thông tin</a>
-                                    </li>
+                                        <li class="nav-item">
+                                            <a style="cursor: default;" style="background-color: red; " class="nav-link active" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="true">Nhập thông tin</a>
+                                        </li>
 
-                                </ul>
-                                <div class="mt-2" style="text-align: right;width: 100%;"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-lg">
-                                        Lấy thông tin cũ
-                                    </button>
-                                </div>
-
-
-                                <!-- The Modal -->
-
-
-                                <div class="tab-content mt-3" id="custom-tabs-three-tabContent">
-
-                                    <div class="tab-pane fade active show" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
-                                        <form id="form_address" action="" method="get">
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i style="width: 14px;" class="fa fa-user" aria-hidden="true"></i></span>
-                                                </div>
-                                                <input onkeyup="saveBlock()" id="nameIp" style="text-align: left;" type="text" class="form-control" placeholder="Tên người nhận">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i style="width: 14px;" class="fa fa-phone" aria-hidden="true"></i></span>
-                                                </div>
-                                                <input onkeyup="saveBlock()" id="phoneIp" style="text-align: left;" type="text" class="form-control" placeholder="Số điện thoại người nhận">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i style="width: 14px;" class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                </div>
-                                                <input onkeyup="saveBlock()" id="addressIp" style="text-align: left;" type="text" class="form-control" placeholder="Địa chỉ người nhận">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i class="fa fa-sticky-note" aria-hidden="true"></i></span>
-
-                                                </div>
-                                                <input onkeyup="saveBlock()" id="noteIp" style="text-align: left;" type="text" class="form-control" placeholder="Ghi chú địa chỉ">
-                                            </div>
-                                            <div style="color: red;" id="mesAddress"></div>
-                                            <div id="none_save" style="display: none; align-items: center;">
-
-                                                <input id="saveAddress" style="width: 25px;" type="checkbox">
-                                                </input>
-                                                Lưu lại thông tin cho lần mua hàng sau
-                                            </div>
-                                        </form>
+                                    </ul>
+                                    <div class="mt-2" style="text-align: right;width: 100%;"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-lg">
+                                            Lấy thông tin cũ
+                                        </button>
                                     </div>
 
+
+                                    <!-- The Modal -->
+
+
+                                    <div class="tab-content mt-3" id="custom-tabs-three-tabContent">
+
+                                        <div class="tab-pane fade active show" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
+                                            <form id="form_address" action="" method="get">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i style="width: 14px;" class="fa fa-user" aria-hidden="true"></i></span>
+                                                    </div>
+                                                    <input onkeyup="saveBlock()" id="nameIp" style="text-align: left;" type="text" class="form-control" placeholder="Tên người nhận">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i style="width: 14px;" class="fa fa-phone" aria-hidden="true"></i></span>
+                                                    </div>
+                                                    <input onkeyup="saveBlock()" id="phoneIp" style="text-align: left;" type="text" class="form-control" placeholder="Số điện thoại người nhận">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i style="width: 14px;" class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                    </div>
+                                                    <input onkeyup="saveBlock()" id="addressIp" style="text-align: left;" type="text" class="form-control" placeholder="Địa chỉ người nhận">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fa fa-sticky-note" aria-hidden="true"></i></span>
+
+                                                    </div>
+                                                    <input onkeyup="saveBlock()" id="noteIp" style="text-align: left;" type="text" class="form-control" placeholder="Ghi chú địa chỉ">
+                                                </div>
+                                                <div style="color: red;" id="mesAddress"></div>
+                                                <div id="none_save" style="display: none; align-items: center;">
+
+                                                    <input id="saveAddress" style="width: 25px;" type="checkbox">
+                                                    </input>
+                                                    Lưu lại thông tin cho lần mua hàng sau
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="shoping__checkout">
-                    <h5>Tổng tiền giỏ hàng</h5>
-                    <ul>
-                        <li>Tiền tạm tính <span id="priceTem"></span></li>
-                        <li>Phí vận chuyển <span id="priceShip"><?= number_format(priceShip(), 0, '', ',') . 'đ' ?></span></li>
-                        <li>Bạn có <strong id="points"><?php echo number_format(point($_SESSION['auth']['id'], 0, '', ',')) ?></strong>
-                            điểm thưởng<span id="render_points" dataWait=<?php echo point($_SESSION['auth']['id']) ?> data="0"><button onclick="clickpoints()" id="btn_points" type="button" class="btn btn-success">Áp dụng</button></span></li>
-                        <li>Tổng tiền <span id="totalCart"></span></li>
-                    </ul>
-                    <a onclick="Buy()" id="btn_buy" class="primary-btn">Mua hàng</a>
+                <div class="col-lg-6">
+                    <div class="shoping__checkout">
+                        <h5>Tổng tiền giỏ hàng</h5>
+                        <ul>
+                            <li>Tiền tạm tính <span id="priceTem"></span></li>
+                            <li>Phí vận chuyển <span id="priceShip"><?= number_format(priceShip(), 0, '', ',') . 'đ' ?></span></li>
+                            <li>Bạn có <strong id="points"><?php echo number_format(point($_SESSION['auth']['id'], 0, '', ',')) ?></strong>
+                                điểm thưởng<span id="render_points" dataWait=<?php echo point($_SESSION['auth']['id']) ?> data="0"><button onclick="clickpoints()" id="btn_points" type="button" class="btn btn-success">Áp dụng</button></span></li>
+                            <li>Tổng tiền <span id="totalCart"></span></li>
+                        </ul>
+                        <a onclick="Buy()" id="btn_buy" class="primary-btn">Mua hàng</a>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 <?php
 }
