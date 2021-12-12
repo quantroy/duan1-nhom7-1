@@ -27,7 +27,6 @@ function updateDoneAt($id)
     $sqlQuery = "UPDATE oder set done_at = '$now' where id = $id";
     // var_dump($sqlQuery);
     executeQuery($sqlQuery, false);
-
     $listStatistical = getStatistiscById($now);
 
     $recordById =  getRecordById($id);
@@ -38,7 +37,6 @@ function updateDoneAt($id)
     // dd($listStatistical);
     if ($listStatistical && isset($listStatistical)) {
         $revenue = $recordById['total'] + $listStatistical['revenue'];
-
         $order = $listStatistical['order'] + 1;
 
         $sql = "UPDATE statistical set `revenue` = '$revenue', `order` = '$order' where order_date = '$now'";

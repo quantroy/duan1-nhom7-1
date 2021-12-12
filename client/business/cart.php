@@ -1,7 +1,7 @@
 <?php
 function myCart($ma_kh)
 {
-    $sqlQuery = "SELECT * from cart where user_id = $ma_kh and status = 1 order by id DESC";
+    $sqlQuery = "SELECT * from cart where user_id = $ma_kh and status = 1";
     $carts = executeQuery($sqlQuery, true);
     client_render('cart/index.php', compact('carts'), 'admin-assets/custom/admin-global.js');
 }
@@ -23,8 +23,12 @@ function getImagePro($id)
 
 function del($id)
 {
+    $sql = "DELETE from products_options where cart_id = $id";
+    executeQuery($sql);
+
+
     $sqlQuery = "DELETE from cart where id = $id";
-    executeQuery($sqlQuery, true);
+    executeQuery($sqlQuery);
 }
 
 
