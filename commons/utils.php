@@ -6,8 +6,6 @@ const ADMIN_URL = BASE_URL . 'cp-admin/';
 const ADMIN_ASSET = BASE_URL . 'public/admin-assets/';
 const CLIENT_ASSET = BASE_URL . 'public/client-assets/';
 
-const ADMIN_ROLE = 5;
-const STAFF_ROLE = 2;
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 
 function dd()
@@ -41,22 +39,4 @@ function getFavoriteProducts()
     $getFavoriteProductQuery = "select * from favorite_products where user_id = $userId";
     $favoriteProducts = executeQuery($getFavoriteProductQuery, true);
     return $favoriteProducts;
-}
-function checkAuth($role = [])
-{
-
-    if (!isset($_SESSION['auth']) || $_SESSION['auth'] == null || $_SESSION['auth']['role'] == 1) {
-
-        header('location: ' . BASE_URL);
-        die;
-    }
-}
-function checkAuth2()
-{
-
-    if ($_SESSION['auth']['role'] == 2) {
-
-        header('location: ' . BASE_URL . 'cp-admin');
-        die;
-    }
 }
