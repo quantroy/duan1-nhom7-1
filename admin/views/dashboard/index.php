@@ -66,6 +66,13 @@
                             <div class=""></div>
                         </div>
                     </div>
+                    <select class="custom-select col-2" id="select-day">
+                        <option value="" selected>Lọc theo</option>
+                        <option value="7days">7 ngày qua</option>
+                        <option value="28days">28 ngày qua</option>
+                        <option value="90days">90 ngày qua</option>
+                        <option value="365days">365 ngày qua</option>
+                    </select>
                     <canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 444px;" width="666" height="375" class="chartjs-render-monitor"></canvas>
                     <i class="d-flex justify-content-center"><br>Thống kê doanh thu và số lượt đặt hàng</i>
                 </div>
@@ -77,12 +84,69 @@
 
 <!-- Script thống kê -->
 <script>
+    // biểu đồ
     $(document).ready(function() {
         showGraph();
+        //xử lý thời gian
+        $('#select-day').change(function() {
+            var selectDay = $(this).val();
+            console.log(selectDay);
+            $.ajax({
+                url: "statistics",
+                method: "POST",
+                dataType: "JSON",
+                data: {
+                    day: selectDay,
+                },
+                success: function(data) {
+                    var labels = [];
+                    var revenues = [];
+                    var quantitys = [];
+                    var orders = [];
+                    for (var i in data) {
+                        // console.log(data);
+                        labels.push(data[i].order_date);
+                        revenues.push(data[i].revenue);
+                        quantitys.push(data[i].quantity);
+                        orders.push(data[i].order);
+                    }
+                    var ctx = document.getElementById("areaChart").getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                    label: 'Doanh thu (đ)', // Name the series
+                                    data: revenues,
+                                    fill: true,
+                                    borderColor: '#2196f3', // Add custom color border (Line)
+                                    backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
+                                    borderWidth: 1 // Specify bar border width
+                                },
+                                {
+                                    label: 'Số lượt đặt hàng', // Name the series
+                                    data: orders,
+                                    fill: true,
+                                    borderColor: '#ffa400', // Add custom color border (Line)
+                                    backgroundColor: '#ffa400', // Add custom color background (Points and Fill)
+                                    borderWidth: 1 // Specify bar border width
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true, // Instruct chart js to respond nicely.
+                            maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
+                        }
+                    });
+                }
+            });
+
+        });
     });
 
+
     function showGraph() {
-        $.post("statistics",
+        $.get("statistics",
             function(data) {
                 var labels = [];
                 var revenues = [];

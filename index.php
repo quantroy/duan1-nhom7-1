@@ -178,12 +178,10 @@ switch ($url) {
         //thống kê doanh thu
     case 'statistics':
         require_once './admin/business/revenue_statistics.php';
-        getDataStatistisc();
-
         break;
+
     case 'cp-admin/statistics':
         require_once './admin/business/revenue_statistics.php';
-        getDataStatistisc();
         break;
 
     case 'cp-admin/danh-muc':

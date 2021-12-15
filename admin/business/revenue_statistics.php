@@ -3,22 +3,36 @@
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 
-function getDataStatistisc()
-{
-    header('Content-Type: application/json');
-    $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subdays(365)->toDateString();
-    $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+header('Content-Type: application/json');
 
-
-    $sql = "SELECT * from statistical where order_date between '$subdays' and '$now' order by order_date";
-    $revenueStatistics = executeQuery($sql, true);
-
-    $data = array();
-    foreach ($revenueStatistics as $item) {
-        $data[] = $item;
+if (isset($_POST['day']) && $_POST['day'] != null) {
+    if ($_POST['day'] === '7days') {
+        $time = 7;
+    } elseif ($_POST['day'] === '28days') {
+        // dd($_POST['day']);
+        $time = 28;
+    } elseif ($_POST['day'] === '90days') {
+        $time = 90;
+    } elseif ($_POST['day'] === '365days') {
+        $time = 365;
     }
-    echo json_encode($data);
+} else {
+    $time = 365;
 }
+$subdays = Carbon::now('Asia/Ho_Chi_Minh')->subdays($time)->toDateString();
+// dd($subdays);
+$now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+
+
+$sql = "SELECT * from statistical where order_date between '$subdays' and '$now' order by order_date";
+$revenueStatistics = executeQuery($sql, true);
+
+$data1 = array();
+foreach ($revenueStatistics as $item) {
+    $data1[] = $item;
+}
+echo json_encode($data1);
+
 //cập nhật ngày thành công
 function updateDoneAt($id)
 {
