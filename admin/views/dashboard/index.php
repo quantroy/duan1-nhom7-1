@@ -146,7 +146,7 @@
 
 
     function showGraph() {
-        $.get("statistics",
+        $.post("statistics",
             function(data) {
                 var labels = [];
                 var revenues = [];

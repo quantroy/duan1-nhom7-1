@@ -175,13 +175,15 @@ switch ($url) {
         dashboard_index();
         break;
 
-        //thống kê doanh thu
+        // thống kê doanh thu
     case 'statistics':
         require_once './admin/business/revenue_statistics.php';
+        statistics();
         break;
 
     case 'cp-admin/statistics':
         require_once './admin/business/revenue_statistics.php';
+        statistics();
         break;
 
     case 'cp-admin/danh-muc':

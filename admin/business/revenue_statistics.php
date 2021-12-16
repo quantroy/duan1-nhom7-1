@@ -1,45 +1,46 @@
 <?php
 
 use Carbon\Carbon;
-use Carbon\CarbonInterval;
 
-header('Content-Type: application/json');
+function statistics()
+{
 
-if (isset($_POST['day']) && $_POST['day'] != null) {
-    if ($_POST['day'] === '7days') {
-        $time = 7;
-    } elseif ($_POST['day'] === '28days') {
-        // dd($_POST['day']);
-        $time = 28;
-    } elseif ($_POST['day'] === '90days') {
-        $time = 90;
-    } elseif ($_POST['day'] === '365days') {
+    header('Content-Type: application/json');
+
+    if (isset($_POST['day']) && $_POST['day'] != null) {
+        if ($_POST['day'] === '7days') {
+            $time = 7;
+        } elseif ($_POST['day'] === '28days') {
+            // dd($_POST['day']);
+            $time = 28;
+        } elseif ($_POST['day'] === '90days') {
+            $time = 90;
+        } elseif ($_POST['day'] === '365days') {
+            $time = 365;
+        }
+    } else {
         $time = 365;
     }
-} else {
-    $time = 365;
+    $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subdays($time)->toDateString();
+    $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+
+
+    $sql = "SELECT * from statistical where order_date between '$subdays' and '$now' order by order_date";
+    $revenueStatistics = executeQuery($sql, true);
+
+    $data = array();
+    foreach ($revenueStatistics as $item) {
+        $data[] = $item;
+    }
+    echo json_encode($data);
 }
-$subdays = Carbon::now('Asia/Ho_Chi_Minh')->subdays($time)->toDateString();
-// dd($subdays);
-$now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
-
-
-$sql = "SELECT * from statistical where order_date between '$subdays' and '$now' order by order_date";
-$revenueStatistics = executeQuery($sql, true);
-
-$data1 = array();
-foreach ($revenueStatistics as $item) {
-    $data1[] = $item;
-}
-echo json_encode($data1);
 
 //cập nhật ngày thành công
 function updateDoneAt($id)
 {
     $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
-    // $now = "20-10-11";
+
     $sqlQuery = "UPDATE oder set done_at = '$now' where id = $id";
-    // var_dump($sqlQuery);
     executeQuery($sqlQuery, false);
     $listStatistical = getStatistiscById($now);
 
@@ -47,8 +48,6 @@ function updateDoneAt($id)
 
     $revenue = 0;
     $order = 0;
-    // $listStatistical['order'] = 0;
-    // dd($listStatistical);
     if ($listStatistical && isset($listStatistical)) {
         $revenue = $recordById['total'] + $listStatistical['revenue'];
         $order = $listStatistical['order'] + 1;
@@ -73,9 +72,4 @@ function getStatistiscById($now)
 {
     $sql = "SELECT * from statistical where order_date = '$now'";
     return executeQuery($sql);
-    // // dd(($listStatistical));
-    // if (isset($listStatistical) && $listStatistical) {
-    //     $listStatistical[''];
-    //     // $sql = "UPDATE statistical set"
-    // }
 }
