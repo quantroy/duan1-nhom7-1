@@ -70,3 +70,23 @@ function account_index($role)
         admin_render('users/users.php', compact('account', 'keyword'), 'admin-assets/custom/admin-global.js');
     }
 }
+function userOrder($id)
+{
+    $sql = " select * from accounts where id = $id";
+    $account = executeQuery($sql, true);
+    admin_render(
+        'users/users.php',
+        compact('account'),
+        'admin-assets/custom/admin-global.js'
+    );
+}
+function staffOrder($id)
+{
+    $sql = " select * from accounts where id = $id";
+    $account = executeQuery($sql, true);
+    admin_render(
+        'users/staff.php',
+        compact('account'),
+        'admin-assets/custom/admin-global.js'
+    );
+}

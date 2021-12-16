@@ -79,12 +79,20 @@ switch ($url) {
         // mananger tai khoan
     case 'cp-admin/tai-khoan/khach-hang':
         require_once './admin/business/users.php';
-        account_index(1);
+        if (isset($_GET['idOder'])) {
+            userOrder($_GET['idOder']);
+        } else {
+            account_index(1);
+        }
         break;
 
     case 'cp-admin/tai-khoan/nhan-vien':
         require_once './admin/business/users.php';
-        account_index(2);
+        if (isset($_GET['idOder'])) {
+            staffOrder($_GET['idOder']);
+        } else {
+            account_index(2);
+        }
         break;
 
     case 'cp-admin/tai-khoan/chinh-sua':
@@ -167,6 +175,10 @@ switch ($url) {
             echo header("refresh:0; url =tai-khoan/dang-nhap?null_account");
             exit();
         }
+        break;
+    case 'don-hang-chi-tiet':
+        require_once './client/business/order.php';
+        myOrderOne($_SESSION['auth']['id'], $_GET['id']);
         break;
 
     case 'cp-admin':
@@ -257,15 +269,7 @@ switch ($url) {
         require_once './admin/business/post.php';
         post_save_fix();
         break;
-    case 'cp-admin/quan-ly-don-hang':
-        if (isset($_SESSION['auth']['id'])) {
-            require_once './admin/business/order.php';
-            OrderAll();
-        } else {
-            echo header("refresh:0; url =tai-khoan/dang-nhap?null_account");
-            exit();
-        }
-        break;
+
     case 'cp-admin/lien-he':
         require_once './admin/business/contact.php';
         contact_index();
@@ -311,6 +315,21 @@ switch ($url) {
         require_once './admin/business/cate_post.php';
         cate_post_update();
         break;
+        // don hang
+    case 'cp-admin/quan-ly-don-hang':
+        if (isset($_SESSION['auth']['id'])) {
+            require_once './admin/business/order.php';
+            OrderAll();
+        } else {
+            echo header("refresh:0; url =tai-khoan/dang-nhap?null_account");
+            exit();
+        }
+        break;
+    case 'cp-admin/don-hang-chi-tiet':
+        require_once './admin/business/order.php';
+        OrderOneDetail($_SESSION['auth']['id'], $_GET['id']);
+        break;
+
     default:
         include_once './client/views/404.php';
         break;

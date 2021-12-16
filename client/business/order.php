@@ -7,12 +7,21 @@ function myOrder($ma_kh)
     client_render('order/index.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }
 
+function myOrderOne($ma_kh, $id)
+{
+    $sqlQuery = "SELECT * from oder where user_id = $ma_kh and id = $id ";
+    $order_detail = executeQuery($sqlQuery, true);
+    client_render('order/order_detail.php', compact('order_detail'), 'admin-assets/custom/admin-global.js');
+}
+
 function OrderAll()
 {
     $sqlQuery = "SELECT * from oder order by id DESC";
     $order = executeQuery($sqlQuery, true);
     client_render('order/managerOder.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }
+
+
 
 function queryOrderDetail($idOrder)
 {

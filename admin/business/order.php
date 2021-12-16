@@ -14,6 +14,12 @@ function OrderAll()
     admin_render('order/index.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }
 
+function OrderOneDetail($ma_kh, $id)
+{
+    $sqlQuery = "SELECT * from oder where user_id = $ma_kh and id = $id ";
+    $order_detail = executeQuery($sqlQuery, true);
+    admin_render('order/order_detail.php', compact('order_detail'), 'admin-assets/custom/admin-global.js');
+}
 function queryOrderDetail($idOrder)
 {
     $sqlQuery = "select * from oder_item where order_id = $idOrder";
@@ -152,4 +158,20 @@ function updatepoints($id, $total)
     $pointsNew = $points + $points_up;
     $sql = "UPDATE points set points = $pointsNew where user_id = $id";
     executeQuery($sql, false);
+}
+
+function getNameUseraOrder($id)
+{
+    $sqlQuery = "select * from accounts where id = $id";
+    $user= executeQuery($sqlQuery, true);
+    return $user;
+}
+
+function selectUserOrder($user) {
+    $role = $user[0]['role'];
+    if($role == 1) {
+        return 'tai-khoan/khach-hang';
+    }elseif($role == 2){
+        return 'tai-khoan/nhan-vien';
+    }
 }
