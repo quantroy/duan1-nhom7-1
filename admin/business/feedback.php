@@ -1,15 +1,16 @@
 <?php
 
-    function renderAll() {
-        $sqlQuery = "select * from feedback order by id DESC";
-        $feedback = executeQuery($sqlQuery, true);
-        admin_render('feedback/index.php', compact('feedback'), 'admin-assets/custom/admin-global.js');
-    }
+function renderAll()
+{
+    $sqlQuery = "SELECT * from feedback_order order by id DESC";
+    $feedback = executeQuery($sqlQuery, true);
+    admin_render('feedback/index.php', compact('feedback'), 'admin-assets/custom/admin-global.js');
+}
 
 
-    function checkFeedB($id)
-    {
-        $sqlQuery = "select * from accounts where id = $id";
-        $result = executeQuery($sqlQuery, true);
-        return $result[0];
-    }
+function checkFeedB($id)
+{
+    $sqlQuery = "SELECT * from accounts where id = $id";
+    $result = executeQuery($sqlQuery, false);
+    return $result;
+}

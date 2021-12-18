@@ -150,20 +150,20 @@ function updatestatusOrder($id, $status)
 
 function feedback($orDorId, $star, $comment, $feedback_by)
 {
-    $sql = "INSERT INTO feedback (oder_id,star,comment, feedback_by) values('$orDorId','$star','$comment', '$feedback_by')";
+    $sql = "INSERT INTO feedback_order (oder_id,star,comment, feedback_by) values('$orDorId','$star','$comment', '$feedback_by')";
     executeQuery($sql);
 }
 
 function checkisset($id)
 {
-    $sqlQuery = "select * from feedback where oder_id = $id";
+    $sqlQuery = "select * from feedback_order where oder_id = $id";
     $result = executeQuery($sqlQuery, true);
     return $result;
 }
 
 function queryFeedback($id)
 {
-    $sqlQuery = "select * from feedback where oder_id = $id order by id ASC ";
+    $sqlQuery = "select * from feedback_order where oder_id = $id order by id ASC ";
     $result = executeQuery($sqlQuery, true);
     return $result;
 }

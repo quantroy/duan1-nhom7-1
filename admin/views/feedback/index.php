@@ -7,15 +7,16 @@
             <div class="card-body">
                 <table class="table tabl-stripped">
                     <thead>
-                        <th class="col-3">Người phản hồi </th>
+                        <th class="col-2">Người phản hồi </th>
                         <th class="col-2">Sao</th>
                         <th class="col-6">Nội dung</th>
-                        <th col="col-3"></th>
+                        <th style="text-align:right;" class="col-3"></th>
                     </thead>
                     <tbody>
                         <?php for ($i = 0; $i < count($feedback); $i++) {
                             $check = checkFeedB($feedback[$i]['feedback_by']);
-                            if ($check['role'] != 1) {
+                            // dd($check['role']);
+                            if ($check['role'] != '1') {
                                 continue;
                             }
                         ?>
@@ -27,7 +28,7 @@
                                 <td id="price">
                                     <?php for ($j = 0; $j < $feedback[$i]['star']; $j++) {
                                     ?>
-                                        <i style="color: yellow;" class="fas fa-star"></i>
+                                        <i style="color: #ffa400;" class="fas fa-star"></i>
                                     <?php
                                     } ?>
                                 </td>

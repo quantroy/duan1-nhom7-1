@@ -14,7 +14,7 @@ function OrderAll()
     admin_render('order/index.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }
 
-function OrderOneDetail( $id)
+function OrderOneDetail($id)
 {
     $sqlQuery = "SELECT * from oder where id = $id ";
     $order_detail = executeQuery($sqlQuery, true);
@@ -181,7 +181,7 @@ function selectUserOrder($user)
 
 function queryFeedback($id)
 {
-    $sqlQuery = "select * from feedback where oder_id = $id order by id ASC ";
+    $sqlQuery = "select * from feedback_order where oder_id = $id order by id ASC ";
     $result = executeQuery($sqlQuery, true);
     return $result;
 }
@@ -200,7 +200,7 @@ function queryOder($id)
 
 function feedback($orDorId, $star, $comment, $feedback_by)
 {
-    $sql = "INSERT INTO feedback (oder_id,star,comment, feedback_by) values('$orDorId','$star','$comment', '$feedback_by')";
+    $sql = "INSERT INTO feedback_order (oder_id,star,comment, feedback_by) values('$orDorId','$star','$comment', '$feedback_by')";
     executeQuery($sql);
 }
 

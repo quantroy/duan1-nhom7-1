@@ -201,7 +201,7 @@ if (isset($_POST['commentNostar'])) {
                             if ($feedback[$i]['star'] != 0) {
                                 for ($j = 1; $j <= $feedback[$i]['star']; $j++) {
                             ?>
-                                    <i style="font-size: 20px; cursor: pointer; color: yellow;" class="fa fa-star" aria-hidden="true"></i>
+                                    <i style="font-size: 20px; cursor: pointer; color: #ffa400;" class="fa fa-star" aria-hidden="true"></i>
                             <?php
                                 }
                             } ?> <br> <?php echo $feedback[$i]['comment'] ?>

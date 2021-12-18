@@ -8,7 +8,7 @@ for (var i = 0; i < star.length; i++) {
     flag = this.getAttribute("index");
     starValue.value = flag;
     for (var j = 0; j < flag; j++) {
-      star[j].style.color = "#FFFF00";
+      star[j].style.color = "#ffa400";
     }
     for (var k = flag; k <= star.length; k++) {
       star[k].style.color = "#EEEEEE";
