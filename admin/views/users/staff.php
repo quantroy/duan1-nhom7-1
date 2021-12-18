@@ -49,6 +49,9 @@
             echo header("refresh:0; url =?success");
             exit();
         }
+        if (isset($_GET['idOder'])) {
+            staffOrder($_GET['idOder']);
+        }
         for ($i = 0; $i < count($account); $i++) {
         ?>
 
@@ -70,8 +73,8 @@
                                 <li class="small"><span class="fa-li"><i class="fas fa-envelope-open"></i></span> Phone <?php echo $account[$i]['phone'] ?></li>
                             </ul>
                         </div>
-                        <div style="width: 90px;" class="col-5 text-center">
-                            <img src="<?php echo IMG_URL . $account[$i]['avatar'] ?>" class="img-circle img-fluid">
+                        <div class="col-5 text-center">
+                            <img style="width: 90px;"  src="<?php echo IMG_URL . $account[$i]['avatar'] ?>" class="img-circle img-fluid">
                         </div>
                     </div>
 

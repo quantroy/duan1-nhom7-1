@@ -14,6 +14,12 @@ function OrderAll()
     admin_render('order/index.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }
 
+function OrderOneDetail($id)
+{
+    $sqlQuery = "SELECT * from oder where id = $id ";
+    $order_detail = executeQuery($sqlQuery, true);
+    admin_render('order/order_detail.php', compact('order_detail'), 'admin-assets/custom/admin-global.js');
+}
 function queryOrderDetail($idOrder)
 {
     $sqlQuery = "select * from oder_item where order_id = $idOrder";
@@ -152,4 +158,55 @@ function updatepoints($id, $total)
     $pointsNew = $points + $points_up;
     $sql = "UPDATE points set points = $pointsNew where user_id = $id";
     executeQuery($sql, false);
+}
+
+function getNameUseraOrder($id)
+{
+    $sqlQuery = "select * from accounts where id = $id";
+    $user = executeQuery($sqlQuery, true);
+    return $user;
+}
+
+function selectUserOrder($user)
+{
+    $role = $user[0]['role'];
+    if ($role == 1) {
+        return 'tai-khoan/khach-hang';
+    } elseif ($role == 2) {
+        return 'tai-khoan/nhan-vien';
+    } else {
+        return 'don-hang-chi-tiet?id=' . $_GET['id'];
+    }
+}
+
+function queryFeedback($id)
+{
+    $sqlQuery = "select * from feedback_order where oder_id = $id order by id ASC ";
+    $result = executeQuery($sqlQuery, true);
+    return $result;
+}
+function getnameUser($id)
+{
+    $sqlQuery = "select * from accounts where id = $id ";
+    $result = executeQuery($sqlQuery, true);
+    return $result[0]['name'];
+}
+function queryOder($id)
+{
+    $sqlQuery = "select * from oder where id = $id";
+    $result = executeQuery($sqlQuery, true);
+    return $result[0]['user_id'];
+}
+
+function feedback($orDorId, $star, $comment, $feedback_by)
+{
+    $sql = "INSERT INTO feedback_order (oder_id,star,comment, feedback_by) values('$orDorId','$star','$comment', '$feedback_by')";
+    executeQuery($sql);
+}
+
+function getNamefeedbBy($id)
+{
+    $sqlQuery = "select * from accounts where id = $id";
+    $result = executeQuery($sqlQuery, true);
+    return $result[0];
 }

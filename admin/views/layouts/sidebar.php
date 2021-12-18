@@ -181,6 +181,14 @@
             <p>Khách hàng phản hồi</p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="<?= ADMIN_URL . 'phan-hoi-don-hang' ?>" class="nav-link">
+            <i class="fas fa-luggage-cart" aria-hidden="true"></i>
+            <p>
+              Phản hồi từ đơn hàng
+            </p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
