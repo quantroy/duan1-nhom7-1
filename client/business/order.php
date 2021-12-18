@@ -7,12 +7,21 @@ function myOrder($ma_kh)
     client_render('order/index.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }
 
+function myOrderOne($ma_kh, $id)
+{
+    $sqlQuery = "SELECT * from oder where user_id = $ma_kh and id = $id ";
+    $order_detail = executeQuery($sqlQuery, true);
+    client_render('order/order_detail.php', compact('order_detail'), 'admin-assets/custom/admin-global.js');
+}
+
 function OrderAll()
 {
     $sqlQuery = "SELECT * from oder order by id DESC";
     $order = executeQuery($sqlQuery, true);
     client_render('order/managerOder.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }
+
+
 
 function queryOrderDetail($idOrder)
 {
@@ -137,4 +146,38 @@ function updatestatusOrder($id, $status)
     executeQuery($sqlQuery, false);
     // dd($sqlQuery);
 
+}
+
+function feedback($orDorId, $star, $comment, $feedback_by)
+{
+    $sql = "INSERT INTO feedback_order (oder_id,star,comment, feedback_by) values('$orDorId','$star','$comment', '$feedback_by')";
+    executeQuery($sql);
+}
+
+function checkisset($id)
+{
+    $sqlQuery = "select * from feedback_order where oder_id = $id";
+    $result = executeQuery($sqlQuery, true);
+    return $result;
+}
+
+function queryFeedback($id)
+{
+    $sqlQuery = "select * from feedback_order where oder_id = $id order by id ASC ";
+    $result = executeQuery($sqlQuery, true);
+    return $result;
+}
+
+function queryOder($id)
+{
+    $sqlQuery = "select * from oder where id = $id";
+    $result = executeQuery($sqlQuery, true);
+    return $result[0]['user_id'];
+}
+
+function getnameUser($id)
+{
+    $sqlQuery = "select * from accounts where id = $id ";
+    $result = executeQuery($sqlQuery, true);
+    return $result[0]['name'];
 }
