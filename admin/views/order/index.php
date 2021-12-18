@@ -21,10 +21,11 @@
                 <div class="card-body">
                     <table class="table tabl-stripped">
                         <thead>
-                            <th class="shoping__product col-4">Stt </th>
+                            <th class="shoping__product col-1">Stt </th>
                             <th class="col-2">Số lượng trà sữa</th>
                             <th class="col-2">Tổng tiền hóa đơn</th>
                             <th col="col-2">Tạo lúc</th>
+                            <th col="col-2">Trạng thái</th>
                             <th></th>
                         </thead>
                         <tbody>
@@ -60,7 +61,24 @@
 
                                     </td>
                                     <td>
-                                        <a href="don-hang-chi-tiet?id=<?= $order[$i]['id'] ?>" class="btn btn-info">Chi tiết</a>
+                                        <?php
+                                        $color = 'info';
+                                        if ($order[$i]['status'] == 0) {
+                                            echo 'Chờ xác nhận';
+                                        } elseif ($order[$i]['status'] == 1) {
+                                            echo "Đã xác nhận";
+                                        } elseif ($order[$i]['status'] == 2) {
+                                            echo "Đang giao";
+                                        } elseif ($order[$i]['status'] == 3) {
+                                            $color = 'secondary';
+                                            echo "Giao hàng thành công";
+                                        } else {
+                                            echo "Giao hàng thất bại ";
+                                            $color = 'secondary';
+                                        } ?>
+                                    </td>
+                                    <td>
+                                        <a href="don-hang-chi-tiet?id=<?= $order[$i]['id'] ?>" class="btn btn-<?php echo $color ?>">Chi tiết</a>
                                     </td>
                                 </tr>
                             <?php  } ?>

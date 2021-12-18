@@ -9,7 +9,17 @@ if (isset($_GET['updateSuccess'])) {
     $log_error = 'none';
     $log_success = 'none';
 }
-
+$returnSubmit = 'comment';
+if (isset($_POST[$returnSubmit])) {
+    feedback($_GET['id'], $_POST['starValue'], $_POST['comment'], $_SESSION['auth']['id']);
+    header("refresh:0;");
+    exit();
+}
+if (isset($_POST['commentNostar'])) {
+    feedback($_GET['id'], $_POST['starValue'], $_POST['commentNostar'], $_SESSION['auth']['id']);
+    header("refresh:0;");
+    exit();
+}
 ?>
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="<?= CLIENT_ASSET ?>img/banner/banner-top2.png">
@@ -19,7 +29,7 @@ if (isset($_GET['updateSuccess'])) {
                 <div class="breadcrumb__text">
                     <h2>Chi tiết đơn hàng</h2>
                     <div class="breadcrumb__option">
-                     
+
                     </div>
                 </div>
             </div>
@@ -155,7 +165,7 @@ if (isset($_GET['updateSuccess'])) {
                         <ul class="">
                             <h5 class="mt-5" style="color: green;">Thông tin giao hàng </h5>
                             <?php $user = getNameUseraOrder($order_detail[$i]['user_id']); ?>
-                            <li><strong>Người đặt hàng:</strong><a href="<?= selectUserOrder($user).'?idOder='.$order_detail[$i]['user_id']?>"> <?= $user[0]['name']  ?></a> </li>
+                            <li><strong>Người đặt hàng:</strong><a href="<?= selectUserOrder($user) . '&idOder=' . $order_detail[$i]['user_id'] ?>"> <?= $user[0]['name']  ?></a> </li>
                             <li><strong>Tên người nhận:</strong> <?= $order_detail[$i]['name']  ?> </li>
                             <li><strong>Số điện thoại:</strong> <?= $order_detail[$i]['phone']  ?> </li>
                             <li><strong>Địa chỉ nhận:</strong> <?= $order_detail[$i]['address']  ?> </li>
@@ -168,6 +178,44 @@ if (isset($_GET['updateSuccess'])) {
 
 
                 </div>
+                <?php
+                $feedback = queryFeedback($_GET['id']);
+                if (count($feedback) > 0) {
+                    $displayFeedback = 'block';
+                } else {
+                    $displayFeedback = 'none';
+                } ?>
+                <h3 style="color: green;display:<?= $displayFeedback ?> ">Phản hồi khách hàng</h3>
+                <ul class="mt-5">
+                    <?php
+
+                    for ($i = 0; $i < count($feedback); $i++) {
+                    ?>
+                        <li> <?php
+                                $feedbackBy = getNamefeedbBy($feedback[$i]['feedback_by']);
+                                ?>
+                            <?php $user2 = getNameUseraOrder($feedback[$i]['feedback_by']); ?>
+                            <a href="<?= selectUserOrder($user2) . '&idOder=' . $feedback[$i]['feedback_by'] ?>"><strong style="color: blue;"><?= $feedbackBy['name'] ?></strong></a>
+                            <?php
+
+                            if ($feedback[$i]['star'] != 0) {
+                                for ($j = 1; $j <= $feedback[$i]['star']; $j++) {
+                            ?>
+                                    <i style="font-size: 20px; cursor: pointer; color: yellow;" class="fa fa-star" aria-hidden="true"></i>
+                            <?php
+                                }
+                            } ?> <br> <?php echo $feedback[$i]['comment'] ?>
+                        </li>
+
+                    <?php
+                    }
+                    ?>
+                    <form style="display:<?= $displayFeedback ?> ;" class="mt-3" method="post" class="mt-3" action="">
+                        <input type="text" name="commentNostar">
+                        <button type="submit" class="btn btn-primary">Gửi</button>
+                    </form>
+                </ul>
+
                 <div style="height: 1px;width: 100%; background-color: black; margin-top: 30px;"></div>
             </div>
         </div>
@@ -177,4 +225,3 @@ if (isset($_GET['updateSuccess'])) {
 <?php
 }
 ?>
-

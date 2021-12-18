@@ -147,3 +147,37 @@ function updatestatusOrder($id, $status)
     // dd($sqlQuery);
 
 }
+
+function feedback($orDorId, $star, $comment, $feedback_by)
+{
+    $sql = "INSERT INTO feedback (oder_id,star,comment, feedback_by) values('$orDorId','$star','$comment', '$feedback_by')";
+    executeQuery($sql);
+}
+
+function checkisset($id)
+{
+    $sqlQuery = "select * from feedback where oder_id = $id";
+    $result = executeQuery($sqlQuery, true);
+    return $result;
+}
+
+function queryFeedback($id)
+{
+    $sqlQuery = "select * from feedback where oder_id = $id order by id ASC ";
+    $result = executeQuery($sqlQuery, true);
+    return $result;
+}
+
+function queryOder($id)
+{
+    $sqlQuery = "select * from oder where id = $id";
+    $result = executeQuery($sqlQuery, true);
+    return $result[0]['user_id'];
+}
+
+function getnameUser($id)
+{
+    $sqlQuery = "select * from accounts where id = $id ";
+    $result = executeQuery($sqlQuery, true);
+    return $result[0]['name'];
+}

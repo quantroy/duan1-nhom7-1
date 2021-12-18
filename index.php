@@ -327,8 +327,14 @@ switch ($url) {
         break;
     case 'cp-admin/don-hang-chi-tiet':
         require_once './admin/business/order.php';
-        OrderOneDetail($_SESSION['auth']['id'], $_GET['id']);
+        OrderOneDetail($_GET['id']);
         break;
+
+    case 'cp-admin/phan-hoi-don-hang':
+        require_once './admin/business/feedback.php';
+        renderAll();
+        break;
+
 
     default:
         include_once './client/views/404.php';

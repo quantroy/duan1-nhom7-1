@@ -14,9 +14,9 @@ function OrderAll()
     admin_render('order/index.php', compact('order'), 'admin-assets/custom/admin-global.js');
 }
 
-function OrderOneDetail($ma_kh, $id)
+function OrderOneDetail( $id)
 {
-    $sqlQuery = "SELECT * from oder where user_id = $ma_kh and id = $id ";
+    $sqlQuery = "SELECT * from oder where id = $id ";
     $order_detail = executeQuery($sqlQuery, true);
     admin_render('order/order_detail.php', compact('order_detail'), 'admin-assets/custom/admin-global.js');
 }
@@ -163,15 +163,50 @@ function updatepoints($id, $total)
 function getNameUseraOrder($id)
 {
     $sqlQuery = "select * from accounts where id = $id";
-    $user= executeQuery($sqlQuery, true);
+    $user = executeQuery($sqlQuery, true);
     return $user;
 }
 
-function selectUserOrder($user) {
+function selectUserOrder($user)
+{
     $role = $user[0]['role'];
-    if($role == 1) {
+    if ($role == 1) {
         return 'tai-khoan/khach-hang';
-    }elseif($role == 2){
+    } elseif ($role == 2) {
         return 'tai-khoan/nhan-vien';
+    } else {
+        return 'don-hang-chi-tiet?id=' . $_GET['id'];
     }
+}
+
+function queryFeedback($id)
+{
+    $sqlQuery = "select * from feedback where oder_id = $id order by id ASC ";
+    $result = executeQuery($sqlQuery, true);
+    return $result;
+}
+function getnameUser($id)
+{
+    $sqlQuery = "select * from accounts where id = $id ";
+    $result = executeQuery($sqlQuery, true);
+    return $result[0]['name'];
+}
+function queryOder($id)
+{
+    $sqlQuery = "select * from oder where id = $id";
+    $result = executeQuery($sqlQuery, true);
+    return $result[0]['user_id'];
+}
+
+function feedback($orDorId, $star, $comment, $feedback_by)
+{
+    $sql = "INSERT INTO feedback (oder_id,star,comment, feedback_by) values('$orDorId','$star','$comment', '$feedback_by')";
+    executeQuery($sql);
+}
+
+function getNamefeedbBy($id)
+{
+    $sqlQuery = "select * from accounts where id = $id";
+    $result = executeQuery($sqlQuery, true);
+    return $result[0];
 }

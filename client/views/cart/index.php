@@ -73,7 +73,11 @@ if (isset($_GET['Buy'])) {
 <!-- Breadcrumb Section End -->
 
 <!-- Shoping Cart Section Begin -->
-<section class="shoping-cart spad">
+<?php 
+
+    if(count($carts) > 0) {
+        ?>
+        <section class="shoping-cart spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -224,6 +228,10 @@ if (isset($_GET['Buy'])) {
         </div>
     </div>
 </section>
+        <?php
+    }
+
+?>
 <!-- Shoping Cart Section End -->
 
 

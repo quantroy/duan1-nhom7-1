@@ -19,7 +19,22 @@ if (isset($_GET['dellSuccess'])) {
     $log_error = 'none';
     $log_success = 'none';
 }
-
+$check = checkisset($_GET['id']);
+$returnSubmit = 'comment';
+if (count($check) > 0) {
+    $displayForm = 'none';
+    $returnSubmit = 'false';
+}
+if (isset($_POST[$returnSubmit])) {
+    feedback($_GET['id'], $_POST['starValue'], $_POST['comment'],  $_SESSION['auth']['id']);
+    header("refresh:0;");
+    exit();
+}
+if (isset($_POST['commentNostar'])) {
+    feedback($_GET['id'], $_POST['starValue'], $_POST['commentNostar'],  $_SESSION['auth']['id']);
+    header("refresh:0;");
+    exit();
+}
 ?>
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="<?= CLIENT_ASSET ?>img/banner/banner-top2.png">
@@ -122,7 +137,9 @@ if (isset($_GET['dellSuccess'])) {
 
                                 <!-- Nav tabs -->
 
-                                <h5 style="color: green;">Trạng thái đơn hàng: <span style="color: red;"><?php if ($order_detail[$i]['status'] == 0) {
+                                <h5 style="color: green;">Trạng thái đơn hàng: <span style="color: red;"><?php
+                                                                                                            $displayForm = 'none';
+                                                                                                            if ($order_detail[$i]['status'] == 0) {
                                                                                                                 echo 'Chờ xác nhận';
                                                                                                             } elseif ($order_detail[$i]['status'] == 1) {
                                                                                                                 echo "Đã xác nhận";
@@ -130,6 +147,12 @@ if (isset($_GET['dellSuccess'])) {
                                                                                                                 echo "Đang giao";
                                                                                                             } elseif ($order_detail[$i]['status'] == 3) {
                                                                                                                 echo "Đã nhận hàng";
+                                                                                                                if (count($check) > 0) {
+                                                                                                                    $displayForm = 'none';
+                                                                                                                } else {
+                                                                                                                    $displayForm = 'block';
+                                                                                                                    $returnSubmit = 'starValue';
+                                                                                                                }
                                                                                                             } else {
                                                                                                                 echo "Giao hàng thất bại ";
                                                                                                             } ?></span> </h5>
@@ -171,31 +194,104 @@ if (isset($_GET['dellSuccess'])) {
                         $bg = "danger";
                         $toad = "";
                         $clickHuy = "";
-                    } else {
+                    } elseif ($resultCheck['status'] == 1 || $resultCheck['status'] == 2) {
                         $clickCheckStatus = "#";
                         $bg = "secondary";
                         $clickHuy = "Nohuy()";
+                    } else {
+                        $clickHuy = "dell";
                     }
                     if ($resultCheck['status'] == 4) {
                         $none = "display:none;";
                     }
                     ?>
-                    <span style="<?= $none ?>" id="huyOder" onmouseover="<?= $clickHuy ?>" class="btn btn-<?= $bg ?>" data-toggle="modal" data-target="<?= $clickCheckStatus ?>" onclick="check_delete('hủy hóa đơn đã chọn (nó sẽ quay lại giỏ hàng của bạn)', <?= ($order_detail[$i]['id']) ?> )"> Hủy đơn hàng này</span>
+                    <span style="<?= $none ?>" id="huyOder" onmouseover="<?= $clickHuy ?>" class="btn btn-<?= $bg ?>" data-toggle="modal" data-target="<?= $clickCheckStatus ?>" onclick="check_delete('hủy hóa đơn đã chọn (nó sẽ quay lại giỏ hàng của bạn)', <?php echo ($order_detail[$i]['id']) ?> )"> Hủy đơn hàng này</span>
 
                 </div>
+
+                <form check=<?= $displayForm ?> id="feedback" class="mt-3" style="display:<?= $displayForm ?> ;" method="post">
+                    <caption>
+                        <h3 style="color: green;">Gửi đánh giá</h3>
+                    </caption>
+                    <div class="mt-3">
+                        <?php for ($i = 0; $i < 5; $i++) {
+                        ?>
+                            <i index='<?= $i + 1 ?>' id="star" style="font-size: 20px; cursor: pointer;color: 
+#EEEEEE; " class="fa fa-star" aria-hidden="true"></i>
+                        <?php
+                        }
+                        $feedback = queryFeedback($_GET['id']);
+                        if (count($feedback) > 0) {
+                            $displayFeedback = 'block';
+                        } else {
+                            $displayFeedback = 'none';
+                        }
+                        ?>
+                    </div>
+                    <input style="display: none;" type="text" id="starValue" name="starValue">
+                    <div class="form-group">
+                        <label for="comment">Viết đánh giá của bạn</label>
+                        <textarea name="comment" class="form-control" cols="70" id="comment"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Gửi</button>
+                </form>
+
+                <h3 style="color: green;display:<?= $displayFeedback ?> ">Phản hồi của bạn</h3>
+                <ul class="mt-5">
+                    <?php
+
+                    for ($i = 0; $i < count($feedback); $i++) {
+                    ?>
+                        <li> <?php if ($feedback[$i]['feedback_by'] == $_SESSION['auth']['id']) {
+                                ?>
+                                <strong style="color: blue;"><?php echo getnameUser(queryOder($_GET['id'])); ?></strong>
+                            <?php
+                                } else {
+                            ?>
+                                <strong style="color: blue;"><?php echo 'XIAO HAHA' ?></strong>
+                                <?php
+
+                                }
+                                if ($feedback[$i]['star'] != 0) {
+                                    for ($j = 1; $j <= $feedback[$i]['star']; $j++) {
+                                ?>
+                                    <i style="font-size: 20px; cursor: pointer; color: yellow;" class="fa fa-star" aria-hidden="true"></i>
+                            <?php
+                                    }
+                                } ?> <br> <?php echo $feedback[$i]['comment'] ?>
+                        </li>
+
+                    <?php
+                    }
+                    ?>
+                    <form style="display:<?= $displayFeedback ?> ;" class="mt-3" method="post" class="mt-3" action="">
+                        <input type="text" name="commentNostar">
+                        <button type="submit" class="btn btn-primary">Gửi</button>
+                    </form>
+                </ul>
+
+
                 <div style="height: 1px;width: 100%; background-color: black; margin-top: 30px;"></div>
+
             </div>
         </div>
     </section>
     <?php include_once "./client/views/layouts/modal_delete.php" ?>
     <?php include_once "./client/views/layouts/log.php" ?>
+    <script src="<?= CLIENT_ASSET ?>js/order.js"></script>
 <?php
 }
 ?>
 
 <script>
+    const huyOder = document.getElementById('huyOder');
+
     function Nohuy() {
-        const huyOder = document.getElementById('huyOder');
         huyOder.innerHTML = "Đơn hàng này đang xử lý và sẽ nhanh chóng giao đến cho bạn";
+    }
+
+    var checkDell = huyOder.getAttribute('onmouseover');
+    if (checkDell == 'dell') {
+        huyOder.remove();
     }
 </script>
